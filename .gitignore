@@ -15,3 +15,5 @@ dist
 
 # IDE files
 .idea
+
+.env

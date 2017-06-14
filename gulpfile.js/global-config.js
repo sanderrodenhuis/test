@@ -12,6 +12,6 @@ var argv = require('yargs').argv;
  */
 module.exports = {
     environment: argv.production ? 'production' : 'development', // 'development' or 'production'
-    srcPath: './src',
-    destPath: './dist'
+    srcPath: './client/src',
+    destPath: './client/dist'
 };
