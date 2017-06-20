@@ -12,6 +12,7 @@
     "express": "^4.15.3",
     "gulp-nodemon": "^2.2.1",
     "jquery": "^3.2.1",
+    "gulp-nodemon": "^2.2.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "serve-favicon": "^2.4.3"
@@ -34,7 +35,6 @@
     "gulp-iconfont": "^8.0.1",
     "gulp-iconfont-css": "^2.1.0",
     "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^3.0.3",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
