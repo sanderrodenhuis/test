@@ -14,9 +14,9 @@ router.get('/onze-abonnementen',require('./content/subscriptions'));
 
 router.use('/account', account);
 account.get('/', require('./account/overview'));
-account.get('/edit', require('./account/edit'));
+account.get('/wijzigen', require('./account/edit'));
 // TODO: change use to get and make a single route
-account.use('/activate', require('./account/activate'));
+account.use('/activeren', require('./account/activate'));
 account.get('/afspraak/wijzigen', require('./account/appointment/edit'));
 account.get('/afspraak/feedback', require('./account/appointment/feedback'));
 
