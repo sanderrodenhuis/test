@@ -1,7 +1,110 @@
-/*
-    Use this file to make quick fixes and refactor it later
-*/
+.container {
+  max-width: 1184px;
+  margin: 0 auto;
+}
+// grid
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid red;
 
-.to-be-refactored {
-  background: white !important;
+  &--center {
+    justify-content: center;
+  }
+  &--right {
+    justify-content: flex-end;
+  }
+}
+
+.column {
+  flex: 1;
+  margin: 0 8px;
+  border: 1px solid black;
+  &--2 {
+    max-width: 50%;
+  }
+  &--3 {
+    max-width: calc(100%/3);
+  }
+  &--4 {
+    max-width: 25%;
+  }
+  &--6 {
+    max-width: calc(100%/6);
+  }
+}
+
+@media #{$tablet} {}
+@media #{$mobile} {}
+
+// grid ends
+
+.site-menu {
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+
+  &__brand {
+    padding-top: 25px;
+    flex: 1;
+  }
+  &__logo {
+    width: 100px;
+  }
+}
+.site-nav {
+  display: flex;
+  flex: 1;
+  flex-flow: row wrap;
+  align-items: center;
+
+  &--right {
+    justify-content: flex-end;
+
+  }
+
+  &__item {
+    margin: 15px;
+    text-align: center;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: $col-black;
+    font-size: 16px;
+    line-height: 21px;
+    font-family: 'Lato', sans-serif;
+    &.active {
+      color: $col-orange;
+       &:after {
+         position: absolute;
+         content: '';
+         bottom: -10px;
+         left: 0;
+         right: 0;
+         height: 2px;
+         background-color: $col-orange;
+       }
+    }
+  }
+}
+
+
+.btn {
+  display: block;
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 16px;
+  padding: 15px;
+  border: 1px solid $col-orange;
+  background-color: $col-orange;
+  color: $col-white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  &--secondary {
+    background-color: $col-white;
+    color: $col-orange;
+  }
 }
