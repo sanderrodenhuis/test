@@ -78,21 +78,13 @@
   &__footer {
 
   }
-}
 
-
-.btn--form {
-  width: 100%;
-  border-color: black;
-  border-width: 0 0 2px;
-  cursor: pointer;
-
-  &:hover {
-    background: $col-orange;
-    border-width: 1px 0;
+  &__link {
+    &--secondary {
+      color: $col-orange;
+    }
   }
 }
-
 
 .form {
   &__group {
@@ -102,6 +94,9 @@
     font-size: 14px;
     &--short {
       margin-top: 0;
+    }
+    &--flex {
+      display: flex;
     }
   }
 
@@ -130,6 +125,10 @@
 
   }
 
+  &__control[type=checkbox] {
+    width: 20px;
+    margin: 0 8px 0 0;
+  }
   &__msg {
     color: $col-red;
     font-size: 14px;
@@ -146,6 +145,11 @@
   &__label {
     display: block;
     font-size: 16px;
+    &--checkbox {
+      flex: 1;
+      font-weight: 400;
+      line-height: 26px;
+    }
   }
 }
 

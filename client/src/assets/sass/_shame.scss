@@ -56,7 +56,6 @@ a {
     color: $col-black;
     font-size: 16px;
     line-height: 21px;
-    //font-family: 'Lato', sans-serif;
     &.active, &:hover {
       color: $col-orange;
       &:after {
@@ -105,10 +104,29 @@ a {
   background-color: $col-orange;
   color: $col-white;
   text-transform: uppercase;
+  &:hover {
+    background: $col-orange;
+    border-width: 1px 0;
+  }
   &--secondary {
     background-color: $col-white;
     color: $col-orange;
   }
+  &--cancel {
+    background-color: red;
+    border-color: red;
+    &:hover {
+      background: $col-red;
+    }
+  }
+  &--modal {
+    width: 100%;
+    border-color: black;
+    border-width: 0 0 2px;
+    cursor: pointer;
+
+  }
+
 }
 
 
