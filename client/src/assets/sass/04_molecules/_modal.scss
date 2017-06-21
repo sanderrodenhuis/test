@@ -4,6 +4,7 @@
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   left: 0;
   top: 0;
   right: 0;
@@ -19,12 +20,13 @@
     height: 477px;
     box-sizing: border-box;
     padding: 30px;
-    margin: 10% auto;
     background-color: $col-white;
 
     &--activate-login {
       height: 389px;
-
+    }
+    &--auto {
+      height: auto;
     }
   }
 
@@ -67,6 +69,9 @@
     &--secondary {
       font-weight: 300;
       padding-left: 30px;
+      margin: 0;
+    }
+    &--no-margin{
       margin: 0;
     }
   }
