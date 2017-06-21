@@ -2,6 +2,8 @@
 
   position: fixed;
   display: none;
+  flex-direction: column;
+  justify-content: center;
   left: 0;
   top: 0;
   right: 0;
@@ -10,17 +12,14 @@
   z-index: 1;
   overflow: auto;
 
-  &.is-open {
-    //display: block;
-  }
-
   &__content {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 383px;
     height: 477px;
     box-sizing: border-box;
     padding: 30px;
-    margin: 20% auto;
+    margin: 10% auto;
     background-color: $col-white;
 
   }
@@ -52,7 +51,8 @@
 
 
   &__body {
-    margin: 20px 0;
+    flex: 1;
+    overflow-y: scroll;
     font-size: 16px;
   }
 }
@@ -71,16 +71,15 @@
 }
 
 
-.form--overlay {
-
-  .form__block {
+.form {
+  &__group {
     margin: 20px 0;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 14px;
   }
 
-  .form__link {
+  &__link {
     float: right;
     text-decoration: underline;
     color: black;
@@ -90,7 +89,7 @@
     }
   }
 
-  .form__input {
+  &__control {
     display: block;
     font-size: 16px;
     width: 100%;
@@ -98,7 +97,14 @@
     margin: 8px 0;
     box-sizing: border-box;
   }
-  .form__msg {
+  &__control[type=text],
+  &__control[type=password],
+  &__control[type=email]
+  {
+
+  }
+
+  &__msg {
     color: $col-red;
     font-size: 14px;
     font-weight: 400;
@@ -107,12 +113,29 @@
     line-height: 22px;
   }
 
-  .form__text {
+  &__text {
     padding: 20px 0 20px 20px;
     font-size: 16px;
   }
+  &__label {
+    display: block;
+  }
 }
 
+.modal-form
+{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__body
+  {
+    flex: 1;
+  }
+  &__footer
+  {
+
+  }
+}
 
 ::-webkit-input-placeholder { /* Chrome */
   color: $col-grey;
@@ -130,6 +153,6 @@
 }
 
 
-  body.modal-open {
-    overflow: hidden;
-  }
+body.modal-open {
+  overflow: hidden;
+}

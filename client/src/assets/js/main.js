@@ -3,7 +3,7 @@ import $ from 'jquery'
 $('.open-modal').on('click', function (e) {
   e.preventDefault();
   $('body').addClass('modal-open');
-  $('.modal').toggle();
+  $('.modal').css('display', 'flex');
 })
 
 $('.modal__close').on('click', function () {
