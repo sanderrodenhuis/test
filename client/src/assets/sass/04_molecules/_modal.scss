@@ -25,10 +25,6 @@
     &--activate-login {
       height: 389px;
 
-      .modal__text {
-        line-height: 26px;
-        margin: 20px 0;
-      }
     }
   }
 
@@ -65,6 +61,18 @@
   }
 
 
+  &__text {
+    line-height: 26px;
+    margin: 20px 0;
+    &--secondary {
+      font-weight: 300;
+      padding-left: 30px;
+      margin: 0;
+    }
+  }
+  &__footer {
+
+  }
 }
 
 
@@ -87,6 +95,9 @@
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 14px;
+    &--short {
+      margin-top: 0;
+    }
   }
 
   &__link {
@@ -129,21 +140,30 @@
   }
   &__label {
     display: block;
+    font-size: 16px;
   }
 }
 
-.modal-form
-{
+.modal-form {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  &__body
-  {
+  &__body {
     flex: 1;
   }
-  &__footer
-  {
+  &__footer {
+    &--secondary {
+      margin-top: 20px;
+    }
+    &--cols {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
+  }
+  &--short {
+    min-height: 0;
   }
 }
 
