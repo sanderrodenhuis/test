@@ -1,7 +1,187 @@
-/*
-    Use this file to make quick fixes and refactor it later
-*/
-
-.to-be-refactored {
-  background: white !important;
+//general
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+
+a {
+  text-decoration: none;
+}
+// grid ends
+
+
+.site-menu {
+  display: flex;
+  height: 80px;
+  align-items: center;
+
+  &__brand {
+    display: block;
+  }
+  &__logo {
+    width: 100px;
+  }
+  &--mobile {
+    display: none;
+  }
+
+}
+
+.col2 {
+  flex: 1;
+}
+
+.col3 {
+  margin-right: 100px;
+}
+
+.site-nav {
+  &__item {
+    display: inline-block;
+    margin: 15px;
+    text-align: center;
+
+    &--toggle {
+      display: none;
+    }
+  }
+
+
+  &__link {
+    position: relative;
+    color: $col-black;
+    font-size: 16px;
+    line-height: 21px;
+    font-family: 'Lato', sans-serif;
+    &.active, &:hover {
+      color: $col-orange;
+      &:after {
+        position: absolute;
+        content: '';
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $col-orange;
+      }
+    }
+  }
+}
+
+.col1 {
+  order: 1;
+}
+.col2 {
+  order: 2;
+}
+.col3 {
+  order: 3;
+}
+.col4 {
+  order: 4;
+}
+.col5 {
+  order: 5;
+}
+
+
+
+.btn {
+  display: block;
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 16px;
+  padding: 15px;
+  border: 1px solid $col-orange;
+  background-color: $col-orange;
+  color: $col-white;
+  border-radius: 5px;
+  text-transform: uppercase;
+  &--secondary {
+    background-color: $col-white;
+    color: $col-orange;
+  }
+}
+
+
+@media #{$tablet} {
+
+  .col3 {
+    order: 4;
+    margin-right: 0px;
+    .site-nav__item {
+      display: none;
+      margin: 15px;
+
+
+      &--toggle {
+        display: block;
+      }
+    }
+  }
+  .col4 {
+    order: 3;
+  }
+
+}
+
+
+@media #{$mobile} {
+
+.container {
+
+}
+  .site-nav {
+    &__item {
+      display: inline-block;
+      margin: 8px;
+      text-align: center;
+    }
+
+  }
+  .col3 {
+    order: 4;
+    margin-right: 0px;
+    .site-nav__item {
+      display: none;
+      margin: 15px;
+
+
+      &--toggle {
+        display: block;
+      }
+    }
+  }
+  .col4 {
+    order: 3;
+  }
+  .col5 {
+    display: none;
+  }
+  .site-menu {
+
+    //display: none;
+
+    &--mobile {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background-color: green;
+
+      .site-nav {
+        &__item {
+          display: block;
+        }
+      }
+    }
+  }
+
+
+
+
+}
+
+
+
+
