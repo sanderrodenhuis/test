@@ -1,0 +1,9 @@
+$mobile-width: 768px;
+$desktop-width: 960px;
+
+$mobile: "only screen and (max-width: #{$mobile-width - 1})";
+$tablet: "only screen and (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1})";
+$desktop: "only screen and (min-width: #{$desktop-width})";
+
+$non-desktop: "only screen and (max-width: #{$desktop-width - 1})";
+$non-mobile: "only screen and (min-width: #{$mobile-width})";
