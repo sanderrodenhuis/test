@@ -25,6 +25,11 @@
     &--activate-login {
       height: 389px;
     }
+    &--task-detail {
+      width: 580px;
+      height: 555px;
+      position: relative;
+    }
     &--auto {
       height: auto;
     }
@@ -74,9 +79,52 @@
     &--no-margin{
       margin: 0;
     }
+    &--bold{
+      font-weight: 700;
+    }
+  }
+
+  &__col {
+      color: $col-black;
+      margin-right: 70px;
+      &--secondary {
+        color: $col-red;
+      }
+  }
+  &__info {
+    display: flex;
+    margin: 30px 0;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $col-grey;
+    &-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    &-label {
+      font-weight: 300;
+    }
+  }
+  &__rows {
+    padding-bottom: 30px;
+  }
+  &__row {
+    margin: 20px 0;
+    &-title {
+      font-weight: 400;
+      margin: 10px 0;
+    }
+    &-content {
+      font-weight: 300;
+    }
   }
   &__footer {
-
+    &--full {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
   }
 
   &__link {
