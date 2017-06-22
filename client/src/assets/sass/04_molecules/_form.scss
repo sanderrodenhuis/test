@@ -1,0 +1,66 @@
+.form {
+  &__group {
+    margin: 20px 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    &--short {
+      margin-top: 0;
+    }
+    &--flex {
+      display: flex;
+    }
+  }
+
+  &__link {
+    float: right;
+    text-decoration: underline;
+    color: black;
+    &--secondary {
+      float: none;
+      font-weight: 400;
+    }
+  }
+
+  &__control {
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  &__control[type=text],
+  &__control[type=password],
+  &__control[type=email]
+  {
+
+  }
+
+  &__control[type=checkbox] {
+    width: 20px;
+    margin: 0 8px 0 0;
+  }
+  &__msg {
+    color: $col-red;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    min-height: 20px;
+    line-height: 22px;
+  }
+
+  &__text {
+    padding: 20px 0 20px 20px;
+    font-size: 16px;
+  }
+  &__label {
+    display: block;
+    font-size: 16px;
+    &--checkbox {
+      flex: 1;
+      font-weight: 400;
+      line-height: 26px;
+    }
+  }
+}
