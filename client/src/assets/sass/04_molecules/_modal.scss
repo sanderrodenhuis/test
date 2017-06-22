@@ -139,3 +139,33 @@
 body.has-modal {
   overflow: hidden;
 }
+
+
+@media #{$tablet} {}
+@media #{$mobile} {
+
+  .modal {
+    &__container {
+      width: auto;
+      margin: 16px;
+      padding: 25px 20px 30px 20px;
+      &--login {
+        height: 490px;
+      }
+    }
+
+
+
+
+    &__title {
+      font-size: 30px;
+      line-height: 36px;
+    }
+
+
+
+
+
+
+  }
+}
