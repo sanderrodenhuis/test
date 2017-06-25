@@ -104,7 +104,13 @@ a {
     border-color: black;
     border-width: 0 0 2px;
     cursor: pointer;
-
+    &-ribbon {
+      border: 0;
+      border-radius: 0;
+      &:hover {
+        border-width: 0;
+      }
+    }
   }
 
 }
