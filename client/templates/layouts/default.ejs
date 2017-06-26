@@ -8,12 +8,13 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <%- partial('components/header') %>
+<%- partial('components/header') %>
 
+<div class="site-body">
   <%- body -%>
+</div>
+<%- partial('components/footer') %>
 
-  <%- partial('components/footer') %>
-
-  <script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
