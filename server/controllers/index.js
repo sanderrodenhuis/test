@@ -1,7 +1,16 @@
 var express = require('express'),
     router = express.Router(),
     account = express.Router(),
-    funnel = express.Router();
+    funnel = express.Router(),
+    passport = require('passport');
+
+const authenticate = (req, res, next) => {
+  passport.authenticate('jwt', (err, user, info) => {
+    if (! err && user)
+      req.user = user;
+    next();
+  })(req, res, next);
+};
 
 
 // in development we have multiple routes getting returned for stateful templates so this is USE instead of GET
@@ -16,7 +25,7 @@ router.use('/account', account);
 account.get('/', require('./account/overview'));
 account.get('/wijzigen', require('./account/edit'));
 // TODO: change use to get and make a single route
-account.use('/activeren', require('./account/activate'));
+account.use('/activeren', authenticate, require('./account/activate'));
 account.get('/afspraak/wijzigen', require('./account/appointment/edit'));
 account.get('/afspraak/feedback', require('./account/appointment/feedback'));
 
@@ -30,7 +39,11 @@ funnel.use('/contact-gegevens', require('./funnel/contact-details'));
 // TODO: change use to get and make a single route
 funnel.use('/bevestigen', require('./funnel/confirmation'));
 
+// router for the overlays
 router.use('/overlays', require('./overlays'));
+
+// router for the asynchronous calls
+router.use('/api', require('./api'));
 
 // error handler
 router.use(require('./error'));
