@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// require('./middlewares')(app);
+require('./middlewares')(app);
 
 app.use(require('./controllers'));
 
