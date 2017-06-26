@@ -17,9 +17,9 @@
 
 /* Molecule Styles */
 @import "04_molecules/example-molecule";
+@import "04_molecules/form";
 @import "04_molecules/modal";
 @import "04_molecules/modal-form";
-@import "04_molecules/form";
 @import "04_molecules/site-menu";
 
 /* Organism Styles */
@@ -27,3 +27,4 @@
 
 /* Shame, refactor later */
 @import "shame";
+
