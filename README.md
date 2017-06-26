@@ -21,7 +21,7 @@ npm install
 npm run clean
 ```
 
-The command `npm install`  will install all dependencies.  
+The command `npm install`  will install all dependenciex9s.  
 After installation the command `npm run clean` will make sure there are no more old `.git` files in the directory and it will start the `npm init` command.
 
 After this you can either:  
