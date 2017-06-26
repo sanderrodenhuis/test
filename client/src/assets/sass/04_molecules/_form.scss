@@ -1,0 +1,70 @@
+.form {
+  &__group {
+    margin: 20px 0;
+    &--short {
+      margin-top: 0;
+    }
+    &--flex {
+      display: flex;
+    }
+  }
+
+  &__link {
+    float: right;
+    text-decoration: underline;
+    color: black;
+    &--secondary {
+      float: none;
+      font-weight: 400;
+    }
+  }
+
+  &__control {
+
+  }
+  &__control[type=text],
+  &__control[type=password],
+  &__control[type=email]
+  {
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 1px solid #BFBFBF;
+    box-shadow: inset 0 2px 2px 0 rgba(0,0,0,0.10);
+    border-radius: 2px;
+  }
+
+  &__control[type=checkbox] {
+    width: 20px;
+    margin: 8px 4px 0 0;
+  }
+  &__msg {
+    color: $col-red;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    min-height: 20px;
+    line-height: 22px;
+  }
+
+  &__text {
+    padding: 20px 0;
+    font-size: 16px;
+    text-align: center;
+  }
+  &__label {
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    &--checkbox {
+      flex: 1;
+      font-weight: 400;
+      line-height: 26px;
+    }
+  }
+}

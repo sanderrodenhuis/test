@@ -45,7 +45,7 @@ var bundle = function (bundler, filename) {
     var isDev = GlobalConfig.environment === 'development';
     var bundle = bundler.bundle()
         .on('error', function(error) {
-          logger.error("{red:SyntaxError} %s\r\n%s", error.filename, error.codeFrame);
+          logger.error("{red:SyntaxError} %s\r\n%s", error);
         })
         .pipe(source(filename))
         .pipe(buffer())
@@ -88,7 +88,7 @@ var build = function (callback, watchCallback) {
 
         // Transpile the JS into ES5 using Babelify
         bundler
-            .transform(envify)
+            .transform(envify, {global: true})
             .transform(babelify);
 
         // If hasWatch put event listeners on the bundler

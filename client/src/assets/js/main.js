@@ -1,8 +1,14 @@
-import { Bear } from './bear';
-import { Koala } from './koala';
+import $ from 'jquery'
+import './modal';
 
-const bear = new Bear();
-const koala = new Koala({ name: 'Tom' });
 
-console.log(bear.sayHello());
-console.log(koala.sayHello());
+
+
+$('.site-nav__item--toggle').on('click', function (e) {
+  e.preventDefault();
+  $('.site-menu--mobile').addClass('is-visible')
+})
+
+$('.site-menu__btn-close').on('click', function () {
+  $('.site-menu--mobile').removeClass('is-visible')
+})

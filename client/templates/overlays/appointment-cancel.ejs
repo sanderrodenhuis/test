@@ -1,1 +1,30 @@
-cancel the appointment
+<div class="modal modal--appointment-cancel" id="modal">
+  <div class="modal__container modal__container--auto">
+    <div class="modal__header">
+      <span class="modal__btn-close"></span>
+      <h2 class="modal__title">Afspraak annuleren</h2>
+    </div>
+    <div class="modal__content">
+      <div>
+        <p class="modal__text">Omdat deze klus binnen minder dan 24 uur is gepland, kun je alleen tegen vergoeding de afspraak annuleren. Een annulering kun je niet ongedaan maken.
+        </p>
+        <p class="modal__text">Hiervoor ontvang je een factuur via e-mail.</p>
+        <p class="modal__text">Wil je de klus wél uit laten voeren, maar alleen de datum en tijd aanpassen? Dat kan met <a href="#" class="modal__link modal__link--secondary">afspraak wijzigen.</a>
+        </p>
+      </div>
+      <form action="" class="form  modal-form">
+        <div class="modal-form__body">
+          <div class="form__group form__group--flex">
+            <input type="checkbox" class="form__control" value="" required/>
+            <label for="checkbox" class="form__label form__label--checkbox">
+            Ik ga akkoord met het betalen van
+            een vergoeding (van € 10,-) voor het annuleren van deze klusafspraak</label>
+          </div>
+        </div>
+        <div class="modal-form__footer modal-form__footer--secondary">
+          <button class="btn btn--cancel btn--modal" type="submit">Annuleer deze klus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

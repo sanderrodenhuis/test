@@ -1,0 +1,152 @@
+.modal {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+  overflow: auto;
+
+  &.is-visible {
+    display: flex;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 380px;
+    max-width: 580px;
+    min-height: 400px;
+    max-height: 580px;
+    box-sizing: border-box;
+    padding: 30px;
+    background-color: $col-white;
+
+  }
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 16px;
+  }
+  &__footer {
+    &--full {
+      margin: 0 -30px -30px;
+    }
+  }
+
+  &__rows {
+    padding-bottom: 30px;
+  }
+  &__row {
+    margin: 20px 0;
+    &-title {
+      font-weight: 400;
+      margin: 10px 0;
+    }
+    &-content {
+      font-weight: 300;
+    }
+  }
+  &__col {
+    color: $col-black;
+    margin-right: 70px;
+    &--secondary {
+      color: $col-red;
+    }
+  }
+
+  &__btn-close {
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    &:before,
+    &:after
+    {
+      display: block;
+      content: '';
+      width: 18px;
+      height: 1px;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: black;
+    }
+    &:before
+    {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &:after
+    {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 50px;
+  }
+
+  &__text {
+    line-height: 26px;
+    margin: 20px 0;
+    text-align: center;
+    &--secondary {
+      font-weight: 300;
+      margin: 0;
+    }
+    &--no-margin{
+      margin: 0;
+    }
+    &--bold{
+      font-weight: 700;
+    }
+  }
+
+
+  &__info {
+    display: flex;
+    margin: 30px 0;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $col-grey;
+    &-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    &-label {
+      font-weight: 300;
+    }
+  }
+
+  &__link {
+    &--secondary {
+      color: $col-orange;
+    }
+  }
+}
+
+body.has-modal {
+  overflow: hidden;
+}
+
+
+@media #{$mobile} {
+  .modal__container
+  {
+    min-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+  }
+}

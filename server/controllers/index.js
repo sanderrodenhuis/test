@@ -30,7 +30,7 @@ funnel.use('/contact-gegevens', require('./funnel/contact-details'));
 // TODO: change use to get and make a single route
 funnel.use('/bevestigen', require('./funnel/confirmation'));
 
-
+router.use('/overlays', require('./overlays'));
 
 // error handler
 router.use(require('./error'));
