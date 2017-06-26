@@ -1,0 +1,55 @@
+.site-nav {
+  &__item {
+    display: inline-block;
+    margin: 15px;
+    text-align: center;
+
+    &--toggle {
+      display: none;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $col-black;
+    font-size: 16px;
+    line-height: 21px;
+    &.active, &:hover {
+      color: $col-orange;
+      &:after {
+        position: absolute;
+        content: '';
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $col-orange;
+      }
+    }
+  }
+}
+
+
+
+@media #{$tablet} {
+
+}
+
+@media #{$mobile} {
+
+  .site-nav {
+    &__item {
+      display: inline-block;
+      margin: 0 20px;
+      text-align: center;
+      &--no-mobile {
+        display: none;
+      }
+    }
+    &__link {
+      font-size: 14px;
+    }
+
+  }
+
+}
