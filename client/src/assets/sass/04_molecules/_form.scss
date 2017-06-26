@@ -1,9 +1,6 @@
 .form {
   &__group {
     margin: 20px 0;
-    //font-family: 'Lato', sans-serif;
-    //font-weight: 300;
-    //font-size: 14px;
     &--short {
       margin-top: 0;
     }
@@ -56,7 +53,6 @@
   }
 
   &__text {
-    //padding: 20px 0 20px 20px;
     padding: 20px 0;
     font-size: 16px;
     text-align: center;
@@ -73,32 +69,32 @@
   }
 }
 
-//@media #{$tablet} {
-//}
-//
-//@media #{$mobile} {
-//
-//  .form {
-//
-//    &__group {
-//
-//    }
-//    &__link {
-//      &--secondary {
-//        display: block;
-//        margin-top: 10px;
-//      }
-//    }
-//
-//
-//    &__text {
-//      font-size: 14px;
-//      padding: 15px 0;
-//      text-align: center;
-//    }
-//    &__label {
-//      font-size: 14px;
-//    }
-//  }
-//
-//}
+@media #{$tablet} {
+}
+
+@media #{$mobile} {
+
+  .form {
+
+    &__link {
+      &--secondary {
+        display: block;
+        margin-top: 10px;
+      }
+    }
+
+    &__text {
+      font-size: 14px;
+      padding: 15px 0;
+    }
+    &__label {
+      font-size: 14px;
+      &--checkbox {
+       line-height: 21px;
+      }
+    }
+
+
+  }
+
+}

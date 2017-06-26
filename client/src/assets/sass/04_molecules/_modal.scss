@@ -20,32 +20,18 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    //width: 383px;
-    //height: 477px;
     min-width: 380px;
     max-width: 580px;
-    min-height: 400px;
     max-height: 580px;
     box-sizing: border-box;
     padding: 30px;
     background-color: $col-white;
 
-    //&--activate-login {
-    //  height: 389px;
-    //}
-    //&--task-detail {
-    //  width: 580px;
-    //  height: 555px;
-    //  position: relative;
-    //}
-    //&--auto {
-    //  height: auto;
-    //}
+    &--auto {
+      height: auto;
+    }
   }
 
-  //&__header {
-  //  position: relative;
-  //}
   &__content {
     flex: 1;
     overflow-y: scroll;
@@ -115,16 +101,16 @@
     font-weight: 300;
     font-size: 48px;
     line-height: 50px;
+    margin-right: 20px;
   }
 
   &__text {
     line-height: 26px;
     margin: 20px 0;
-    text-align: center;
     &--secondary {
       font-weight: 300;
-      //padding-left: 30px;
-      margin: 0;
+      text-align: center;
+      margin: 20px 0 0 0;
     }
     &--no-margin{
       margin: 0;
@@ -163,71 +149,64 @@ body.has-modal {
 
 
 @media #{$tablet} {}
-//@media #{$mobile} {
-//
-//  .modal {
-//    &__container {
-//      width: auto;
-//      margin: 16px;
-//      height: 490px;
-//      padding: 25px 20px 30px 20px;
-//
-//    }
-//
-//
-//    &__header {
-//
-//    }
-//    &__content {
-//      font-size: 14px;
-//    }
-//
-//    &__col {
-//      margin: 0;
-//      &:first-child {
-//        margin-right: 25px;
-//      }
-//    }
-//
-//    &__title {
-//      font-size: 30px;
-//      line-height: 36px;
-//    }
-//    &__text {
-//
-//      &--secondary {
-//        padding-left: 0;
-//        margin: 0;
-//        font-size: 14px;
-//        line-height: 17px;
-//        text-align: center;
-//
-//      }
-//
-//    }
-//
-//
-//    &__info {
-//
-//      &-title {
-//        font-size: 30px;
-//      }
-//      &-label {
-//        font-weight: 300;
-//      }
-//    }
-//
-//
-//  }
-//}
-
-
 @media #{$mobile} {
-  .modal__container
-  {
-    min-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    max-width: 100%;
+
+  .modal {
+    &__container {
+      width: 100%;
+      min-width: 0;
+      max-width: calc(100% - 32px);
+      margin: 16px;
+      min-height: 0;
+      max-height: calc(100% - 64px);
+      padding: 25px 20px 30px 20px;
+
+    }
+
+
+    &__header {
+
+    }
+    &__content {
+      font-size: 14px;
+    }
+
+    &__col {
+      margin: 0;
+      &:first-child {
+        margin-right: 25px;
+      }
+    }
+
+    &__title {
+      font-size: 30px;
+      line-height: 36px;
+      margin-right: 15px;
+    }
+    &__text {
+      line-height: 21px;
+      &--secondary {
+        padding-left: 0;
+        margin: 0;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+
+      }
+
+    }
+
+
+    &__info {
+
+      &-title {
+        font-size: 30px;
+      }
+      &-label {
+        font-weight: 300;
+      }
+    }
+
+
   }
 }
