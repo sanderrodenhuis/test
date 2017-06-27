@@ -19,3 +19,6 @@ dist
 .env
 
 *.lock
+
+
+.DS_Store
