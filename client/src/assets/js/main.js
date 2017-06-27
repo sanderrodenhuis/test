@@ -15,26 +15,27 @@ $('.site-menu__btn-close').on('click', function () {
 
 
 
-
-$('body').on('click', '.filter-list__btn', (e) => {
-  e.preventDefault();
-  let id = e.target.getAttribute('data-category-id');
-
-  $('.search-results').trigger('filter.jobs', [id]);
-});
-
-$('.form__control--funnel-search').bind('input', function (e) {
-  console.log($(e.target).val());
-  const query = $(e.target).val();
-  $('.search-results').trigger('filter.jobs',[undefined, query]);
+$('body').on('keyup', '.form__control--funnel-search', (event) => {
+  let query = $(event.target).val();
+  let categoryId = $('.filter-list').find('.filter-list__btn.is-active').data('category-id');
+  $('.search-results').trigger('filter.jobs',[categoryId, query]);
 
 });
+$('body').on('click', '.filter-list__btn', (event) => {
+  event.preventDefault();
+  const $this = $(event.target);
+  const categoryId = $this.data('category-id');
+  const query = $('.form__control--funnel-search').val();
 
+  $('.search-results').trigger('filter.jobs',[categoryId, query]);
+
+  $this.closest('.filter-list').find('.filter-list__btn.is-active').removeClass('is-active');
+  $this.addClass('is-active');
+
+});
 
 
 $('body').on('filter.jobs','.search-results',(event, categoryId = '*', query = '') => {
-  console.log(event, categoryId, query);
-
   const $searchResults = $(event.target),
     $resultList = $searchResults.find('.result-list'),
     $results = $resultList.children();
@@ -43,7 +44,7 @@ $('body').on('filter.jobs','.search-results',(event, categoryId = '*', query = '
 
   if (categoryId != '*')
   {
-    $results.filter((idx, elem) => elem.getAttribute('data-category-id') !== categoryId).hide();
+    $results.filter((idx, elem) => elem.getAttribute('data-category-id') != categoryId).hide();
   }
   if (query)
   {
@@ -56,14 +57,3 @@ $('body').on('filter.jobs','.search-results',(event, categoryId = '*', query = '
 
 });
 
-
-
-
-// function showResults(id) {
-//   console.log(id);
-//
-//   $('.result-list').children().filter(function(idx, el) {
-//       console.log(el, idx);
-//       el.getAttribute('data-category-id') !== categoryId).hide();
-//   })
-// }
