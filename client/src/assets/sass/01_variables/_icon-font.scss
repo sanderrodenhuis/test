@@ -27,8 +27,44 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == example {
+	@if $filename == alarm {
 		$char: "\E001";
+	}
+	@if $filename == arrow-left-large {
+		$char: "\E002";
+	}
+	@if $filename == arrow-right {
+		$char: "\E003";
+	}
+	@if $filename == calendar {
+		$char: "\E004";
+	}
+	@if $filename == close-search {
+		$char: "\E005";
+	}
+	@if $filename == close {
+		$char: "\E006";
+	}
+	@if $filename == example {
+		$char: "\E007";
+	}
+	@if $filename == eye {
+		$char: "\E008";
+	}
+	@if $filename == more-menu {
+		$char: "\E009";
+	}
+	@if $filename == question-mark {
+		$char: "\E00A";
+	}
+	@if $filename == search {
+		$char: "\E00B";
+	}
+	@if $filename == subscribe-pen {
+		$char: "\E00C";
+	}
+	@if $filename == vink {
+		$char: "\E00D";
 	}
 
 	@return $char;
@@ -45,6 +81,42 @@
 	}
 }
 
+.icon-alarm {
+	@include icon(alarm);
+}
+.icon-arrow-left-large {
+	@include icon(arrow-left-large);
+}
+.icon-arrow-right {
+	@include icon(arrow-right);
+}
+.icon-calendar {
+	@include icon(calendar);
+}
+.icon-close-search {
+	@include icon(close-search);
+}
+.icon-close {
+	@include icon(close);
+}
 .icon-example {
 	@include icon(example);
+}
+.icon-eye {
+	@include icon(eye);
+}
+.icon-more-menu {
+	@include icon(more-menu);
+}
+.icon-question-mark {
+	@include icon(question-mark);
+}
+.icon-search {
+	@include icon(search);
+}
+.icon-subscribe-pen {
+	@include icon(subscribe-pen);
+}
+.icon-vink {
+	@include icon(vink);
 }
