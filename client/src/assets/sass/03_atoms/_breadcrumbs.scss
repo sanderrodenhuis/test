@@ -3,18 +3,18 @@
 
   &__item {
     display: inline;
+    font-weight: 400;
     &+&:before {
       padding: 8px;
       color: $col-black;
       content: "\003e";
     }
+    &.is-active ~ &{
+      font-weight: 300;
+    }
   }
   &__link {
-    font-weight: 300;
-    color: $col-black;
-    &--passed {
-      font-weight: 400;
-    }
+    color: inherit;
   }
 }
 
