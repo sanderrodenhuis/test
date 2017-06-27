@@ -1,0 +1,43 @@
+.breadcrumbs {
+
+
+  &__item {
+    display: inline;
+    &+&:before {
+      padding: 8px;
+      color: $col-black;
+      content: "\003e";
+    }
+  }
+  &__link {
+    font-weight: 300;
+    color: $col-black;
+    &--passed {
+      font-weight: 400;
+    }
+  }
+}
+
+
+@media #{$tablet} {
+
+}
+
+@media #{$mobile} {
+
+  .breadcrumbs {
+
+    &__item {
+      &.is-active {
+        .breadcrumbs__text {
+          display: inline-block;
+        }
+      }
+    }
+    &__text {
+      display: none;
+    }
+  }
+
+}
+
