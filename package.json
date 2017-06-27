@@ -4,6 +4,7 @@
   "description": "[![Starter Kit](https://img.shields.io/badge/starter--kit-v1.2-brightgreen.svg)]()",
   "main": "gulpfile.js",
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
