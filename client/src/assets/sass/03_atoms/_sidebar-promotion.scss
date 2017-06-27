@@ -20,31 +20,28 @@
     color: #000000;
     & li
     {
+      position: relative;
       padding: 10px;
+      &:before
+      {
+        position: absolute;
+        content: 'v';
+      }
     }
 
   }
   &__footer
   {
-    &:before
-    {
-      background: #D2D2D2;
-      height: 8px;
-      display: block;
-      width: 100px;
-      margin-top: 6px;
-    }
+    border-top: 1px solid $col-grey;
+    font-size: 16px;
+    color: $col-black;
     &--heading
     {
-
-    }
-    &--info
-    {
-
+      font-weight: bold;
     }
     &--read-more
     {
-
+      color: #FF7400;
     }
   }
 }
