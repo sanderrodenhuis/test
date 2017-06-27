@@ -8,7 +8,7 @@ $(() => {
     let $this = $(event.target),
       modalUrl = $this.data('modal');
 
-    let $modal = $('modal');
+    let $modal = $('.modal');
     if (! $modal.length)
       $modal = $('<div class="modal"></div>');
     $body.append($modal);
@@ -34,6 +34,5 @@ $(() => {
     $modal.removeClass('is-visible');
     $body.removeClass('has-modal');
   });
-
 
 });
