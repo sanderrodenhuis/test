@@ -102,7 +102,12 @@
 
         &--toggle {
           display: block;
+          margin-right: 0;
         }
+      }
+      .site-nav__label
+      {
+        display: none;
       }
     }
     &__col4 {
@@ -112,19 +117,61 @@
       order: 4
     }
 
-    &--mobile.is-visible {
+
+    &__btn-text {
+      display: none;
+      &--mobile {
+        display: block;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .site-nav {
+    &__item {
+      display: inline-block;
+      margin: 0 20px;
+      text-align: center;
+      &--no-mobile {
+        display: none;
+      }
+    }
+    &__link {
+      font-size: 14px;
+    }
+
+  }
+
+}
+
+
+@media #{$non-desktop} {
+  .site-menu
+  {
+    &--mobile {
       position: fixed;
       top: 0;
       left: 0;
-      bottom: 0;
       right: 0;
+      height: 0;
       z-index: 1;
-      height: 100%;
       display: flex;
       justify-content: center;
       flex-direction: column;
       text-align: center;
       background-color: $col-white;
+
+      overflow: hidden;
+      opacity: 0;
+
+      transition: opacity 0.5s ease-in-out, height 0s 0.5s linear;
+
+      &.is-visible {
+        height: 100%;
+        bottom: 0;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out, height 0s 0s linear;
+      }
 
       .site-nav {
         &--meta {
@@ -169,14 +216,8 @@
         &__btn {
           display: inline-block;
         }
-
       }
     }
-
-    &__copyright {
-      font-size: 14px;
-    }
-
     &__btn-close {
       position: absolute;
       height: 13px;
@@ -203,28 +244,8 @@
         transform: translate(-50%, -50%) rotate(-45deg);
       }
     }
-    &__btn-text {
-      display: none;
-      &--mobile {
-        display: block;
-        font-size: 14px;
-      }
-    }
-  }
-
-  .site-nav {
-    &__item {
-      display: inline-block;
-      margin: 0 20px;
-      text-align: center;
-      &--no-mobile {
-        display: none;
-      }
-    }
-    &__link {
+    &__copyright {
       font-size: 14px;
     }
-
   }
-
 }
