@@ -1,0 +1,50 @@
+.sidebar-promotion
+{
+  margin-top: 15px;
+  background: #FFFFFF;
+  border: 1px solid #D2D2D2;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.10);
+  padding: 30px;
+  &__heading
+  {
+    font-family: Lato-Bold;
+    font-size: 20px;
+    color: #000000;
+    line-height: 25px;
+    padding-bottom: 10px;
+  }
+  &__list
+  {
+    font-family: Lato-Regular;
+    font-size: 16px;
+    color: #000000;
+    & li
+    {
+      padding: 10px;
+    }
+
+  }
+  &__footer
+  {
+    &:before
+    {
+      background: #D2D2D2;
+      height: 8px;
+      display: block;
+      width: 100px;
+      margin-top: 6px;
+    }
+    &--heading
+    {
+
+    }
+    &--info
+    {
+
+    }
+    &--read-more
+    {
+
+    }
+  }
+}
