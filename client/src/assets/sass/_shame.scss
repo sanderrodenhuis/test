@@ -1,7 +1,3 @@
-//general
-
-
-
 a {
   text-decoration: none;
 }
@@ -20,7 +16,9 @@ h2 {
   line-height: 57px;
   font-weight: 300;
 }
-
+.page-title {
+  margin: 30px 0;
+}
 
 
 .btn {
@@ -72,48 +70,8 @@ h2 {
 
 
 
-.row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.column {
-  &__content {
-    width: (100%/12)*7;
-    border: 1px solid green;
-
-  }
-  &__sidebar {
-    width: (100%/12)*4;
-    border: 1px solid red;
-  }
-}
-
-.filter-list {
-  margin: 20px 0;
-  &__item {
-    display: inline-block;
-    padding: 5px 10px 5px 0;
-  }
-  &__btn {
-    border: 1px solid $col-orange;
-    color: $col-orange;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-weight: 400;
-    font-size: 16px;
-    display: block;
-    &.is-active,
-    &:hover {
-      background-color: $col-orange;
-      color: $col-white;
-    }
-
-  }
-}
-
 .search-results {
-
+    margin: 30px 0;
 }
 
 
@@ -124,12 +82,15 @@ h2 {
   left: 20px;
   top: 10px;
   content: '';
-  background: url(../images/search.svg) no-repeat center;
+  //background: url(../images/search.svg) no-repeat center;
 }
 
 .bottom-info {
   line-height: 26px;
+  margin: 55px 0;
 }
+
+
 @media #{$tablet} {
 
 
@@ -142,31 +103,13 @@ h2 {
     padding: 0px 10px;
     line-height: 30px;
   }
-  .row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 
-  .column {
-    &__content {
-      width: 100%;
-      border: 1px solid green;
-
-    }
-    &__sidebar {
-      width: 100%;
-      border: 1px solid red;
-    }
-  }
 
   .bottom-info {
     font-size: 14px;
     line-height: 24px;
+    margin: 35px 0;
   }
-
-
-
 }
 
 
