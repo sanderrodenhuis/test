@@ -27,8 +27,77 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == example {
+	@if $filename == Vink annuleren gelukt box {
 		$char: "\E001";
+	}
+	@if $filename == alarm {
+		$char: "\E002";
+	}
+	@if $filename == arrow-left-large {
+		$char: "\E003";
+	}
+	@if $filename == arrow-right {
+		$char: "\E004";
+	}
+	@if $filename == arrow_ small {
+		$char: "\E005";
+	}
+	@if $filename == arrow_button {
+		$char: "\E006";
+	}
+	@if $filename == calendar {
+		$char: "\E007";
+	}
+	@if $filename == check-mark-green {
+		$char: "\E008";
+	}
+	@if $filename == check-mark-pink {
+		$char: "\E009";
+	}
+	@if $filename == checkbox {
+		$char: "\E00A";
+	}
+	@if $filename == close-search {
+		$char: "\E00B";
+	}
+	@if $filename == close {
+		$char: "\E00C";
+	}
+	@if $filename == example {
+		$char: "\E00D";
+	}
+	@if $filename == eye {
+		$char: "\E00E";
+	}
+	@if $filename == feedback-star-active {
+		$char: "\E00F";
+	}
+	@if $filename == feedback-star-inactive {
+		$char: "\E010";
+	}
+	@if $filename == more-menu {
+		$char: "\E011";
+	}
+	@if $filename == question-mark {
+		$char: "\E012";
+	}
+	@if $filename == radio-active {
+		$char: "\E013";
+	}
+	@if $filename == radio {
+		$char: "\E014";
+	}
+	@if $filename == search {
+		$char: "\E015";
+	}
+	@if $filename == subscribe-pen {
+		$char: "\E016";
+	}
+	@if $filename == to-top-large {
+		$char: "\E017";
+	}
+	@if $filename == to-top-small {
+		$char: "\E018";
 	}
 
 	@return $char;
@@ -45,6 +114,75 @@
 	}
 }
 
+.icon-Vink annuleren gelukt box {
+	@include icon(Vink annuleren gelukt box);
+}
+.icon-alarm {
+	@include icon(alarm);
+}
+.icon-arrow-left-large {
+	@include icon(arrow-left-large);
+}
+.icon-arrow-right {
+	@include icon(arrow-right);
+}
+.icon-arrow_ small {
+	@include icon(arrow_ small);
+}
+.icon-arrow_button {
+	@include icon(arrow_button);
+}
+.icon-calendar {
+	@include icon(calendar);
+}
+.icon-check-mark-green {
+	@include icon(check-mark-green);
+}
+.icon-check-mark-pink {
+	@include icon(check-mark-pink);
+}
+.icon-checkbox {
+	@include icon(checkbox);
+}
+.icon-close-search {
+	@include icon(close-search);
+}
+.icon-close {
+	@include icon(close);
+}
 .icon-example {
 	@include icon(example);
+}
+.icon-eye {
+	@include icon(eye);
+}
+.icon-feedback-star-active {
+	@include icon(feedback-star-active);
+}
+.icon-feedback-star-inactive {
+	@include icon(feedback-star-inactive);
+}
+.icon-more-menu {
+	@include icon(more-menu);
+}
+.icon-question-mark {
+	@include icon(question-mark);
+}
+.icon-radio-active {
+	@include icon(radio-active);
+}
+.icon-radio {
+	@include icon(radio);
+}
+.icon-search {
+	@include icon(search);
+}
+.icon-subscribe-pen {
+	@include icon(subscribe-pen);
+}
+.icon-to-top-large {
+	@include icon(to-top-large);
+}
+.icon-to-top-small {
+	@include icon(to-top-small);
 }
