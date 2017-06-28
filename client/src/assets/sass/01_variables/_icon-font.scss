@@ -27,25 +27,25 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == Vink annuleren gelukt box {
+	@if $filename == alarm {
 		$char: "\E001";
 	}
-	@if $filename == alarm {
+	@if $filename == arrow-left-large {
 		$char: "\E002";
 	}
-	@if $filename == arrow-left-large {
+	@if $filename == arrow-right {
 		$char: "\E003";
 	}
-	@if $filename == arrow-right {
+	@if $filename == arrow-small {
 		$char: "\E004";
 	}
-	@if $filename == arrow_ small {
+	@if $filename == arrow_button {
 		$char: "\E005";
 	}
-	@if $filename == arrow_button {
+	@if $filename == calendar {
 		$char: "\E006";
 	}
-	@if $filename == calendar {
+	@if $filename == check-mark-green-bold {
 		$char: "\E007";
 	}
 	@if $filename == check-mark-green {
@@ -114,9 +114,6 @@
 	}
 }
 
-.icon-Vink annuleren gelukt box {
-	@include icon(Vink annuleren gelukt box);
-}
 .icon-alarm {
 	@include icon(alarm);
 }
@@ -126,14 +123,17 @@
 .icon-arrow-right {
 	@include icon(arrow-right);
 }
-.icon-arrow_ small {
-	@include icon(arrow_ small);
+.icon-arrow-small {
+	@include icon(arrow-small);
 }
 .icon-arrow_button {
 	@include icon(arrow_button);
 }
 .icon-calendar {
 	@include icon(calendar);
+}
+.icon-check-mark-green-bold {
+	@include icon(check-mark-green-bold);
 }
 .icon-check-mark-green {
 	@include icon(check-mark-green);
