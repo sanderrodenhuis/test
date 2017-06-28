@@ -1,0 +1,34 @@
+.receipt
+{
+  background-color: $col-pink;
+  color: $col-white;
+  padding: 20px 30px 30px;
+  margin-bottom: 15px;
+  &__header
+  {
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    &:after
+    {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background: $col-white;
+    }
+
+  }
+  &__row
+  {
+    position: relative;
+    &-cost
+    {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

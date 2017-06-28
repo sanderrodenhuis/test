@@ -1,40 +1,56 @@
 .sidebar-promotion
 {
-  margin-top: 15px;
-  background: #FFFFFF;
+  background: $col-white;
   border: 1px solid #D2D2D2;
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.10);
   padding: 30px;
-  &__heading
+  color: $col-black;
+
+  &__header
   {
-    font-family: Lato-Bold;
     font-size: 20px;
-    color: #000000;
-    line-height: 25px;
-    padding-bottom: 10px;
   }
   &__list
   {
-    font-family: Lato-Regular;
-    font-size: 16px;
-    color: #000000;
-    & li
+    margin-top: 10px;
+  }
+  &__list-item
+  {
+    padding: 10px 10px 10px 25px;
+    position: relative;
+
+    @include icon(check-mark--rounded, before, false);
+    &:before
     {
-      position: relative;
-      padding: 10px;
-      &:before
-      {
-        position: absolute;
-        content: 'v';
-      }
+      position: absolute;
+      left: 0px;
+      color: $col-pink;
     }
 
   }
+  &__divider
+  {
+    height: 1px;
+    padding: 0px;
+    margin: 20px 0px;
+    border: 0;
+    background: $col-grey;
+  }
   &__footer
   {
-    border-top: 1px solid $col-grey;
-    font-size: 16px;
+    position: relative;
+    padding-left: 60px;
     color: $col-black;
+
+    @include icon(alarm, before, false);
+    &:before
+    {
+      position: absolute;
+      left: 0;
+      top: 30px;
+      font-size: 45px;
+    }
+
     &--heading
     {
       font-weight: bold;
@@ -42,6 +58,10 @@
     &--read-more
     {
       color: #FF7400;
+    }
+    a
+    {
+      color: $col-orange;
     }
   }
 }
