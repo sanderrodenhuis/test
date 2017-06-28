@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import './modal';
-import './search-result';
+import './job-selection';
 
 
 window.$ = $;

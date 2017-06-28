@@ -1,19 +1,18 @@
 <% layout('layouts/default') %>
 <div class="container">
 
-  <h2 class="page-title">Kies een klus</h2>
+  <h1>Kies een klus</h1>
 
   <div class="row">
 
     <div class="column column__content">
-      <%- partial('partials/funnel-search-result', {categories}) %>
+      <%- partial('partials/funnel/job-selection', {categories}) %>
 
 
-      <div class="bottom-info">
-        <h3 class="text-bold">Staat je klus hier niet tussen?</h3>
-        <p>Dan doen we het waarschijnlijk (nog) niet. Suggesties kun je e-mailen naar <span class="text-color">zo.opgelost@essent.nl</span>
-        </p>
-      </div>
+      <h3>Staat je klus hier niet tussen?</h3>
+      <p>
+        Dan doen we het waarschijnlijk (nog) niet. Suggesties kun je e-mailen naar <span class="text-color">zo.opgelost@essent.nl</span>
+      </p>
 
     </div>
     <div class="column column__sidebar">

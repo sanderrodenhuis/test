@@ -30,73 +30,73 @@
 	@if $filename == alarm {
 		$char: "\E001";
 	}
-	@if $filename == arrow-left-large {
+	@if $filename == arrow-down--bold {
 		$char: "\E002";
 	}
-	@if $filename == arrow-right {
+	@if $filename == arrow-down--small {
 		$char: "\E003";
 	}
-	@if $filename == arrow-small {
+	@if $filename == arrow-down {
 		$char: "\E004";
 	}
-	@if $filename == arrow_button {
+	@if $filename == arrow-left--bold {
 		$char: "\E005";
 	}
-	@if $filename == calendar {
+	@if $filename == arrow-left--small {
 		$char: "\E006";
 	}
-	@if $filename == check-mark-green-bold {
+	@if $filename == arrow-left {
 		$char: "\E007";
 	}
-	@if $filename == check-mark-green {
+	@if $filename == arrow-right--bold {
 		$char: "\E008";
 	}
-	@if $filename == check-mark-pink {
+	@if $filename == arrow-right--small {
 		$char: "\E009";
 	}
-	@if $filename == checkbox {
+	@if $filename == arrow-right {
 		$char: "\E00A";
 	}
-	@if $filename == close-search {
+	@if $filename == arrow-up--bold {
 		$char: "\E00B";
 	}
-	@if $filename == close {
+	@if $filename == arrow-up--small {
 		$char: "\E00C";
 	}
-	@if $filename == example {
+	@if $filename == arrow-up {
 		$char: "\E00D";
 	}
-	@if $filename == eye {
+	@if $filename == calendar {
 		$char: "\E00E";
 	}
-	@if $filename == feedback-star-active {
+	@if $filename == check-mark--rounded-bold {
 		$char: "\E00F";
 	}
-	@if $filename == feedback-star-inactive {
+	@if $filename == check-mark--rounded {
 		$char: "\E010";
 	}
-	@if $filename == more-menu {
+	@if $filename == check-mark {
 		$char: "\E011";
 	}
-	@if $filename == question-mark {
+	@if $filename == close {
 		$char: "\E012";
 	}
-	@if $filename == radio-active {
+	@if $filename == eye {
 		$char: "\E013";
 	}
-	@if $filename == radio {
+	@if $filename == magnifying-glass {
 		$char: "\E014";
 	}
-	@if $filename == search {
+	@if $filename == mobile-toggle {
 		$char: "\E015";
 	}
-	@if $filename == subscribe-pen {
+	@if $filename == pen {
 		$char: "\E016";
 	}
-	@if $filename == to-top-large {
+	@if $filename == question-mark {
 		$char: "\E017";
 	}
-	@if $filename == to-top-small {
+	@if $filename == star {
 		$char: "\E018";
 	}
 
@@ -117,72 +117,72 @@
 .icon-alarm {
 	@include icon(alarm);
 }
-.icon-arrow-left-large {
-	@include icon(arrow-left-large);
+.icon-arrow-down--bold {
+	@include icon(arrow-down--bold);
+}
+.icon-arrow-down--small {
+	@include icon(arrow-down--small);
+}
+.icon-arrow-down {
+	@include icon(arrow-down);
+}
+.icon-arrow-left--bold {
+	@include icon(arrow-left--bold);
+}
+.icon-arrow-left--small {
+	@include icon(arrow-left--small);
+}
+.icon-arrow-left {
+	@include icon(arrow-left);
+}
+.icon-arrow-right--bold {
+	@include icon(arrow-right--bold);
+}
+.icon-arrow-right--small {
+	@include icon(arrow-right--small);
 }
 .icon-arrow-right {
 	@include icon(arrow-right);
 }
-.icon-arrow-small {
-	@include icon(arrow-small);
+.icon-arrow-up--bold {
+	@include icon(arrow-up--bold);
 }
-.icon-arrow_button {
-	@include icon(arrow_button);
+.icon-arrow-up--small {
+	@include icon(arrow-up--small);
+}
+.icon-arrow-up {
+	@include icon(arrow-up);
 }
 .icon-calendar {
 	@include icon(calendar);
 }
-.icon-check-mark-green-bold {
-	@include icon(check-mark-green-bold);
+.icon-check-mark--rounded-bold {
+	@include icon(check-mark--rounded-bold);
 }
-.icon-check-mark-green {
-	@include icon(check-mark-green);
+.icon-check-mark--rounded {
+	@include icon(check-mark--rounded);
 }
-.icon-check-mark-pink {
-	@include icon(check-mark-pink);
-}
-.icon-checkbox {
-	@include icon(checkbox);
-}
-.icon-close-search {
-	@include icon(close-search);
+.icon-check-mark {
+	@include icon(check-mark);
 }
 .icon-close {
 	@include icon(close);
 }
-.icon-example {
-	@include icon(example);
-}
 .icon-eye {
 	@include icon(eye);
 }
-.icon-feedback-star-active {
-	@include icon(feedback-star-active);
+.icon-magnifying-glass {
+	@include icon(magnifying-glass);
 }
-.icon-feedback-star-inactive {
-	@include icon(feedback-star-inactive);
+.icon-mobile-toggle {
+	@include icon(mobile-toggle);
 }
-.icon-more-menu {
-	@include icon(more-menu);
+.icon-pen {
+	@include icon(pen);
 }
 .icon-question-mark {
 	@include icon(question-mark);
 }
-.icon-radio-active {
-	@include icon(radio-active);
-}
-.icon-radio {
-	@include icon(radio);
-}
-.icon-search {
-	@include icon(search);
-}
-.icon-subscribe-pen {
-	@include icon(subscribe-pen);
-}
-.icon-to-top-large {
-	@include icon(to-top-large);
-}
-.icon-to-top-small {
-	@include icon(to-top-small);
+.icon-star {
+	@include icon(star);
 }

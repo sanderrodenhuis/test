@@ -1,6 +1,35 @@
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: Lato, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+  line-height: 26 / 16;
+}
+h1, h2, h3, h4, h5, h6, p
+{
+  font-weight: 300;
+  line-height: (26 / 16);
+}
+
+h1
+{
+  font-size: (48rem / 16);
+  margin: 20px 0px;
+}
+h2
+{
+  font-size: (30rem / 16);
+}
+h3
+{
+  font-size: (19rem / 16);
+}
+h4, h5, h6
+{
+  font-size: (16rem / 16);
+}
+
+p
+{
+  font-weight: normal;
 }

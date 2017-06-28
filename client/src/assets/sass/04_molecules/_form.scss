@@ -1,6 +1,7 @@
 .form {
   &__group {
     margin: 20px 0;
+    position: relative;
     &--short {
       margin-top: 0;
     }
@@ -21,6 +22,15 @@
 
   &__control {
 
+    &-icon
+    {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      font-size: 125%;
+    }
   }
   &__control[type=text],
   &__control[type=password],
@@ -40,6 +50,10 @@
 
     &.form__control--funnel-search {
       padding-left: 50px;
+    }
+    .form__control-icon + &
+    {
+      padding-left: 40px;
     }
   }
 
@@ -71,10 +85,6 @@
       line-height: 26px;
     }
   }
-
-  &--funnel-search {
-    position: relative;
-  }
 }
 
 @media #{$tablet} {
@@ -101,8 +111,7 @@
        line-height: 21px;
       }
     }
-
-
   }
-
 }
+
+

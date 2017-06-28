@@ -11,15 +11,6 @@ a {
     color: $col-orange;
   }
 }
-h2 {
-  font-size: 48px;
-  line-height: 57px;
-  font-weight: 300;
-}
-.page-title {
-  margin: 30px 0;
-}
-
 
 .btn {
   display: block;
@@ -71,17 +62,6 @@ h2 {
 
 .search-results {
     margin: 30px 0;
-}
-
-
-.funnel-search__icon {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 20px;
-  top: 10px;
-  content: '';
-  //background: url(../images/search.svg) no-repeat center;
 }
 
 .bottom-info {
