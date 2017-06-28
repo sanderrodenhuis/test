@@ -1,13 +1,15 @@
-//general
-
-
-
 a {
   text-decoration: none;
 }
 
-.bold-text {
-  font-weight: 700;
+.text {
+
+  &-bold {
+    font-weight: 700;
+  }
+  &-color {
+    color: $col-orange;
+  }
 }
 
 .btn {
@@ -26,7 +28,6 @@ a {
   background-color: $col-orange;
   color: $col-white;
   text-transform: uppercase;
-
   &:hover {
     background: $col-orange;
     border-width: 1px 0;
@@ -57,6 +58,18 @@ a {
   }
 }
 
+
+
+.search-results {
+    margin: 30px 0;
+}
+
+.bottom-info {
+  line-height: 26px;
+  margin: 55px 0;
+}
+
+
 @media #{$tablet} {
 
 
@@ -69,8 +82,14 @@ a {
     padding: 0px 10px;
     line-height: 30px;
   }
-}
 
+
+  .bottom-info {
+    font-size: 14px;
+    line-height: 24px;
+    margin: 35px 0;
+  }
+}
 
 
 

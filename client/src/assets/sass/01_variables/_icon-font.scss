@@ -27,8 +27,77 @@
 @function icon-char($filename) {
 	$char: "";
 
-	@if $filename == example {
+	@if $filename == alarm {
 		$char: "\E001";
+	}
+	@if $filename == arrow-down--bold {
+		$char: "\E002";
+	}
+	@if $filename == arrow-down--small {
+		$char: "\E003";
+	}
+	@if $filename == arrow-down {
+		$char: "\E004";
+	}
+	@if $filename == arrow-left--bold {
+		$char: "\E005";
+	}
+	@if $filename == arrow-left--small {
+		$char: "\E006";
+	}
+	@if $filename == arrow-left {
+		$char: "\E007";
+	}
+	@if $filename == arrow-right--bold {
+		$char: "\E008";
+	}
+	@if $filename == arrow-right--small {
+		$char: "\E009";
+	}
+	@if $filename == arrow-right {
+		$char: "\E00A";
+	}
+	@if $filename == arrow-up--bold {
+		$char: "\E00B";
+	}
+	@if $filename == arrow-up--small {
+		$char: "\E00C";
+	}
+	@if $filename == arrow-up {
+		$char: "\E00D";
+	}
+	@if $filename == calendar {
+		$char: "\E00E";
+	}
+	@if $filename == check-mark--rounded-bold {
+		$char: "\E00F";
+	}
+	@if $filename == check-mark--rounded {
+		$char: "\E010";
+	}
+	@if $filename == check-mark {
+		$char: "\E011";
+	}
+	@if $filename == close {
+		$char: "\E012";
+	}
+	@if $filename == eye {
+		$char: "\E013";
+	}
+	@if $filename == magnifying-glass {
+		$char: "\E014";
+	}
+	@if $filename == mobile-toggle {
+		$char: "\E015";
+	}
+	@if $filename == pen {
+		$char: "\E016";
+	}
+	@if $filename == question-mark {
+		$char: "\E017";
+	}
+	@if $filename == star {
+		$char: "\E018";
 	}
 
 	@return $char;
@@ -45,6 +114,75 @@
 	}
 }
 
-.icon-example {
-	@include icon(example);
+.icon-alarm {
+	@include icon(alarm);
+}
+.icon-arrow-down--bold {
+	@include icon(arrow-down--bold);
+}
+.icon-arrow-down--small {
+	@include icon(arrow-down--small);
+}
+.icon-arrow-down {
+	@include icon(arrow-down);
+}
+.icon-arrow-left--bold {
+	@include icon(arrow-left--bold);
+}
+.icon-arrow-left--small {
+	@include icon(arrow-left--small);
+}
+.icon-arrow-left {
+	@include icon(arrow-left);
+}
+.icon-arrow-right--bold {
+	@include icon(arrow-right--bold);
+}
+.icon-arrow-right--small {
+	@include icon(arrow-right--small);
+}
+.icon-arrow-right {
+	@include icon(arrow-right);
+}
+.icon-arrow-up--bold {
+	@include icon(arrow-up--bold);
+}
+.icon-arrow-up--small {
+	@include icon(arrow-up--small);
+}
+.icon-arrow-up {
+	@include icon(arrow-up);
+}
+.icon-calendar {
+	@include icon(calendar);
+}
+.icon-check-mark--rounded-bold {
+	@include icon(check-mark--rounded-bold);
+}
+.icon-check-mark--rounded {
+	@include icon(check-mark--rounded);
+}
+.icon-check-mark {
+	@include icon(check-mark);
+}
+.icon-close {
+	@include icon(close);
+}
+.icon-eye {
+	@include icon(eye);
+}
+.icon-magnifying-glass {
+	@include icon(magnifying-glass);
+}
+.icon-mobile-toggle {
+	@include icon(mobile-toggle);
+}
+.icon-pen {
+	@include icon(pen);
+}
+.icon-question-mark {
+	@include icon(question-mark);
+}
+.icon-star {
+	@include icon(star);
 }

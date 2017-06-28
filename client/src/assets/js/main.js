@@ -1,8 +1,9 @@
 import $ from 'jquery'
 import './modal';
+import './job-selection';
 
 
-
+window.$ = $;
 
 $('.site-nav__item--toggle').on('click', function (e) {
   e.preventDefault();
@@ -12,3 +13,5 @@ $('.site-nav__item--toggle').on('click', function (e) {
 $('.site-menu__btn-close').on('click', function () {
   $('.site-menu--mobile').removeClass('is-visible')
 })
+
+
