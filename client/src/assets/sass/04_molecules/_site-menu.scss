@@ -39,6 +39,19 @@
 
     &--toggle {
       display: none;
+      .site-nav__link
+      {
+        position: relative;
+        padding-right: 10px;
+        display: inline-block;
+        @include icon(mobile-toggle, before, false);
+        &:before
+        {
+          position: absolute;
+          right: 0;
+          font-size: 120%;
+        }
+      }
     }
   }
 
@@ -103,6 +116,13 @@
         &--toggle {
           display: block;
           margin-right: 0;
+          .site-nav__link {
+            padding-left: 10px;
+            &:before {
+              position: static;
+              right: auto;
+            }
+          }
         }
       }
       .site-nav__label

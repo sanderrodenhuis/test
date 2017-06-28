@@ -1,0 +1,67 @@
+.sidebar-promotion
+{
+  background: $col-white;
+  border: 1px solid #D2D2D2;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.10);
+  padding: 30px;
+  color: $col-black;
+
+  &__header
+  {
+    font-size: 20px;
+  }
+  &__list
+  {
+    margin-top: 10px;
+  }
+  &__list-item
+  {
+    padding: 10px 10px 10px 25px;
+    position: relative;
+
+    @include icon(check-mark--rounded, before, false);
+    &:before
+    {
+      position: absolute;
+      left: 0px;
+      color: $col-pink;
+    }
+
+  }
+  &__divider
+  {
+    height: 1px;
+    padding: 0px;
+    margin: 20px 0px;
+    border: 0;
+    background: $col-grey;
+  }
+  &__footer
+  {
+    position: relative;
+    padding-left: 60px;
+    color: $col-black;
+
+    @include icon(alarm, before, false);
+    &:before
+    {
+      position: absolute;
+      left: 0;
+      top: 30px;
+      font-size: 45px;
+    }
+
+    &--heading
+    {
+      font-weight: bold;
+    }
+    &--read-more
+    {
+      color: #FF7400;
+    }
+    a
+    {
+      color: $col-orange;
+    }
+  }
+}

@@ -14,14 +14,14 @@
     display: block;
     padding: 20px 20px 20px 0;
     position: relative;
+
+    @include icon(arrow-right, after, false);
     &:after {
       position: absolute;
       right: 0;
-      top: 0;
-      bottom: 0;
-      content: '';
-      width: 14px;
-      background: url(../images/arrow-right.svg) no-repeat center;
+      top: 50%;
+      transform: translate(0,-50%);
+      font-size: 12px;
     }
 
   }
