@@ -32,14 +32,17 @@
     padding: 0 20px 20px 0;
   }
   &__link {
+    display: block;
+    box-sizing: border-box;
+    min-width: 130px;
+    text-align: center;
     border: 1px solid $col-grey;
     color: $col-grey;
     border-radius: 5px;
-    padding: 5px 20px;
+    padding: 5px 10px;
     font-weight: 400;
     font-size: 16px;
     line-height: 25px;
-    display: block;
     &.is-selected,
     &.is-active:hover {
       background-color: $col-orange;
@@ -176,6 +179,11 @@
   .datepicker {
     &__col2 {
       margin: 0;
+    }
+  }
+  .time-list {
+    &__item {
+      padding: 0 10px 20px 0;
     }
   }
 }
