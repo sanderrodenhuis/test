@@ -9,8 +9,8 @@ import 'jquery-datepicker'
 const $datepicker = $( "#datepicker" );
 $datepicker.datepicker({
   closeText: "Sluiten",
-  prevText: "<",
-  nextText: ">",
+  prevText: "",
+  nextText: "",
   currentText: "Vandaag",
   monthNames: [ "Januari", "Februari", "Maart", "April", "Mei", "Juni",
     "Juli", "Augustus", "September", "Oktober", "November", "December" ],

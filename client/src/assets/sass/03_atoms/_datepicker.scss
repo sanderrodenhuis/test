@@ -68,14 +68,37 @@
     display: flex;
   }
   &-prev {
-    order: 1
+    order: 1;
+    color: $col-grey;
+    @include icon(arrow-left--small, before, false);
+    &:before
+    {
+      left: 0;
+    }
+    &:hover {
+      color: $col-black;
+    }
   }
 
   &-next {
-    order: 3
+    order: 3;
+    @include icon(arrow-right--small, before, false);
+    &:before
+    {
+      right: 0;
+    }
   }
   &-prev, &-next {
     cursor: pointer;
+    position: relative;
+
+
+    &:before
+    {
+      position: absolute;
+      top: 0;
+      font-size: 16px;
+    }
   }
   &-title {
     order: 2;
