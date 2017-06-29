@@ -1,11 +1,47 @@
 <% layout('layouts/default') %>
 
-<div class="container" style="display: flex; flex-direction: row; justify-content: space-between;">
-  <div style="width: 58.33333%; background: #DDDDDD">
-    content
-  </div>
-  <div style="width: 33.33333%; background: #D9D9D9">
-    <%- partial('partials/receipt') %>
-    <%- partial('partials/sidebar-promotion') %>
+<div class="container">
+
+  <h2 class="page-title">Afspraak maken</h2>
+
+  <div class="row">
+
+    <div class="column column__content">
+
+      <div class="datepicker__container">
+
+        <div class="datepicker__row">
+
+          <div class="datepicker__col1">
+            <p class="datepicker__col-title">Kies een dag</p>
+            <div type="text" id="datepicker"></div>
+          </div>
+          <div class="datepicker__col2">
+
+            <p class="datepicker__col-title">Kies een tijdstip</p>
+            <ul class="time-list">
+              <li class="time-list__item"><a href="" class="time-list__link">09.00 - 10.00</a></li>
+              <li class="time-list__item"><a href="" class="time-list__link is-active">10.00 - 11.00</a></li>
+              <li class="time-list__item"><a href="" class="time-list__link">11.00 - 12.00</a></li>
+              <li class="time-list__item"><a href="" class="time-list__link is-selected">12.00 - 13.00</a></li>
+              <li class="time-list__item"><a href="" class="time-list__link">13.00 - 14.00</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="datepicker__row">
+          <div class="datepicker-info">
+            Geselecteerd: <span class="datepicker-info__date"> Morgen (vrijdag 26 mei) </span> tussen
+            <span class="datepicker-info__time">11:00 en 12:00 </span> uur
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="column column__sidebar">
+      <%- partial('partials/funnel/sidebar/receipt') %>
+      <%- partial('partials/funnel/sidebar/promotion') %>
+    </div>
+
   </div>
 </div>
+
