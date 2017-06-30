@@ -6,8 +6,8 @@
   tasks:
     - docker_login:
         registry: docker-registry.techtribe.nl
-        username: "{{ CI_BUILD_USER }}"
-        password: "{{ CI_BUILD_TOKEN }}"
+        username: "wessellouwris"
+        password: "vAYEP2gWcd9urxgYZAmW"
 
     - docker_container:
         name: zo-opgelost
