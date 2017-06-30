@@ -1,0 +1,51 @@
+.block
+{
+  width: 384px;
+  height: 300px;
+  display: inline-block;
+  width: 40%;
+  border: 1px solid $col-grey-lighter;
+  background-color: $col-white;
+  padding: 20px;
+  margin: 8px;
+  &__wide
+  {
+
+  }
+  &__heading
+  {
+    position: relative;
+    font-family: Lato-Black;
+    font-size: 19px;
+    color: $col-black;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+
+    &:after
+    {
+      content: ' ';
+      position: absolute;
+      width: 30px;
+      height: 1px;
+      bottom: 0px;
+      left: 10px;
+      background: $col-black;
+      color: $col-black;
+      margin-top: 25px;
+    }
+  }
+  &__link
+  {
+    display: inline-block;
+    font-family: Lato-Light;
+    line-height: 26px;
+    cursor: pointer;
+    padding-left: 10px;
+    &:hover,
+    &:active
+    {
+      color: $col-orange;
+    }
+  }
+}

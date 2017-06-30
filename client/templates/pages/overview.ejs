@@ -1,3 +1,10 @@
 <% layout('layouts/default') %>
 
-overview
+<div class="container" style="display: flex; flex-direction: row; justify-content: space-between;">
+  <div style="width: 70%;">
+    <%- partial('partials/blocks') %>
+  </div>
+  <div style="width: 30%; background: #D9D9D9">
+    <%- partial('partials/sidebar') %>
+  </div>
+</div>
