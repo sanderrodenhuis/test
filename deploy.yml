@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - docker_login:
-       registry: docker-registry.techtribe.nl
+        registry: docker-registry.techtribe.nl
         username: "{{ CI_BUILD_USER }}"
         password: "{{ CI_BUILD_TOKEN }}"
 
