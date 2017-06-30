@@ -11,7 +11,7 @@
 
     - docker_container:
         name: zo-opgelost
-        image: "{{ CI_REGISTRY_IMAGE }}"
+        image: docker-registry.techtribe.nl/wessellouwris/zo-opgelost:latest
         pull: true
         state: started
         restart: yes
