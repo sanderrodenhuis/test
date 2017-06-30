@@ -2,7 +2,6 @@ stages:
   - build
   - docker build
   - deploy staging
-  - deploy production
 
 
 build:
