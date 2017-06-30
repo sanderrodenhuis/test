@@ -6,8 +6,8 @@
   tasks:
     - docker_login:
         registry: docker-registry.techtribe.nl
-        username: "wessellouwris"
-        password: "vAYEP2gWcd9urxgYZAmW"
+        username: wessellouwris
+        password: vAYEP2gWcd9urxgYZAmW
 
     - docker_container:
         name: zo-opgelost
