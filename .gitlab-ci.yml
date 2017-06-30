@@ -2,27 +2,17 @@ stages:
   - build
   - docker build
   - deploy staging
-  
-# This common job template is used by each job working with docker registry
-.docker_job: &docker_job
-  before_script:
-    - uname -a
-    - whoami
-    - docker info
-    # This user is gitlab internal user each pipeline generates temporary token
-    # which allows gitlab-ci-token user to pull push to registry
-    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-  tags:
-    - dockerbuild
-
 
 
 build:
   stage: build
-  image: docker-registry.techtribe.nl/starter-kits/docker/node-yarn
+  image: node:8.1.2-alpine
   tags:
     - alpine
   script:
+    - apk add --update --no-cache python make build-base
+    - npm install -g yarn
+    - yarn config set cache-folder .yarn
     - yarn
   cache:
     paths:
@@ -39,6 +29,7 @@ build:
 docker:build:
   image: docker:latest
   stage: docker build
+  environment: dev
   when: on_success
   tags:
     - dind
@@ -51,17 +42,13 @@ docker:build:
 
 
 deploy:dev:
-  image: docker-registry.techtribe.nl/starter-kits/docker/ansible:latest
+  image: ansible/ansible:fedora25
   tags:
     - alpine
   stage: deploy staging
-  only:
-    - development@gitlab.techtribe.nl/essent
-  environment:
-    name: zo-opgelost.the-tribes.nl - development branch
-    url: https://zo-opgelost.the-tribes.nl
   when: on_success
   script:
+    - dnf -y install ansible
     - '>  inventory'
     - 'echo "$SSH_PRIVATE_KEY">key'
     - chmod 400 key
@@ -69,15 +56,11 @@ deploy:dev:
     - 'echo "[staging]" >> inventory'
     - 'echo "zubat.techtribe.nl ansible_ssh_private_key_file=key" >> inventory'
     - cat inventory
-    - cat key
-    - cat inventory
-    - cat ansible.cfg
-    - export
     - ansible-playbook -i inventory
-            -e CI_REGISTRY_IMAGE=$CI_REGISTRY_IMAGE
             -e CI_BUILD_USER=gitlab-ci-token
             -e CI_BUILD_TOKEN=$CI_BUILD_TOKEN
             deploy.yml
+
   dependencies:
     - docker:build
 
