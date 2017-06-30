@@ -1,0 +1,67 @@
+stages:
+  - build
+  - docker build
+  - deploy staging
+  - deploy production
+
+
+build:
+  stage: build
+  image: node:8.1.2-alpine
+  tags:
+    - alpine
+  script:
+    - apk add --update --no-cache python make build-base
+    - npm install -g yarn
+    - yarn
+    - #npm rebuild node-sass
+  cache:
+    paths:
+      - node_modules
+      - /usr/local/share/.cache/yarn
+  artifacts:
+    when: on_success
+    expire_in: 24 hrs
+    paths:
+      - node_modules
+      - client/
+
+
+docker:build:
+  image: docker:latest
+  stage: docker build
+  environment: dev
+  when: on_success
+  only:
+    - develop@touchtribe/spacemakers
+  tags:
+    - dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
+  dependencies:
+    - build
+
+
+deploy:dev:
+  image: ansible/ansible:fedora25
+  tags:
+    - alpine
+  stage: deploy staging
+  when: on_success
+  only:
+    - develop@touchtribe/spacemakers
+  script:
+    - dnf -y install ansible
+    - '>  inventory'
+    - 'echo "$SSH_PRIVATE_KEY">key'
+    - chmod 400 key
+    - cat key
+    - 'echo "[atomic]" >> inventory'
+    - 'echo "zubat.techtribe.nl ansible_ssh_private_key_file=key" >> inventory'
+    - 'ansible-playbook -i inventory --extra-vars "token=$CI_BUILD_TOKEN" deploy.yml'
+
+  dependencies:
+    - docker:build
+

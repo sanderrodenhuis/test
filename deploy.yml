@@ -1,0 +1,23 @@
+---
+- name: nginx service
+  hosts: atomic
+  become: yes
+  tasks:
+    - docker_login:
+       registry: docker-registry.techtribe.nl
+        username: "{{ CI_BUILD_USER }}"
+        password: "{{ CI_BUILD_TOKEN }}"
+
+    - docker_container:
+        name: zo-opgelost
+        image: docker-registry.techtribe.nl/essent/zo-opgelost:latest
+        pull: true
+        state: started
+        restart: yes
+        restart_policy: always
+        restart_retries: 3
+        recreate: yes
+        env:
+          VIRTUAL_HOST: 'zo-opgelost.the-tribes.nl'
+...
+
