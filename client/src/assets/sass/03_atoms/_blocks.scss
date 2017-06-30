@@ -3,14 +3,31 @@
   width: 384px;
   height: 300px;
   display: inline-block;
-  width: 40%;
   border: 1px solid $col-grey-lighter;
   background-color: $col-white;
   padding: 20px;
   margin: 8px;
+  box-sizing: border-box;
   &__wide
   {
+    display: inline-block;
+    width: 786px;
+    height: 300px;
+    background-color: $col-white;
+    border: 1px solid #D2D2D2;
+    padding: 20px;
+    margin: 8px;
+    box-sizing: border-box;
+    &--left
+    {
+      display: inline-block;
+      width: 380px;
+    }
+    &--right
+    {
 
+      display: inline-block;
+    }
   }
   &__heading
   {
@@ -37,7 +54,7 @@
   }
   &__link
   {
-    display: inline-block;
+    //display: inline-block;
     font-family: Lato-Light;
     line-height: 26px;
     cursor: pointer;
