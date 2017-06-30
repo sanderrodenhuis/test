@@ -13,7 +13,6 @@ build:
     - apk add --update --no-cache python make build-base
     - npm install -g yarn
     - yarn
-    - #npm rebuild node-sass
   cache:
     paths:
       - node_modules
