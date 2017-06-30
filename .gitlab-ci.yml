@@ -2,7 +2,6 @@ stages:
   - build
   - docker build
   - deploy staging
-  - deploy production
 
 
 build:
@@ -14,7 +13,6 @@ build:
     - apk add --update --no-cache python make build-base
     - npm install -g yarn
     - yarn
-    - #npm rebuild node-sass
   cache:
     paths:
       - node_modules
@@ -32,8 +30,6 @@ docker:build:
   stage: docker build
   environment: dev
   when: on_success
-  only:
-    - develop@touchtribe/spacemakers
   tags:
     - dind
   script:
@@ -50,8 +46,6 @@ deploy:dev:
     - alpine
   stage: deploy staging
   when: on_success
-  only:
-    - develop@touchtribe/spacemakers
   script:
     - dnf -y install ansible
     - '>  inventory'
