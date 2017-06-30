@@ -8,7 +8,7 @@ RUN set -xe \
 WORKDIR /var/app/zo-opgelost
 COPY client/dist/ /var/app/zo-opgelost/
 COPY . /var/app/zo-opgelost/
-COPY client/dist/assets/css/style.min.css /var/app/zo-opgelost/assets/css/style.css
+COPY /var/app/zo-opgelost/assets/css/style.min.css /var/app/zo-opgelost/assets/css/style.css
 
 COPY nginx-default.conf /etc/nginx/conf.d/default.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
