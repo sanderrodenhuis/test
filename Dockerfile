@@ -6,8 +6,9 @@ RUN set -xe \
     && mkdir -p /var/app/zo-opgelost /var/log/supervisor /run/nginx/
 
 WORKDIR /var/app/zo-opgelost
-COPY client/ /var/app/zo-opgelost/client/
+COPY client/dist/ /var/app/zo-opgelost/
 COPY . /var/app/zo-opgelost/
+COPY client/dist/assets/css/style.min.css /var/app/zo-opgelost/assets/css/style.css
 
 COPY nginx-default.conf /etc/nginx/conf.d/default.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

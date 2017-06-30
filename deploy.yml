@@ -1,7 +1,8 @@
 ---
-- name: nginx service
-  hosts: atomic
-  become: yes
+- name: deploy image
+  hosts: staging
+  user: deployer
+  become: no
   tasks:
     - docker_login:
         registry: docker-registry.techtribe.nl
@@ -10,7 +11,7 @@
 
     - docker_container:
         name: zo-opgelost
-        image: docker-registry.techtribe.nl/essent/zo-opgelost:latest
+        image: {{ CI_REGISTRY_IMAGE }}
         pull: true
         state: started
         restart: yes

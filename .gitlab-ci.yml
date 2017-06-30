@@ -42,23 +42,31 @@ docker:build:
 
 
 deploy:dev:
-  image: ansible/ansible:fedora25
+  image: python:2.7-alpine
   tags:
     - alpine
   stage: deploy staging
   when: on_success
   script:
-    - dnf -y install ansible
+    - apk add --update --no-cache python make build-base libffi-dev openssl-dev
+    - pip install ansible 
     - '>  inventory'
     - 'echo "$SSH_PRIVATE_KEY">key'
     - chmod 400 key
     - cat key
-    - 'echo "[atomic]" >> inventory'
+    - 'echo "[staging]" >> inventory'
     - 'echo "zubat.techtribe.nl ansible_ssh_private_key_file=key" >> inventory'
+    - cat inventory
+    - cat key
+    - cat inventory
+    - cat ansible.cfg
+    - export
     - ansible-playbook -i inventory
+            -e CI_REGISTRY_IMAGE=$CI_REGISTRY_IMAGE
             -e CI_BUILD_USER=gitlab-ci-token
             -e CI_BUILD_TOKEN=$CI_BUILD_TOKEN
             deploy.yml
+
 
   dependencies:
     - docker:build
