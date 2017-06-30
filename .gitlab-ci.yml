@@ -57,7 +57,6 @@ deploy:dev:
     - ansible-playbook -i inventory
             -e CI_BUILD_USER=gitlab-ci-token
             -e CI_BUILD_TOKEN=$CI_BUILD_TOKEN
-            -e HOSTNAME=zo-opgelost.the-tribes.nl
             deploy.yml
 
   dependencies:
