@@ -12,11 +12,12 @@ build:
   script:
     - apk add --update --no-cache python make build-base
     - npm install -g yarn
+    - yarn config set cache-folder .yarn
     - yarn
   cache:
     paths:
       - node_modules
-      - /usr/local/share/.cache/yarn
+      - .yarn
   artifacts:
     when: on_success
     expire_in: 24 hrs
