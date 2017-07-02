@@ -1,0 +1,193 @@
+.datepicker {
+  &__row {
+    display: flex;
+    margin: 0 0 30px 0;
+  }
+  &__col1 {
+
+  }
+  &__col2 {
+    flex: 1;
+    margin: 0 20px;
+  }
+  &__col-title {
+    font-size: 16px;
+    font-weight: 300;
+    margin: 30px 0;
+  }
+
+  &-info {
+    flex: 1;
+    border: 1px solid $col-pink;
+    padding: 30px;
+    line-height: 25px;
+    text-align: center;
+    color: $col-pink;
+  }
+}
+
+.hasDatepicker {
+
+  width: 384px;
+  box-sizing: border-box;
+  padding: 30px;
+  border: 1px solid $col-black;
+}
+
+.ui-datepicker {
+
+  &-header {
+    display: flex;
+  }
+  &-prev {
+    order: 1;
+    color: $col-grey;
+    @include icon(arrow-left--small, before, false);
+    &:before
+    {
+      left: 0;
+    }
+    &:hover {
+      color: $col-black;
+    }
+  }
+
+  &-next {
+    order: 3;
+    @include icon(arrow-right--small, before, false);
+    &:before
+    {
+      right: 0;
+    }
+  }
+  &-prev, &-next {
+    cursor: pointer;
+    position: relative;
+
+
+    &:before
+    {
+      position: absolute;
+      top: 0;
+      font-size: 16px;
+    }
+  }
+  &-title {
+    order: 2;
+    flex: 1;
+    margin-bottom: 15px;
+  }
+
+  & table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 2px 15px;
+    & tr {
+
+    }
+    & td, & th {
+      text-align: center;
+      width: 44px;
+      height: 44px;
+      vertical-align: middle;
+      color: $col-black;
+      background-color: $col-grey-light;
+      border-radius: 5px;
+    }
+    & td {
+      font-size: 12px;
+      &.ui-state-disabled {
+        color: $col-grey;
+      }
+      a {
+        cursor: pointer;
+        text-decoration: none;
+        color: $col-black;
+        display: block;
+        line-height: 44px;
+        height: 100%;
+        border-radius: 5px;
+        &.ui-state-hover {
+          background-color: $col-orange;
+          color: $col-white;
+        }
+
+      }
+      &.ui-datepicker-current-day {
+        a {
+          background-color: $col-orange;
+          color: $col-white;
+        }
+      }
+
+    }
+  }
+
+}
+
+.ui-datepicker table {
+
+}
+
+.ui-datepicker-prev {
+}
+
+.ui-datepicker-next {
+  float: right;
+}
+
+.ui-datepicker-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+@media #{$tablet} {
+  .datepicker__row {
+    flex-direction: column;
+  }
+  .datepicker {
+    &__col2 {
+      margin: 0;
+    }
+  }
+  .time-list {
+    &__item {
+      padding: 0 10px 20px 0;
+    }
+  }
+}
+
+@media #{$mobile} {
+  .hasDatepicker {
+    width: 100%;
+    max-width: 384px;
+    padding: 15px;
+  }
+  .datepicker__row {
+    flex-direction: column;
+  }
+  .datepicker {
+    &__col2 {
+      margin: 0;
+    }
+  }
+
+  .ui-datepicker {
+
+    & table {
+
+      & td, & th {
+        width: 37px;
+        height: 37px;
+      }
+      & td {
+
+        a {
+          line-height: 37px;
+        }
+
+      }
+    }
+  }
+}
+
