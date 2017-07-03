@@ -56,6 +56,23 @@ a {
       }
     }
   }
+  &--link {
+    border: 0;
+    background-color: transparent;
+    color: $col-orange;
+    position: relative;
+    @include icon(arrow-left--bold, before, false);
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0,-50%);
+      font-size: 12px;
+    }
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }
 
 
@@ -68,6 +85,35 @@ a {
   line-height: 26px;
   margin: 55px 0;
 }
+
+
+.content__title {
+  color: $col-pink;
+}
+.content__row {
+  margin: 30px 0;
+  &--navigation-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+
+.dropzone {
+  display: flex;
+  justify-content: center;
+  min-height: 150px;
+  border: 1px solid $col-grey;
+  background-color: $col-white;
+  padding: 20px 20px;
+}
+.dz-default.dz-message {
+  color: $col-grey;
+  font-style: italic;
+  line-height: 20px;
+}
+
 
 
 @media #{$tablet} {
