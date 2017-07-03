@@ -27,11 +27,6 @@ build:
     - rm -fr node_modules
     - npm install gulp-imagemin
     - yarn
-  cache:
-    untracked: true
-    paths:
-      - node_modules
-      - .yarn
   artifacts:
     when: on_success
     expire_in: 24 hrs
