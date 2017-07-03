@@ -23,6 +23,7 @@ build:
   tags:
     - alpine
   script:
+    - yarn cache clean
     - yarn
   cache:
     paths:
