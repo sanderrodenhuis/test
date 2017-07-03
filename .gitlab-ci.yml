@@ -39,7 +39,6 @@ build:
 docker:build:
   image: docker:latest
   stage: docker build
-  environment: dev
   when: on_success
   tags:
     - dind
