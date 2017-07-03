@@ -56,7 +56,7 @@ deploy:dev:
     - alpine
   stage: deploy staging
   only:
-    - development@gitlab.techtribe.nl/essent
+    - development@essent/zo-opgelost
   environment:
     name: zo-opgelost.the-tribes.nl - development branch
     url: https://zo-opgelost.the-tribes.nl
