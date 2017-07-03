@@ -7,41 +7,70 @@
   <div class="row">
 
     <div class="column column__content">
+      <div class="content__row">
 
-      <div class="datepicker__container">
+        <div class="datepicker__container">
 
-        <div class="datepicker__row">
+          <div class="datepicker__row">
 
-          <div class="datepicker__col1">
-            <p class="datepicker__col-title">Kies een dag</p>
-            <div type="text" id="datepicker"></div>
+            <div class="datepicker__col1">
+              <p class="datepicker__col-title">Kies een dag</p>
+              <div type="text" id="datepicker"></div>
+            </div>
+            <div class="datepicker__col2">
+
+              <p class="datepicker__col-title">Kies een tijdstip</p>
+              <ul class="time-list">
+                <li class="time-list__item"><a href="" class="time-list__link">09.00 - 10.00</a></li>
+                <li class="time-list__item"><a href="" class="time-list__link is-active">10.00 - 11.00</a></li>
+                <li class="time-list__item"><a href="" class="time-list__link">11.00 - 12.00</a></li>
+                <li class="time-list__item"><a href="" class="time-list__link is-selected">12.00 - 13.00</a></li>
+                <li class="time-list__item"><a href="" class="time-list__link">13.00 - 14.00</a></li>
+              </ul>
+            </div>
           </div>
-          <div class="datepicker__col2">
-
-            <p class="datepicker__col-title">Kies een tijdstip</p>
-            <ul class="time-list">
-              <li class="time-list__item"><a href="" class="time-list__link">09.00 - 10.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link is-active">10.00 - 11.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">11.00 - 12.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link is-selected">12.00 - 13.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">13.00 - 14.00</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="datepicker__row">
-          <div class="datepicker-info">
-            Geselecteerd: <span class="datepicker-info__date"> Morgen (vrijdag 26 mei) </span> tussen
-            <span class="datepicker-info__time">11:00 en 12:00 </span> uur
+          <div class="datepicker__row">
+            <div class="datepicker-info">
+              Geselecteerd: <span class="datepicker-info__date"> Morgen (vrijdag 26 mei) </span> tussen
+              <span class="datepicker-info__time">11:00 en 12:00 </span> uur
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="content__row content__row--secondary">
+        <h2 class="content__title">Klusdetails</h2>
+        <p>Om je zo goed mogelijk te kunnen helpen willen we graag zo veel mogelijk weten van de klus en de huidige
+          staat of situatie.
+          Je kunt de velden leeglaten als je denkt dat er weinig informatie (meer) bij nodig is.</p>
+        <div class="content__form-container">
+
+          <form action="" class="form">
+            <div class="form__group form__group--flex-column">
+              <label for="textarea-job-description" class="form__label">Is er iets wat we van tevoren moeten weten over
+                de klus?</label>
+              <textarea name="textarea-job-description" class="form__control form__control--textarea"></textarea>
+            </div>
+
+          </form>
+
+          <div>
+            <div class="form__label form__label--flex">Voeg foto’s toe die de situatie ophelderen <span
+                class="form__label-counter">0/4 toegevoegd</span></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="content__row content__row--navigation-bottom">
+        <a href="" class="btn btn--link">terug</a>
+        <a href="" class="btn">volgende stap</a>
+      </div>
     </div>
     <div class="column column__sidebar">
       <%- partial('partials/funnel/sidebar/receipt') %>
       <%- partial('partials/funnel/sidebar/promotion') %>
     </div>
 
+
   </div>
 </div>
-

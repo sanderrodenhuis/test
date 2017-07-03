@@ -56,6 +56,23 @@ a {
       }
     }
   }
+  &--link {
+    border: 0;
+    background-color: transparent;
+    color: $col-orange;
+    position: relative;
+    @include icon(arrow-left--bold, before, false);
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0,-50%);
+      font-size: 12px;
+    }
+    &:hover {
+      background-color: transparent;
+    }
+  }
 }
 
 
@@ -69,6 +86,17 @@ a {
   margin: 55px 0;
 }
 
+
+.content__title {
+  color: $col-pink;
+}
+.content__row {
+  margin: 30px 0;
+  &--navigation-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 @media #{$tablet} {
 
