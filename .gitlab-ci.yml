@@ -2,17 +2,28 @@ stages:
   - build
   - docker build
   - deploy staging
+  
+# This common job template is used by each job working with docker registry
+.docker_job: &docker_job
+  before_script:
+    - uname -a
+    - whoami
+    - docker info
+    # This user is gitlab internal user each pipeline generates temporary token
+    # which allows gitlab-ci-token user to pull push to registry
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  tags:
+    - dockerbuild
+
 
 
 build:
   stage: build
-  image: node:8.1.2-alpine
+  <<: *docker_job
+  image: docker-registry.techtribe.nl/starter-kits/docker/node-yarn
   tags:
     - alpine
   script:
-    - apk add --update --no-cache python make build-base
-    - npm install -g yarn
-    - yarn config set cache-folder .yarn
     - yarn
   cache:
     paths:
