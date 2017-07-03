@@ -2,7 +2,6 @@ import $ from './jquery'
 import './modal';
 import './job-selection';
 import './datepicker';
-import Dropzone from 'dropzone';
 
 $('.site-nav__item--toggle').on('click', function (e) {
   e.preventDefault();
