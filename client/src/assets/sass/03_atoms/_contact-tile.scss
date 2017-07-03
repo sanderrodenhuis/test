@@ -1,0 +1,38 @@
+.contact-tile
+{
+  background-color: $col-pink;
+  width: 286px;
+  height: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $col-white;
+  text-align: center;
+  &__image
+  {
+    display:inline-block;
+    background-color: $col-white;
+    color: $col-pink;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    font-size: 36px;
+    padding: 10px;
+    width: 40px;
+  }
+  &__heading
+  {
+    font-family: Lato-Black;
+    font-size: 19px;
+    padding: 20px 35px;
+
+  }
+  &__info
+  {
+    font-size: 16px;
+    padding: 10px;
+  }
+  &__link
+  {
+
+  }
+}
