@@ -12,6 +12,24 @@
       display: flex;
       flex-direction: column;
     }
+
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin: auto -10px;
+    &--secondary {
+      margin: -10px;
+    }
+  }
+  &__col {
+    flex: 1;
+    max-width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    &--full {
+      max-width: 100%;
+    }
   }
 
   &__link {
@@ -26,8 +44,7 @@
 
   &__control {
 
-    &-icon
-    {
+    &-icon {
       position: absolute;
       left: 20px;
       top: 50%;
@@ -38,8 +55,9 @@
   }
   &__control[type=text],
   &__control[type=password],
-  &__control[type=email]
-  {
+  &__control[type=email],
+  &__control[type=tel],
+  &__control[type=number] {
     display: block;
     font-size: 16px;
     width: 100%;
@@ -49,14 +67,13 @@
 
     background: #FFFFFF;
     border: 1px solid #BFBFBF;
-    box-shadow: inset 0 2px 2px 0 rgba(0,0,0,0.10);
+    box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.10);
     border-radius: 2px;
 
     &.form__control--funnel-search {
       padding-left: 50px;
     }
-    .form__control-icon + &
-    {
+    .form__control-icon + & {
       padding-left: 40px;
     }
   }
@@ -96,6 +113,12 @@
       padding: 10px 0;
     }
   }
+
+  &--contact-details {
+    .form__group {
+      margin: 0;
+    }
+  }
 }
 
 @media #{$tablet} {
@@ -104,7 +127,15 @@
 @media #{$mobile} {
 
   .form {
-
+    &__row {
+      flex-direction: column;
+      &--secondary {
+        flex-direction: row;
+      }
+    }
+    &__col {
+      max-width: 100%;
+    }
     &__link {
       &--secondary {
         display: block;
@@ -119,8 +150,12 @@
     &__label {
       font-size: 14px;
       &--checkbox {
-       line-height: 21px;
+        line-height: 21px;
       }
+    }
+    &--contact-details {
+      margin: 20px 0;
+
     }
   }
 }
