@@ -54,7 +54,7 @@ docker:build:
 deploy:dev:
   image: docker-registry.techtribe.nl/starter-kits/docker/ansible:latest
   tags:
-    - ansible
+    - alpine
   stage: deploy staging
   when: on_success
   script:
