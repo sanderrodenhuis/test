@@ -1,0 +1,25 @@
+.subscription-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.block-subscription {
+  display: block;
+  flex: 1;
+  &__title {
+
+  }
+  &__subtitle {
+
+  }
+  &__price {
+
+  }
+
+  &__items {
+
+  }
+  &__item {
+
+  }
+}
