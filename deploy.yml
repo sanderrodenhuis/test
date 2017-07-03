@@ -1,0 +1,24 @@
+---
+- name: deploy image
+  hosts: staging
+  user: deployer
+  become: no
+  tasks:
+    - docker_login:
+        registry: docker-registry.techtribe.nl
+        username: "{{ CI_BUILD_USER }}"
+        password: "{{ CI_BUILD_TOKEN }}"
+
+    - docker_container:
+        name: zo-opgelost
+        image: "{{ CI_REGISTRY_IMAGE }}"
+        pull: true
+        state: started
+        restart: yes
+        restart_policy: always
+        restart_retries: 3
+        recreate: yes
+        env:
+          VIRTUAL_HOST: 'zo-opgelost.the-tribes.nl'
+...
+
