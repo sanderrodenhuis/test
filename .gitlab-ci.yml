@@ -26,6 +26,8 @@ build:
     - yarn cache clean
     - rm -fr node_modules
     - npm install optipng-bin
+    - npm install imagemin
+    - npm install imagemin-optipng
     - yarn
   cache:
     untracked: true
