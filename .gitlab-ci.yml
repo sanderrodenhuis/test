@@ -20,6 +20,8 @@ stages:
 build:
   stage: build
   image: docker-registry.techtribe.nl/starter-kits/docker/node-yarn
+  tags:
+    - alpine
   script:
     - yarn
   cache:
