@@ -19,7 +19,6 @@ stages:
 
 build:
   stage: build
-  <<: *docker_job
   image: docker-registry.techtribe.nl/starter-kits/docker/node-yarn
   script:
     - yarn
