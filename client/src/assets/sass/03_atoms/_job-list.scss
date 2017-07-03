@@ -1,34 +1,41 @@
+/// flexbox to parent & display block, flex wrap, 50% width and 100% width, give blocks a margin,
+
 .job-list
 {
-  /// flexbox to parent & display block, flex wrap, 50% width and 100% width, give blocks a margin,
-  width: 384px;
-  height: 300px;
-  display: inline-block;
-  border: 1px solid $col-grey-lighter;
+  display: flex;
+  flex-wrap: wrap;
   background-color: $col-white;
-  padding: 20px;
-  margin: 8px;
-  box-sizing: border-box;
+  &__normal
+  {
+    width: calc(50% - 12px);
+    border: 1px solid $col-grey-lighter;
+    box-sizing: border-box;
+    margin: 6px;
+  }
   &__wide
   {
-    display: inline-block;
-    width: 786px;
-    height: 300px;
-    background-color: $col-white;
-    border: 1px solid #D2D2D2;
-    padding: 20px;
-    margin: 8px;
+    width: calc(100% - 12px);
+    border: 1px solid $col-grey-lighter;
     box-sizing: border-box;
-    &--left
+    margin: 6px;
+    &--list
     {
-      display: inline-block;
-      width: 380px;
+      -moz-column-count: 2;
+      -moz-column-gap: 20px;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 20px;
+      column-count: 2;
+      column-gap: 20px;
     }
-    &--right
-    {
-
-      display: inline-block;
-    }
+  }
+  &__normal,
+  &__wide
+  {
+    padding: 20px;
+      &:hover
+      {
+        box-shadow: 0 8px 15px 0 rgba(0,0,0,0.15);
+      }
   }
   &__heading
   {
@@ -36,26 +43,27 @@
     font-family: Lato-Black;
     font-size: 19px;
     color: $col-black;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    margin-bottom: 20px;
-
+    padding: 0 10px;
     &:after
     {
       content: ' ';
       position: absolute;
-      width: 30px;
       height: 1px;
+      width: 30px;
       bottom: 0px;
       left: 10px;
+      margin-top: 25px;
       background: $col-black;
       color: $col-black;
-      margin-top: 25px;
+
     }
   }
-  &__link
+  &__links
   {
-    //display: inline-block;
+    padding: 20px 0;
+  }
+  &__links-item
+  {
     font-family: Lato-Light;
     line-height: 26px;
     cursor: pointer;
@@ -64,6 +72,10 @@
     &:active
     {
       color: $col-orange;
+    }
+    &:active
+    {
+      text-decoration: underline;
     }
   }
 }
