@@ -59,7 +59,7 @@ deploy:dev:
   only:
     - development
   environment:
-    name: zo-opgelost.the-tribes.nl (development branch)
+    name: zo-opgelost.the-tribes.nl - development branch
     url: https://zo-opgelost.the-tribes.nl
   when: on_success
   script:
