@@ -94,6 +94,18 @@
   }
 }
 
+
+.section {
+  &--secondary {
+    background-color: $col-grey-light;
+  }
+}
+
+
+
+
+
+
 @media #{$tablet} {
 
 
