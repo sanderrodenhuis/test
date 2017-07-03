@@ -25,7 +25,7 @@ build:
   script:
     - yarn cache clean
     - rm -fr node_modules
-    - npm install gulp-imagemin
+    - npm install optipng-bin
     - yarn
   cache:
     untracked: true
