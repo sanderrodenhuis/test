@@ -25,8 +25,10 @@ build:
   script:
     - yarn cache clean
     - rm -fr node_modules
+    - npm install gulp-imagemin
     - yarn
   cache:
+    untracked: true
     paths:
       - node_modules
       - .yarn
