@@ -2,6 +2,7 @@ import $ from './jquery'
 import './modal';
 import './job-selection';
 import './datepicker';
+import './photo-upload';
 
 $('.site-nav__item--toggle').on('click', function (e) {
   e.preventDefault();
