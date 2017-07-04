@@ -1,19 +1,23 @@
 <% layout('layouts/default') %>
 
 <div class="section section--header">
-
+  <div class="container">
+    <div class="row">
+      <div class="column column__content">
+        <h1>Ons klusaanbod</h1>
+        <p>
+          Onze ervaren experts zijn zorgvuldig geselecteerd, hieronder zie je waarvoor je ze onder andere kunt boeken. Spoedgevallen en calamiteiten vallen niet onder deze reguliere klussen. Lees meerover het <a href="#">inplannen van spoedklussen</a> of bel 0800 - 123 123
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="section">
   <div class="container">
     <div class="row row--content">
       <div class="column column__content">
-        <%- partial('partials/overview-intro') %>
-      </div>
-    </div>
-    <div class="row row--content">
-      <div class="column column__content">
-        <%- partial('partials/job-list') %>
+        <%- partial('partials/job-overview') %>
       </div>
       <div class="column column__sidebar">
         <%- partial('partials/contact-tile') %>
