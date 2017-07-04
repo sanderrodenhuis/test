@@ -5,69 +5,58 @@
   display: flex;
   flex-wrap: wrap;
   background-color: $col-white;
-  &__normal
+  &__column
   {
     width: calc(50% - 12px);
     border: 1px solid $col-grey-lighter;
     box-sizing: border-box;
     margin: 6px;
-  }
-  &__wide
-  {
-    width: calc(100% - 12px);
-    border: 1px solid $col-grey-lighter;
-    box-sizing: border-box;
-    margin: 6px;
-    &--list
+    padding: 20px;
+
+    &:hover
     {
-      -moz-column-count: 2;
-      -moz-column-gap: 20px;
-      -webkit-column-count: 2;
-      -webkit-column-gap: 20px;
-      column-count: 2;
-      column-gap: 20px;
+      box-shadow: 0 8px 15px 0 rgba(0,0,0,0.15);
+    }
+
+    &--wide
+    {
+      width: calc(100% - 12px);
     }
   }
-  &__normal,
-  &__wide
-  {
-    padding: 20px;
-      &:hover
-      {
-        box-shadow: 0 8px 15px 0 rgba(0,0,0,0.15);
-      }
-  }
-  &__heading
+
+  &__title
   {
     position: relative;
-    font-family: Lato-Black;
+    font-weight: 900;
     font-size: 19px;
     color: $col-black;
-    padding: 0 10px;
     &:after
     {
       content: ' ';
       position: absolute;
       height: 1px;
       width: 30px;
-      bottom: 0px;
-      left: 10px;
-      margin-top: 25px;
+      bottom: 0;
+      left: 0;
       background: $col-black;
-      color: $col-black;
-
     }
   }
   &__links
   {
-    padding: 20px 0;
+    margin-top: 20px;
+
+    &--wide
+    {
+      column-count: 2;
+      column-gap: 20px;
+    }
   }
   &__links-item
   {
-    font-family: Lato-Light;
+    font-weight: 300;
     line-height: 26px;
     cursor: pointer;
-    padding-left: 10px;
+
     &:hover,
     &:active
     {
@@ -76,6 +65,27 @@
     &:active
     {
       text-decoration: underline;
+    }
+  }
+}
+
+@media #{$mobile}
+{
+  .job-list
+  {
+    &__column
+    {
+      width: calc(100% - 12px);
+    }
+    &__links
+    {
+      margin-top: 20px;
+
+      &--wide
+      {
+        column-count: 1;
+        column-gap: 20px;
+      }
     }
   }
 }

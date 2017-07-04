@@ -1,10 +1,18 @@
 <% layout('layouts/default') %>
 
-<div class="container" style="display: flex; flex-direction: row; justify-content: space-between;">
-  <div style="width: 70%;">
-    <%- partial('partials/job-list') %>
-  </div>
-  <div style="width: 30%;">
-    <%- partial('partials/contact-tile') %>
+<div class="section section--header">
+
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="row row--content">
+      <div class="column column__content">
+        <%- partial('partials/job-list') %>
+      </div>
+      <div class="column column__sidebar">
+        <%- partial('partials/contact-tile') %>
+      </div>
+    </div>
   </div>
 </div>
