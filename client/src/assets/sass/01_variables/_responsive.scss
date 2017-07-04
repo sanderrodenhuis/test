@@ -1,9 +1,11 @@
 $mobile-width: 768px;
 $desktop-width: 960px;
+$desktop-width-large: 1440px;
 
 $mobile: "only screen and (max-width: #{$mobile-width - 1})";
 $tablet: "only screen and (min-width: #{$mobile-width}) and (max-width: #{$desktop-width - 1})";
 $desktop: "only screen and (min-width: #{$desktop-width})";
+$desktop-small: "only screen and (min-width: #{$desktop-width}) and (max-width: #{$desktop-width-large - 1})";
 
 $non-desktop: "only screen and (max-width: #{$desktop-width - 1})";
 $non-mobile: "only screen and (min-width: #{$mobile-width})";

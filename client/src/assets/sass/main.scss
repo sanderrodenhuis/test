@@ -11,6 +11,7 @@
 /* Global Styles */
 @import "02_global/grid";
 @import "02_global/typography";
+@import "02_global/sections";
 
 /* Atom Styles */
 @import "03_atoms/site-nav";
@@ -31,6 +32,7 @@
 
 /* Organism Styles */
 @import "05_organisms/job-selection";
+@import "05_organisms/photo-upload";
 
 /* Shame, refactor later */
 @import "shame";
