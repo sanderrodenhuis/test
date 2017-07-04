@@ -27,6 +27,7 @@
   &:hover {
     background: $col-orange;
     border-width: 1px 0;
+    color: $col-white;
   }
   &--secondary {
     background-color: $col-white;
@@ -68,6 +69,12 @@
     &:hover {
       background-color: transparent;
     }
+  }
+  &--border {
+    background-color: transparent;
+    color: $col-orange;
+    border: 1px solid $col-orange;
+    padding: 0;
   }
 }
 
