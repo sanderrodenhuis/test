@@ -137,7 +137,23 @@
     &__label {
       font-size: 14px;
       &--checkbox {
-       line-height: 21px;
+        line-height: 21px;
+      }
+    }
+    &__buttons {
+
+      &--alternative {
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+      }
+    }
+    &__button {
+      &--submit {
+
+        &-alternative {
+          flex-basis: 100%;
+          text-align: center;
+        }
       }
     }
   }

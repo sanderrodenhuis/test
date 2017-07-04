@@ -1,1 +1,54 @@
-contact details logged in
+<% layout('layouts/default') %>
+
+<section class="section">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="column column__content">
+        <h1 class="page-title">Controleer je gegevens</h1>
+
+        <div class="form">
+
+
+          <div class="contact-details">
+            <div class="contact-details__subscription">Basispakket</div>
+            <div class="contact-details__content">
+
+              <div class="contact-details__group">
+
+                <h6 class="contact-details__title">Contactgegevens</h6>
+                <ul class="contact-details__info">
+                  <li>Gerard Verhagen</li>
+                  <li>Gerardv@gmail.com</li>
+                  <li>06 123 412 34</li>
+                </ul>
+              </div>
+              <div class="contact-details__group">
+                <h6 class="contact-details__title">Adresgegevens</h6>
+                <ul class="contact-details__info">
+                  <li>Straatjesstraat 26 bis</li>
+                  <li>1234 AB Amsterdam</li>
+                </ul>
+              </div>
+            </div>
+            <div class="contact-details__actions">
+              <a href="" class="contact-details__link">Wijzigen</a>
+            </div>
+          </div>
+
+          <div class="form__buttons form__buttons--alternative">
+            <a href="/funnel/" class="btn btn--link form__button--back">terug</a>
+            <a href="" class="btn js-btn-submit form__button--submit form__button--submit-alternative">AFSPRAAK BEVESTIGEN</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="column column__sidebar">
+        <%- partial('partials/funnel/sidebar/receipt') %>
+        <%- partial('partials/funnel/sidebar/promotion') %>
+      </div>
+    </div>
+  </div>
+</section>

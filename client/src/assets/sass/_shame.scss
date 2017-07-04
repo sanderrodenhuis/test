@@ -96,8 +96,23 @@ a {
   &--navigation-bottom {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &-col {
+    &1 {
+      order: 1;
+    }
+    &2 {
+      order: 2;
+    }
+    &3 {
+      order: 3;
+      flex-basis: 100%;
+    }
   }
 }
+
 
 @media #{$tablet} {
 
@@ -108,7 +123,7 @@ a {
 
   .btn--header-mobile {
     height: 30px;
-    padding: 0px 10px;
+    padding: 0 10px;
     line-height: 30px;
   }
 
@@ -117,6 +132,25 @@ a {
     font-size: 14px;
     line-height: 24px;
     margin: 35px 0;
+  }
+
+
+  .content__row {
+    &--nav-contact-details {
+      justify-content: center;
+
+      .content__row {
+
+        &-col1 {
+          order: 2;
+        }
+        &-col2 {
+          flex-basis: 100%;
+          order: 1;
+          text-align: center;
+        }
+      }
+    }
   }
 }
 
