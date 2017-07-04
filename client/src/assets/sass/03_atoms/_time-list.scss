@@ -1,20 +1,23 @@
 .time-list {
+  column-count: 2;
+  column-gap: 0px;
+  margin: -10px;
   &__item {
     display: inline-block;
-    padding: 0 20px 20px 0;
+    padding: 10px;
+    width: 50%;
   }
   &__link {
     display: block;
+    width: 130px;
     box-sizing: border-box;
-    min-width: 130px;
     text-align: center;
     border: 1px solid $col-grey;
     color: $col-grey;
     border-radius: 5px;
-    padding: 5px 10px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 25px;
+
+    line-height: 36px;
+    height: 36px;
     &.is-selected,
     &.is-active:hover {
       background-color: $col-orange;
@@ -29,20 +32,9 @@
   }
 }
 
-@media #{$tablet} {
-
-  .time-list {
-    &__item {
-      padding: 0 10px 20px 0;
-    }
-  }
-}
-@media #{$mobile} {
-  .time-list {
-    &__item {
-      padding: 0;
-      margin: 0 10px 15px 0;
-      box-sizing: border-box;
-    }
+@media #{$desktop-small} {
+  .time-list
+  {
+    column-count: 1;
   }
 }
