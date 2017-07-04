@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const passport = require('passport');
 const jsonWebToken = require('jsonwebtoken');
+const fileUpload = require('../utils/file-upload');
+const fs = require('fs');
+const path = require('path');
 
 router.post('/user/login',(req, res, next) => {
   passport.authenticate('local', (err, user) => {
@@ -22,6 +25,20 @@ router.post('/user/login',(req, res, next) => {
       jwt: jwt
     });
   })(req, res, next);
+});
+
+
+router.post('/file/upload', fileUpload({ext: ['jpg','jpeg','gif','png']}), (req, res, next) => {
+  const files = req.files.map(file => {
+    const {filename, destination, originalname, path: oldPath} = file;
+    const newPath = path.join(destination, [Date.now(),filename,originalname].join('__'));
+    fs.renameSync(oldPath, newPath);
+    return filename;
+  });
+  
+  res.json({
+    files
+  });
 });
 
 module.exports = router;
