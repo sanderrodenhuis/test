@@ -3,22 +3,27 @@
   display: flex;
   flex-wrap: wrap;
   background-color: $col-white;
-  &__column
-  {
-    width: calc(50% - 12px);
-    border: 1px solid $col-grey-lighter;
+  margin: -8px;
+  &__item {
+    display: flex;
+    width: 50%;
+    padding: 8px;
     box-sizing: border-box;
-    margin: 6px;
-    padding: 20px;
-
-    &:hover
-    {
-      box-shadow: 0 8px 15px 0 rgba(0,0,0,0.15);
-    }
 
     &--wide
     {
-      width: calc(100% - 12px);
+      width: 100%;
+    }
+  }
+  &__block
+  {
+    border: 1px solid $col-grey-lighter;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    &:hover
+    {
+      box-shadow: 0 8px 15px 0 rgba(0,0,0,0.15);
     }
   }
 
@@ -67,13 +72,13 @@
   }
 }
 
-@media #{$mobile}
+@media #{$non-desktop}
 {
   .job-overview
   {
-    &__column
+    &__item
     {
-      width: calc(100% - 12px);
+      width: 100%;
     }
     &__links
     {
