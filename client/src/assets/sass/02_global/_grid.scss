@@ -2,11 +2,23 @@
   max-width: 1264px;
   margin: 0 auto;
   padding: 0 32px;
+
+
 }
 
 .row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+
+  &--content .column {
+    &__content {
+      width: (100%/12)*8;
+    }
+    &__sidebar {
+      width: (100%/12)*3;
+    }
+  }
 }
 
 .column {
@@ -22,15 +34,12 @@
   .container {
     padding: 0 24px;
   }
+
+
 }
 @media #{$mobile} {
   .container {
     padding: 0 16px;
-  }
-  .row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 
   .column {
@@ -41,6 +50,16 @@
     &__sidebar {
       width: 100%;
       margin-top: 50px;
+    }
+  }
+}
+@media #{$non-desktop} {
+  .row--content .column {
+    &__content {
+      width: 100%;
+    }
+    &__sidebar {
+      width: 100%;
     }
   }
 }
