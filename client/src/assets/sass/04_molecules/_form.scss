@@ -2,15 +2,26 @@
   &__group {
     margin: 20px 0;
     position: relative;
-    &--short {
-      margin-top: 0;
-    }
-    &--flex {
+
+    &--photo
+    {
       display: flex;
-    }
-    &--flex-column {
-      display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+
+      .form__label
+      {
+        flex: 1;
+        order: 1;
+      }
+      .form__control
+      {
+        width: 100%;
+        order: 3;
+      }
+      .form__label--counter
+      {
+        order: 2;
+      }
     }
 
   }
@@ -53,37 +64,43 @@
       font-size: 125%;
     }
   }
-  &__control[type=text],
-  &__control[type=password],
-  &__control[type=email],
-  &__control[type=tel],
-  &__control[type=number] {
-    display: block;
-    font-size: 16px;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+  &__control
+  {
+    @at-root {
+      // a bit hacky to make sure that we can include the textarea styling in this
+      &[type=text],
+      &[type=password],
+      &[type=email],
+      textarea#{&} {
+        display: block;
+        font-size: 16px;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
 
-    background: #FFFFFF;
-    border: 1px solid #BFBFBF;
-    box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.10);
-    border-radius: 2px;
-
-    &.form__control--funnel-search {
+        background: #FFFFFF;
+        border: 1px solid #BFBFBF;
+        box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+        border-radius: 2px;
+      }
+      textarea#{&} {
+        height: 120px;
+      }
+    }
+    &[type=checkbox] {
+      width: 20px;
+      margin: 0 8px 0 0;
+    }
+    &--funnel-search {
       padding-left: 50px;
     }
-    .form__control-icon + & {
+    &-icon + &
+    {
       padding-left: 40px;
     }
   }
-  &__control--textarea {
-    height: 120px;
-  }
-  &__control[type=checkbox] {
-    width: 20px;
-    margin: 0 8px 0 0;
-  }
+
   &__msg {
     color: $col-red;
     font-size: 14px;
@@ -107,11 +124,12 @@
       font-weight: 400;
       line-height: 26px;
     }
-    &--flex {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-    }
+  }
+
+  &__buttons
+  {
+    display: flex;
+    justify-content: space-between;
   }
 
   &--contact-details {
