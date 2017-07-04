@@ -1,3 +1,62 @@
 <% layout('layouts/default') %>
 
-funnel-confirmation new user
+
+<div class="section section--alternative">
+  <div class="container">
+    <%- partial('partials/funnel/breadcrumbs', {currentStep: 4}) %>
+  </div>
+</div>
+<div class="section">
+  <div class="container">
+
+    <h1 class="page-title text-bold">Je klusafspraak is rond!</h1>
+
+    <div class="row">
+      <div class="column column__content">
+
+        <div class="appointment-details">
+
+          <p>Dit kun je verwachten:</p>
+          <ol class="appointment-details__list">
+            <li class="appointment-details__list-item">Je ontvangt binnen enkele minuten een afspraakbevestiging op “<span
+                class="appointment-details__email">john@mail.com</span>”
+            </li>
+            <li class="appointment-details__list-item">24 uur voor je afspraak ontvang je een herinneringsmail</li>
+            <li class="appointment-details__list-item">Eén uur voor je afspraak ontvang je een herinnering via sms</li>
+            <li class="appointment-details__list-item">De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
+          </ol>
+          <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold appointment-details__code"> SDFGS234.</span></p>
+        </div>
+
+      </div>
+      <div class="column column__sidebar hide-mobile">
+        <%- partial('partials/funnel/sidebar/receipt') %>
+        <%- partial('partials/funnel/sidebar/promotion') %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section--alternative">
+  <div class="container">
+    <div class="row">
+      <div class="column column__content">
+        <h2 class="section-title">Afspraakdetails</h2>
+
+
+
+
+
+
+        <div class="form__buttons">
+          <a href="/" class="btn btn--link form__button--back">home</a>
+          <a href="" class="btn form__button--submit">Naar mijn account</a>
+        </div>
+      </div>
+      <div class="column column__sidebar show-mobile">
+        <%- partial('partials/funnel/sidebar/receipt') %>
+        <%- partial('partials/funnel/sidebar/promotion') %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

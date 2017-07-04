@@ -1,0 +1,18 @@
+.appointment-details {
+
+  &__list {
+
+    list-style: decimal;
+    line-height: 26px;
+    padding-left: 15px;
+    margin: 30px 0;
+    &-item {
+
+    }
+  }
+}
+@media #{$tablet} {
+}
+
+@media #{$mobile} {
+}
