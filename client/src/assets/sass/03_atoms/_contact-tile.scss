@@ -1,0 +1,53 @@
+// center vertically,
+.contact-tile
+{
+  background-color: $col-pink;
+  padding: 20px;
+  box-sizing: border-box;
+  color: $col-white;
+  text-align: center;
+  box-shadow: 0 8px 20px 0 rgba(0,0,0,0.15);
+  box-sizing: border-box;
+  margin-top: 6px;
+  &__image
+  {
+    display: block;
+    background-color: $col-white;
+    color: $col-pink;
+    border-radius: 100%;
+    font-size: 46px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    margin: 10px auto;
+  }
+  &__title
+  {
+    font-weight: 900;
+    padding: 0 35px;
+    margin: 15px 0;
+    line-height: 1;
+  }
+  &__info a
+  {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+@media #{$mobile}
+{
+  .contact-tile
+  {
+    margin: 6px;
+  }
+}
+
+@media #{$tablet}
+{
+  .contact-tile
+  {
+    margin: 6px;
+  }
+}
+
