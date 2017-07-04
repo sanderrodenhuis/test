@@ -5,7 +5,6 @@ import 'jquery-datepicker'
 $(() => {
   const $body = $('body');
   
-  console.log('testing');
   const $datepicker = $( "#datepicker" );
   $datepicker.datepicker({
     closeText: "Sluiten",
