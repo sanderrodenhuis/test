@@ -43,6 +43,8 @@ build:
 docker:build:
   image: docker:latest
   stage: docker build
+  only:
+    - development@essent/zo-opgelost
   when: on_success
   tags:
     - dind
