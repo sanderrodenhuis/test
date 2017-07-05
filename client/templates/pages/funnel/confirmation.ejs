@@ -1,3 +1,84 @@
 <% layout('layouts/default') %>
 
-funnel-confirmation new user
+
+<div class="section section--alternative">
+  <div class="container">
+    <%- partial('partials/funnel/breadcrumbs', {currentStep: 4}) %>
+  </div>
+</div>
+<div class="section">
+  <div class="container">
+
+    <h1 class="page-title text-bold">Je klusafspraak is rond!</h1>
+
+    <div class="row">
+      <div class="column column__content">
+
+
+          <p>Dit kun je verwachten:</p>
+          <ol class="appointment-confirmation">
+            <li>Je ontvangt binnen enkele minuten een afspraakbevestiging op “john@mail.com”
+            </li>
+            <li>24 uur voor je afspraak ontvang je een herinneringsmail</li>
+            <li>Eén uur voor je afspraak ontvang je een herinnering via sms</li>
+            <li>De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
+          </ol>
+          <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold"> SDFGS234.</span></p>
+
+
+      </div>
+      <div class="column column__sidebar hide-mobile">
+        <%- partial('partials/funnel/sidebar/receipt') %>
+        <%- partial('partials/funnel/sidebar/promotion') %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section--alternative">
+  <div class="container">
+    <div class="row">
+      <div class="column column__content">
+        <h2 class="section-title">Afspraakdetails</h2>
+
+        <div class="appointment-details">
+
+          <div class="appointment-details__group">
+
+            <ul>
+              <li>Router installeren (€ 50,00)</li>
+              <li>Morgen, (vrijdag 26 mei) tussen 09:00 en 10:00</li>
+              <li>Straatjesstraat 1 bis 1234 AB Amsterdam</li>
+            </ul>
+          </div>
+
+          <div class="appointment-details__group">
+
+            <h6 class="text-bold">Toelichting</h6>
+            <p>We hebben aan de achterzijde van onze woning een gestorte betonplaat. Deze is gestort op een lading puin en grote stenen. Door het inklinken en regen is de plaat verzakt en zit er volgens mij ruimte op diverse plaatsen onder de betonplaat.
+            </p>
+            <div>Bijlagen (4): “huisje.jpg”, “huisje2.jpg”, “huisje3.png”, “huisje4.bmp”</div>
+          </div>
+          <div class="appointment-details__group">
+
+            <h6 class="text-bold">Basis abonnement</h6>
+            <ul>
+              <li>John Doe</li>
+              <li>john@mail.com</li>
+              <li>0612341234</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="form__buttons form__buttons--alternative">
+          <a href="/" class="btn btn--link form__button--back">home</a>
+          <a href="" class="btn form__button--submit form__button--submit-alternative">Naar mijn account</a>
+        </div>
+      </div>
+      <div class="column column__sidebar show-mobile">
+        <%- partial('partials/funnel/sidebar/receipt') %>
+        <%- partial('partials/funnel/sidebar/promotion') %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
