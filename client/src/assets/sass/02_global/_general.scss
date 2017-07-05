@@ -1,0 +1,29 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-body {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page-subtitle {
+  margin: 20px 0;
+}
+
+
+@media #{$mobile} {
+
+  .page-subtitle {
+    font-size: 14px;
+  }
+}

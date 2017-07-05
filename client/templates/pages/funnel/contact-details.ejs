@@ -1,3 +1,147 @@
 <% layout('layouts/default') %>
+<div class="section section--alternative">
+  <div class="container">
+    <%- partial('partials/funnel/breadcrumbs', {currentStep: 3}) %>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
 
-funnel - contact details
+
+    <div class="row">
+
+      <div class="column column__content">
+        <h1 class="page-title">Vul je gegevens in</h1>
+
+        <p class="page-subtitle">Maak binnen 2 minuten een account aan of <a href="login"
+                                                                             class="text text-color">login</a></p>
+
+        <form action="" class="form form--contact-details">
+
+          <div class="form__row">
+            <div class="form__col">
+              <div class="form__group">
+                <label for="firstname" class="form__label">Voornaam</label>
+                <input type="text" class="form__control" placeholder="voornaam" required/>
+              </div>
+            </div>
+            <div class="form__col">
+              <div class="form__group">
+                <label for="lastname" class="form__label">Achternaam</label>
+                <input type="text" class="form__control" placeholder="achternaam" required/>
+              </div>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__col form__col--full">
+              <div class="form__group">
+                <label for="email" class="form__label">E-mailadres</label>
+                <input type="email" class="form__control" placeholder="e-mailadres" required/>
+
+                <div class="form__msg">
+                  Dit e-mailadres werd niet herkend
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__col">
+              <div class="form__group">
+                <label for="mobilenumber" class="form__label">Telefoonnummer</label>
+                <input type="tel" class="form__control" placeholder="" required/>
+              </div>
+            </div>
+          </div>
+            <p>Je ontvangt een (gratis) sms een uur voor de afspraak</p>
+          <div class="form__row">
+            <div class="form__col">
+              <div class="form__group">
+                <label for="postcode" class="form__label">Postcode</label>
+                <input type="text" class="form__control" placeholder="Bijv. 1234AB" required/>
+              </div>
+            </div>
+            <div class="form__col">
+              <div class="form__group">
+
+                <label for="housenumber" class="form__label">Huisnummer + toevoeging</label>
+
+                <div class="form__row form__row--secondary">
+                  <div class="form__col">
+                    <input type="number" class="form__control" placeholder="" required/>
+                  </div>
+                  <div class="form__col">
+                    <input type="number" class="form__control" placeholder="" required/>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__col">
+              <div class="form__group">
+
+                <label for="password" class="form__label">Wachtwoord</label>
+                <input type="password" class="form__control"
+                       placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" required/>
+              </div>
+            </div>
+            <div class="form__col">
+              <div class="form__group">
+
+                <label for="repeat-password" class="form__label">Controle</label>
+                <input type="password" class="form__control"
+                       placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" required/>
+
+                <div class="form__msg">
+                  De wachtwoorden komen niet overeen
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+
+      </div>
+
+      <div class="column column__sidebar hide-mobile">
+        <%- partial('partials/funnel/sidebar/receipt') %>
+        <%- partial('partials/funnel/sidebar/promotion') %>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section--alternative">
+  <div class="container">
+
+    <div class="row">
+      <div class="column column__content">
+        <h2 class="section-title">Kies je abonnement</h2>
+        <%- partial('components/subscription') %>
+
+
+        <div class="form__buttons form__buttons--cols">
+            <div class="form__group form__button-col">
+              <input type="checkbox"/>
+              <label for="">Ik ga akkord met <a href="" class="text text-color"> de algemene voorwaarden</a></label>
+            </div>
+
+          <a href="" class="btn js-btn-submit form__button--submit">bevertigen</a>
+          <a href="/funnel/" class="btn btn--link form__button--back form__button--back-alternative">terug</a>
+        </div>
+
+        <div class="column column__sidebar show-mobile">
+          <%- partial('partials/funnel/sidebar/receipt') %>
+          <%- partial('partials/funnel/sidebar/promotion') %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
