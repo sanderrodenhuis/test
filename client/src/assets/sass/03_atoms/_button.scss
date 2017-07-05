@@ -74,4 +74,11 @@
 
 
 @media #{$tablet} {}
-@media #{$mobile} {}
+@media #{$mobile} {
+  .btn {
+    &--block {
+      display: block;
+      text-align: center;
+    }
+  }
+}
