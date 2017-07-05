@@ -14,18 +14,18 @@
     <div class="row">
       <div class="column column__content">
 
-        <div class="appointment-details">
+        <div class="appointment-confirmation">
 
           <p>Dit kun je verwachten:</p>
-          <ol class="appointment-details__list">
-            <li class="appointment-details__list-item">Je ontvangt binnen enkele minuten een afspraakbevestiging op “<span
-                class="appointment-details__email">john@mail.com</span>”
+          <ol class="appointment-confirmation__list">
+            <li class="appointment-confirmation__list-item">Je ontvangt binnen enkele minuten een afspraakbevestiging op “<span
+                class="appointment-confirmation__email">john@mail.com</span>”
             </li>
-            <li class="appointment-details__list-item">24 uur voor je afspraak ontvang je een herinneringsmail</li>
-            <li class="appointment-details__list-item">Eén uur voor je afspraak ontvang je een herinnering via sms</li>
-            <li class="appointment-details__list-item">De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
+            <li class="appointment-confirmation__list-item">24 uur voor je afspraak ontvang je een herinneringsmail</li>
+            <li class="appointment-confirmation__list-item">Eén uur voor je afspraak ontvang je een herinnering via sms</li>
+            <li class="appointment-confirmation__list-item">De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
           </ol>
-          <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold appointment-details__code"> SDFGS234.</span></p>
+          <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold appointment-confirmation__code"> SDFGS234.</span></p>
         </div>
 
       </div>
@@ -42,14 +42,39 @@
       <div class="column column__content">
         <h2 class="section-title">Afspraakdetails</h2>
 
+        <div class="appointment-details">
 
+          <div class="appointment-details__group">
 
+            <ul class="">
+              <li class="appointment-details__job">Router installeren (<span class="appointment-details__cost">€ 50,00</span>)</li>
+              <li class=""><span class="appointment-details__date">Morgen, (vrijdag 26 mei)</span> tussen <span class="appointment-details__time"> 09:00 en 10:00</span></li>
+              <li class=" appointment-details__address">Straatjesstraat 1 bis
+                1234 AB Amsterdam</li>
+            </ul>
+          </div>
 
+          <div class="appointment-details__group">
 
+            <h6 class="appointment-details__title">Toelichting</h6>
+            <p class="appointment-details__description">We hebben aan de achterzijde van onze woning een gestorte betonplaat. Deze is gestort op een lading puin en grote stenen. Door het inklinken en regen is de plaat verzakt en zit er volgens mij ruimte op diverse plaatsen onder de betonplaat.
+            </p>
+            <div class="appointment-details__upload">Bijlagen (4): “huisje.jpg”, “huisje2.jpg”, “huisje3.png”, “huisje4.bmp”</div>
+          </div>
+          <div class="appointment-details__group">
 
-        <div class="form__buttons">
+            <h6 class="appointment-details__title appointment-details__subscription">Basis abonnement</h6>
+            <ul>
+              <li class="appointment-details__name">John Doe</li>
+              <li class="appointment-details__email">john@mail.com</li>
+              <li class="appointment-details__phone">0612341234</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="form__buttons form__buttons--alternative">
           <a href="/" class="btn btn--link form__button--back">home</a>
-          <a href="" class="btn form__button--submit">Naar mijn account</a>
+          <a href="" class="btn form__button--submit form__button--submit-alternative">Naar mijn account</a>
         </div>
       </div>
       <div class="column column__sidebar show-mobile">
