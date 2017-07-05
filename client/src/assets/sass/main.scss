@@ -9,6 +9,7 @@
 @import "01_variables/fonts";
 
 /* Global Styles */
+@import "02_global/general";
 @import "02_global/grid";
 @import "02_global/typography";
 @import "02_global/sections";
@@ -21,6 +22,7 @@
 @import "03_atoms/sidebar-promotion";
 @import "03_atoms/datepicker";
 @import "03_atoms/time-list";
+@import "03_atoms/button";
 @import "03_atoms/job-overview";
 @import "03_atoms/overview-intro";
 
@@ -33,6 +35,7 @@
 @import "04_molecules/site-footer";
 @import "04_molecules/filter-list";
 @import "04_molecules/contact-details";
+@import "04_molecules/block-subscription";
 
 /* Organism Styles */
 @import "05_organisms/job-selection";
