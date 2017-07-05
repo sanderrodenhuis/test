@@ -1,0 +1,94 @@
+.job-overview
+{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $col-white;
+  margin: -8px;
+  &__item {
+    display: flex;
+    width: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+
+    &--wide
+    {
+      width: 100%;
+    }
+  }
+  &__block
+  {
+    border: 1px solid $col-grey-lighter;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    &:hover
+    {
+      box-shadow: 0 8px 15px 0 rgba(0,0,0,0.15);
+    }
+  }
+
+  &__title
+  {
+    position: relative;
+    font-weight: 900;
+    font-size: 19px;
+    color: $col-black;
+    &:after
+    {
+      content: ' ';
+      position: absolute;
+      height: 1px;
+      width: 30px;
+      bottom: 0;
+      left: 0;
+      background: $col-black;
+    }
+  }
+  &__links
+  {
+    margin-top: 20px;
+
+    &--wide
+    {
+      column-count: 2;
+      column-gap: 20px;
+    }
+  }
+  &__links-item
+  {
+    font-weight: 300;
+    line-height: 26px;
+    cursor: pointer;
+
+    &:hover,
+    &:active
+    {
+      color: $col-orange;
+    }
+    &:active
+    {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media #{$non-desktop}
+{
+  .job-overview
+  {
+    &__item
+    {
+      width: 100%;
+    }
+    &__links
+    {
+      margin-top: 20px;
+
+      &--wide
+      {
+        column-count: 1;
+        column-gap: 20px;
+      }
+    }
+  }
+}
