@@ -72,6 +72,8 @@
       &[type=text],
       &[type=password],
       &[type=email],
+      &[type=number],
+      &[type=tel],
       textarea#{&} {
         display: block;
         font-size: 16px;
@@ -130,9 +132,16 @@
   &__buttons
   {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
-
+  &__button {
+    &--back {
+      &-alternative {
+        flex-basis: 100%;
+      }
+    }
+  }
   &--contact-details {
     .form__group {
       margin: 0;
@@ -141,6 +150,30 @@
 }
 
 @media #{$tablet} {
+  .form {
+    &__buttons {
+      &--cols {
+        .form__button {
+          &--submit {
+            order:3;
+          }
+        }
+      }
+    }
+    &__button {
+      &--back {
+        &-alternative {
+          flex-basis: 0;
+          order: 2;
+        }
+      }
+      &-col {
+        flex-basis: 100%;
+        order:1;
+      }
+
+    }
+  }
 }
 
 @media #{$mobile} {
@@ -182,15 +215,32 @@
         flex-wrap: wrap-reverse;
         justify-content: center;
       }
+      &--cols {
+        .form__button {
+          &--submit {
+            order:3;
+          }
+        }
+      }
+
     }
     &__button {
       &--submit {
-
         &-alternative {
           flex-basis: 100%;
           text-align: center;
         }
       }
+      &--back {
+        &-alternative {
+          flex-basis: 0;
+
+        }
+      }
+      &-col {
+        flex-basis: 100%;
+      }
+
     }
   }
 }
