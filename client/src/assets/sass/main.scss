@@ -12,15 +12,19 @@
 @import "02_global/general";
 @import "02_global/grid";
 @import "02_global/typography";
+@import "02_global/sections";
 
 /* Atom Styles */
 @import "03_atoms/site-nav";
 @import "03_atoms/breadcrumbs";
+@import "03_atoms/contact-tile";
 @import "03_atoms/sidebar-receipt";
 @import "03_atoms/sidebar-promotion";
 @import "03_atoms/datepicker";
 @import "03_atoms/time-list";
 @import "03_atoms/button";
+@import "03_atoms/job-overview";
+@import "03_atoms/overview-intro";
 
 /* Molecule Styles */
 @import "04_molecules/form";
@@ -30,10 +34,12 @@
 @import "04_molecules/site-menu";
 @import "04_molecules/site-footer";
 @import "04_molecules/filter-list";
+@import "04_molecules/contact-details";
 @import "04_molecules/block-subscription";
 
 /* Organism Styles */
 @import "05_organisms/job-selection";
+@import "05_organisms/photo-upload";
 
 /* Shame, refactor later */
 @import "shame";

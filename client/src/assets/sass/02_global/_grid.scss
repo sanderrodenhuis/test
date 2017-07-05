@@ -2,19 +2,41 @@
   max-width: 1264px;
   margin: 0 auto;
   padding: 0 32px;
+
+
 }
 
 .row {
   display: flex;
   justify-content: space-between;
+  margin: -8px;
+  flex-wrap: wrap;
+
 }
 
 .column {
+  padding: 8px;
+  box-sizing: border-box;
   &__content {
     width: (100%/12)*7;
   }
   &__sidebar {
     width: (100%/12)*4;
+  }
+  &--timepicker
+  {
+    flex: 1
+  }
+}
+
+@media #{$non-desktop} {
+  .column
+  {
+    &--datepicker,
+    &--timepicker
+    {
+      width: 100%;
+    }
   }
 }
 
@@ -27,12 +49,6 @@
   .container {
     padding: 0 16px;
   }
-  .row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
   .column {
     &__content {
       width: 100%;
@@ -43,4 +59,18 @@
       margin-top: 50px;
     }
   }
+}
+
+
+@media #{$desktop} {
+  .hide-desktop { display: none !important; }
+}
+@media #{$non-desktop} {
+  .show-desktop { display: none !important; }
+}
+@media #{$mobile} {
+  .hide-mobile { display: none !important; }
+}
+@media #{$non-mobile} {
+  .show-mobile { display: none !important; }
 }
