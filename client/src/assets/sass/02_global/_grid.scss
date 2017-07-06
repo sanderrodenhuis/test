@@ -17,6 +17,11 @@
   box-sizing: border-box;
   &__content {
     width: (100%/12)*7;
+    &--heading,
+    &--narrow
+    {
+      width: (100%/12)*5;
+    }
   }
   &__sidebar {
     width: (100%/12)*4;
@@ -30,6 +35,13 @@
 @media #{$non-desktop} {
   .column
   {
+    &__content {
+      &--heading,
+      &--narrow
+      {
+        width: 100%;
+      }
+    }
     &--datepicker,
     &--timepicker
     {
@@ -41,6 +53,18 @@
 @media #{$tablet} {
   .container {
     padding: 0 24px;
+  }
+  .column {
+    &__content {
+      &--heading
+      {
+        width: (100%/8)*4;
+      }
+      &--narrow
+      {
+        width: (100%/8)*5.5;
+      }
+    }
   }
 }
 @media #{$mobile} {
