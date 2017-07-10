@@ -22,7 +22,7 @@
     &--heading,
     &--narrow
     {
-      width: (100%/12)*5;
+      width: (100%/12)*5.5;
     }
   }
   &__sidebar {
@@ -64,7 +64,7 @@
       }
       &--narrow
       {
-        width: (100%/8)*5.5;
+        width: (100%/8)*6;
       }
     }
   }
@@ -84,7 +84,6 @@
     }
   }
 }
-
 
 @media #{$desktop} {
   .hide-desktop { display: none !important; }
