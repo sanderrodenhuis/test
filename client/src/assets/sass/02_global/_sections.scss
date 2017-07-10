@@ -10,9 +10,49 @@
       color: $col-pink;
     }
   }
-  &__text
+  .section-no-background
+  {
+    background-color: transparent;
+  }
+  &__text,
+  &__list
   {
   margin: 20px 0 40px;
+  }
+  &__list
+  {
+    li
+    {
+      margin-bottom: 20px;
+      margin-left: 20px;
+    }
+    &--disc
+    {
+      list-style: disc;
+
+    }
+    &--col-2
+    {
+      column-count: 2;
+    }
+  }
+  &__info
+  {
+    background-color: $col-pink;
+    color: $col-white;
+    position: relative;
+    &--alarm
+    {
+      padding: 20px 20px 22px 90px;
+    }
+  }
+  &__image
+  {
+    position: absolute;
+    font-size: 36px;
+    left: 5%;
+    top: 15%;
+    transform: translate( 5%, 50%)
   }
   &--header
   {
@@ -33,6 +73,25 @@
         font-size: 26px;
         line-height: 32px;
       }
+    }
+    &__list
+    {
+      &--col-2
+      {
+        column-count: 1;
+      }
+    }
+    &__info
+    {
+      padding: 86px 24px 34px 24px;
+      text-align: center;
+    }
+    &__image
+    {
+      position: absolute;
+      left: 40%;
+      top: 5%;
+      transform: translate( 50%, 50%)
     }
   }
 }

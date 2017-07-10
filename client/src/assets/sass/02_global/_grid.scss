@@ -19,10 +19,10 @@
   box-sizing: border-box;
   &__content {
     width: (100%/12)*7;
-    &--heading,
+    &--header,
     &--narrow
     {
-      width: (100%/12)*5.5;
+      width: (100%/12)*6;
     }
   }
   &__sidebar {
@@ -38,7 +38,7 @@
   .column
   {
     &__content {
-      &--heading,
+      &--header,
       &--narrow
       {
         width: 100%;
@@ -58,7 +58,7 @@
   }
   .column {
     &__content {
-      &--heading
+      &--header
       {
         width: (100%/8)*4;
       }
