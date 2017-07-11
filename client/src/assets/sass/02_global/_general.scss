@@ -27,3 +27,24 @@ a {
     font-size: 14px;
   }
 }
+
+
+@media #{$mobile} {
+  .well
+  {
+    padding: 76px 24px 34px 24px;
+    text-align: center;
+    &--alarm
+    {
+      .alarm
+      {
+        position: absolute;
+        left: 50%;
+        top: 40px;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+
+  }
+}
