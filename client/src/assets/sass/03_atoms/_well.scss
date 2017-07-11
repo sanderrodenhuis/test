@@ -1,0 +1,18 @@
+.well
+{
+  background-color: $col-pink;
+  color: $col-white;
+  position: relative;
+  &--alarm
+  {
+    padding: 20px 20px 22px 90px;
+    .alarm
+    {
+      position: absolute;
+      font-size: 36px;
+      left: 47px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -16,25 +16,6 @@ a {
   text-decoration: none;
 }
 
-.well
-{
-  background-color: $col-pink;
-  color: $col-white;
-  position: relative;
-  &--alarm
-  {
-    padding: 20px 20px 22px 90px;
-    .alarm
-    {
-      position: absolute;
-      font-size: 36px;
-      left: 47px;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-}
-
 .page-subtitle {
   margin: 20px 0;
 }
@@ -45,6 +26,10 @@ a {
   .page-subtitle {
     font-size: 14px;
   }
+}
+
+
+@media #{$mobile} {
   .well
   {
     padding: 76px 24px 34px 24px;
@@ -59,5 +44,7 @@ a {
         transform: translate(-50%, -50%);
       }
     }
+
+
   }
 }
