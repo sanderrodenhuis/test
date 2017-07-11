@@ -4,10 +4,14 @@
   &--alternative
   {
     background: $col-grey-lighter;
+    .section-title
+    {
+      color: $col-pink;
+    }
   }
-  &__text
+  .section-no-background
   {
-    margin: 20px 0 40px;
+    background-color: transparent;
   }
   &--header
   {
@@ -48,13 +52,6 @@
       {
         font-size: 26px;
         line-height: 32px;
-      }
-    }
-    &__list
-    {
-      &--col-2
-      {
-        column-count: 1;
       }
     }
   }
