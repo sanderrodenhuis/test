@@ -27,6 +27,9 @@
   {
     flex: 1
   }
+  &__content-50 {
+    width: 50%;
+  }
 }
 
 @media #{$non-desktop} {

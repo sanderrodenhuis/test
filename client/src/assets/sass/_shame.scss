@@ -19,6 +19,89 @@
 }
 
 
+.content__title--home {
+  background-color: $col-pink;
+  color: $col-white;
+  max-width: 500px;
+  padding: 5px 20px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.booking-info {
+  margin: 20px 0;
+  &__item {
+    position: relative;
+    padding: 10px 10px 10px 25px;
+    font-weight: 700;
+
+    @include icon(check-mark--rounded, before, false);
+    &:before
+    {
+      position: absolute;
+      left: 0px;
+      color: $col-pink;
+    }
+  }
+}
+
+.booking-step {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  &__item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 120px 10px 0 10px;
+    text-align: center;
+
+    &-1 {
+      @include icon(magnifying-glass, before, false);
+    }
+    &-2 {
+      @include icon(calendar, before, false);
+    }
+    &-3 {
+      @include icon(pen, before, false);
+    }
+    &:before
+    {
+      position: absolute;
+      top: 0;
+      height: 100px;
+      width: 100px;
+      font-size: 40px;
+      line-height: 100px;
+      background-color: $col-white;
+      border-radius: 50%;
+
+    }
+  }
+  &__delimiter {
+    width: 70px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top:30%;
+      left: 0;
+      height: 2px;
+      width: calc(100% - 15px);
+      border-top: 2px dashed $col-black;
+    }
+    &:after {
+      content: '>';
+      position: absolute;
+      top:calc(30% - 7px);
+      right: 0;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
 
 @media #{$tablet} {
   .content__row {

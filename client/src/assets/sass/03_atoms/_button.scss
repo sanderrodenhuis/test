@@ -49,19 +49,23 @@
     background-color: transparent;
     color: $col-orange;
     position: relative;
-    @include icon(arrow-left--bold, before, false);
-    &:before {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translate(0,-50%);
-      font-size: 12px;
+
+    &-icon {
+      @include icon(arrow-left--bold, before, false);
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0,-50%);
+        font-size: 12px;
+      }
     }
     &:hover {
       background-color: transparent;
       color: $col-red;
     }
   }
+
   &--border {
     background-color: transparent;
     color: $col-orange;

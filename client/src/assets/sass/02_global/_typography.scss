@@ -15,6 +15,11 @@ h1
 {
   font-size: (48rem / 16);
   margin: 20px 0px;
+
+  &.home {
+    font-size: 40px;
+    line-height: 40px;
+  }
 }
 h2
 {
@@ -34,3 +39,5 @@ p
 {
   font-weight: normal;
 }
+
+

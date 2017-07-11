@@ -3,7 +3,7 @@
   padding: 50px 0px;
   &--alternative
   {
-    background: $col-grey-lighter;
+    background: rgba(247, 247, 247, 0.6);
 
     .section-title
     {
@@ -12,5 +12,23 @@
   }
   &__text {
     margin: 20px 0 40px;
+  }
+
+  &--header {
+    &-home {
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: 0;
+        left: 0;
+        bottom: -200px;
+        background: url('../images/circles-B.svg') top right no-repeat;
+        background-size: 85% ;
+        z-index: -1;
+      }
+    }
   }
 }
