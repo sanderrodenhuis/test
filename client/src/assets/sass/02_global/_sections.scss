@@ -40,7 +40,7 @@
   }
   &__block {
     &--home {
-      margin: 35px 40px 35px 0;
+      margin: 35px 0;
 
     }
   }
@@ -55,6 +55,7 @@
 }
 @media #{$mobile} {
   .section {
+    padding: 20px 0;
     &--image {
       padding: 27%;
     }

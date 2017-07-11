@@ -1,0 +1,18 @@
+.booking {
+  &-info {
+    margin: 20px 0;
+    &__item {
+      position: relative;
+      padding: 10px 10px 10px 25px;
+      font-weight: 700;
+
+      @include icon(check-mark--rounded, before, false);
+      &:before {
+        position: absolute;
+        left: 0;
+        color: $col-pink;
+      }
+    }
+  }
+}
+
