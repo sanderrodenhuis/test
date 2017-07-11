@@ -19,6 +19,7 @@ h1
 h2
 {
   font-size: (30rem / 16);
+  color: $col-pink;
 }
 h3
 {
@@ -36,4 +37,32 @@ p
 strong
 {
   font-weight: bold;
+}
+.list
+{
+  margin: 20px 0 40px;
+  li
+  {
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  &--disc
+  {
+    list-style: disc;
+
+  }
+  &--col-2
+  {
+    column-count: 2;
+  }
+}
+
+@media #{$mobile} {
+  .list
+  {
+    &--col-2
+    {
+      column-count: 1;
+    }
+  }
 }
