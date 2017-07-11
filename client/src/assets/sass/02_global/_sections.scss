@@ -1,14 +1,15 @@
 .section
 {
-  padding: 50px 0px;
+  padding: 50px 0;
   &--alternative
   {
     background: rgba(247, 247, 247, 0.6);
 
-    .section-title
-    {
-      color: $col-pink;
-    }
+  }
+  &--image {
+    padding: 19%;
+    background: url('../images/image.png') center right;
+    background-size: cover;
   }
   &__text {
     margin: 20px 0 40px;
@@ -31,4 +32,37 @@
       }
     }
   }
+
+  &__description {
+    font-size: 19px;
+    line-height: 29px;
+    font-weight: 300;
+  }
+  &__block {
+    &--home {
+      margin: 35px 40px 35px 0;
+
+    }
+  }
+}
+@media #{$tablet} {
+  .section {
+    &--image {
+      padding: 22.5%;
+    }
+  }
+
+}
+@media #{$mobile} {
+  .section {
+    &--image {
+      padding: 27%;
+    }
+    &__text {
+      &--home {
+        margin: 20px 0;
+      }
+    }
+  }
+
 }

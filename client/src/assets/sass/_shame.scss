@@ -81,7 +81,8 @@
     }
   }
   &__delimiter {
-    width: 70px;
+    max-width: 65px;
+    width: 100%;
     position: relative;
     &:before {
       content: '';
@@ -93,7 +94,7 @@
       border-top: 2px dashed $col-black;
     }
     &:after {
-      content: '>';
+      content: '\25B6';
       position: absolute;
       top:calc(30% - 7px);
       right: 0;
