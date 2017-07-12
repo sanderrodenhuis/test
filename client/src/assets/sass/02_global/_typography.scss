@@ -34,6 +34,9 @@ h4, h5, h6
 p
 {
   font-weight: normal;
+  a {
+    color: $col-orange;
+  }
 }
 strong
 {
@@ -56,22 +59,31 @@ strong
   {
     column-count: 2;
   }
+  &--col-home {
+    column-count: 4;
+  }
 }
 .text {
 
   &-bold {
     font-weight: 700;
   }
-  &-color {
-    color: $col-orange;
+}
+@media #{$tablet} {
+  .list {
+    &--col-home {
+      column-count: 3;
+    }
   }
 }
-
 @media #{$mobile} {
   .list
   {
     &--col-2
     {
+      column-count: 1;
+    }
+    &--col-home {
       column-count: 1;
     }
   }

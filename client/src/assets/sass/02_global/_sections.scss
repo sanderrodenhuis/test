@@ -7,8 +7,9 @@
 
   }
   &--image {
-    padding: 19%;
-    background: url('../images/image.png') center right;
+    padding-top: (550/1440)*100%;
+    padding-bottom: 0;
+    background: url('../images/homepage--banner.png') center right no-repeat;
     background-size: cover;
   }
   &__text {
@@ -30,7 +31,7 @@
         right: 0;
         left: 0;
         bottom: -200px;
-        background: url("../images/circles-A.svg") top right no-repeat;
+        background: url("../images/circles.svg") top right no-repeat;
         background-size: 85% ;
         z-index: -1;
       }
@@ -51,7 +52,7 @@
 @media #{$tablet} {
   .section {
     &--image {
-      padding: 22.5%;
+      padding-top: (413/768)*100%;
     }
   }
 
@@ -74,7 +75,9 @@
       }
     }
     &--image {
-      padding: 27%;
+      padding-top: (172/320)*100%;
+      padding-bottom: 0;
+      margin: 0 16px;
     }
     &__text {
       &--home {
