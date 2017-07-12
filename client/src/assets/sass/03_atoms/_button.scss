@@ -10,13 +10,16 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  border-color: $col-orange;
+  border-color: $col-orange-dark;
+  border-style: solid;
   background-color: $col-orange;
   color: $col-white;
   text-transform: uppercase;
+  vertical-align: middle;
   &:hover {
     background: $col-orange;
-    border-width: 1px 0;
+    border-top-color: $col-orange;
+    border-width: 1px 0 1px;
     color: $col-white;
   }
   &--secondary {
@@ -58,6 +61,7 @@
       font-size: 12px;
     }
     &:hover {
+      border-color: transparent;
       background-color: transparent;
       color: $col-red;
     }
