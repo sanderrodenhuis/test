@@ -5,7 +5,10 @@
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.10);
   padding: 30px;
   color: $col-black;
-
+  &__home
+  {
+    margin-top: 48px;
+  }
   &__header
   {
     font-size: 20px;
