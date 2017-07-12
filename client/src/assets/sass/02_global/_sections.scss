@@ -20,6 +20,32 @@
     {
       font-weight: 300;
     }
+    &-home {
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: -100px;
+        right: 0;
+        left: 0;
+        bottom: -200px;
+        background: url("../images/circles-A.svg") top right no-repeat;
+        background-size: 85% ;
+        z-index: -1;
+      }
+    }
+  }
+  &__description {
+    font-size: 19px;
+    line-height: 29px;
+    font-weight: 300;
+  }
+  &__block {
+    &--home {
+      margin: 35px 0;
+
+    }
   }
 }
 @media #{$tablet} {
@@ -45,32 +71,6 @@
       p
       {
         font-weight: 300;
-      }
-      &-home {
-        position: relative;
-
-        &:after {
-          content: '';
-          position: absolute;
-          top: -100px;
-          right: 0;
-          left: 0;
-          bottom: -200px;
-          background: url('../images/circles-B.svg') top right no-repeat;
-          background-size: 85% ;
-          z-index: -1;
-        }
-      }
-    }
-    &__description {
-      font-size: 19px;
-      line-height: 29px;
-      font-weight: 300;
-    }
-    &__block {
-      &--home {
-        margin: 35px 0;
-
       }
     }
     &--image {
