@@ -1,0 +1,37 @@
+.well
+{
+  background-color: $col-pink;
+  color: $col-white;
+  position: relative;
+  &--alarm
+  {
+    padding: 20px 20px 22px 90px;
+  }
+
+  &__icon
+  {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    &.icon-alarm
+    {
+      font-size: 36px;
+      left: 47px;
+      top: 50%;
+    }
+  }
+}
+
+
+@media #{$mobile} {
+  .well
+  {
+    padding: 76px 24px 34px 24px;
+    text-align: center;
+    &__icon.icon-alarm
+    {
+      left: 50%;
+      top: 40px;
+    }
+  }
+}

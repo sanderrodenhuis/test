@@ -14,34 +14,11 @@
   &__text {
     margin: 20px 0 40px;
   }
-
-  &--header {
-    &-home {
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        top: -100px;
-        right: 0;
-        left: 0;
-        bottom: -200px;
-        background: url('../images/circles-B.svg') top right no-repeat;
-        background-size: 85% ;
-        z-index: -1;
-      }
-    }
-  }
-
-  &__description {
-    font-size: 19px;
-    line-height: 29px;
-    font-weight: 300;
-  }
-  &__block {
-    &--home {
-      margin: 35px 0;
-
+  &--header
+  {
+    p
+    {
+      font-weight: 300;
     }
   }
 }
@@ -54,8 +31,48 @@
 
 }
 @media #{$mobile} {
-  .section {
+  .section
+  {
     padding: 20px 0;
+
+    &--header
+    {
+      h1
+      {
+        font-size: 26px;
+        line-height: 32px;
+      }
+      p
+      {
+        font-weight: 300;
+      }
+      &-home {
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: -100px;
+          right: 0;
+          left: 0;
+          bottom: -200px;
+          background: url('../images/circles-B.svg') top right no-repeat;
+          background-size: 85% ;
+          z-index: -1;
+        }
+      }
+    }
+    &__description {
+      font-size: 19px;
+      line-height: 29px;
+      font-weight: 300;
+    }
+    &__block {
+      &--home {
+        margin: 35px 0;
+
+      }
+    }
     &--image {
       padding: 27%;
     }
@@ -67,3 +84,6 @@
   }
 
 }
+
+
+

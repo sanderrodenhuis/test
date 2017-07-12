@@ -19,6 +19,11 @@
   box-sizing: border-box;
   &__content {
     width: (100%/12)*7;
+    &--header,
+    &--narrow
+    {
+      width: (100%/12)*6;
+    }
     &--home {
       width: 50%;
       padding-right: 50px;
@@ -38,14 +43,20 @@
   }
   &--timepicker
   {
-    flex: 1;
+    flex: 1
   }
-
 }
 
 @media #{$non-desktop} {
   .column
   {
+    &__content {
+      &--header,
+      &--narrow
+      {
+        width: 100%;
+      }
+    }
     &--datepicker,
     &--timepicker
     {
@@ -58,9 +69,17 @@
   .container {
     padding: 0 24px;
   }
-
   .column {
     &__content {
+
+      &--header
+      {
+        width: (100%/8)*4;
+      }
+      &--narrow
+      {
+        width: (100%/8)*6;
+      }
       &--home {
         padding-right: 8px;
         &-alternative {
@@ -70,7 +89,7 @@
     }
     &__sidebar {
       &--home {
-          width: 100%;
+        width: 100%;
         &-alternative {
           width: 50%;
           padding-bottom: 50px;
@@ -78,6 +97,7 @@
       }
     }
   }
+
 }
 @media #{$mobile} {
   .container {
