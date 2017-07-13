@@ -1,8 +1,6 @@
-.section
-{
+.section {
   padding: 50px 0;
-  &--alternative
-  {
+  &--alternative {
     background: rgba(247, 247, 247, 0.6);
 
   }
@@ -12,16 +10,24 @@
     background: url('../images/homepage--banner.png') center right no-repeat;
     background-size: cover;
   }
+  &__image {
+    &--tools {
+      max-width: 100%;
+      width: calc((6/12)*100% - 64px);
+      margin: 0 32px;
+      position: absolute;
+      right: 0;
+      top: 50px;
+    }
+  }
   &__text {
     margin: 20px 0 40px;
   }
-  &--header
-  {
-    p
-    {
+  &--header {
+    p {
       font-weight: 300;
     }
-    &-home {
+    &-circles {
       position: relative;
 
       &:after {
@@ -30,9 +36,9 @@
         top: -100px;
         right: 0;
         left: 0;
-        bottom: -200px;
+        bottom: -250px;
         background: url("../images/circles.svg") top right no-repeat;
-        background-size: 85% ;
+        background-size: cover;
         z-index: -1;
       }
     }
@@ -49,30 +55,48 @@
     }
   }
 }
+
 @media #{$tablet} {
   .section {
-    &--image {
-      padding-top: (413/768)*100%;
+    &__image {
+      &--tools {
+        top: 150px;
+        width: calc((5/ 8) * 100% - 48px);
+        margin: 0 24px;
+      }
+    }
+    &--header {
+      &-circles {
+
+        &:after {
+          top: -60px;
+        }
+      }
     }
   }
 
 }
+
 @media #{$mobile} {
-  .section
-  {
+  .section {
     padding: 20px 0;
 
-    &--header
-    {
-      h1
-      {
+    &--header {
+      h1 {
         font-size: 26px;
         line-height: 32px;
       }
-      p
-      {
+      p {
         font-weight: 300;
       }
+
+      &-circles {
+
+        &:after {
+          top: -60px;
+        }
+      }
+
     }
     &--image {
       padding-top: (172/320)*100%;
@@ -83,6 +107,18 @@
       &--home {
         margin: 20px 0;
       }
+    }
+    &__image {
+      &--tools {
+        top: 0;
+        width: calc(100% - 32px);
+        margin: 0 16px;
+        z-index: -1;
+      }
+    }
+    &__description {
+      font-size: 17px;
+      line-height: 27px;
     }
   }
 

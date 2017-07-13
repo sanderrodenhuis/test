@@ -7,7 +7,9 @@
   margin: 55px 0;
 }
 
+.container--tools {
 
+}
 @media #{$tablet} {
   .content__row {
 
@@ -61,6 +63,20 @@
     }
   }
 
+  .tools {
+    top: -200px;
+    width: calc(100% - 32px);
+    height: auto;
+    bottom: 110px;
+    margin: 0 16px;
+    box-sizing: border-box;
+    z-index: -1;
+  }
+
+
+  .container--tools {
+    padding-top: 200px;
+  }
 }
 
 
