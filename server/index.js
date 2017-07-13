@@ -1,13 +1,14 @@
 require('dotenv').config();
 
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
 
-var engine = require('ejs-mate');
-var http = require('http');
+const engine = require('ejs-mate');
+const http = require('http');
 
 
-var app = express();
+
+const app = express();
 
 app.set('views', path.join(__dirname,'../client/templates'));
 app.set('view engine', 'ejs');

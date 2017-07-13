@@ -5,7 +5,7 @@ body {
   font-size: 16px;
   line-height: 26 / 16;
 }
-h1, h2, h3, h4, h5, h6, p
+h1, h2, h3, h4, h5, h6, p, ul
 {
   font-weight: 300;
   line-height: (26 / 16);
@@ -31,7 +31,7 @@ h4, h5, h6
   font-weight: normal;
 }
 
-p
+p, ul
 {
   font-weight: normal;
 }
@@ -44,16 +44,12 @@ strong
 }
 .list
 {
-  margin: 20px 0 40px;
+  text-align: left;
+  margin: 0;
   li
   {
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-  &--disc
-  {
-    list-style: disc;
-
+    position: relative;
+    padding: 0px 10px 10px 25px;
   }
   &--col-2
   {
@@ -62,12 +58,30 @@ strong
   &--col-home {
     column-count: 4;
   }
-}
-.text {
 
-  &-bold {
-    font-weight: 700;
+  &--disc
+  {
+    list-style: disc inside;
+    li
+    {
+      padding-left: 0;
+    }
   }
+  &--check
+  {
+    list-style: none;
+    li
+    {
+      @include icon(check-mark--rounded, before, false);
+      &:before
+      {
+        position: absolute;
+        left: 0px;
+        color: $col-pink;
+      }
+    }
+  }
+
 }
 @media #{$tablet} {
   .list {
@@ -79,14 +93,10 @@ strong
 @media #{$mobile} {
   .list
   {
-    &--col-2
+    &--col-2,
+    &--col-home
     {
-      column-count: 1;
-    }
-    &--col-home {
       column-count: 1;
     }
   }
 }
-
-
