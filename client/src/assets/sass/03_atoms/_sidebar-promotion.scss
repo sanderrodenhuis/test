@@ -6,9 +6,14 @@
   padding: 30px;
   color: $col-black;
 
-  &__header
+  &__title
   {
     font-size: 20px;
+    font-weight: bold;
+  }
+  &__subtitle
+  {
+    font-weight: bold;
   }
   &__list
   {
@@ -16,16 +21,6 @@
   }
   &__list-item
   {
-    padding: 10px 10px 10px 25px;
-    position: relative;
-
-    @include icon(check-mark--rounded, before, false);
-    &:before
-    {
-      position: absolute;
-      left: 0px;
-      color: $col-pink;
-    }
 
   }
   &__divider
@@ -51,10 +46,6 @@
       font-size: 45px;
     }
 
-    &--heading
-    {
-      font-weight: bold;
-    }
     &--read-more
     {
       color: #FF7400;
