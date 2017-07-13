@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="874" height="1434" viewBox="0 0 874 1434">
+  <defs>
+    <linearGradient id="a" x1="-134.88" y1="-627.09" x2="-134.88" y2="-625.99" gradientTransform="translate(190051 879994) scale(1404)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e80066"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="b" x1="-134.88" y1="-626.85" x2="-134.88" y2="-626.35" gradientTransform="translate(190051 879994) scale(1404)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff7400"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="c" x1="-135" y1="-626.83" x2="-135" y2="-626.35" gradientTransform="translate(189971 880024) scale(1404)" xlink:href="#b"/>
+    <linearGradient id="d" x1="-135.02" y1="-627.09" x2="-135.02" y2="-625.99" xlink:href="#a"/>
+    <linearGradient id="e" x1="-135.02" y1="-626.85" x2="-135.02" y2="-626.35" xlink:href="#b"/>
+    <linearGradient id="f" x1="-134.97" y1="-626.83" x2="-134.97" y2="-626.35" gradientTransform="translate(189971 880024) scale(1404)" xlink:href="#b"/>
+  </defs>
+  <title>circles</title>
+  <g>
+    <path d="M874,51.2V6a715.6,715.6,0,0,0-92-6A699.8,699.8,0,0,0,496,60.7a707.33,707.33,0,0,1,378-9.5Z" opacity="0.15" fill="url(#a)" style="isolation: isolate"/>
+    <path d="M874,51.2V6a715.6,715.6,0,0,0-92-6A699.8,699.8,0,0,0,496,60.7a707.33,707.33,0,0,1,378-9.5Z" opacity="0.25" fill="url(#b)" style="isolation: isolate"/>
+    <path d="M782,1404c-387.7,0-702-314.3-702-702C80,416.2,250.9,170.2,496,60.7,208.8,148.7,0,416,0,732c0,387.7,314.3,702,702,702a706.48,706.48,0,0,0,172-21.2V1398A698.06,698.06,0,0,1,782,1404Z" opacity="0.2" fill="url(#c)" style="isolation: isolate"/>
+    <path d="M80,702c0,387.7,314.3,702,702,702a698.06,698.06,0,0,0,92-6V51.2a707.33,707.33,0,0,0-378,9.5C250.9,170.2,80,416.2,80,702Z" opacity="0.15" fill="url(#d)" style="isolation: isolate"/>
+    <path d="M80,702c0,387.7,314.3,702,702,702a698.06,698.06,0,0,0,92-6V51.2a707.33,707.33,0,0,0-378,9.5C250.9,170.2,80,416.2,80,702Z" opacity="0.25" fill="url(#e)" style="isolation: isolate"/>
+    <path d="M80,702c0,387.7,314.3,702,702,702a698.06,698.06,0,0,0,92-6V51.2a707.33,707.33,0,0,0-378,9.5C250.9,170.2,80,416.2,80,702Z" opacity="0.2" fill="url(#f)" style="isolation: isolate"/>
+  </g>
+</svg>

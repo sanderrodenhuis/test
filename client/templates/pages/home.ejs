@@ -1,8 +1,103 @@
 <% layout('layouts/default') %>
 
-<div class="container">
+<div class="section section--header section--header-circles">
+  <div class="container container--image">
+    <div class="row">
+      <div class="column column__content column__content--header-home">
+        <div class="well well--home">
+          <h1>Internet installeren?</h1>
+          <h1 class="text-bold">ZoOpgelost</h1>
+        </div>
+        <div class="button-bar">
+          <a href="#" class="btn btn--block">KLUS INPLANNEN</a>
+          <a href="#" class="btn btn--link btn--block">Lees meer</a>
+        </div>
+      </div>
+    </div>
+    <img src="/assets/images/tools.svg" alt="" class="section__header-image section__header-image--tools">
+  </div>
+</div>
 
+<div class="section section--alternative">
+  <div class="container">
+    <div class="row">
+      <div class="column column__content column__content--description">
+        <p class="section__description">
+          Thuis is waar je jezelf op je gemak voelt, maar soms gaat er wel eens
+          wat mis. Of je hebt gewoon een klusje waar jxe zelf maar niet aan toe komt. ZoOpgelost van Essent staat met
+          een team van experts direct voor je klaar met een supersnelle oplossing.
+          <strong>Spoed? Bel 0800 - 123 123</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column column__content column__content--home">
+        <div class="section__block section__block--home">
 
+          <h2>Boek je expert in 3 eenvoudige stappen</h2>
+          <p class="section__text">Een klusafspraak maken met één van onze experts is zo gemaakt:
+            Je ontvangt een sms een uur voor de afspraak! Daarnaast zijn
+            wij pas tevreden als jij dat ook bent. Daarom kun je bij iedere klus rekenen op:</p>
+          <ul class="list list--check">
+            <li>Geen voorrijkosten</li>
+            <li>Geen voorschot, factuur komt pas na de klus</li>
+            <li>Garantie op de uitvoering</li>
+          </ul>
+          <a class="btn">Zoek jouw klus en boek</a>
+        </div>
+      </div>
+      <div class="column column__sidebar column__sidebar--home column__sidebar--home-alternative">
+        <div class="booking-step">
+          <a href="" class="booking-step__button booking-step__button--prev"></a>
+          <ul class="booking-step__list">
+            <li class="booking-step__item booking-step__item-1 is-active">Zoek eenvoudig je klus</li>
+            <li class="booking-step__delimiter"></li>
+            <li class="booking-step__item booking-step__item-2"> Kies een datum en tijdslot</li>
+            <li class="booking-step__delimiter"></li>
+            <li class="booking-step__item booking-step__item-3">Vul je gegevens in en klaar!</li>
+          </ul>
+          <a class="booking-step__button booking-step__button--next"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section--image">
+</div>
 
+<div class="section">
+  <div class="container">
+    <h2>Onze experts staan voor je klaar!</h2>
+    <p class="section__text section__text--home">Onze ervaren experts zijn zorgvuldig geselecteerd. Ze helpen onder
+      andere bij deze veelvoorkomende klussen:</p>
+    <ul class="list list--disc list--col-home">
+      <li>Dakbedekking</li>
+      <li>Internet aansluitingen</li>
+      <li>Plank ophangen</li>
+      <li>Schilderen binnenwerk</li>
+      <li>Dakgoot repareren</li>
+      <li>Lood en zinkwerk</li>
+      <li>Gordijnrails ophangen</li>
+      <li>Schilderen buitenwerk</li>
+    </ul>
+    <a href="" class="btn btn--block">BEKIJK ALLE KLUSSEN</a>
+    <a href="" class="btn btn--link btn--block">MAAK DIRECT EEN AFSPRAAK</a>
+  </div>
+</div>
+<div class="section section--alternative">
+  <div class="container">
+    <div class="row">
+      <div class="column column__content column__content--home column__content--home-alternative">
+        <h2>Zo opgelost abonnementen</h2>
+        <p class="section__text">Voor iedereen is er een basispakket, waarmee je al iedere soort reguliere klus kunt
+          inplannen. Voor Essent-klanten is er bovendien een Premium-pakket met onder andere korting en kunnen
+          inplannen van spoedklussen.</p>
+        <a href="#" class="btn">DIRECT INSCHRIJVEN</a>
+      </div>
+      <div class="column column__sidebar column__sidebar--home ">
+        <%- partial('components/subscription') %>
+      </div>
+    </div>
+  </div>
 </div>
 

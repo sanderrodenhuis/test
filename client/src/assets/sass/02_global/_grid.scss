@@ -2,6 +2,7 @@
   max-width: 1264px;
   margin: 0 auto;
   padding: 0 32px;
+  position: relative;
 }
 
 .row {
@@ -26,9 +27,29 @@
     {
       width: (100%/12)*6;
     }
+    &--header-home
+    {
+      width: (4/12) * 100%;
+    }
+    &--home {
+      width: 50%;
+      padding-right: 50px;
+    }
+    &--description {
+      width: 50%;
+    }
   }
   &__sidebar {
     width: (100%/12)*4;
+    &--home {
+      width: 50%;
+      &-alternative {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 100px;
+      }
+    }
   }
   &--timepicker
   {
@@ -57,6 +78,9 @@
 @media #{$tablet} {
   .container {
     padding: 0 24px;
+    &--image {
+      padding-bottom: 150px;
+    }
   }
   .column {
     &__content {
@@ -68,21 +92,58 @@
       {
         width: (100%/8)*6;
       }
+      &--home {
+        padding-right: 8px;
+        &-alternative {
+          width: 100%;
+        }
+      }
+      &--header-home
+      {
+        width: 50%;
+      }
+      &--description {
+        width: (6/8)*100%;
+      }
+    }
+    &__sidebar {
+      &--home {
+        width: 100%;
+        &-alternative {
+          width: 50%;
+          padding-bottom: 50px;
+        }
+      }
     }
   }
 }
 @media #{$mobile} {
   .container {
     padding: 0 16px;
+    &--image {
+      padding-top: 62.5vw;
+    }
   }
   .column {
     &__content {
       width: 100%;
-
+      &--home {
+        padding-right: 8px;
+      }
+      &--header-home
+      {
+        width: 100%;
+      }
     }
     &__sidebar {
       width: 100%;
       margin-top: 50px;
+      &--home {
+          margin-top: 0;
+        &-alternative {
+          padding-bottom: 50px;
+        }
+      }
     }
   }
 }

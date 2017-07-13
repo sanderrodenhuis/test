@@ -1,0 +1,159 @@
+.booking-step
+{
+  &__item
+  {
+    position: relative;
+    text-align: center;
+    padding: 120px 10px 0 10px;
+
+    &-1 {
+      @include icon(magnifying-glass, before, false);
+    }
+    &-2 {
+      @include icon(calendar, before, false);
+    }
+    &-3 {
+      @include icon(pen, before, false);
+    }
+    &:before {
+      position: absolute;
+      top: 0;
+      height: 100px;
+      width: 100px;
+      font-size: 40px;
+      line-height: 100px;
+      background-color: $col-white;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media #{$non-mobile} {
+  .booking-step {
+
+    &__list {
+
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
+    &__item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      left: 0 !important;
+
+
+    }
+    &__delimiter {
+      max-width: 65px;
+      width: 100%;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top:30%;
+        left: 0;
+        height: 2px;
+        width: calc(100% - 15px);
+        border-top: 2px dashed $col-black;
+      }
+      &:after {
+        content: '\25B6';
+        position: absolute;
+        top:calc(30% - 7px);
+        right: 0;
+        width: 10px;
+        height: 10px;
+      }
+    }
+    &__button {
+      display: none;
+    }
+  }
+}
+
+@media #{$tablet} {
+  .booking-step {
+    &__item {
+    padding-top: 85px;
+      line-height: 20px;
+      &:before {
+        width: 68px;
+        height: 68px;
+        font-size: 29px;
+        line-height: 68px;
+      }
+    }
+    &__delimiter {
+      width: 20px;
+      &:before {
+        top: 23%;
+      }
+      &:after {
+        top: calc(23% - 7px);
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .booking-step {
+    position: relative;
+
+    &__list {
+      display: block;
+      position: relative;
+      width: calc(100% - 60px);
+      height: 180px;;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    &__item {
+      display: block;
+      height: 100%;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+
+      transition: left 1s ease;
+      transform: translate(-50%, 0);
+
+      &.is-active {
+
+      }
+
+
+      &:before {
+        left: 50%;
+        transform: translate(-50%,0);
+      }
+    }
+    &__delimiter {
+      display: none;
+    }
+    &__button {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 30px;
+      width: 30px;
+      line-height: 30px;
+      cursor: pointer;
+      z-index: 1;
+      &--prev {
+        left: 0;
+        @include icon(arrow-left, before, false);
+      }
+      &--next {
+        @include icon(arrow-right, before, false);
+        right: 0;
+        text-align: right;
+      }
+    }
+  }
+}

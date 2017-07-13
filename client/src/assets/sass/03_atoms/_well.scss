@@ -20,6 +20,18 @@
       top: 50%;
     }
   }
+  &--home {
+    //max-width: 400px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    h1 {
+      font-size: 40px;
+      line-height: 40px;
+      margin: 0;
+
+    }
+  }
 }
 
 
@@ -32,6 +44,15 @@
     {
       left: 50%;
       top: 40px;
+    }
+    &--home {
+      display: inline-block;
+      padding: 10px 20px;
+      text-align: left;
+      h1 {
+        font-size: 21px;
+        line-height: 27px;
+      }
     }
   }
 }

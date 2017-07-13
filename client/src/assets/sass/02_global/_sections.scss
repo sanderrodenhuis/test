@@ -1,54 +1,106 @@
-.section
-{
-  padding: 50px 0px;
-  &--alternative
-  {
-    background: $col-grey-lighter;
-    .section-title
-    {
-      color: $col-pink;
+.section {
+  padding: 50px 0;
+  &--alternative {
+    background: rgba(247, 247, 247, 0.6);
+
+  }
+  &--image {
+    padding-top: (550/1440)*100%;
+    padding-bottom: 0;
+    background: url('../images/homepage--banner.png') center right no-repeat;
+    background-size: cover;
+  }
+  &__header-image--tools {
+    max-width: 100%;
+    width: calc((6/12)*100% - 64px);
+    margin: 0 32px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+  }
+  &__text {
+    margin: 20px 0 40px;
+  }
+  &--header {
+    p {
+      font-weight: 300;
+    }
+    &-circles {
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: (872/1440) * 100vw;
+        height: ((1434/874) * (872/1440)) * 100vw;
+
+        background: url("../images/circles.svg") top right no-repeat;
+        background-size: cover;
+        z-index: -1;
+      }
     }
   }
-  &--header
-  {
-    p
-    {
-      font-weight: 300;
+  &__description {
+    font-size: 19px;
+    line-height: 29px;
+    font-weight: 300;
+  }
+  &__block {
+    &--home {
+      margin: 35px 0;
+
+    }
+  }
+}
+
+@media #{$tablet} {
+  .section {
+    &__header-image--tools {
+      top: 150px;
+      width: calc((5/ 8) * 100% - 48px);
+      margin: 0 24px;
     }
   }
 }
 
 @media #{$mobile} {
-  .section
-  {
-    &--header
-    {
-      h1
-      {
+  .section {
+    padding: 20px 0;
+
+    &--header {
+      h1 {
         font-size: 26px;
         line-height: 32px;
       }
+      p {
+        font-weight: 300;
+      }
+    }
+    &--image {
+      padding-top: (172/320)*100%;
+      padding-bottom: 0;
+      margin: 0 16px;
+    }
+    &__text {
+      &--home {
+        margin: 20px 0;
+      }
+    }
+    &__header-image--tools {
+      top: 0;
+      width: calc(100% - 32px);
+      margin: 0 16px;
+      z-index: -1;
+    }
+    &__description {
+      font-size: 17px;
+      line-height: 27px;
     }
   }
-  &--header
-  {
-    p
-    {
-      font-weight: 300;
-    }
-  }
+
 }
 
-@media #{$mobile} {
-  .section
-  {
-    &--header
-    {
-      h1
-      {
-        font-size: 26px;
-        line-height: 32px;
-      }
-    }
-  }
-}
+
+
