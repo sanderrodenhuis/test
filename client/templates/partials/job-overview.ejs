@@ -1,96 +1,15 @@
 <div class="job-overview">
-  <div class="job-overview__item">
+  <% categories.forEach((category, idx) => { %>
+  <div class="job-overview__item <%- (idx == categories.length -1)? 'job-overview__item--wide':'' %>">
     <div class="job-overview__block">
-      <h6 class="job-overview__title">Internet</h6>
-      <ul class="job-overview__links">
-        <li class="job-overview__links-item">Kraan aansluiten of vervangen</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
+      <h6 class="job-overview__title"><%- category.Name %></h6>
+      <ul class="job-overview__links <%- (idx == categories.length -1)? 'job-overview__links--wide':'' %>">
+        <% category.Jobs.forEach(job => { %>
+        <li class="job-overview__links-item"><%- job.Name %></li>
+        <% }); %>
       </ul>
     </div>
   </div>
-  <div class="job-overview__item">
-    <div class="job-overview__block">
-      <h6 class="job-overview__title">Computeronderhoud</h6>
-      <ul class="job-overview__links">
-        <li class="job-overview__links-item">Kraan aansluiten of vervangen</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-      </ul>
-    </div>
-  </div>
-  <div class="job-overview__item">
-    <div class="job-overview__block">
-      <h6 class="job-overview__title">Elektra</h6>
-      <ul class="job-overview__links">
-        <li class="job-overview__links-item">Kraan aansluiten of vervangen</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-      </ul>
-    </div>
-  </div>
-  <div class="job-overview__item">
-    <div class="job-overview__block">
-      <h6 class="job-overview__title">Apparatuur</h6>
-      <ul class="job-overview__links">
-        <li class="job-overview__links-item">Kraan aansluiten of vervangen</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="job-overview__item">
-    <div class="job-overview__block">
-      <h6 class="job-overview__title">Water</h6>
-      <ul class="job-overview__links">
-        <li class="job-overview__links-item">Kraan aansluiten of vervangen</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-      </ul>
-    </div>
-  </div>
-  <div class="job-overview__item">
-    <div class="job-overview__block">
-      <h6 class="job-overview__title">Verwarming</h6>
-      <ul class="job-overview__links">
-        <li class="job-overview__links-item">Kraan aansluiten of vervangen</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-      </ul>
-    </div>
-  </div>
-  <div class="job-overview__item job-overview__item--wide">
-    <div class="job-overview__block">
-      <h6 class="job-overview__title">Overig</h6>
-      <ul class="job-overview__links job-overview__links--wide">
-        <li class="job-overview__links-item">Reparatie dak / dakbedekking aanleggen </li>
-        <li class="job-overview__links-item">Lood en zinkwerk</li>
-        <li class="job-overview__links-item">Deurslot vervangen</li>
-        <li class="job-overview__links-item">Schilderwerk binnen / buiten</li>
-        <li class="job-overview__links-item">Plank ophangen</li>
-        <li class="job-overview__links-item">Stucen</li>
-        <li class="job-overview__links-item">Houtrot behandelen</li>
-        <li class="job-overview__links-item">Deur afhangen</li>
-
-        <li class="job-overview__links-item">Isolatie dak</li>
-        <li class="job-overview__links-item">Waterleiding vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">WC spoelbak repareren</li>
-        <li class="job-overview__links-item">Riolering vervangen/ verplaatsen</li>
-        <li class="job-overview__links-item">Witgoed aansluiten</li>
-        <li class="job-overview__links-item">Lekkage detectie</li>
-        <li class="job-overview__links-item">Verstoppingen verhelpen</li>
-        <li class="job-overview__links-item">Lekkende kraan verhelpen</li>
-      </ul>
-    </div>
-  </div>
+  <% }); %>
 </div>
 
