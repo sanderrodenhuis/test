@@ -18,9 +18,6 @@
     right: 0;
     top: 50px;
   }
-  &__text {
-    margin: 20px 0 40px;
-  }
   &--header {
     p {
       font-weight: 300;
@@ -46,12 +43,6 @@
     font-size: 19px;
     line-height: 29px;
     font-weight: 300;
-  }
-  &__block {
-    &--home {
-      margin: 35px 0;
-
-    }
   }
 }
 

@@ -1,5 +1,5 @@
 $grid-columns: 12;
-$grid-gutter: 20px;
+$grid-gutter: 16px;
 
 $breakpoints: (
   default: (
@@ -7,20 +7,22 @@ $breakpoints: (
     gutter: $grid-gutter
   ),
   sm: (
-    max-width: 767px,
-    gutter: 10px,
-    columns: 6
+    max-width: $mobile-width - 1,
+    gutter: 32px,
+    columns: 4
   ),
   md: (
-    min-width: 768px,
-    max-width: 959px
+    min-width: $mobile-width,
+    max-width: $desktop-width - 1,
+    gutter: 48px,
+    columns: 8
   ),
   lg: (
-    min-width: 960px,
-    max-width: 1439px
+    min-width: $desktop-width,
+    max-width: $desktop-width-large - 1
   ),
   xl: (
-    min-width: 1440px
+    min-width: $desktop-width-large
   )
 );
 
@@ -118,13 +120,6 @@ $breakpoints: (
       }
     }
 
-    %base-col#{$suffix}
-    {
-      @if ($gutter != null) {
-        padding-left: ($gutter / 2);
-        padding-right: ($gutter / 2);
-      }
-    }
     #{selector-unique(".col",".col#{$suffix}")}
     {
       flex-basis: 0;
@@ -139,17 +134,39 @@ $breakpoints: (
       max-width: none;
       @extend %base-col#{$suffix} !optional;
     }
+    %base-col#{$suffix}
+    {
+      @if ($gutter != null) {
+        padding-left: ($gutter / 2);
+        padding-right: ($gutter / 2);
+      }
+    }
+    @if ($suffix) {
+      @for $i from 1 through $columns {
+        $width: percentage($i / $columns);
+        .col-#{$i}
+        {
+          flex: 0 0 $width;
+          max-width: $width;
+          @extend %base-col#{$suffix} !optional;
+        }
+        .col-offset-#{$i}
+        {
+          margin-left: $width;
+        }
+      }
+    }
     @for $i from 1 through $columns {
       $width: percentage($i / $columns);
 
-      #{selector-unique(".col-#{$i}",".col#{$suffix}-#{$i}")}
+      .col#{$suffix}-#{$i}
       {
         flex: 0 0 $width;
         max-width: $width;
         @extend %base-col#{$suffix} !optional;
       }
 
-      #{selector-unique(".col-offset-#{$i}",".col-offset#{$suffix}-#{$i}")}
+      .col-offset#{$suffix}-#{$i}
       {
         margin-left: $width;
       }

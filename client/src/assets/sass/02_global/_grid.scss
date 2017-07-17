@@ -27,29 +27,9 @@
     {
       width: (100%/12)*6;
     }
-    &--header-home
-    {
-      width: (4/12) * 100%;
-    }
-    &--home {
-      width: 50%;
-      padding-right: 50px;
-    }
-    &--description {
-      width: 50%;
-    }
   }
   &__sidebar {
     width: (100%/12)*4;
-    &--home {
-      width: 50%;
-      &-alternative {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: 100px;
-      }
-    }
   }
   &--timepicker
   {

@@ -99,6 +99,7 @@
 @media #{$mobile} {
   .booking-step {
     position: relative;
+    margin: 30px 0;
 
     &__list {
       display: block;
