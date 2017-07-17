@@ -1,6 +1,7 @@
 import $ from './jquery'
 import './modal';
 import './job-selection';
+import './job-selection--account';
 import './datepicker';
 import './photo-upload';
 import './form-validation';
