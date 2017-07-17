@@ -82,6 +82,10 @@ deploy:dev:
             -e CI_REGISTRY_IMAGE=$CI_REGISTRY_IMAGE
             -e CI_BUILD_USER=gitlab-ci-token
             -e CI_BUILD_TOKEN=$CI_BUILD_TOKEN
+            -e JWT_ISSUER=$JWT_ISSUER
+            -e JWT_SECRET=$JWT_SECRET
+            -e MENDIX_USER=$MENDIX_USER
+            -e MENDIX_PASS=$MENDIX_PASS
             deploy.yml
   dependencies:
     - docker:build
