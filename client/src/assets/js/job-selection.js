@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 $(() => {
   const $body = $('body');
-  // expand and collapse for the funnel/task-selection/filter-list
+  // expand and collapse for the filter-list
   $body.on('click','.filter-list__title',(event) => {
     event.preventDefault();
     const $target = $(event.target),

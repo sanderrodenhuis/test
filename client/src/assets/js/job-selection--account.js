@@ -23,11 +23,7 @@ $(() => {
       if (categoryId !== '*')
         $items.filter((idx,elem) => $(elem).data('category-id').toString() !== categoryId).addClass('is-hidden');
 
-      if (query)
-      {
-        const regex = new RegExp(query, 'i');
-        $items.filter((idx, elem) => !$(elem).text().match(regex)).addClass('is-hidden');
-      }
+
     });
   });
 });
