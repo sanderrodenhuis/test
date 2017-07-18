@@ -13,7 +13,7 @@ $(() => {
             categoryId = data;
       $jobSelectionJobs.trigger('filter',[query,categoryId]);
     };
-    $jobSelectionForm.on('keyup','input',fnFilter);
+    $jobSelectionForm.on('keyup','input', () => fnFilter(null, $jobSelectionFilters.find('.is-active').data('filter-data')));
     $jobSelectionFilters.on('filtered',fnFilter);
 
     $jobSelectionJobs.on('filter',(event, query = '', categoryId = '*') => {

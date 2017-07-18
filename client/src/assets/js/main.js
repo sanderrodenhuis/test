@@ -24,4 +24,23 @@ $(() => {
   });
 
 
+  $('.selection').each((idx, elem) => {
+    const $jobSelection = $(elem),
+      $jobSelectionFilters = $jobSelection.find('.selection__filters'),
+      $jobSelectionJobs = $jobSelection.find('.selection__results');
+
+
+    const filter = (event, categoryId = '*') => {
+      const $items = $jobSelectionJobs.find('.result-list__item');
+      categoryId = categoryId.toString();
+      $items.removeClass('is-hidden');
+
+      if (categoryId !== '*')
+        $items.filter((idx, elem) => $(elem).data('category-id').toString() !== categoryId).addClass('is-hidden');
+    }
+
+    $jobSelectionFilters.on('filtered', filter);
+
+
+  });
 });

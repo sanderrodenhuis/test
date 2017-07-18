@@ -1,0 +1,41 @@
+.job-list {
+  &__item {
+    box-sizing: border-box;
+    border-bottom: 1px solid $col-black;
+    font-weight: 300;
+    font-size: 16px;
+    &.is-hidden
+    {
+      display: none;
+    }
+  }
+  &__link {
+    color: $col-black;
+    display: block;
+    padding: 20px 20px 20px 0;
+    position: relative;
+
+    @include icon(arrow-right, after, false);
+    &:after {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0,-50%);
+      font-size: 12px;
+    }
+
+  }
+
+}
+
+
+@media #{$mobile} {
+
+  .job-list {
+    &__item {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+}

@@ -13,28 +13,19 @@
         <p>Op deze pagina vind je een overzicht van al je klussen.</p>
         <div class="selection">
 
-          <div class="filter-list selection__filters">
-            <h6 class="filter-list__title">Filter overziht</h6>
-
-            <ul class="filter-list__items">
-              <li class="filter-list__item">
-                <a href="#" class="filter-list__link is-active" data-category-id="*">
-                  Alles klussen
-                </a>
-              </li>
-              <% categories.forEach(category => { %>
-              <li class="filter-list__item">
-                <a href="#" class="filter-list__link" data-category-id="<%= category.IdJobCategory %>">
-                  <%= category.Name %>
-                </a>
-              </li>
-              <% }) %>
-            </ul>
-          </div>
+          <%- partial('components/filter-list', {
+            title: 'Filter overziht',
+            titleAll: 'Alles klussen',
+            className: 'selection__filters',
+            items: categories.map(category => ({
+              title: category.Name,
+              value: category.IdJobCategory
+            }))
+          }) %>
 
           <div class="selection__results">
             <ul class="result-list">
-              <li class="result-list__item result-list__item--alternative" data-category-id="1">
+              <li class="result-list__item" data-category-id="1">
                   <h6>Router installeren</h6>
                   <div class="row result-list__row">
                     <div class="col-lg-3 col-md-3 col-sm-12 result-list__col">Afspraaknummer
@@ -54,7 +45,7 @@
 
                   </div>
               </li>
-              <li class="result-list__item result-list__item--alternative" data-category-id="1">
+              <li class="result-list__item" data-category-id="1">
                   <h6>Router installeren</h6>
                   <div class="row result-list__row">
                     <div class="col-lg-3 col-md-3 col-sm-12 result-list__col">Afspraaknummer
@@ -74,7 +65,7 @@
                     <div class="feedback">rating</div>
                   </div>
               </li>
-              <li class="result-list__item result-list__item--alternative" data-category-id="2">
+              <li class="result-list__item" data-category-id="2">
                   <h6>Afgerond</h6>
                   <div class="row result-list__row">
                     <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">
@@ -96,7 +87,7 @@
                     </ul>
                   </div>
               </li>
-              <li class="result-list__item result-list__item--alternative" data-category-id="2">
+              <li class="result-list__item" data-category-id="2">
                   <h6>Afgerond</h6>
                   <div class="row result-list__row">
                     <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">
@@ -118,7 +109,7 @@
                     </ul>
                   </div>
               </li>
-              <li class="result-list__item result-list__item--alternative" data-category-id="3">
+              <li class="result-list__item" data-category-id="3">
                   <h6 class="warning">Klus geannuleerd</h6>
                   <div class="row result-list__row">
                     <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">
