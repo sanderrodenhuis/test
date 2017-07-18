@@ -16,7 +16,7 @@ $(() => {
     $selectionFilters.on('filtered',fnFilter);
 
     $selectionResults.on('filter',(event, query = '', categoryId = '*') => {
-      const $items = $selectionResults.find('.list-overview');
+      const $items = $selectionResults.find('.job-list__item');
       categoryId = categoryId.toString();
       $items.removeClass('is-hidden');
 
