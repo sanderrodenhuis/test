@@ -64,6 +64,23 @@
       }
     }
   }
+  .list-overview {
+
+    &__details {
+
+    }
+    &__list {
+
+    }
+    &__item {
+
+
+    }
+    &__link {
+     font-size: 14px;
+    }
+
+  }
 
 }
 
@@ -119,17 +136,16 @@
   .list-overview {
 
     &__details {
-
+      padding: 20px 10px;
     }
     &__list {
 
     }
     &__item {
-      display: inline-block;
+      display: block;
 
     }
     &__link {
-      color: $col-orange;
     }
 
   }
