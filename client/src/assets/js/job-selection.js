@@ -8,9 +8,9 @@ $(() => {
           $jobSelectionFilters = $jobSelection.find('.job-selection__filters'),
           $jobSelectionJobs = $jobSelection.find('.job-selection__jobs');
 
-    const fnFilter = () => {
+    const fnFilter = (event, data) => {
       const query = $jobSelectionForm.find('input').val(),
-            categoryId = $jobSelectionFilters.find('.is-active').data('category-id');
+            categoryId = data;
       $jobSelectionJobs.trigger('filter',[query,categoryId]);
     };
     $jobSelectionForm.on('keyup','input',fnFilter);

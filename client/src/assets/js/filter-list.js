@@ -3,7 +3,7 @@ import $ from 'jquery'
 $(() => {
 
   const $body = $('body');
-  // expand and collapse for the funnel/task-selection/filter-list
+
   $body.on('click','.filter-list__title',(event) => {
     event.preventDefault();
     const $target = $(event.target),
@@ -17,7 +17,8 @@ $(() => {
 
     $filterList.find('.is-active').removeClass('is-active');
     $target.addClass('is-active');
-    $filterList.trigger('filtered');
+    $filterList.toggleClass('is-expanded');
+    $filterList.trigger('filtered',[$target.data('filter-data')]);
   });
 
 });

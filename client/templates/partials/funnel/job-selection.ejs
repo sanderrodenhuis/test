@@ -6,8 +6,15 @@
     </div>
   </form>
 
-  <%- partial('components/filter-list')%>
-
+  <%- partial('components/filter-list', {
+    title: 'Filter klussen',
+    titleAll: 'Alles',
+    className: 'job-selection__filters',
+    items: categories.map(category => ({
+      title: category.Name,
+      value: category.IdJobCategory
+    }))
+  }) %>
   <div class="job-selection__jobs">
     <ul class="job-list">
       <% categories.forEach(category => { %>
