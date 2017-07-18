@@ -20,22 +20,22 @@ $(() => {
     $filterList.trigger('filtered');
   });
 
-  $('.job-selection').each((idx, elem) => {
+  $('.selection').each((idx, elem) => {
     const $jobSelection = $(elem),
-          $jobSelectionForm = $jobSelection.find('.job-selection__form'),
-          $jobSelectionFilters = $jobSelection.find('.job-selection__filters'),
-          $jobSelectionJobs = $jobSelection.find('.job-selection__jobs');
+          $jobSelectionForm = $jobSelection.find('.selection__form'),
+          $selectionFilters = $jobSelection.find('.selection__filters'),
+          $jobSelectionJobs = $jobSelection.find('.selection__results');
 
     const fnFilter = () => {
       const query = $jobSelectionForm.find('input').val(),
-            categoryId = $jobSelectionFilters.find('.is-active').data('category-id');
+            categoryId = $selectionFilters.find('.is-active').data('category-id');
       $jobSelectionJobs.trigger('filter',[query,categoryId]);
     };
     $jobSelectionForm.on('keyup','input',fnFilter);
-    $jobSelectionFilters.on('filtered',fnFilter);
+    $selectionFilters.on('filtered',fnFilter);
 
     $jobSelectionJobs.on('filter',(event, query = '', categoryId = '*') => {
-      const $items = $jobSelectionJobs.find('.job-list__item');
+      const $items = $jobSelectionJobs.find('.result-list__item');
       categoryId = categoryId.toString();
       $items.removeClass('is-hidden');
 

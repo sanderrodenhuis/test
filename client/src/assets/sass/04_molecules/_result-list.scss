@@ -1,4 +1,4 @@
-.job-list {
+.result-list {
   &__item {
     box-sizing: border-box;
     border-bottom: 1px solid $col-black;
@@ -47,7 +47,7 @@
 
 @media #{$mobile} {
 
-  .job-list {
+  .result-list {
     &__item {
       font-size: 14px;
       line-height: 21px;

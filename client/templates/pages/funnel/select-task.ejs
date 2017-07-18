@@ -1,26 +1,30 @@
 <% layout('layouts/default') %>
-<div class="container">
+<div class="section">
 
-  <h1>Kies een klus</h1>
+  <div class="container">
 
-  <div class="row">
+    <h1>Kies een klus</h1>
 
-    <div class="column column__content">
-      <%- partial('partials/funnel/job-selection', {categories}) %>
+    <div class="row">
+
+      <div class="column column__content">
+        <%- partial('partials/funnel/job-selection', {categories}) %>
 
 
-      <h3>Staat je klus hier niet tussen?</h3>
-      <p>
-        Dan doen we het waarschijnlijk (nog) niet. Suggesties kun je e-mailen naar <a href="mailto:zo.opgelost@essent.nl">zo.opgelost@essent.nl</a>
-      </p>
+        <h3>Staat je klus hier niet tussen?</h3>
+        <p>
+          Dan doen we het waarschijnlijk (nog) niet. Suggesties kun je e-mailen naar <a
+            href="mailto:zo.opgelost@essent.nl">zo.opgelost@essent.nl</a>
+        </p>
+
+      </div>
+      <div class="column column__sidebar">
+
+        <%- partial('partials/funnel/sidebar/receipt') %>
+        <%- partial('partials/funnel/sidebar/promotion') %>
+
+      </div>
 
     </div>
-    <div class="column column__sidebar">
-
-      <%- partial('partials/funnel/sidebar/receipt') %>
-      <%- partial('partials/funnel/sidebar/promotion') %>
-
-    </div>
-
   </div>
 </div>

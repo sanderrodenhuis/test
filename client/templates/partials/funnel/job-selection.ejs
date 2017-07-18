@@ -1,12 +1,12 @@
-<div class="job-selection">
-  <form class="form job-selection__form" data-target="">
+<div class="selection">
+  <form class="form selection__form" data-target="">
     <div class="form__group">
       <i class="icon-magnifying-glass form__control-icon"></i>
       <input type="text" placeholder="Zoek je klus" class="form__control"/>
     </div>
   </form>
 
-  <div class="filter-list job-selection__filters">
+  <div class="filter-list selection__filters">
     <h6 class="filter-list__title">Filter klussen</h6>
 
     <ul class="filter-list__items">
@@ -25,12 +25,12 @@
     </ul>
   </div>
 
-  <div class="job-selection__jobs">
-    <ul class="job-list">
+  <div class="selection__results">
+    <ul class="result-list">
       <% categories.forEach(category => { %>
       <% category.Jobs.forEach(job => { %>
-      <li class="job-list__item" data-category-id="<%= category.IdJobCategory %>">
-        <a href="" class="job-list__link" data-job-id="<%= job.IdJob %>"><%= job.Description %></a>
+      <li class="result-list__item" data-category-id="<%= category.IdJobCategory %>">
+        <a href="" class="result-list__link" data-job-id="<%= job.IdJob %>"><%= job.Description %></a>
       </li>
       <% }) %>
       <% }); %>
