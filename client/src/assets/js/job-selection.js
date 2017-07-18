@@ -1,41 +1,23 @@
 import $ from 'jquery'
 
 $(() => {
-  const $body = $('body');
-  // expand and collapse for the filter-list
-  $body.on('click','.filter-list__title',(event) => {
-    event.preventDefault();
-    const $target = $(event.target),
-          $filterList = $target.closest('.filter-list');
-    $filterList.toggleClass('is-expanded');
-  });
-  $body.on('click','.filter-list__link',(event) => {
-    event.preventDefault();
-    const $target = $(event.target),
-          $filterList = $target.closest('.filter-list');
 
-    $filterList.find('.is-active').removeClass('is-active');
-    $target.addClass('is-active');
-    $filterList.toggleClass('is-expanded');
-    $filterList.trigger('filtered');
-  });
-
-  $('.selection').each((idx, elem) => {
+  $('.job-selection').each((idx, elem) => {
     const $jobSelection = $(elem),
-          $jobSelectionForm = $jobSelection.find('.selection__form'),
-          $selectionFilters = $jobSelection.find('.selection__filters'),
-          $jobSelectionJobs = $jobSelection.find('.selection__results');
+          $jobSelectionForm = $jobSelection.find('.job-selection__form'),
+          $jobSelectionFilters = $jobSelection.find('.job-selection__filters'),
+          $jobSelectionJobs = $jobSelection.find('.job-selection__jobs');
 
-    const fnFilter = () => {
+    const fnFilter = (event, data) => {
       const query = $jobSelectionForm.find('input').val(),
-            categoryId = $selectionFilters.find('.is-active').data('category-id');
+            categoryId = data;
       $jobSelectionJobs.trigger('filter',[query,categoryId]);
     };
     $jobSelectionForm.on('keyup','input',fnFilter);
-    $selectionFilters.on('filtered',fnFilter);
+    $jobSelectionFilters.on('filtered',fnFilter);
 
     $jobSelectionJobs.on('filter',(event, query = '', categoryId = '*') => {
-      const $items = $jobSelectionJobs.find('.result-list__item');
+      const $items = $jobSelectionJobs.find('.job-list__item');
       categoryId = categoryId.toString();
       $items.removeClass('is-hidden');
 

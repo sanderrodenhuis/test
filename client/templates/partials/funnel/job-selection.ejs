@@ -1,36 +1,26 @@
-<div class="selection">
-  <form class="form selection__form" data-target="">
+<div class="job-selection">
+  <form class="form job-selection__form" data-target="">
     <div class="form__group">
       <i class="icon-magnifying-glass form__control-icon"></i>
       <input type="text" placeholder="Zoek je klus" class="form__control"/>
     </div>
   </form>
 
-  <div class="filter-list selection__filters">
-    <h6 class="filter-list__title">Filter klussen</h6>
-
-    <ul class="filter-list__items">
-      <li class="filter-list__item">
-        <a href="#" class="filter-list__link is-active" data-category-id="*">
-          Alles
-        </a>
-      </li>
-      <% categories.forEach(category => { %>
-      <li class="filter-list__item">
-        <a href="#" class="filter-list__link" data-category-id="<%= category.IdJobCategory %>">
-          <%= category.Name %>
-        </a>
-      </li>
-      <% }) %>
-    </ul>
-  </div>
-
-  <div class="selection__results">
-    <ul class="result-list">
+  <%- partial('components/filter-list', {
+    title: 'Filter klussen',
+    titleAll: 'Alles',
+    className: 'job-selection__filters',
+    items: categories.map(category => ({
+      title: category.Name,
+      value: category.IdJobCategory
+    }))
+  }) %>
+  <div class="job-selection__jobs">
+    <ul class="job-list">
       <% categories.forEach(category => { %>
       <% category.Jobs.forEach(job => { %>
-      <li class="result-list__item" data-category-id="<%= category.IdJobCategory %>">
-        <a href="" class="result-list__link" data-job-id="<%= job.IdJob %>"><%= job.Description %></a>
+      <li class="job-list__item" data-category-id="<%= category.IdJobCategory %>">
+        <a href="" class="job-list__link" data-job-id="<%= job.IdJob %>"><%= job.Description %></a>
       </li>
       <% }) %>
       <% }); %>
