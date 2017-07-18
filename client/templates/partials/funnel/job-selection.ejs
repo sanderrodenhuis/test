@@ -6,24 +6,7 @@
     </div>
   </form>
 
-  <div class="filter-list job-selection__filters">
-    <h6 class="filter-list__title">Filter klussen</h6>
-
-    <ul class="filter-list__items">
-      <li class="filter-list__item">
-        <a href="#" class="filter-list__link is-active" data-category-id="*">
-          Alles
-        </a>
-      </li>
-      <% categories.forEach(category => { %>
-      <li class="filter-list__item">
-        <a href="#" class="filter-list__link" data-category-id="<%= category.IdJobCategory %>">
-          <%= category.Name %>
-        </a>
-      </li>
-      <% }) %>
-    </ul>
-  </div>
+  <%- partial('components/filter-list')%>
 
   <div class="job-selection__jobs">
     <ul class="job-list">

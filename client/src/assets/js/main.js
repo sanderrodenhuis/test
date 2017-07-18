@@ -5,6 +5,7 @@ import './datepicker';
 import './photo-upload';
 import './form-validation';
 import './booking-step';
+import './filter-list';
 
 $(() => {
   $('.site-nav__item--toggle').on('click', (event) => {
@@ -21,4 +22,6 @@ $(() => {
     $('html,body').animate({scrollTop: 0}, 800);
     return false;
   });
+
+
 });
