@@ -47,24 +47,21 @@ $breakpoints: (
     $config: map-merge(map-get($breakpoints,'default'), $bpConfig);
     $minWidth: if(map-has_key($config, 'min-width') ,map-get($config,'min-width'),null);
     $maxWidth: if(map-has_key($config, 'max-width') ,map-get($config,'max-width'),null);
-    @if ($minWidth != null)
+    @if ($minWidth != null and $maxWidth != null)
     {
-      @media (min-width: $minWidth) {
-        @if ($maxWidth != null)
-        {
-          @media (max-width: $maxWidth) {
-            @content;
-          }
-        }
-        @else
-        {
-          @content;
-        }
+      @media (min-width: $minWidth) and (max-width: $maxWidth) {
+        @content;
       }
     }
     @else if ($maxWidth != null)
     {
       @media (max-width: $maxWidth) {
+        @content;
+      }
+    }
+    @else if ($minWidth != null)
+    {
+      @media (min-width: $minWidth) {
         @content;
       }
     }
@@ -84,14 +81,8 @@ $breakpoints: (
   width: 100%;
   min-height: 1px;
   box-sizing: border-box;
-  @if($grid-vertical-gutter) {
-    padding: ($grid-gutter / 2);
-  }
-  @else
-  {
-    padding-left: ($grid-gutter / 2);
-    padding-right: ($grid-gutter / 2);
-  }
+  padding-left: ($grid-gutter / 2);
+  padding-right: ($grid-gutter / 2);
 }
 @function selector-unique($sel1, $sel2) {
   @if ($sel1 == $sel2) {
@@ -125,17 +116,18 @@ $breakpoints: (
     $gutter: if(map-has_key($bpConfig, 'gutter'), map-get($config,'gutter'), null);
     .row {
       @if ($gutter != null) {
-        @if($grid-vertical-gutter) {
-          margin: ($gutter / -2);
-        }
-        @else
-        {
-          margin-left: ($gutter / -2);
-          margin-right: ($gutter / -2);
-        }
+        margin-left: ($gutter / -2);
+        margin-right: ($gutter / -2);
       }
     }
 
+    %base-col#{$suffix}
+    {
+      @if ($gutter != null) {
+        padding-left: ($gutter / 2);
+        padding-right: ($gutter / 2);
+      }
+    }
     #{selector-unique(".col",".col#{$suffix}")}
     {
       flex-basis: 0;
@@ -150,44 +142,17 @@ $breakpoints: (
       max-width: none;
       @extend %base-col#{$suffix} !optional;
     }
-    %base-col#{$suffix}
-    {
-      @if ($gutter != null) {
-        @if($grid-vertical-gutter) {
-          padding: ($gutter / 2);
-        }
-        @else {
-          padding-left: ($gutter / 2);
-          padding-right: ($gutter / 2);
-        }
-      }
-    }
-    @if ($suffix) {
-      @for $i from 1 through $columns {
-        $width: percentage($i / $columns);
-        .col-#{$i}
-        {
-          flex: 0 0 $width;
-          max-width: $width;
-          @extend %base-col#{$suffix} !optional;
-        }
-        .col-offset-#{$i}
-        {
-          margin-left: $width;
-        }
-      }
-    }
     @for $i from 1 through $columns {
       $width: percentage($i / $columns);
 
-      .col#{$suffix}-#{$i}
+      #{selector-unique(".col-#{$i}",".col#{$suffix}-#{$i}")}
       {
         flex: 0 0 $width;
         max-width: $width;
         @extend %base-col#{$suffix} !optional;
       }
 
-      .col-offset#{$suffix}-#{$i}
+      #{selector-unique(".col-offset-#{$i}",".col-offset#{$suffix}-#{$i}")}
       {
         margin-left: $width;
       }

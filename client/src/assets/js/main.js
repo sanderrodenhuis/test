@@ -7,6 +7,8 @@ import './form-validation';
 import './booking-step';
 import './filter-list';
 
+import './page--account-overview';
+
 $(() => {
   $('.site-nav__item--toggle').on('click', (event) => {
     event.preventDefault();
@@ -22,6 +24,4 @@ $(() => {
     $('html,body').animate({scrollTop: 0}, 800);
     return false;
   });
-
-
 });

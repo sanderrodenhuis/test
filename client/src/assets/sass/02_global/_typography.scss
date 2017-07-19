@@ -39,6 +39,9 @@ p, ul
 .link {
   color: $col-orange;
 }
+.warning {
+  color: $col-red;
+}
 strong
 {
   font-weight: bold;
@@ -82,6 +85,21 @@ strong
       }
     }
   }
+  &--links {
+    border-top: 1px solid $col-grey;
+    margin-top: 20px;
+    padding-top: 20px;
+
+    li {
+      display: inline;
+      padding: 0;
+      &:after {
+        padding: 8px;
+        color: $col-orange;
+        content: "\003e";
+      }
+    }
+  }
 
 }
 @media #{$tablet} {
@@ -98,6 +116,11 @@ strong
     &--col-home
     {
       column-count: 1;
+    }
+    &--links {
+      li {
+        display: block;
+      }
     }
   }
 }

@@ -1,0 +1,48 @@
+.order-overview
+{
+  &__orders
+  {
+
+  }
+  &__order-item
+  {
+    border: 1px solid #afafaf;
+    padding: 20px;
+    margin: 30px 0;
+    &.is-hidden
+    {
+      display: none;
+    }
+  }
+  &__order-row {
+    font-weight: 300;
+    line-height: 26px;
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+}
+
+
+@media #{$tablet} {
+
+
+}
+
+@media #{$mobile} {
+
+  .order-overview {
+    &__order-item {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    &__order-row {
+      padding: 20px 10px;
+    }
+    &__order-col {
+      margin: 5px 0;
+    }
+  }
+
+}

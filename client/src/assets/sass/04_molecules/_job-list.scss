@@ -25,13 +25,9 @@
     }
 
   }
-}
-
-
-@media #{$tablet} {
-
 
 }
+
 
 @media #{$mobile} {
 
@@ -39,9 +35,6 @@
     &__item {
       font-size: 14px;
       line-height: 21px;
-    }
-    &__link {
-
     }
   }
 

@@ -1,12 +1,13 @@
 @media #{$non-mobile} {
   .filter-list {
-    margin: -5px;
+    margin: 30px -5px;
     &__title {
       display: none;
     }
     &__items {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
     }
     &__item {
       display: block;
