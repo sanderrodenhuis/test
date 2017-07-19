@@ -2,19 +2,31 @@ import $ from 'jquery'
 
 $(() => {
 
+  let queryValue = '',
+      categoryId = '';
+  
   $('.job-selection').each((idx, elem) => {
     const $jobSelection = $(elem),
           $jobSelectionForm = $jobSelection.find('.job-selection__form'),
           $jobSelectionFilters = $jobSelection.find('.job-selection__filters'),
           $jobSelectionJobs = $jobSelection.find('.job-selection__jobs');
 
-    const fnFilter = (event, data) => {
-      const query = $jobSelectionForm.find('input').val(),
-            categoryId = data;
-      $jobSelectionJobs.trigger('filter',[query,categoryId]);
+    const fnFilter = () => {
+      $jobSelectionJobs.trigger('filter',[
+        queryValue,
+        categoryId || undefined // a hack way to enforce default property of *
+      ]);
     };
-    $jobSelectionForm.on('keyup','input', () => fnFilter(null, $jobSelectionFilters.find('.is-active').data('filter-data')));
-    $jobSelectionFilters.on('filtered',fnFilter);
+    
+    $jobSelectionForm.on('keyup','input',(event) => {
+      const $target = $(event.target);
+      queryValue = $target.val();
+      fnFilter();
+    });
+    $jobSelectionFilters.on('filtered',(event,data) => {
+      categoryId = data;
+      fnFilter();
+    });
 
     $jobSelectionJobs.on('filter',(event, query = '', categoryId = '*') => {
       const $items = $jobSelectionJobs.find('.job-list__item');

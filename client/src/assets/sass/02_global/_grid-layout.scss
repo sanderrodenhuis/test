@@ -1,5 +1,6 @@
 $grid-columns: 12;
 $grid-gutter: 16px;
+$grid-vertical-gutter: true;
 
 $breakpoints: (
   default: (
@@ -8,18 +9,18 @@ $breakpoints: (
   ),
   sm: (
     max-width: $mobile-width - 1,
-    gutter: 2*$grid-gutter,
+    gutter: 32px,
     columns: 4
   ),
   md: (
     min-width: $mobile-width,
-    max-width: 959px,
-    gutter: 3*$grid-gutter,
+    max-width: $desktop-width - 1,
+    gutter: 48px,
     columns: 8
   ),
   lg: (
     min-width: $desktop-width,
-    //max-width: 1439px
+    max-width: $desktop-width-large - 1
   ),
   xl: (
     min-width: $desktop-width-large
