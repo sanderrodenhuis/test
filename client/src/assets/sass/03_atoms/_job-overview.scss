@@ -2,7 +2,6 @@
 {
   display: flex;
   flex-wrap: wrap;
-  background-color: $col-white;
   margin: -8px;
   &__item {
     display: flex;
@@ -17,6 +16,7 @@
   }
   &__block
   {
+    background-color: $col-white;
     border: 1px solid $col-grey-lighter;
     box-sizing: border-box;
     padding: 20px;

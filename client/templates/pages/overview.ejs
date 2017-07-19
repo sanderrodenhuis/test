@@ -1,25 +1,26 @@
 <% layout('layouts/default') %>
 
-<div class="section section--header">
-  <div class="container">
+<div class="section section--header section--header-circles">
+  <div class="container container--image">
     <div class="row">
-      <div class="column column__content">
+      <div class="col-sm-4 col-md-4 col-6">
         <h1>Ons klusaanbod</h1>
         <p>
           Onze ervaren experts zijn zorgvuldig geselecteerd, hieronder zie je waarvoor je ze onder andere kunt boeken. Spoedgevallen en calamiteiten vallen niet onder deze reguliere klussen. Lees meerover het <a href="#" class="link">inplannen van spoedklussen</a> of bel 0800 - 123 123
         </p>
       </div>
     </div>
+    <img src="/assets/images/section__header-image--tools.svg" alt="" class="section__header-image section__header-image--tools">
   </div>
 </div>
 
-<div class="section">
+<div class="section section--alternative">
   <div class="container">
-    <div class="row row--content">
-      <div class="column column__content">
+    <div class="row">
+      <div class="col-8 col-md-8 col-sm-4">
         <%- partial('partials/job-overview', {categories}) %>
       </div>
-      <div class="column column__sidebar">
+      <div class="col-offset-lg-1 col-offset-xl-1 col-lg-3 col-xl-3 col-sm-4 col-offset-md-1 col-md-6">
         <%- partial('partials/contact-tile') %>
       </div>
     </div>
