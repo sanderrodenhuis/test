@@ -1,19 +1,15 @@
-.subscription-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px -10px;
-}
 
 .block-subscription {
-  flex: 1;
   display: flex;
-  padding: 30px;
-  margin: 10px;
-  max-width: 50%;
-  box-sizing: border-box;
-  border: 1px solid $col-grey;
   flex-direction: column;
+  height: 100%;
+  padding: 30px;
+  box-sizing: border-box;
   text-align: center;
+  border: 1px solid $col-grey;
+  background: $col-white;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.10);
+
   &--secondary {
     border: 1px solid $col-pink;
   }

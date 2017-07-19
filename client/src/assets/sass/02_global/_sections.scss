@@ -10,16 +10,14 @@
     background: url('../images/homepage--banner.png') center right no-repeat;
     background-size: cover;
   }
-  &__header-image--tools {
+  &__header-image--tools,
+  &__header-image--emergencies {
     max-width: 100%;
     width: calc((6/12)*100% - 64px);
     margin: 0 32px;
     position: absolute;
     right: 0;
     top: 50px;
-  }
-  &__text {
-    margin: 20px 0 40px;
   }
   &--header {
     p {
@@ -47,19 +45,18 @@
     line-height: 29px;
     font-weight: 300;
   }
-  &__block {
-    &--home {
-      margin: 35px 0;
-
-    }
-  }
 }
 
 @media #{$tablet} {
   .section {
     &__header-image--tools {
-      top: 150px;
+      top: 175px;
       width: calc((5/ 8) * 100% - 48px);
+      margin: 0 24px;
+    }
+    &__header-image--emergencies {
+      top: 50px;
+      width: calc((4/ 8) * 100% - 48px);
       margin: 0 24px;
     }
   }
@@ -88,11 +85,15 @@
         margin: 20px 0;
       }
     }
-    &__header-image--tools {
+    &__header-image--tools,
+    &__header-image--emergencies{
       top: 0;
       width: calc(100% - 32px);
       margin: 0 16px;
       z-index: -1;
+    }
+    &__header-image--emergencies {
+      width: calc(90% - 32px);
     }
     &__description {
       font-size: 17px;
