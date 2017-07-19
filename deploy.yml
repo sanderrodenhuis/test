@@ -20,5 +20,10 @@
         recreate: yes
         env:
           VIRTUAL_HOST: 'zo-opgelost.the-tribes.nl'
+          JWT_SECRET: "{{ JWT_SECRET }}"
+          JWT_ISSUER: "{{ JWT_ISSUER }}"
+          MENDIX_URL: "https://zoopgelost100-accp.mendixcloud.com/rest/"
+          MENDIX_USER: "{{ MENDIX_USER }}"
+          MENDIX_PASS: "{{ MENDIX_PASS }}"
 ...
 
