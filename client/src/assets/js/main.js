@@ -7,6 +7,8 @@ import './form-validation';
 import './booking-step';
 import './filter-list';
 
+import './page--account-overview';
+
 $(() => {
   $('.site-nav__item--toggle').on('click', (event) => {
     event.preventDefault();
@@ -21,26 +23,5 @@ $(() => {
   $('.site-footer__icon').on('click', () => {
     $('html,body').animate({scrollTop: 0}, 800);
     return false;
-  });
-
-
-  $('.selection').each((idx, elem) => {
-    const $jobSelection = $(elem),
-      $jobSelectionFilters = $jobSelection.find('.selection__filters'),
-      $jobSelectionJobs = $jobSelection.find('.selection__results');
-
-
-    const filter = (event, categoryId = '*') => {
-      const $items = $jobSelectionJobs.find('.result-list__item');
-      categoryId = categoryId.toString();
-      $items.removeClass('is-hidden');
-
-      if (categoryId !== '*')
-        $items.filter((idx, elem) => $(elem).data('category-id').toString() !== categoryId).addClass('is-hidden');
-    }
-
-    $jobSelectionFilters.on('filtered', filter);
-
-
   });
 });

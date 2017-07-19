@@ -11,130 +11,124 @@
       <div class="col-lg-7 col-md-5 col-sm-4">
 
         <p>Op deze pagina vind je een overzicht van al je klussen.</p>
-        <div class="selection">
+        <div class="order-overview">
 
           <%- partial('components/filter-list', {
-            title: 'Filter overziht',
+            title: 'Filter overzicht',
             titleAll: 'Alles klussen',
-            className: 'selection__filters',
-            items: categories.map(category => ({
-              title: category.Name,
-              value: category.IdJobCategory
-            }))
+            className: 'order-overview__filters',
+            items: ['Aankomend','Afgerond','Geannuleerd'].map((title,idx) => ({value: idx+1, title}))
           }) %>
 
-          <div class="selection__results">
-            <ul class="result-list">
-              <li class="result-list__item" data-category-id="1">
-                  <h6>Router installeren</h6>
-                  <div class="row result-list__row">
-                    <div class="col-lg-3 col-md-3 col-sm-12 result-list__col">Afspraaknummer
-                      <br> SDFGS234
-                    </div>
-                    <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">Vandaag, donderdag 13 september 10:00 - 11:00 uur</div>
-                    <div class="col-lg-3 col-md-2 col-sm-12 result-list__col">€50,-</div>
-                  </div>
-                  <div>
-                    <ul class="list list--links">
-                      <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
-                      <li>
-                        <a href="#" class="link"><span><%= text %></span></a>
-                      </li>
-                      <% }) %>
-                    </ul>
+          <ul class="order-overview__orders">
+            <li class="order-overview__order-item" data-order-status="1">
+              <h6>Router installeren</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-lg-3 col-md-3 col-sm-12 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-lg-5 col-md-3 col-sm-12 order-overview__order-col">Vandaag, donderdag 13 september 10:00 - 11:00 uur</div>
+                <div class="col-lg-3 col-md-2 col-sm-12 order-overview__order-col">€50,-</div>
+              </div>
+              <div>
+                <ul class="list list--links">
+                  <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
+                  <li>
+                    <a href="#" class="link"><span><%= text %></span></a>
+                  </li>
+                  <% }) %>
+                </ul>
 
-                  </div>
-              </li>
-              <li class="result-list__item" data-category-id="1">
-                  <h6>Router installeren</h6>
-                  <div class="row result-list__row">
-                    <div class="col-lg-3 col-md-3 col-sm-12 result-list__col">Afspraaknummer
-                      <br> SDFGS234
-                    </div>
-                    <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">Vandaag, donderdag 13 september 10:00 - 11:00 uur</div>
-                    <div class="col-lg-3 col-md-2 col-sm-12 result-list__col">€50,-</div>
-                  </div>
-                  <div>
-                    <ul class="list list--links">
-                      <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
-                      <li>
-                        <a href="#" class="link"><span><%= text %></span></a>
-                      </li>
-                      <% }) %>
-                    </ul>
-                    <div class="feedback">rating</div>
-                  </div>
-              </li>
-              <li class="result-list__item" data-category-id="2">
-                  <h6>Afgerond</h6>
-                  <div class="row result-list__row">
-                    <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">
-                      <div>blabla</div>
-                      <div>Donderdag 13 september</div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12 result-list__col">Afspraaknummer
-                      <br> SDFGS234
-                    </div>
-                    <div class="col-lg-3 col-md-2 col-sm-12 result-list__col">€40,-</div>
-                  </div>
-                  <div>
-                    <ul class="list list--links">
-                      <% ['Bekijk details', 'Factuur downloaden'].forEach((text, index) => { %>
-                      <li>
-                        <a href="#" class="link"><span><%= text %></span></a>
-                      </li>
-                      <% }) %>
-                    </ul>
-                  </div>
-              </li>
-              <li class="result-list__item" data-category-id="2">
-                  <h6>Afgerond</h6>
-                  <div class="row result-list__row">
-                    <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">
-                      <div>CV ketel vervangen</div>
-                      <div>Donderdag 13 september</div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12 result-list__col">Afspraaknummer
-                      <br> SDFGS234
-                    </div>
-                    <div class="col-lg-3 col-md-2 col-sm-12 result-list__col">€450,-</div>
-                  </div>
-                  <div>
-                    <ul class="list list--links">
-                      <% ['Bekijk details', 'Factuur downloaden'].forEach((text, index) => { %>
-                      <li>
-                        <a href="#" class="link"><span><%= text %></span></a>
-                      </li>
-                      <% }) %>
-                    </ul>
-                  </div>
-              </li>
-              <li class="result-list__item" data-category-id="3">
-                  <h6 class="warning">Klus geannuleerd</h6>
-                  <div class="row result-list__row">
-                    <div class="col-lg-5 col-md-3 col-sm-12 result-list__col">
-                      <div>Wasmachine reparatie</div>
-                      <div>Donderdag 13 september</div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12 result-list__col">Afspraaknummer
-                      <br> SDFGS234
-                    </div>
-                    <div class="col-lg-3 col-md-2 col-sm-12 result-list__col">€84,50</div>
-                  </div>
-                  <div>
-                    <ul class="list list--links">
-                      <% ['Bekijk details'].forEach((text, index) => { %>
-                      <li>
-                        <a href="#" class="link"><span><%= text %></span></a>
-                      </li>
-                      <% }) %>
-                    </ul>
+              </div>
+            </li>
+            <li class="order-overview__order-item" data-order-status="1">
+              <h6>Router installeren</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-lg-3 col-md-3 col-sm-12 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-lg-5 col-md-3 col-sm-12 order-overview__order-col">Vandaag, donderdag 13 september 10:00 - 11:00 uur</div>
+                <div class="col-lg-3 col-md-2 col-sm-12 order-overview__order-col">€50,-</div>
+              </div>
+              <div>
+                <ul class="list list--links">
+                  <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
+                  <li>
+                    <a href="#" class="link"><span><%= text %></span></a>
+                  </li>
+                  <% }) %>
+                </ul>
+                <div class="feedback">rating</div>
+              </div>
+            </li>
+            <li class="order-overview__order-item" data-order-status="2">
+              <h6>Afgerond</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-lg-5 col-md-3 col-sm-12 order-overview__order-col">
+                  <div>blabla</div>
+                  <div>Donderdag 13 september</div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-lg-3 col-md-2 col-sm-12 order-overview__order-col">€40,-</div>
+              </div>
+              <div>
+                <ul class="list list--links">
+                  <% ['Bekijk details', 'Factuur downloaden'].forEach((text, index) => { %>
+                  <li>
+                    <a href="#" class="link"><span><%= text %></span></a>
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
+            </li>
+            <li class="order-overview__order-item" data-order-status="2">
+              <h6>Afgerond</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-lg-5 col-md-3 col-sm-12 order-overview__order-col">
+                  <div>CV ketel vervangen</div>
+                  <div>Donderdag 13 september</div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-lg-3 col-md-2 col-sm-12 order-overview__order-col">€450,-</div>
+              </div>
+              <div>
+                <ul class="list list--links">
+                  <% ['Bekijk details', 'Factuur downloaden'].forEach((text, index) => { %>
+                  <li>
+                    <a href="#" class="link"><span><%= text %></span></a>
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
+            </li>
+            <li class="order-overview__order-item" data-order-status="3">
+              <h6 class="warning">Klus geannuleerd</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-lg-5 col-md-3 col-sm-12 order-overview__order-col">
+                  <div>Wasmachine reparatie</div>
+                  <div>Donderdag 13 september</div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-lg-3 col-md-2 col-sm-12 order-overview__order-col">€84,50</div>
+              </div>
+              <div>
+                <ul class="list list--links">
+                  <% ['Bekijk details'].forEach((text, index) => { %>
+                  <li>
+                    <a href="#" class="link"><span><%= text %></span></a>
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
+            </li>
+          </ul>
 
-                  </div>
-              </li>
-            </ul>
-
-          </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-3 col-sm-4">
@@ -144,6 +138,4 @@
     </div>
   </div>
 </div>
-
-
-
+</div>
