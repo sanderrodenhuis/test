@@ -6,11 +6,13 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
+    "connect-sqlite3": "^0.9.9",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "ejs-mate": "^2.3.0",
     "express": "^4.15.3",
+    "express-session": "^1.15.4",
     "gulp-nodemon": "^2.2.1",
     "jquery": "^3.2.1",
     "jquery-datepicker": "^1.11.5",
