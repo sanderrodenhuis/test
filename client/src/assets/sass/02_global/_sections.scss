@@ -4,6 +4,9 @@
     background: rgba(247, 247, 247, 0.6);
 
   }
+  &--special {
+    padding-bottom: 100px;
+  }
   &--image {
     padding-top: (550/1440)*100%;
     padding-bottom: 0;
@@ -49,6 +52,9 @@
 
 @media #{$tablet} {
   .section {
+    &--special {
+      padding-bottom: 120px;
+    }
     &__header-image--tools {
       top: 175px;
       width: calc((5/ 8) * 100% - 48px);

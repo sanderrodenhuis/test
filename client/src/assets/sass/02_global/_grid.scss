@@ -15,6 +15,9 @@
   {
     justify-content: center;
   }
+  &--overview {
+    margin-top: -170px;
+  }
 }
 
 .column {
@@ -62,6 +65,11 @@
       padding-bottom: 100px;
     }
   }
+  .row {
+    &--overview {
+      margin-top: -190px;
+    }
+  }
   .column {
     &__content {
       &--header
@@ -102,6 +110,11 @@
     padding: 0 16px;
     &--image {
       padding-top: 62.5vw;
+    }
+  }
+  .row {
+    &--overview {
+      margin-top: 0;
     }
   }
   .column {
