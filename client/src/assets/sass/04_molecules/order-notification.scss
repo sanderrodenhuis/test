@@ -1,0 +1,47 @@
+.order-notification {
+  &.is-active {
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    .order-notification__content {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px 20px 20px 80px;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 25px;
+    background-color: $col-green;
+    color: $col-white;
+    @include icon(check-mark--rounded, before, false);
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    &:before {
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      font-size: 20px;
+      color: $col-green;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background-color: $col-white;
+      text-align: center;
+      line-height: 46px;
+    }
+  }
+}
+

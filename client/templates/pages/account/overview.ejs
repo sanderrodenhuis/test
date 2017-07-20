@@ -34,7 +34,7 @@
                 <ul class="list list--links">
                   <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
                   <li>
-                    <a href="#" class="link"><span><%= text %></span></a>
+                    <a href="#" class="link <%- index == 2 ? 'js-appointment-cancel':'' %>"><span><%= text %></span></a>
                   </li>
                   <% }) %>
                 </ul>
@@ -50,16 +50,14 @@
                 <div class="col-lg-5 col-md-3 col-sm-12 order-overview__order-col">Vandaag, donderdag 13 september 10:00 - 11:00 uur</div>
                 <div class="col-lg-3 col-md-2 col-sm-12 order-overview__order-col">€50,-</div>
               </div>
-              <div>
                 <ul class="list list--links">
                   <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
                   <li>
-                    <a href="#" class="link"><span><%= text %></span></a>
+                    <a href="#" class="link <%- index == 2 ? 'js-appointment-cancel':'' %>"><span><%= text %></span></a>
                   </li>
                   <% }) %>
                 </ul>
                 <div class="feedback">rating</div>
-              </div>
             </li>
             <li class="order-overview__order-item" data-order-status="2">
               <h6>Afgerond</h6>
@@ -129,6 +127,9 @@
             </li>
           </ul>
 
+          <script type="text/template" class="order-overview__template">
+            <%- partial('partials/order-notification')%>
+          </script>
         </div>
       </div>
       <div class="col-lg-4 col-md-3 col-sm-4">
@@ -137,5 +138,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
