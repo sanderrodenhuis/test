@@ -6,9 +6,9 @@ const path = require('path');
 const engine = require('ejs-mate');
 const http = require('http');
 
-
-
 const app = express();
+
+require('./utils/mail')(app);
 
 app.set('views', path.join(__dirname,'../client/templates'));
 app.set('view engine', 'ejs');
