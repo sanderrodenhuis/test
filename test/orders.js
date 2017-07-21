@@ -14,8 +14,18 @@ let test_user = process.env.TEST_USER,
   admin_user = process.env.MENDIX_USER,
   admin_pass = process.env.MENDIX_PASS;
 
-
 chai.use(chaiAsPromised);
+
+let orders_res=[
+  "Status",
+  "IdJob",
+  "Comments",
+  "IsCancelled",
+  "IdOrder",
+  "IdClient",
+  "FulfillmentDateTime"
+];
+
 //Our parent block
 describe('Orders', () => {
   beforeEach((done) => {
@@ -25,23 +35,29 @@ describe('Orders', () => {
   /*
   * Test the /GET route
   */
-
-
-  // describe('/GET orders', () => {
-  //   it('it should GET all orders auth as test user', () => {
-  //     return Promise.all([
-  //       expect(mendix.forUser(test_user, test_pass).get('/orders')).to.eventually.have.property('status',200),
-  //       expect(mendix.forUser(test_user, test_pass).get('/orders').then((response)=>{return response.data})).to.eventually.be.an('array')
-  //     ]);
-  //   });
-  // });
+  // const regexId = '[^\/]\d+$';
 
   describe('/GET orders', () => {
-    it('it should GET all orders auth as admin user', () => {
-      return Promise.all([
-        expect(mendix.forUser(admin_user, admin_pass).get('/orders')).to.eventually.have.property('status',200),
-        expect(mendix.forUser(admin_user, admin_pass).get('/orders').then((response)=>{return response.data})).to.eventually.be.an('array')
-      ]);
+    it('it should GET all orders auth as admin user', async () => {
+      const response = await mendix.get('/orders'),
+        ordersUrls = response.data;
+      expect (response).to.have.property('status',200);
+      expect (ordersUrls).to.be.an('array');
+      ordersUrls.map((ordersUrl) => {
+        expect (ordersUrl).to.be.an('string');
+        let ids = ordersUrl.split("/");
+        let orderId = ids.pop();
+        describe(`GET /orders/${orderId}`, () => {
+          it(`Should get an order`, async () => {
+            let responseOrder = await mendix.forUser(admin_user, admin_pass).get(`/orders/${orderId}`),
+              resOrder = response.data;
+            expect (responseOrder).to.have.property('status',200);
+            expect (resOrder).to.be.an('object');
+            expect (resOrder).to.have.keys(orders_res);
+          })
+        })
+      });
+      return Promise.resolve(ordersUrls);
     });
   });
 

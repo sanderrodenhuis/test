@@ -25,7 +25,9 @@ let jobs_res=[
   "WhatWeDo",
   "WhatWeDontDo",
   "Name",
-  "ShowToCustomer"]
+  "ShowToCustomer"
+];
+
 //Our parent block
 describe('Jobs', () => {
   beforeEach((done) => {
