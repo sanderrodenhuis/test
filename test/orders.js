@@ -50,7 +50,7 @@ describe('Orders', () => {
         describe(`GET /orders/${orderId}`, () => {
           it(`Should get an order`, async () => {
             let responseOrder = await mendix.forUser(admin_user, admin_pass).get(`/orders/${orderId}`),
-              resOrder = response.data;
+              resOrder = responseOrder.data;
             expect (responseOrder).to.have.property('status',200);
             expect (resOrder).to.be.an('object');
             expect (resOrder).to.have.keys(orders_res);
