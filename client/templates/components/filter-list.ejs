@@ -1,4 +1,8 @@
+<% if(typeof(target) != 'undefined') { %>
+<div class="filter-list <%= className %>" data-target="<%- target %>">
+<% } else { %>
 <div class="filter-list <%= className %>">
+<% }%>
   <h6 class="filter-list__title"><%= title %></h6>
 
   <ul class="filter-list__items">
