@@ -49,6 +49,9 @@
 
 @media #{$tablet} {
   .section {
+    &--special {
+      padding-bottom: 120px;
+    }
     &__header-image--tools {
       top: 175px;
       width: calc((5/ 8) * 100% - 48px);
