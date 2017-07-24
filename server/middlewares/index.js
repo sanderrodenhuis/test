@@ -10,4 +10,6 @@ module.exports = function(app) {
   
   require('./authentication')(app);
   require('./session')(app);
+  require('./helpers')(app);
+  require('./debug')(app);
 };
