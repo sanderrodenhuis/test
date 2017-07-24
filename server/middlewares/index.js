@@ -9,5 +9,7 @@ module.exports = function(app) {
   app.use(cookieParser());
   
   require('./authentication')(app);
-
+  require('./session')(app);
+  require('./helpers')(app);
+  require('./debug')(app);
 };

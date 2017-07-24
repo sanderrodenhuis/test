@@ -15,7 +15,12 @@ router.post('/user/login',(req, res, next) => {
     }
     
     const jwt = jsonWebToken.sign(
-      {username: user.username},
+      {
+        username: user.Username,
+        firstname: user.FirstName,
+        lastname: user.LastName,
+        id: user.IdUser
+      },
       process.env.JWT_SECRET,
       {issuer: process.env.JWT_ISSUER}
     );

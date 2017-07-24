@@ -1,4 +1,4 @@
-import $ from 'jquery'
+import $ from './jquery';
 
 $(() => {
   const $body = $('body');
@@ -23,6 +23,7 @@ $(() => {
       $modal.html(html);
       $modal.addClass('is-visible');
       $body.addClass('has-modal');
+      $modal.find('[autofocus]').focus();
     });
   });
   

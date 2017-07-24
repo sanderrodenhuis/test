@@ -1,4 +1,6 @@
-import $ from './jquery'
+import './globals';
+import $ from './jquery';
+
 import './modal';
 import './job-selection';
 import './datepicker';
@@ -8,6 +10,8 @@ import './booking-step';
 import './filter-list';
 
 import './page--account-overview';
+
+import './form--login';
 
 $(() => {
   $('.site-nav__item--toggle').on('click', (event) => {
@@ -25,3 +29,7 @@ $(() => {
     return false;
   });
 });
+
+
+
+

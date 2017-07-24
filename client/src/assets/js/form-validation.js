@@ -1,5 +1,4 @@
-import $ from './jquery'
-import 'jquery-validation';
+import $ from './jquery';
 
 $.validator.addMethod("regx", function(value, element, regexpr) {
   return regexpr.test(value);
