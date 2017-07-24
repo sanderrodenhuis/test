@@ -1,0 +1,36 @@
+.sidebar {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  &--details {
+
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 19px;
+  }
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  &__header {
+    background-color: $col-pink;
+    color: $col-white;
+    padding: 20px 30px 30px;
+    text-align: center;
+  }
+  &__content {
+    background: $col-white;
+    border: 1px solid $col-grey-light;
+    padding: 30px;
+    color: $col-black;
+    position: relative;
+
+    &-link {
+      color: $col-orange;
+      text-decoration: underline;
+      position: absolute;
+      bottom: 25px;
+      right: 0;
+      margin: 25px;
+    }
+  }
+}
