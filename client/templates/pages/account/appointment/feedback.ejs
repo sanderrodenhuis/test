@@ -1,3 +1,79 @@
 <% layout('layouts/default') %>
 
-feedback form when you logged in
+<div class="section section--alternative">
+  <div class="container">
+    <h1>Feedback over je klus</h1>
+  </div>
+</div>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7 col-lg-7 col-md-5 col-sm-4">
+
+
+        <form action="" class="form form--feedback">
+
+          <div class="form__group">
+
+            <h6>Ben je helemaal geholpen?</h6>
+            <div class="">
+              <input type="radio" class="form__control" name="choice" value="ja"/>
+              <label for="choice" class="form__label form__label--radio">Ja</label>
+            </div>
+
+            <div class="">
+              <input type="radio" class="form__control" name="choice" value="nee"/>
+              <label for="choice" class="form__label form__label--radio">Nee, het probleem is niet (volledig)
+                opgelost</label>
+            </div>
+          </div>
+
+          <div class="form__group form__group--rating">
+            <h6>Hoe is de klus over het algemeen gegaan?</h6>
+            <input type="radio" class="form__control" id="star1" name="rating" value="1" checked/>
+            <label for="star1" title=""></label>
+            <input type="radio" class="form__control" id="star2" name="rating" value="2"/>
+            <label for="star2" title=""></label>
+            <input type="radio" class="form__control" id="star3" name="rating" value="3"/>
+            <label for="star3" title=""></label>
+            <input type="radio" class="form__control" id="star4" name="rating" value="4"/>
+            <label for="star4" title=""></label>
+            <input type="radio" class="form__control" id="star5" name="rating" value="5"/>
+            <label for="star5" title=""></label>
+          </div>
+
+          <div class="form__group">
+            <h6>Was de expert op tijd?</h6>
+            <div class="">
+
+              <input type="radio" class="form__control" name="choice" value="ja"/>
+              <label for="choice" class="form__label form__label--radio">Ja</label>
+            </div>
+            <div class="">
+              <input type="radio" class="form__control" name="choice" value="nee"/>
+              <label for="choice" class="form__label form__label--radio">Nee, hij was een beetje te laat (0 - 30
+                min.)</label>
+            </div>
+            <div class="">
+              <input type="radio" class="form__control" name="choice" value="nee2"/>
+              <label for="choice" class="form__label form__label--radio">Nee, hij was veel later (+30 min.)</label>
+            </div>
+          </div>
+          <div class="form__group">
+            <h6>Wil je verder nog iets kwijt over de afspraak?</h6>
+            <textarea name="description" class="form__control" placeholder="Toelichting (optioneel)"></textarea>
+          </div>
+          <div class="">
+            <a href="" class="btn js-btn-submit form__button--submit">VERSTUUR FEEDBACK</a>
+            <a href="/funnel/" class="btn btn--link">ANNULEER</a>
+          </div>
+        </form>
+
+
+      </div>
+      <div class="col-xl-4 col-lg-4 col-offset-lg-1 col-offset-xl-1 col-md-3 col-sm-4">
+        <%- partial('partials/funnel/sidebar/receipt') %>
+      </div>
+    </div>
+  </div>
+</div>
