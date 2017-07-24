@@ -9,13 +9,13 @@
     <div class="site-menu__col3">
       <ul class="site-nav site-nav--main">
         <li class="site-nav__item">
-          <a href="/" class="site-nav__link active">Introductie</a>
+          <a href="/" class="site-nav__link <%- isActivePage('') %>">Introductie</a>
         </li>
         <li class="site-nav__item">
-          <a href="/ons-klusaanbod" class="site-nav__link">Aanbod</a>
+          <a href="/ons-klusaanbod" class="site-nav__link <%- isActivePage('ons-klusaanbod') %>">Aanbod</a>
         </li>
         <li class="site-nav__item">
-          <a href="/onze-abonnementen" class="site-nav__link">Abonnementen</a>
+          <a href="/onze-abonnementen" class="site-nav__link <%- isActivePage('onze-abonnementen') %>">Abonnementen</a>
         </li>
         <li class="site-nav__item site-nav__item--toggle">
           <a href="#" class="site-nav__link">
@@ -30,12 +30,12 @@
           <a href="#" class="site-nav__link" data-modal="/overlays/login">Log in</a>
         </li>
         <li class="site-nav__item site-nav__item--no-mobile">
-          <a href="/funnel" class="site-nav__link">Klus inplannen</a>
+          <a href="/funnel" class="site-nav__link <%- isActivePage('funnel') %>">Klus inplannen</a>
         </li>
       </ul>
     </div>
     <div class="site-menu__col5">
-      <a href="/spoedgevallen" class="btn btn--header-mobile">
+      <a href="/spoedgevallen" class="btn btn--header-mobile <%- isActivePage('spoedgevallen') %>">
         <span class="site-menu__btn-text">Spoedklus</span>
         <span class="site-menu__btn-text site-menu__btn-text--mobile">Spoed</span>
       </a>
@@ -48,35 +48,40 @@
     <div class="site-menu__btn-close"></div>
     <ul class="site-nav site-nav--main">
       <li class="site-nav__item">
-        <a href="" class="site-nav__link">Introductie</a>
+        <a href="" class="site-nav__link <%- isActivePage('') %>">Introductie</a>
       </li>
       <li class="site-nav__item">
-        <a href="" class="site-nav__link">Aanbod</a>
+        <a href="/ons-klusaanbod" class="site-nav__link <%- isActivePage('ons-klusaanbod') %>">Aanbod</a>
       </li>
       <li class="site-nav__item">
-        <a href="" class="site-nav__link">Abonnementen</a>
+        <a href="/onze-abonnementen" class="site-nav__link <%- isActivePage('onze-abonnementen') %>">Abonnementen</a>
       </li>
     </ul>
     <ul class="site-nav site-nav--meta">
       <li class="site-nav__item">
-        <a href="" class="site-nav__link" data-modal="overlays/task-details">Log in</a>
+        <a href="/spoedgevallen" class="site-nav__link<%- isActivePage('spoedgevallen') %>">Spoed klus</a>
       </li>
       <li class="site-nav__item">
-        <a href="" class="site-nav__link">Klus inplannen</a>
+        <% if (typeof(user) === 'undefined') { %>
+        <a href="" class="site-nav__link" data-modal="login">Log in</a>
+        <% } else { %>
+        <%- String(user.firstname) + ' ' + String(user.lastname).substr(0,1).toUpperCase() %>
+        <% }%>
       </li>
+
       <li class="site-nav__item site-nav__item-btn">
-        <a href="" class="btn site-nav__btn">Spoedklus</a>
+        <a href="/funnel" class="btn site-nav__btn<%- isActivePage('funnel') %>">Spoedklus</a>
       </li>
     </ul>
 
     <ul class="site-nav site-nav__footer">
       <li class="site-nav__item site-nav__footer-item">
-        <a href="" class="site-nav__link site-nav__footer-link">Privacy</a>
+        <a href="#" class="site-nav__link site-nav__footer-link">Privacy</a>
       </li>
       <li class="site-nav__item site-nav__footer-item">
-        <a href="" class="site-nav__link site-nav__footer-link">Voorwaarden</a></li>
+        <a href="#" class="site-nav__link site-nav__footer-link">Voorwaarden</a></li>
       <li class="site-nav__item site-nav__footer-item">
-        <a href="" class="site-nav__link site-nav__footer-link">Colofon</a></li>
+        <a href="#" class="site-nav__link site-nav__footer-link">Colofon</a></li>
     </ul>
 
 

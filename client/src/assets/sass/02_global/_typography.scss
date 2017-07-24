@@ -87,15 +87,16 @@ strong
   }
   &--links {
     border-top: 1px solid $col-grey;
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     padding-top: 20px;
     position: relative;
 
     li {
       display: inline;
       padding: 0;
+      font-size: 14px;
       &:after {
-        padding: 8px;
+        padding: 5px;
         color: $col-orange;
         content: "\003e";
       }
@@ -121,6 +122,7 @@ strong
     &--links {
       li {
         display: block;
+        margin: 10px 0;
       }
     }
   }

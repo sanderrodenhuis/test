@@ -4,11 +4,10 @@ $(() => {
 
   $('.order-overview').each((idx, elem) => {
     const $overview = $(elem),
-          $filter = $overview.find('.order-overview__filters'),
           $results = $overview.find('.order-overview__orders'),
           template = $overview.find('.order-overview__template').html();
-
-    $filter.on('filtered', (event, status = '*') => {
+  
+    $overview.on('filtered', (event, status = '*') => {
       const $items = $results.children();
       status = String(status);
       if (status === '*')

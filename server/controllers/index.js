@@ -5,13 +5,15 @@ var express = require('express'),
     passport = require('passport');
 
 const authenticate = (req, res, next) => {
-  passport.authenticate('jwt', (err, user, info) => {
-    if (! err && user)
-      req.user = user;
+  passport.authenticate('jwt', (err, user, error) => {
+    if (user)
+      res.locals.user = req.user = user;
+    else if (error)
+      req.error = error;
     next();
   })(req, res, next);
 };
-
+router.use(authenticate);
 
 // in development we have multiple routes getting returned for stateful templates so this is USE instead of GET
 // TODO: remove those later and integrate in the templates
