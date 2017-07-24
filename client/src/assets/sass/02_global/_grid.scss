@@ -1,3 +1,6 @@
+@import "grid-layout";
+
+
 .container {
   max-width: 1264px;
   margin: 0 auto;
@@ -6,55 +9,22 @@
 }
 
 .row {
-  display: flex;
   justify-content: space-between;
   margin: -8px;
-  flex-wrap: wrap;
 
   &--centered
   {
     justify-content: center;
   }
-  &--overview {
-    margin-top: -170px;
-  }
 }
+.col--overflow
+{
+  // this means this column is going to overflow its size.
+  // used in the sidebar for items that overflow the section
+  height: 1px;
 
-.column {
-  padding: 8px;
-  box-sizing: border-box;
-  &__content {
-    width: (100%/12)*7;
-    &--header,
-    &--narrow
-    {
-      width: (100%/12)*6;
-    }
-  }
-  &__sidebar {
-    width: (100%/12)*4;
-  }
-  &--timepicker
-  {
-    flex: 1
-  }
-}
-
-@media #{$non-desktop} {
-  .column
-  {
-    &__content {
-      &--header,
-      &--narrow
-      {
-        width: 100%;
-      }
-    }
-    &--datepicker,
-    &--timepicker
-    {
-      width: 100%;
-    }
+  @media (max-width: $mobile-width) {
+    height: auto;
   }
 }
 
@@ -65,45 +35,6 @@
       padding-bottom: 100px;
     }
   }
-  .row {
-    &--overview {
-      margin-top: -190px;
-    }
-  }
-  .column {
-    &__content {
-      &--header
-      {
-        width: (100%/8)*4;
-      }
-      &--narrow
-      {
-        width: (100%/8)*6;
-      }
-      &--home {
-        padding-right: 8px;
-        &-alternative {
-          width: 100%;
-        }
-      }
-      &--header-home
-      {
-        width: 50%;
-      }
-      &--description {
-        width: (6/8)*100%;
-      }
-    }
-    &__sidebar {
-      &--home {
-        width: 100%;
-        &-alternative {
-          width: 50%;
-          padding-bottom: 50px;
-        }
-      }
-    }
-  }
 }
 @media #{$mobile} {
   .container {
@@ -112,46 +43,4 @@
       padding-top: 62.5vw;
     }
   }
-  .row {
-    &--overview {
-      margin-top: 0;
-    }
-  }
-  .column {
-    &__content {
-      width: 100%;
-      &--home {
-        padding-right: 8px;
-      }
-      &--header-home
-      {
-        width: 100%;
-      }
-    }
-    &__sidebar {
-      width: 100%;
-      margin-top: 50px;
-      &--home {
-          margin-top: 0;
-        &-alternative {
-          padding-bottom: 50px;
-        }
-      }
-    }
-  }
 }
-
-@media #{$desktop} {
-  .hide-desktop { display: none !important; }
-}
-@media #{$non-desktop} {
-  .show-desktop { display: none !important; }
-}
-@media #{$mobile} {
-  .hide-mobile { display: none !important; }
-}
-@media #{$non-mobile} {
-  .show-mobile { display: none !important; }
-}
-
-@import "grid-layout";
