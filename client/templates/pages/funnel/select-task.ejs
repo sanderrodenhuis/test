@@ -15,14 +15,20 @@
 
         <h3>Staat je klus hier niet tussen?</h3>
         <p>
-          Dan doen we het waarschijnlijk (nog) niet. Suggesties kun je e-mailen naar <a href="mailto:zo.opgelost@essent.nl">zo.opgelost@essent.nl</a>
+          Dan doen we het waarschijnlijk (nog) niet. Suggesties kun je e-mailen naar <a href="mailto:zo.opgelost@essent.nl" class="link">zo.opgelost@essent.nl</a>
         </p>
 
       </div>
       <div class="col-offset-lg-1 col-offset-xl-1 col-4 col-md-3">
 
-        <%- partial('partials/funnel/sidebar/receipt') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
 
       </div>
 

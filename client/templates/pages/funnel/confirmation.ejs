@@ -28,8 +28,14 @@
 
       </div>
       <div class="column column__sidebar hide-mobile">
-        <%- partial('partials/funnel/sidebar/receipt') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -75,8 +81,14 @@
         </div>
       </div>
       <div class="column column__sidebar show-mobile">
-        <%- partial('partials/funnel/sidebar/receipt') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
       </div>
     </div>
     </div>
