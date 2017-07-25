@@ -30,6 +30,50 @@
       margin: 0;
     }
   }
+  &--receipt {
+    padding: 20px 30px 30px;
+    &-alternative {
+      text-align: center;
+    }
+  }
+  &__header {
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    &:after
+    {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background: $col-white;
+    }
+  }
+  &__row
+  {
+    position: relative;
+    margin: 0;
+    &-cost
+    {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  &__link {
+    color: $col-white;
+    text-decoration: underline;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 25px;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 19px;
+  }
 }
 
 
@@ -51,6 +95,16 @@
         font-size: 21px;
         line-height: 27px;
       }
+    }
+    &--receipt {
+      padding: 20px 30px;
+      text-align: left;
+      &-alternative {
+        text-align: center;
+      }
+    }
+    &__link {
+      margin: 27px 30px;
     }
   }
 }

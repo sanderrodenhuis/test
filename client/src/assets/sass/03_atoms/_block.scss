@@ -1,0 +1,61 @@
+.block {
+  background: $col-white;
+  border: 1px solid $col-grey-light;
+  padding: 30px;
+  color: $col-black;
+  position: relative;
+
+  &--alternative {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  &__subtitle {
+    font-weight: 700;
+    font-size: 16px;
+  }
+  &__list {
+    margin-top: 10px;
+  }
+  &__list-item {
+
+  }
+  &__divider {
+    height: 1px;
+    padding: 0;
+    margin: 20px 0;
+    border: 0;
+    background: $col-grey;
+  }
+
+  &__footer {
+    position: relative;
+    padding-left: 60px;
+    color: $col-black;
+
+    @include icon(alarm, before, false);
+    &:before
+    {
+      position: absolute;
+      left: 0;
+      top: 30px;
+      font-size: 45px;
+    }
+
+    &--read-more
+    {
+      color: #FF7400;
+    }
+  }
+  &__link {
+    color: $col-orange;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 25px;
+    right: 0;
+    margin: 25px;
+  }
+}

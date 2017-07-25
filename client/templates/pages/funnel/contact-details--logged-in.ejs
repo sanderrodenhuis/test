@@ -46,8 +46,14 @@
       </div>
 
       <div class="col-xl-4 col-lg-4 col-offset-lg-2 col-offset-xl-2 col-md-3 col-sm-4">
-        <%- partial('partials/funnel/sidebar/receipt') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

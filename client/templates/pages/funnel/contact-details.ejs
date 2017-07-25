@@ -94,9 +94,15 @@
 
       </div>
 
-      <div class="col-lg-4 col-xl-4 col-offset-lg-2 col-offset-xl-2 col-offset-md-1 col-md-3 hidden-sm-down">
-        <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+      <div class="col-lg-4 col-xl-4 col-offset-lg-2 col-offset-xl-2 col-md-4 hidden-sm-down">
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -122,8 +128,14 @@
         </div>
       </div>
       <div class="col-sm-4 hidden-md-up">
-        <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

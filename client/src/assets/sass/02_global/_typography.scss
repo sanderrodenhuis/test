@@ -53,6 +53,7 @@ strong
   {
     position: relative;
     padding: 0px 10px 5px 25px;
+
   }
   &--col-2
   {
@@ -100,6 +101,12 @@ strong
         color: $col-orange;
         content: "\003e";
       }
+    }
+  }
+  &--secondary {
+    li {
+      padding: 0 0 5px 0;
+      font-weight: 300;
     }
   }
 
