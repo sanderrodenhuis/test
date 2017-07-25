@@ -50,6 +50,10 @@
       }
 
     }
+    &.is-hidden {
+      display: none;
+    }
+
   }
   &__row {
     display: flex;
@@ -57,6 +61,9 @@
     margin: auto -10px;
     &--secondary {
       margin: -10px;
+    }
+    &--alternative {
+      margin: 20px -10px;
     }
   }
   &__col {
@@ -165,6 +172,9 @@
     {
       padding-left: 40px;
     }
+    &--hidden {
+      display: none;
+    }
 
   }
 
@@ -208,13 +218,16 @@
       }
     }
   }
-  &--contact-details, &--account-create {
+  &--contact-details, &--account-create, &--account-edit {
     .form__group {
       margin: 0;
     }
   }
   &--feedback {
     margin-bottom: 30px;
+  }
+  &--account-edit {
+    margin: 30px 0;
   }
 }
 
