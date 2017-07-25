@@ -50,12 +50,10 @@
       }
 
     }
-    &-toggle {
+    &.is-hidden {
       display: none;
-      &.is-visible {
-        display: block;
-      }
     }
+
   }
   &__row {
     display: flex;
@@ -63,6 +61,9 @@
     margin: auto -10px;
     &--secondary {
       margin: -10px;
+    }
+    &--alternative {
+      margin: 20px -10px;
     }
   }
   &__col {

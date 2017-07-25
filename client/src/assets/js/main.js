@@ -8,7 +8,7 @@ import './photo-upload';
 import './form-validation';
 import './booking-step';
 import './filter-list';
-import './subscription';
+import './form--account-edit';
 
 import './page--account-overview';
 
@@ -29,6 +29,7 @@ $(() => {
     $('html,body').animate({scrollTop: 0}, 800);
     return false;
   });
+
 
 });
 
