@@ -208,7 +208,7 @@
       }
     }
   }
-  &--contact-details {
+  &--contact-details, &--account-create {
     .form__group {
       margin: 0;
     }
@@ -276,7 +276,6 @@
     }
     &--contact-details {
       margin: 20px 0;
-
     }
     &__buttons {
 
