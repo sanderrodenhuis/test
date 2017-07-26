@@ -1,11 +1,10 @@
-import $ from './jquery'
-import 'jquery-ui'
-import 'jquery-datepicker'
+import $ from './jquery';
 
 $(() => {
   const $body = $('body');
   
   const $datepicker = $( "#datepicker" );
+  
   $datepicker.datepicker({
     closeText: "Sluiten",
     prevText: "",

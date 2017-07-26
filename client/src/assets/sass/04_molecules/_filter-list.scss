@@ -1,12 +1,13 @@
 @media #{$non-mobile} {
   .filter-list {
-    margin: -5px;
+    margin: 30px -5px;
     &__title {
       display: none;
     }
     &__items {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
     }
     &__item {
       display: block;
@@ -49,6 +50,7 @@
       height: 48px;
       line-height: 48px;
       font-size: 16px;
+      margin: 0;
 
       &:before
       {
@@ -91,6 +93,7 @@
       overflow: hidden;
       transition: all 0.5s ease-in-out;
       padding: 0;
+      margin: 0;
     }
     &.is-expanded &__items
     {

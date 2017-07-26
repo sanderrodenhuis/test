@@ -1,10 +1,18 @@
-import $ from './jquery'
+import './globals';
+import $ from './jquery';
+
 import './modal';
 import './job-selection';
 import './datepicker';
 import './photo-upload';
 import './form-validation';
 import './booking-step';
+import './filter-list';
+import './form--account';
+
+import './page--account-overview';
+
+import './form--login';
 
 $(() => {
   $('.site-nav__item--toggle').on('click', (event) => {
@@ -21,4 +29,9 @@ $(() => {
     $('html,body').animate({scrollTop: 0}, 800);
     return false;
   });
+
+
 });
+
+
+

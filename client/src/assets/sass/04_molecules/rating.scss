@@ -1,0 +1,51 @@
+.rating-container {
+  font-size: 14px;
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+}
+.rating
+{
+  position: relative;
+  letter-spacing: 5px;
+  padding: 0 5px;
+  &:after
+  {
+    @include icon-styles;
+    color: $col-grey-light;
+    content: icon-char(star) icon-char(star) icon-char(star) icon-char(star) icon-char(star)
+  };
+  &:before
+  {
+    position: absolute;
+    @include icon-styles;
+    color: $col-yellow;
+  }
+
+  &--1-stars:before
+  {
+    content: icon-char(star);
+  }
+  &--2-stars:before
+  {
+    content: icon-char(star) icon-char(star);
+  }
+  &--3-stars:before
+  {
+    content: icon-char(star) icon-char(star) icon-char(star);
+  }
+  &--4-stars:before
+  {
+    content: icon-char(star) icon-char(star) icon-char(star) icon-char(star);
+  }
+  &--5-stars:before
+  {
+    content: icon-char(star) icon-char(star) icon-char(star) icon-char(star) icon-char(star);
+  }
+}
+
+@media #{$mobile} {
+  .rating-container {
+    position: static;
+  }
+}

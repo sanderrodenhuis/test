@@ -18,14 +18,14 @@
 @import "03_atoms/site-nav";
 @import "03_atoms/breadcrumbs";
 @import "03_atoms/contact-tile";
-@import "03_atoms/sidebar-receipt";
-@import "03_atoms/sidebar-promotion";
 @import "03_atoms/datepicker";
 @import "03_atoms/time-list";
 @import "03_atoms/button";
 @import "03_atoms/job-overview";
 @import "03_atoms/well";
 @import "03_atoms/button-bar";
+@import "03_atoms/sidebar";
+@import "03_atoms/block";
 
 
 /* Molecule Styles */
@@ -42,6 +42,9 @@
 @import "04_molecules/booking-step";
 @import "04_molecules/appointment-details";
 @import "04_molecules/appointment-confirmation";
+@import "04_molecules/order-overview";
+@import "04_molecules/order-notification";
+@import "04_molecules/rating";
 
 /* Organism Styles */
 @import "05_organisms/job-selection";

@@ -1,4 +1,194 @@
 <% layout('layouts/default') %>
 
-create an account
+<div class="section section--alternative">
+  <div class="container">
+    <h1>Welkom terug Gerard!</h1>
+    <p>Op deze pagina vind je een overzicht van al je klussen.</p>
+    <div class="row">
+      <div class="col-xl-7 col-lg-7 col-md-5 col-sm-4">
 
+        <%- partial('components/filter-list', {
+          title: 'Filter overzicht',
+          titleAll: 'Alles klussen',
+          className: 'order-overview__filters',
+          items: ['Aankomend','Afgerond','Geannuleerd'].map((title,idx) => ({value: idx+1, title})),
+          target: '.order-overview'
+        }) %>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-offset-lg-1 col-offset-xl-1 col-md-3 col-sm-4 col--overflow hidden-sm-down">
+        <div class="sidebar">
+          <div class="sidebar__header sidebar__header--alternative">
+            <div class="well well--receipt well--receipt-alternative">
+              <h6 class="well__title">Premium pakket</h6>
+              <p class="well__row">Proefversie - nog 30 dagen beschikbaar</p>
+            </div>
+          </div>
+          <div class="sidebar__content">
+            <div class="block block--alternative">
+              <h6 class="block__subtitle">Persoonlijke gegevens</h6>
+              <ul class="list list--secondary">
+                <li>Gerard Verhagen</li>
+                <li>Gerardv@gmail.com</li>
+                <li>06 123 412 34</li>
+                <li>NL RABO 0123 4567 89</li>
+              </ul>
+              <h6 class="block__subtitle">Adres & woonplaats</h6>
+              <ul class="list list--secondary">
+                <li>Straatjesstraat 26 bis</li>
+                <li>1234 AB Amsterdam</li>
+              </ul>
+              <a href="" class="block__link">Wijzig</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7 col-lg-7 col-md-5 col-sm-4">
+        <div class="order-overview">
+          <ul class="order-overview__orders">
+            <li class="order-overview__order-item" data-order-status="1">
+              <h6>Router installeren</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-xl-3 col-lg-3 col-md-3 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-xl-5 col-lg-5 col-md-3 order-overview__order-col">Vandaag, donderdag 13 september 10:00 - 11:00 uur</div>
+                <div class="col-xl-3 col-lg-3 col-md-2 order-overview__order-col">€50,-</div>
+              </div>
+              <ul class="list list--links">
+                <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
+                <li>
+                  <a href="#" class="link <%- index == 2 ? 'js-appointment-cancel':'' %>"><span><%= text %></span></a>
+                </li>
+                <% }) %>
+              </ul>
+
+            </li>
+            <li class="order-overview__order-item" data-order-status="1">
+              <h6>Router installeren</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-xl-3 col-lg-3 col-md-3 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-xl-5 col-lg-5 col-md-3 order-overview__order-col">Vandaag, donderdag 13 september 10:00 - 11:00 uur</div>
+                <div class="col-xl-3 col-lg-3 col-md-2 order-overview__order-col">€50,-</div>
+              </div>
+              <ul class="list list--links">
+                <% ['Bekijk details', 'Afspraak wijzigen', 'Afspraak annuleren'].forEach((text, index) => { %>
+                <li>
+                  <a href="#" class="link <%- index == 2 ? 'js-appointment-cancel':'' %>"><span><%= text %></span></a>
+                </li>
+                <% }) %>
+              </ul>
+            </li>
+            <li class="order-overview__order-item" data-order-status="2">
+              <h6>Afgerond</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-xl-3 col-lg-3 col-md-3 order-overview__order-col">
+                  <div>blabla</div>
+                  <div>Donderdag 13 september</div>
+                </div>
+                <div class="col-xl-5 col-lg-5 col-md-3 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-2 order-overview__order-col">€40,-</div>
+              </div>
+              <ul class="list list--links">
+                <% ['Bekijk details', 'Factuur downloaden'].forEach((text, index) => { %>
+                <li>
+                  <a href="#" class="link"><span><%= text %></span></a>
+                </li>
+                <% }) %>
+              </ul>
+            </li>
+            <li class="order-overview__order-item" data-order-status="2">
+              <h6>Afgerond</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-xl-5 col-lg-5 col-md-3 order-overview__order-col">
+                  <div>CV ketel vervangen</div>
+                  <div>Donderdag 13 september</div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-2 order-overview__order-col">€450,-</div>
+              </div>
+
+              <ul class="list list--links">
+                <% ['Bekijk details', 'Factuur downloaden'].forEach((text, index) => { %>
+                <li>
+                  <a href="#" class="link"><span><%= text %></span></a>
+                </li>
+                <% }) %>
+              </ul>
+
+              <div class="rating-container">
+                <span>Rating</span>
+                <span class="rating rating--3-stars"></span>
+              </div>
+            </li>
+            <li class="order-overview__order-item" data-order-status="3">
+              <h6 class="warning">Klus geannuleerd</h6>
+              <div class="row order-overview__order-row">
+                <div class="col-xl-5 col-lg-5 col-md-3 order-overview__order-col">
+                  <div>Wasmachine reparatie</div>
+                  <div>Donderdag 13 september</div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 order-overview__order-col">Afspraaknummer
+                  <br> SDFGS234
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-2 order-overview__order-col">€84,50</div>
+              </div>
+
+              <ul class="list list--links">
+                <% ['Bekijk details'].forEach((text, index) => { %>
+                <li>
+                  <a href="#" class="link"><span><%= text %></span></a>
+                </li>
+                <% }) %>
+              </ul>
+
+            </li>
+          </ul>
+
+          <script type="text/template" class="order-overview__template">
+            <%- partial('partials/order-notification')%>
+          </script>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-offset-lg-1 col-offset-xl-1 col-md-3 col-sm-4 hidden-md-up">
+        <div class="sidebar">
+          <div class="sidebar__header sidebar__header--alternative">
+            <div class="well well--receipt well--receipt-alternative">
+              <h6 class="well__title">Premium pakket</h6>
+              <p class="well__row">Proefversie - nog 30 dagen beschikbaar</p>
+            </div>
+          </div>
+          <div class="sidebar__content">
+           <div class="block block--alternative">
+             <h6 class="block__subtitle">Persoonlijke gegevens</h6>
+             <ul class="list list--secondary">
+               <li>Gerard Verhagen</li>
+               <li>Gerardv@gmail.com</li>
+               <li>06 123 412 34</li>
+               <li>NL RABO 0123 4567 89</li>
+             </ul>
+             <h6 class="block__subtitle">Adres & woonplaats</h6>
+             <ul class="list list--secondary">
+               <li>Straatjesstraat 26 bis</li>
+               <li>1234 AB Amsterdam</li>
+             </ul>
+             <a href="" class="block__link">Wijzig</a>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
