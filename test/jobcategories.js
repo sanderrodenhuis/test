@@ -1,6 +1,6 @@
 //During the test the env variable is set to test
 require('dotenv').config();
-const mendix = require('../server/utils/mendix'),
+const mendix = require('../server/utils/mendix/request'),
   mockJobcategory = require('./data/jobcategory');
 
 //Require the dev-dependencies
