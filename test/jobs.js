@@ -1,75 +1,76 @@
 //During the test the env variable is set to test
 require('dotenv').config();
-let mendix = require('../server/utils/mendix');
+const mendix = require('../server/utils/mendix/request'),
+  mockJob = require('./data/job');
 
 //Require the dev-dependencies
 
-let chai = require('chai');
-var chaiAsPromised = require("chai-as-promised");
+const chai = require('chai'),
+  chaiAsPromised = require("chai-as-promised");
 
 // Then either:
-let {expect }= chai;
-// let {expect, assert} = chai;
+const {expect, assert} = chai;
 
 
 chai.use(chaiAsPromised);
 
-let jobs_res=[
-  "IdJob",
-  "Description",
-  "Warranty",
-  "JobCategories",
-  "NormalPrice",
-  "DiscountPrice",
-  "MakeSureYouHaveOrPrepare",
-  "WhatWeDo",
-  "WhatWeDontDo",
-  "Name",
-  "ShowToCustomer"
-];
+// const test_user = process.env.TEST_USER,
+//   test_pass = process.env.TEST_PASS,
+//   admin_user = process.env.MENDIX_USER,
+//   admin_pass = process.env.MENDIX_PASS;
 
 //Our parent block
-describe('Jobs', () => {
-  beforeEach((done) => {
-    done();
-  });
+describe('Jobs', async () => {
+  let params = '?data=true',
+    jobs_res,
+    jobs_data;
 
-  /*
-  * Test the /GET route
-  */
+  before(async () => {
+    jobs_res = await mendix.get(`/jobs/${params}`);
+    jobs_data = jobs_res.data;
+  })
 
+  // beforeEach(async () => {
+  //   await sync();
 
-  let jobs = [];
-  describe('GET /jobs/?data=true', () => {
+  // })
+
+  // afterEach(async () => {
+  //   await drop();
+  // })
+
+  describe(`GET /jobs/${params}`,  () => {
     it('Should GET all the jobs', async () => {
-      const response = await mendix.get('/jobs/?data=true'),
-        jobs = response.data;
-      expect (response).to.have.property('status',200);
-      expect (jobs).to.be.an('array');
-      jobs.map((job) => {
-        expect (job).to.have.keys(jobs_res)
-        describe('GET /jobs/{id}', () => {
-          it(`Should get job`, async () => {
-            return Promise.all(jobs.map(async (job) => {
+      try {
+        expect (jobs_res).to.have.property('status',200);
+        expect (jobs_data).to.be.an('array');
+        jobs_data.map((job) => {
+          expect (job).to.have.keys(Object.keys(mockJob))
+        })
+        describe(`GET /jobs/IdJob`, () => {
+          jobs_data.map((job) => {
+            it(`Should get job ID: ${job.IdJob}`, async() => {
               try {
                 let response = await mendix.get('/jobs/'+job.IdJob),
                   resJob = response.data;
                 expect (response).to.have.property('status',200);
-                expect (resJob).to.be.an('object');
-                expect (resJob).to.have.keys(jobs_res)
-                expect(resJob).to.deep.equal(job);
+                expect (resJob).to.be.an('object')
+                  .and
+                  .to.have.keys(Object.keys(mockJob))
+                  .and
+                  .to.deep.equal(job);
               } catch(response) {
-                assert(response.status !== 200, 'JobID ' + job.IdJob + ' failed');
+                assert(response === 200, 'JobID ' + job.IdJob + ' failed');
               }
-            }));
+            })
           })
         })
-      })
-      return Promise.resolve(jobs);
+      } catch(response) {
+        assert(response === 200, `GET /jobs/${params} failed Status: ${response}`);
+        // message,showDiff,actual,expected
+      }
+
     })
   });
-
-
-
 });
 
