@@ -10,8 +10,8 @@ const axiosForUser = (username, password) => {
   });
 };
 
-const mendix = axiosForUser(process.env.MENDIX_USER, process.env.MENDIX_PASS);
+const request = axiosForUser(process.env.MENDIX_USER, process.env.MENDIX_PASS);
 
-mendix.forUser = axiosForUser;
+request.forUser = axiosForUser;
 
-module.exports = mendix;
+module.exports = request;

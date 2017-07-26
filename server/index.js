@@ -6,8 +6,6 @@ const path = require('path');
 const engine = require('ejs-mate');
 const http = require('http');
 
-
-
 const app = express();
 
 app.set('views', path.join(__dirname,'../client/templates'));

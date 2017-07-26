@@ -8,17 +8,15 @@
 </div>
 <div class="section">
   <div class="container">
-
     <h1 class="page-title">Afspraak maken</h1>
-
     <div class="row">
-      <div class="column column__content">
+      <div class="col-7 col-md-5 col-sm-4">
         <div class="row">
-          <div class="column column--datepicker">
+          <div class="col-7 col-md-8 col-sm-4">
             <p>Kies een dag</p>
             <%- partial('components/datepicker') %>
           </div>
-          <div class="column column--timepicker">
+          <div class="col-5 col-md-8 col-sm-4">
             <p>Kies een tijdstip</p>
             <ul class="time-list">
               <li class="time-list__item"><a href="" class="time-list__link">09.00 - 10.00</a></li>
@@ -40,9 +38,15 @@
           <span class="datepicker-info__time">11:00 en 12:00 </span> uur
         </div>
       </div>
-      <div class="column column__sidebar hide-mobile">
-        <%- partial('partials/funnel/sidebar/receipt') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+      <div class="col-offset-lg-1 col-offset-xl-1 col-4 col-md-3 hidden-sm-down">
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +54,7 @@
 <div class="section section--alternative">
   <div class="container">
     <div class="row">
-      <div class="column column__content">
+      <div class="col-7 col-md-5 col-sm-4">
         <h2 class="section-title">Klusdetails</h2>
         <p>
           Om je zo goed mogelijk te kunnen helpen willen we graag zo veel mogelijk weten van de klus en de huidige
@@ -84,9 +88,15 @@
           <a href="" class="btn js-btn-submit form__button--submit">Volgende stap</a>
         </div>
       </div>
-      <div class="column column__sidebar show-mobile">
-        <%- partial('partials/funnel/sidebar/receipt') %>
-        <%- partial('partials/funnel/sidebar/promotion') %>
+      <div class="col-offset-xl-1 col-offset-lg-1 col-md-3 col-4 hidden-md-up">
+        <div class="sidebar">
+          <div class="sidebar__header">
+            <%- partial('partials/funnel/sidebar/receipt') %>
+          </div>
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,4 @@
-import $ from 'jquery'
-
-window.jQuery = window.$ = $;
-
-export default $;
+import $ from './globals';
+import 'jquery-validation';
+import '../vendor/jquery-ui/jquery-ui';
+module.exports = $;

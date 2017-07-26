@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6, p, ul
 {
   font-weight: 300;
   line-height: (26 / 16);
-  margin: 1em 0;
+  margin: 0.5em 0;
 }
 
 h1
@@ -34,9 +34,13 @@ h4, h5, h6
 p, ul
 {
   font-weight: normal;
+  margin: 1em 0;
 }
 .link {
   color: $col-orange;
+}
+.warning {
+  color: $col-red;
 }
 strong
 {
@@ -45,11 +49,11 @@ strong
 .list
 {
   text-align: left;
-  margin: 0;
   li
   {
     position: relative;
-    padding: 0px 10px 10px 25px;
+    padding: 0px 10px 5px 25px;
+
   }
   &--col-2
   {
@@ -61,10 +65,11 @@ strong
 
   &--disc
   {
-    list-style: disc inside;
+    list-style: disc;
     li
     {
       padding-left: 0;
+      margin-left: 25px;
     }
   }
   &--check
@@ -79,6 +84,29 @@ strong
         left: 0px;
         color: $col-pink;
       }
+    }
+  }
+  &--links {
+    border-top: 1px solid $col-grey;
+    margin: 20px 0 0 0;
+    padding-top: 20px;
+    position: relative;
+
+    li {
+      display: inline;
+      padding: 0;
+      font-size: 14px;
+      &:after {
+        padding: 5px;
+        color: $col-orange;
+        content: "\003e";
+      }
+    }
+  }
+  &--secondary {
+    li {
+      padding: 0 0 5px 0;
+      font-weight: 300;
     }
   }
 
@@ -97,6 +125,12 @@ strong
     &--col-home
     {
       column-count: 1;
+    }
+    &--links {
+      li {
+        display: block;
+        margin: 10px 0;
+      }
     }
   }
 }

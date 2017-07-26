@@ -8,7 +8,7 @@
   text-align: center;
   box-shadow: 0 8px 20px 0 rgba(0,0,0,0.15);
   box-sizing: border-box;
-  margin-top: 6px;
+
   &__image
   {
     display: block;
@@ -34,20 +34,3 @@
     text-decoration: underline;
   }
 }
-
-@media #{$mobile}
-{
-  .contact-tile
-  {
-    margin: 6px;
-  }
-}
-
-@media #{$tablet}
-{
-  .contact-tile
-  {
-    margin: 6px;
-  }
-}
-

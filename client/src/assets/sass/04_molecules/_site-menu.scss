@@ -60,7 +60,7 @@
     color: $col-black;
     font-size: 16px;
     line-height: 21px;
-    &.active, &:hover {
+    &.is-active, &:hover {
       color: $col-orange;
       &:after {
         position: absolute;

@@ -7,9 +7,6 @@
   margin: 55px 0;
 }
 
-.container--tools {
-
-}
 @media #{$tablet} {
   .content__row {
 
@@ -76,6 +73,17 @@
 
   .container--tools {
     padding-top: 200px;
+  }
+
+
+  .list-overview {
+
+
+    &__item {
+      display: block;
+
+    }
+
   }
 }
 
