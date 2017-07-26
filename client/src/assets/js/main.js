@@ -8,7 +8,7 @@ import './photo-upload';
 import './form-validation';
 import './booking-step';
 import './filter-list';
-import './form--account-edit';
+import './form--account';
 
 import './page--account-overview';
 
