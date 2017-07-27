@@ -37,7 +37,9 @@ $(() => {
         $form.find('.form__error').remove();
         location.href = href;
       })
-      .catch(response => {
+      .catch(error => {
+        $form.find('.form__error').remove();
+          let response = error.responseJSON;
         Object.keys(response.error).forEach(key => {
           let messages = response.error[key],
               $input = $form.find(`[name="${key}"]`),

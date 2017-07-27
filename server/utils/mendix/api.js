@@ -61,7 +61,7 @@ class Api {
     const emailExists = await this.userEmailExists(user.Email);
     
     if (emailExists)
-      throw {Email: 'Email is al in gebruik'};
+      throw {Email: ['Email is al in gebruik']};
     try
     {
       let {data} = await Request.post('/users/', user);
