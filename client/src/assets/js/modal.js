@@ -47,4 +47,13 @@ $(() => {
     $body.removeClass('has-modal');
   });
 
+  if (location.hash.length > 0)
+  {
+    location.hash.substr(1).split('&').filter(Boolean).map(param => param.split('=')).find(([key,value]) => {
+      if (key === 'modal')
+        $body.trigger('show.modal',[value]);
+    });
+    
+    
+  }
 });
