@@ -35,9 +35,11 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.14.3",
     "browserify": "^13.1.0",
+    "chai-as-promised": "^7.1.1",
     "eazy-logger": "^3.0.2",
     "envify": "^4.0.0",
     "eslint": "^3.19.0",
+    "eslint-plugin-mocha": "^4.11.0",
     "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -53,6 +55,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.11",
+    "mocha": "^3.4.2",
     "require-dir": "^0.3.1",
     "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
@@ -63,7 +66,8 @@
   },
   "scripts": {
     "postinstall": "gulp --production",
-    "start": "node server"
+    "start": "node server",
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
