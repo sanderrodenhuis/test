@@ -1,5 +1,5 @@
 <div class="row subscription-container">
-  <div class="col-6 col-md-4 col-sm-4">
+  <div class="col-6 col-md-4 col-sm-4 col-subscription">
     <div class="block-subscription <% if(typeof(HasSubscription) === 'undefined') { %>block-subscription--secondary<% } else if (HasSubscription) { %>is-selected<% } %>">
       <div class="block-subscription__content">
         <h6 class="block-subscription__title">Premium pakket</h6>
@@ -18,7 +18,7 @@
       <a href="" class="btn btn--border">NU PROBEREN</a>
     </div>
   </div>
-  <div class="col-6 col-md-4 col-sm-4">
+  <div class="col-6 col-md-4 col-sm-4 col-subscription">
     <div class="block-subscription <% if(typeof(HasSubscription) !== 'undefined' && ! HasSubscription) { %>is-selected<% } %>">
       <div class="block-subscription__content">
         <h6 class="block-subscription__title">Basis pakket</h6>

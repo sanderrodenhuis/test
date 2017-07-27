@@ -4,6 +4,12 @@ const router = require('express').Router();
 router.get('/', function(req, res, next) {
   res.render('pages/account/create');
 });
+router.get('/voltooid', function(req, res, next) {
+  let email = req.flash('user.create.email');
+  res.render('pages/account/create--complete',{
+    email
+  });
+});
 router.post('/', async function(req, res, next) {
   try {
     const postData = Object.assign({
@@ -28,6 +34,7 @@ router.post('/', async function(req, res, next) {
       throw(errors);
     
     await req.mendix.createUser(postData);
+    req.flash('user.create.email', postData.Email)
     return res.json({
       success: true
     });

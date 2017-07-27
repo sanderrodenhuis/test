@@ -13,6 +13,7 @@ module.exports = function(app) {
   require('./helpers')(app);
   require('../utils/mail')(app);
   require('../utils/mendix')(app);
+  require('../utils/flash')(app);
   
   require('./debug')(app);
 };
