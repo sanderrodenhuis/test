@@ -1,6 +1,12 @@
-
+.subscription-container {
+}
+.col-subscription {
+  display: flex;
+  flex-direction: column;
+}
 .block-subscription {
   display: flex;
+  flex: 1;
   flex-direction: column;
   height: 100%;
   padding: 30px;
@@ -51,6 +57,10 @@
 @media #{$mobile} {
   .subscription-container {
     flex-direction: column;
+  }
+  .col-subscription {
+    margin: 20px 0;
+    flex: 1;
   }
   .block-subscription {
     max-width: 100%;
