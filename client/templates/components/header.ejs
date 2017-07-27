@@ -27,7 +27,13 @@
     <div class="site-menu__col4">
       <ul class="site-nav site-nav--meta">
         <li class="site-nav__item">
+          <% if (typeof(user) === 'undefined') { %>
           <a href="#" class="site-nav__link" data-modal="/overlays/login">Log in</a>
+          <% } else { %>
+          <a href="/account" class="site-nav__link site-nav__item--no-mobile <%- isActivePage('account') %>">
+            <%- String(user.FirstName) + ' ' + String(user.LastName).substr(0,1).toUpperCase() %>
+          </a>
+          <% }%>
         </li>
         <li class="site-nav__item site-nav__item--no-mobile">
           <a href="/funnel" class="site-nav__link <%- isActivePage('funnel') %>">Klus inplannen</a>
@@ -65,7 +71,9 @@
         <% if (typeof(user) === 'undefined') { %>
         <a href="" class="site-nav__link" data-modal="login">Log in</a>
         <% } else { %>
-        <%- String(user.firstname) + ' ' + String(user.lastname).substr(0,1).toUpperCase() %>
+        <a href="/account" class="site-nav__link<%- isActivePage('account') %>">
+          <%- String(user.FirstName) + ' ' + String(user.LastName).substr(0,1).toUpperCase() %>
+        </a>
         <% }%>
       </li>
 

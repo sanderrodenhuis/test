@@ -2,12 +2,13 @@ var express = require('express'),
     router = express.Router(),
     account = express.Router(),
     funnel = express.Router(),
-    passport = require('passport');
+    passport = require('passport'),
+    pick = require('../utils/helpers').pick;
 
 const authenticate = (req, res, next) => {
   passport.authenticate('jwt', (err, user, error) => {
     if (user)
-      res.locals.user = req.user = user;
+      res.locals.user = req.user = pick(user, 'Username','FirstName','LastName','IdUser');
     else if (error)
       req.error = error;
     next();

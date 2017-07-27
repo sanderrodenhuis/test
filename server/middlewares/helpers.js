@@ -1,5 +1,9 @@
+const helpers = require('../utils/helpers');
 module.exports = (app) => {
+  
   app.use((req,res,next) => {
+    app.locals.PostCode = helpers.postCode;
+    
     let origUrl = req.originalUrl.substr(1).split('/');
     res.locals.isActivePage = (page) => {
       page = page.split('/').slice(0,origUrl.length);
