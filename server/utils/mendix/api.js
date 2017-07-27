@@ -56,7 +56,7 @@ class Api {
     if (validation)
       throw validation;
     
-    const emailExists = await Api.userEmailExists(Email);
+    const emailExists = await this.userEmailExists(Email);
     
     if (emailExists)
       throw {Email: 'Email is al in gebruik'};
@@ -73,7 +73,7 @@ class Api {
     }, process.env.JWT_SECRET);
     
     await this.app.mail.send(Email, 'Activeer je account', 'emails/account/verification', {
-      baseUrl: req.protocol + '://' + req.get('host'),
+      baseUrl: this.req.protocol + '://' + this.req.get('host'),
       payload
     });
     
@@ -83,14 +83,22 @@ class Api {
   }
   
   async updateAccount ({NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode}) {
-    throw Error('Needs new implementation');
-    return Request.forUser(Username, ConfirmPassword).put('/account/', {
-      FirstName, LastName,
-      Username, NewPassword, ConfirmPassword,
-      Email, IBAN, PhoneNumber,
-      Street, HouseNumber, Addition, PostCode, City,
-      HasSubscription, IsActive
-    }).then(order => order.data);
+    const user = {NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode};
+    const validation = Validators.newUser(user);
+
+    if (validation)
+      throw validation;
+
+    const emailExists = await Api.userEmailExists(Email);
+
+    if (emailExists)
+      throw {Email: 'Email is al in gebruik'};
+    try {
+      let {data} = await Request.put('/user/', user);
+    } catch(e) {
+      return e;
+    }
+
   }
   
   async userLogin (username, password) {
@@ -104,14 +112,35 @@ class Api {
     }
   }
   
-  async userEmailExists (email) {
+  async userEmailExists (Email) {
     try
     {
-      let response = await Request.post('/user/emailcheck',{email});
+      let response = await Request.post('/user/emailcheck',{Email});
       return response.status !== 200;
     } catch(e) {
       return true;
     }
+  }
+
+  async userForgotPassword (Email) {
+    const emailExists = await this.userEmailExists(Email);
+    if (!emailExists)
+      throw {Email: 'TODO email doesn\' exists' };
+    let validUntil = new Date();
+    validUntil.setDate ( validUntil.getDate() + 7 );
+
+    let payload = Jwt.sign({
+      e: Email,
+      v: ~~(validUntil.getTime() / 1000)
+    }, process.env.JWT_SECRET);
+try{
+
+    await this.app.mail.send(Email, 'Nieuw wachtwoord', 'emails/account/reset-password', {
+      baseUrl: this.req.protocol + '://' + this.req.get('host'),
+      payload
+    });
+
+}catch(e){console.log(e)};
   }
 }
 
