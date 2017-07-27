@@ -1,0 +1,27 @@
+<% layout('layouts/default') %>
+<div class="section section--alternative">
+  <div class="container">
+
+    <h1 class="page-title">Je account is klaar voor gebruik!</h1>
+
+    <div class="row">
+      <div class="col-xl-7 col-lg-6 col-md-5 col-sm-4">
+
+        <div class="section__text">
+          <p>Hallo <%= user.FirstName %>! Je account is geactiveerd en klaar voor gebruik.</p>
+          <p>Je bent meteen ingelogd!</p>
+        </div>
+
+        <a href="/account" class="btn btn--block">GA NAAR MIJN ACCOUNT</a>
+
+      </div>
+      <div class="col-offset-xl-1 col-xl-4 col-offset-lg-2 col-lg-4 col-md-3 col-sm-4">
+        <div class="sidebar">
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

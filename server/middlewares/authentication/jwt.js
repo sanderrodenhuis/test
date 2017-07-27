@@ -13,7 +13,7 @@ const jwtOptions = {
 };
 
 module.exports = (passport) => {
-  passport.use(new JwtStrategy(jwtOptions, ({username,firstname,lastname,id}, done) => {
-    done(null, {username,firstname,lastname,id});
+  passport.use(new JwtStrategy(jwtOptions, (user, done) => {
+    done(null, user);
   }));
 };

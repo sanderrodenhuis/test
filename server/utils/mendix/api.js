@@ -1,7 +1,7 @@
 const Request = require('./request'),
       Validators = require('./validators'),
       Jwt = require('jsonwebtoken'),
-      Pick = require('../helpers').pick;
+      {pick, createUserActivateToken} = require('../helpers');
 
 class Api {
   constructor({res, req, app}) {
@@ -51,8 +51,13 @@ class Api {
     throw Error('Needs new implementation');
   }
   
+  async fetchUser(userId) {
+    const {data} = await Request.get(`/users/${userId}`);
+    return data;
+  }
+  
   async createUser (userData) {
-    const user = Pick(userData, 'NewPassword', 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'ConfirmPassword', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');
+    const user = pick(userData, 'NewPassword', 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'ConfirmPassword', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');
     const validation = Validators.newUser(user);
     
     if (validation)
@@ -65,16 +70,29 @@ class Api {
     try
     {
       let {data} = await Request.post('/users/', user);
-      let payload = Jwt.sign({
-        u: data.IdUser,
-      }, process.env.JWT_SECRET, {expiresIn: '24h'});
   
       await this.app.mail.send(user.Email, 'Activeer je account', 'emails/account/verification', {
         baseUrl: this.req.protocol + '://' + this.req.get('host'),
-        payload
+        payload: createUserActivateToken(data)
       });
     } catch(error) {
       throw Error(error.data.errorMessage);
+    }
+  }
+  async updateUser (userData) {
+    const validation = Validators.editUser(userData);
+    const {IdUser} = userData;
+    const user = pick(userData, 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');
+
+    if (validation)
+      throw validation;
+    
+    try
+    {
+      let {data} = await Request.put(`/users/${IdUser}`, user);
+      return data;
+    } catch (error) {
+      throw error;
     }
   }
   

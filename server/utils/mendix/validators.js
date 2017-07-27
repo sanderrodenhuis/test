@@ -111,12 +111,21 @@ let userConstraint = {
     presence: {
       message: 'Geen activatie ingegeven'
     }
+  },
+  IdUser: {
+    presence: {
+      message: 'Geen userId opgegeven'
+    },
+    numericality: {
+      onlyInteger: true,
+      notValid: 'UserId mag enkel een getal zijn'
+    }
   }
 };
 
 
 const newUserConstraint = pick(userConstraint, 'NewPassword','HouseNumber','Addition','Email','IBAN','FirstName','IsActive','City','HasSubscription','ConfirmPassword','Username','PhoneNumber','Street','LastName','PostCode');
-const editUserConstraint = pick(userConstraint, 'HouseNumber','Addition','Email','IBAN','FirstName','IsActive','City','HasSubscription','Username','PhoneNumber','Street','LastName','PostCode');
+const editUserConstraint = pick(userConstraint, 'HouseNumber','Addition','Email','IBAN','FirstName','IsActive','City','HasSubscription','Username','PhoneNumber','Street','LastName','PostCode', 'IdUser');
 const editUserPasswordConstraint = pick(userConstraint, 'NewPassword','ConfirmPassword');
 
 
