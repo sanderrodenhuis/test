@@ -27,6 +27,7 @@ router.get('/onze-abonnementen',require('./content/subscriptions'));
 router.use('/account', account);
 account.get('/', require('./account/overview'));
 account.use('/inschrijven', require('./account/create'));
+account.use('/reset-password', require('./account/reset-password'));
 
 account.get('/wijzigen', require('./account/edit'));
 // TODO: change use to get and make a single route
