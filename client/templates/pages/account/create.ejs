@@ -94,20 +94,22 @@
       <div class="row">
         <div class="col-xl-6 col-lg-8 col-md-6 col-sm-4">
           <h2 class="section-title">Kies je abonnement</h2>
-          <%- partial('components/subscription') %>
+          <%- partial('components/subscription', {HasSubscription: false}) %>
 
-          <div class="form__group">
-            <input type="checkbox" name="incasseren" id="incasseren"/>
+          <input type="checkbox" name="HasSubscription" id="HasSubscription" style="display: none;" />
+
+          <div class="form__group" data-if-checked="#HasSubscription">
+            <input type="checkbox" name="IsCustomer" />
             <label for="incasseren">Ik ben Essent-klant en machtig Essent om, na de proefperiode van 12 maanden, te
               incasseren:</label>
           </div>
-          <div class="form__group">
-            <label for="iban">IBAN (rekeningnummer)</label> <br>
-            <input type="text" class="form__control" name="iban" placeholder="NL 99 BANK 0123 4567 89"/>
+          <div class="form__group" data-if-checked="#HasSubscription">
+            <label for="iban" class="form__label">IBAN (rekeningnummer)</label>
+            <input type="text" class="form__control" name="IBAN" placeholder="NL 99 BANK 0123 4567 89"/>
           </div>
           <div class="form__group">
-            <input type="checkbox" name="voorwaarden"/>
-            <label for="voorwaarden">Ik ga akkord met <a href="" class="link"> de algemene voorwaarden</a></label>
+            <input type="checkbox" name="HasConfirmed"/>
+            <label for="voorwaarden">Ik ga akkoord met <a href="" class="link"> de algemene voorwaarden</a></label>
           </div>
           <div class="form__buttons">
             <a href="/funnel/" class="btn btn--link btn--link-icon form__button--back">terug</a>

@@ -1,10 +1,17 @@
-let Validate = require('validate.js'),
-    iban = require('iban'),
-    pick = require('../helpers').pick;
+const Validate = require('validate.js'),
+      iban = require('iban'),
+      pick = require('../helpers').pick,
+      options = {fullMessages:false};
 
 Validate.validators.func = (value, {validator, message = '%{key} is ongeldig'}, key, attributes) => {
   if (! validator(value, key, attributes))
-    return Validate.format(message, {key, value});
+    return Validate.format(message, {key: value});
+};
+Validate.validators.if = (value, {field, hasValue, then}, key, attributes) => {
+  if (! (field in attributes) || attributes[field] !== hasValue)
+    return;
+  let output = Validate({[key]: value}, {[key]: then}, options);
+  return (output||{})[key];
 };
 
 
@@ -20,11 +27,9 @@ let userConstraint = {
     }
   },
   Username: {
-    presence: {
-      message: "Geen geldige gebruikersnaam ingevuld"
-    },
-    email: {
-      message: "Geen geldige gebruikersnaam ingevuld"
+    equality: {
+      attribute: "Email",
+      message: "Username en Email moeten het zelfde zijn"
     }
   },
   Email: {
@@ -33,8 +38,15 @@ let userConstraint = {
     }
   },
   IBAN: {
-    func: {
-      validator: (value, key, attributes) => ((!value) || iban.isValid(value))
+    if: {
+      field: "HasSubscription",
+      hasValue: true,
+      then: {
+        func: {
+          validator: (value) => iban.isValid(value),
+          message: 'Geen geldig IBAN-nummer ingevoerd'
+        }
+      }
     }
   },
   PhoneNumber: {
@@ -43,7 +55,7 @@ let userConstraint = {
     },
     func: {
       validator: (value) => {
-        value = value.replace(/ /g, '');
+        value = String(value).replace(/ /g, '');
         const regexVast = /^(((0)[1-9]{2}[0-9][-]?[1-9][0-9]{5})|((\\+31|0|0031)[1-9][0-9][-]?[1-9][0-9]{6}))$/,
               regexMobiel = /^(((\\+31|0|0031)6){1}[1-9]{1}[0-9]{7})$/;
         return (regexVast.test(value) || regexMobiel.test(value))
@@ -57,12 +69,9 @@ let userConstraint = {
     }
   },
   HouseNumber: {
-    presence: {
-      message: 'Geen geldig huisnummer ingevoerd'
-    },
     numericality: {
       onlyInteger: true,
-      notInteger: 'Huisnummer mag enkel een getal bevatten'
+      notValid: 'Huisnummer mag enkel een getal bevatten'
     }
   },
   PostCode: {
@@ -80,17 +89,17 @@ let userConstraint = {
   NewPassword: {
     format: {
       pattern: "(?=.*[a-z0-9])(?=.*[A-Z]).+",
-      message: 'Wachtwoord moet minimaal 1 hoofdletter hebben'
+      message: 'Het wachtwoord moet minimaal 1 hoofdletter hebben'
     },
     length: {
       minimum: 8,
-      tooShort: 'Wachtwoord moet uit minimaal 8 tekens bestaan'
+      tooShort: 'Het wachtwoord moet uit minimaal 8 tekens bestaan'
     }
   },
   ConfirmPassword: {
     equality: {
       attribute: "NewPassword",
-      message: "Wachtwoorden komen niet overeen"
+      message: "De wachtwoorden komen niet overeen"
     }
   },
   HasSubscription: {
@@ -112,7 +121,6 @@ const editUserPasswordConstraint = pick(userConstraint, 'NewPassword','ConfirmPa
 
 
 
-const options = {fullMessages:false};
 module.exports = {
   newUser: (obj) => Validate(obj,newUserConstraint, options),
   editUser: (obj) => Validate(obj,editUserConstraint, options),
