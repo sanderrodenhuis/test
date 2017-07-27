@@ -13,6 +13,8 @@ import './form--account';
 import './page--account-overview';
 
 import './form--login';
+import './form--forgot-password';
+import './form--reset-password';
 
 $(() => {
   $('.site-nav__item--toggle').on('click', (event) => {
