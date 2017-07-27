@@ -1,0 +1,36 @@
+<div class="sidebar">
+  <div class="sidebar__header sidebar__header--alternative">
+    <div class="well well--receipt well--receipt-alternative">
+      <% if (user.HasSubscription) { %>
+      <h6 class="well__title">Premium pakket</h6>
+      <% } else { %>
+      <h6 class="well__title">Basis pakket</h6>
+      <% }%>
+      <!-- <p class="well__row">Proefversie - nog 30 dagen beschikbaar</p> -->
+      <% if (! user.IsActive) { %>
+      <p class="well__row">Account is nog niet geactiveerd.</p>
+      <% } %>
+    </div>
+  </div>
+  <div class="sidebar__content">
+    <div class="block block--alternative">
+      <h6 class="block__subtitle">Persoonlijke gegevens</h6>
+      <ul class="list list--secondary">
+        <li><%= user.FirstName %> <%=user.LastName %></li>
+        <li><%= user.Email %></li>
+        <li><%= user.PhoneNumber %></li>
+        <% if (user.HasSubscription) { %>
+        <li><%= user.IBAN %></li>
+        <% } %>
+      </ul>
+      <h6 class="block__subtitle">Adres & woonplaats</h6>
+      <ul class="list list--secondary">
+        <li><%= user.Street %> <%= user.HouseNumber %> <%= user.Addition %></li>
+        <li><%= PostCode(user.PostCode) %> <%= user.City %></li>
+      </ul>
+      <% if (typeof(HasEditLink) !== 'undefined' && HasEditLink == true) { %>
+      <a href="/account/wijzigen" class="block__link">Wijzig</a>
+      <% } %>
+    </div>
+  </div>
+</div>

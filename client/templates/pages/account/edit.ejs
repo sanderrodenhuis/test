@@ -1,32 +1,31 @@
 <% layout('layouts/default') %>
+<form action="" class="form form--account-edit" id="form-account-edit">
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Gegevens wijzigen</h1>
+      <div class="row">
+        <div class="col-6 col-md-5 col-sm-4">
 
-<section class="section">
-  <div class="container">
-    <h1 class="page-title">Gegevens wijzigen</h1>
-    <div class="row">
-      <div class="col-6 col-md-5 col-sm-4">
-
-        <form action="" class="form form--account-edit" id="form-account-edit">
-
-          <div class="form__row">
-            <div class="form__col">
+          <div class="row form__row">
+            <div class="form__col col-6 col-md-4 col-sm-4">
               <div class="form__group">
-                <label for="firstname" class="form__label">Voornaam</label>
-                <input type="text" name="firstname" class="form__control" placeholder="voornaam"/>
+                <label for="FirstName" class="form__label">Voornaam</label>
+                <input type="text" name="FirstName" class="form__control" placeholder="voornaam" value="<%= user.FirstName %>" />
               </div>
             </div>
-            <div class="form__col">
+            <div class="form__col col-6 col-md-4 col-sm-4">
               <div class="form__group">
-                <label for="lastname" class="form__label">Achternaam</label>
-                <input type="text" class="form__control" name="lastname" placeholder="achternaam" required/>
+                <label for="LastName" class="form__label">Achternaam</label>
+                <input type="text" class="form__control" name="LastName" placeholder="achternaam" value="<%= user.LastName %>" />
               </div>
             </div>
           </div>
+
           <div class="form__row">
             <div class="form__col form__col--full">
               <div class="form__group">
                 <label for="email" class="form__label">E-mailadres</label>
-                <input type="email" name="email" class="form__control" placeholder="e-mailadres" required/>
+                <input type="email" name="email" class="form__control" placeholder="e-mailadres" value="<%= user.Email %>" />
               </div>
             </div>
           </div>
@@ -34,113 +33,92 @@
             <div class="form__col">
               <div class="form__group">
                 <label for="mobilenumber" class="form__label">Telefoonnummer</label>
-                <input type="tel" class="form__control" name="phonenumber" placeholder="" required/>
+                <input type="tel" class="form__control" name="phonenumber" placeholder="" value="<%= user.PhoneNumber %>" />
               </div>
             </div>
           </div>
-          <p>Je ontvangt een (gratis) sms een uur voor de afspraak</p>
-          <div class="form__row">
-            <div class="form__col">
+
+          <div class="row form__row">
+            <div class="form__col col-6 col-md-4 col-sm-4">
               <div class="form__group">
-                <label for="postcode" class="form__label">Postcode</label>
-                <input type="text" class="form__control" name="postcode" placeholder="Bijv. 1234AB" required/>
+                <label for="PostCode" class="form__label">Postcode</label>
+                <input type="text" class="form__control" name="PostCode" placeholder="Bijv. 1234AB" value="<%= user.PostCode %>"  />
               </div>
             </div>
-            <div class="form__col">
+            <div class="form__col col-6 col-md-4 col-sm-4">
               <div class="form__group">
+                <label for="HouseNumber" class="form__label">Huisnummer + toevoeging</label>
 
-                <label for="housenumber" class="form__label">Huisnummer + toevoeging</label>
-
-                <div class="form__row form__row--secondary">
-                  <div class="form__col">
-                    <input type="number" class="form__control" name="housenumber" placeholder="" required/>
+                <div class="row form__row">
+                  <div class="form__col col-6 col-md-4 col-sm-2">
+                    <input type="number" class="form__control" name="HouseNumber" placeholder="" value="<%= user.HouseNumber %>"  />
                   </div>
-                  <div class="form__col">
-                    <input type="number" class="form__control" placeholder=""/>
+                  <div class="form__col col-6 col-md-4 col-sm-2">
+                    <input type="text" name="Addition" class="form__control" placeholder="" value="<%= user.Addition %>" />
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 
-          <div class="form__row">
-            <div class="form__col">
+          <div class="row form__row">
+            <div class="form__col col-6 col-md-4 col-sm-4">
               <div class="form__group">
 
-                <label for="password" class="form__label">Wachtwoord</label>
-                <input type="password" class="form__control" id="password"
-                       name="password" placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" required/>
+                <label for="NewPassword" class="form__label">Wachtwoord</label>
+                <input type="password" class="form__control" name="NewPassword" placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" />
               </div>
             </div>
-            <div class="form__col">
+            <div class="form__col col-6 col-md-4 col-sm-4">
               <div class="form__group">
-
-                <label for="repeat-password" class="form__label">Controle</label>
-                <input type="password" class="form__control" name="password_confirm"
-                       placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" required/>
+                <label for="ConfirmPassword" class="form__label">Controle</label>
+                <input type="password" class="form__control" name="ConfirmPassword" placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" />
               </div>
             </div>
-          </div>
-
-
-        </form>
-
-      </div>
-
-      <div class="col-lg-4 col-xl-4 col-offset-lg-2 col-offset-xl-2 col-md-3 hidden-sm-down">
-        <div class="sidebar">
-          <div class="sidebar__content">
-            <%- partial('partials/funnel/sidebar/personal-details') %>
           </div>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<div class="section section--alternative">
-  <div class="container">
-
-    <div class="row">
-      <div class="col-xl-6 col-lg-8 col-md-6 col-sm-4">
-        <h2 class="section-title">Kies je abonnement</h2>
-
-        <form action="" class="form form--account-edit" id="form-iban">
-
-          <%- partial('components/subscription') %>
-
-          <div class="form__row form__row--alternative">
-
-            <div class="form__group is-hidden">
-              <input type="checkbox" name="selected-subscription" id="selected-subscription" class="form__control form__control--hidden"/>
-              <input type="checkbox" name="incasseren" id="incasseren"/>
-              <label for="incasseren">Ik ben Essent-klant en machtig Essent om, na de proefperiode van 12 maanden, te
-                incasseren:</label>
-              <div class="form__col">
-                <label for="iban">IBAN (rekeningnummer)</label> <br>
-                <input type="text" class="form__control" name="iban" placeholder="NL 99 BANK 0123 4567 89" required/>
-              </div>
+        <div class="col-lg-4 col-xl-4 col-offset-lg-2 col-offset-xl-2 col-md-3 hidden-sm-down">
+          <div class="sidebar">
+            <div class="sidebar__content">
+              <%- partial('partials/sidebar/personal-details') %>
             </div>
           </div>
+        </div>
 
+      </div>
+    </div>
+  </section>
+
+  <div class="section section--alternative">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-8 col-md-6 col-sm-4">
+          <h2 class="section-title">Kies je abonnement</h2>
+          <%- partial('components/subscription', {HasSubscription: user.HasSubcription}) %>
+
+          <input type="checkbox" name="HasSubscription" id="HasSubscription" style="display: none;" <% if(user.HasSubscription) { %> checked <% } %> />
+
+          <div class="form__group" data-if-checked="#HasSubscription">
+            <input type="checkbox" name="IsCustomer" <% if(user.HasSubscription) { %> checked <% } %>/>
+            <label for="incasseren">Ik ben Essent-klant en machtig Essent om, na de proefperiode van 12 maanden, te
+              incasseren:</label>
+          </div>
+          <div class="form__group" data-if-checked="#HasSubscription">
+            <label for="iban" class="form__label">IBAN (rekeningnummer)</label>
+            <input type="text" class="form__control" name="IBAN" placeholder="NL 99 BANK 0123 4567 89"  value="<%= user.IBAN %>" />
+          </div>
           <div class="form__buttons">
-            <a href="/funnel/" class="btn btn--link">annuleren</a>
-            <a href="" class="btn js-btn-submit form__button--submit">Wijzigingen opslaan</a>
+            <a href="/account/" class="btn btn--link btn--link-icon form__button--back">terug</a>
+            <button type="submit" class="btn js-btn-submit form__button--submit">bevestigen</button>
           </div>
-        </form>
-
-      </div>
-      <div class="col-sm-4 hidden-md-up">
-        <div class="sidebar">
-          <div class="sidebar__content">
-            <%- partial('partials/funnel/sidebar/promotion') %>
-          </div>
+        </div>
+        <div class="col-sm-4 hidden-md-up">
+            <%- partial('partials/sidebar/personal-details') %>
         </div>
       </div>
     </div>
+
   </div>
 
-</div>
-
+</form>

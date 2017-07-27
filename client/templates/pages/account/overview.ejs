@@ -16,40 +16,7 @@
         }) %>
       </div>
       <div class="col-xl-4 col-lg-4 col-offset-lg-1 col-offset-xl-1 col-md-3 col-sm-4 col--overflow hidden-sm-down">
-        <div class="sidebar">
-          <div class="sidebar__header sidebar__header--alternative">
-            <div class="well well--receipt well--receipt-alternative">
-              <% if (user.HasSubscription) { %>
-              <h6 class="well__title">Premium pakket</h6>
-              <% } else { %>
-              <h6 class="well__title">Basis pakket</h6>
-              <% }%>
-              <!-- <p class="well__row">Proefversie - nog 30 dagen beschikbaar</p> -->
-              <% if (! user.IsActive) { %>
-              <p class="well__row">Account is nog niet geactiveerd.</p>
-              <% } %>
-            </div>
-          </div>
-          <div class="sidebar__content">
-            <div class="block block--alternative">
-              <h6 class="block__subtitle">Persoonlijke gegevens</h6>
-              <ul class="list list--secondary">
-                <li><%= user.FirstName %> <%=user.LastName %></li>
-                <li><%= user.Email %></li>
-                <li><%= user.PhoneNumber %></li>
-                <% if (user.HasSubscription) { %>
-                <li><%= user.IBAN %></li>
-                <% } %>
-              </ul>
-              <h6 class="block__subtitle">Adres & woonplaats</h6>
-              <ul class="list list--secondary">
-                <li><%= user.Street %> <%= user.HouseNumber %> <%= user.Addition %></li>
-                <li><%= PostCode(user.PostCode) %> <%= user.City %></li>
-              </ul>
-              <a href="" class="block__link">Wijzig</a>
-            </div>
-          </div>
-        </div>
+        <%- partial('partials/sidebar/personal-details', {HasEditLink: true}) %>
       </div>
     </div>
   </div>
@@ -172,31 +139,7 @@
         </div>
       </div>
       <div class="col-xl-4 col-lg-4 col-offset-lg-1 col-offset-xl-1 col-md-3 col-sm-4 hidden-md-up">
-        <div class="sidebar">
-          <div class="sidebar__header sidebar__header--alternative">
-            <div class="well well--receipt well--receipt-alternative">
-              <h6 class="well__title">Premium pakket</h6>
-              <p class="well__row">Proefversie - nog 30 dagen beschikbaar</p>
-            </div>
-          </div>
-          <div class="sidebar__content">
-           <div class="block block--alternative">
-             <h6 class="block__subtitle">Persoonlijke gegevens</h6>
-             <ul class="list list--secondary">
-               <li>Gerard Verhagen</li>
-               <li>Gerardv@gmail.com</li>
-               <li>06 123 412 34</li>
-               <li>NL RABO 0123 4567 89</li>
-             </ul>
-             <h6 class="block__subtitle">Adres & woonplaats</h6>
-             <ul class="list list--secondary">
-               <li>Straatjesstraat 26 bis</li>
-               <li>1234 AB Amsterdam</li>
-             </ul>
-             <a href="" class="block__link">Wijzig</a>
-           </div>
-          </div>
-        </div>
+        <%- partial('partials/sidebar/personal-details', {HasEditLink: true}) %>
       </div>
     </div>
   </div>

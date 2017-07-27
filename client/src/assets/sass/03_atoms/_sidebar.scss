@@ -1,4 +1,6 @@
 .sidebar {
+  position: relative;
+  z-index: 1;
   &__header {
     margin-bottom: 15px;
     &--alternative {
