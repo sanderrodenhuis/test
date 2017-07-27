@@ -5,7 +5,7 @@ import './modal';
 import './job-selection';
 import './datepicker';
 import './photo-upload';
-import './form-validation';
+// import './form-validation';
 import './booking-step';
 import './filter-list';
 import './form--account';
@@ -13,6 +13,8 @@ import './form--account';
 import './page--account-overview';
 
 import './form--login';
+
+import './helpers';
 
 $(() => {
   $('.site-nav__item--toggle').on('click', (event) => {

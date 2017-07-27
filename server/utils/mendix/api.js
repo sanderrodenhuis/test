@@ -1,12 +1,14 @@
 const Request = require('./request'),
       Validators = require('./validators'),
-      Jwt = require('jsonwebtoken');
+      Jwt = require('jsonwebtoken'),
+      Pick = require('../helpers').pick;
 
 class Api {
   constructor({res, req, app}) {
     this.app = app;
     this.req = req;
     this.res = res;
+    this.validators = Validators;
   }
   
   async fetchJobCategories() {
@@ -49,42 +51,38 @@ class Api {
     throw Error('Needs new implementation');
   }
   
-  async createUser ({NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode}) {
-    const user = {NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode};
+  async createUser (userData) {
+    const user = Pick(userData, 'NewPassword', 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'ConfirmPassword', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');
     const validation = Validators.newUser(user);
     
     if (validation)
       throw validation;
     
-    const emailExists = await Api.userEmailExists(Email);
+    const emailExists = await this.userEmailExists(user.Email);
     
     if (emailExists)
       throw {Email: 'Email is al in gebruik'};
-    
-    let {data} = await Request.post('/user/', user);
-    
-    let validUntil = new Date();
-    validUntil.setDate(date.getDate() + 7);
-    validUntil.getTime();
-    
-    let payload = Jwt.sign({
-      u: data.IdUser,
-      v: ~~(validUntil.getTime() / 1000)
-    }, process.env.JWT_SECRET);
-    
-    await this.app.mail.send(Email, 'Activeer je account', 'emails/account/verification', {
-      baseUrl: req.protocol + '://' + req.get('host'),
-      payload
-    });
-    
-    // we don't catch it. if it throws, we want it to be caught externally
-    
-    return Request.post('/users/', user).then(order => order.data);
+    try
+    {
+      let {data} = await Request.post('/users/', user);
+      let payload = Jwt.sign({
+        u: data.IdUser,
+      }, process.env.JWT_SECRET, {expiresIn: '24h'});
+  
+      await this.app.mail.send(user.Email, 'Activeer je account', 'emails/account/verification', {
+        baseUrl: this.req.protocol + '://' + this.req.get('host'),
+        payload
+      });
+    } catch(error) {
+      throw Error(error.data.errorMessage);
+    }
   }
   
   async updateAccount ({NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode}) {
+    
+    this.app.mendix.put('/users/1')
     throw Error('Needs new implementation');
-    return Request.forUser(Username, ConfirmPassword).put('/account/', {
+    return Request.put('/account/', {
       FirstName, LastName,
       Username, NewPassword, ConfirmPassword,
       Email, IBAN, PhoneNumber,

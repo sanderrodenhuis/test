@@ -6,7 +6,6 @@ var express = require('express'),
 
 const authenticate = (req, res, next) => {
   passport.authenticate('jwt', (err, user, error) => {
-    console.log('user', user);
     if (user)
       res.locals.user = req.user = user;
     else if (error)
