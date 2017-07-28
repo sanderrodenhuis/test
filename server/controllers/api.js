@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const passport = require('passport');
-const jsonWebToken = require('jsonwebtoken');
 const fileUpload = require('../utils/file-upload');
 const fs = require('fs');
 const path = require('path');
+const {createAuthToken} = require('../utils/helpers');
 
 router.post('/user/login',(req, res, next) => {
   passport.authenticate('local', (err, user) => {
@@ -13,18 +13,7 @@ router.post('/user/login',(req, res, next) => {
         error: err.message
       });
     }
-    
-    const jwt = jsonWebToken.sign(
-      {
-        username: user.Username,
-        firstname: user.FirstName,
-        lastname: user.LastName,
-        id: user.IdUser
-      },
-      process.env.JWT_SECRET,
-      {issuer: process.env.JWT_ISSUER}
-    );
-
+    const jwt = createAuthToken(user);
     res.json({
       success: true,
       jwt: jwt

@@ -1,10 +1,10 @@
 <div class="row subscription-container">
-  <div class="col-6 col-md-4 col-sm-4">
-    <div class="block-subscription block-subscription--secondary">
+  <div class="col-6 col-md-4 col-sm-4 col-subscription">
+    <div class="block-subscription <% if(typeof(HasSubscription) === 'undefined') { %>block-subscription--secondary<% } else if (HasSubscription) { %>is-selected<% } %>">
       <div class="block-subscription__content">
-        <h6 class="block-subscription__title block-subscription__title--secondary">Premium pakket</h6>
+        <h6 class="block-subscription__title">Premium pakket</h6>
         <p class="block-subscription__subtitle">Alleen voor Essent klanten</p>
-        <div class="block-subscription__price block-subscription__price--secondary">€12,- <span class="block-subscription__meta">/ per jaar</span></div>
+        <div class="block-subscription__price">€12,- <span class="block-subscription__meta">/ per jaar</span></div>
 
         <ul class="list list--disc block-subscription__list">
           <li>Eerste 12 maanden gratis</li>
@@ -18,8 +18,8 @@
       <a href="" class="btn btn--border">NU PROBEREN</a>
     </div>
   </div>
-  <div class="col-6 col-md-4 col-sm-4">
-    <div class="block-subscription">
+  <div class="col-6 col-md-4 col-sm-4 col-subscription">
+    <div class="block-subscription <% if(typeof(HasSubscription) !== 'undefined' && ! HasSubscription) { %>is-selected<% } %>">
       <div class="block-subscription__content">
         <h6 class="block-subscription__title">Basis pakket</h6>
         <p class="block-subscription__subtitle">Toegangkelijk voor iedereen</p>

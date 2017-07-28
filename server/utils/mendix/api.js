@@ -1,12 +1,14 @@
 const Request = require('./request'),
       Validators = require('./validators'),
-      Jwt = require('jsonwebtoken');
+      Jwt = require('jsonwebtoken'),
+      {pick, createUserActivateToken} = require('../helpers');
 
 class Api {
   constructor({res, req, app}) {
     this.app = app;
     this.req = req;
     this.res = res;
+    this.validators = Validators;
   }
   
   async fetchJobCategories() {
@@ -49,37 +51,49 @@ class Api {
     throw Error('Needs new implementation');
   }
   
-  async createUser ({NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode}) {
-    const user = {NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode};
+  async fetchUser(userId) {
+    const {data} = await Request.get(`/users/${userId}`);
+    return data;
+  }
+  
+  async createUser (userData) {
+    const user = pick(userData, 'NewPassword', 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'ConfirmPassword', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');
     const validation = Validators.newUser(user);
     
     if (validation)
       throw validation;
     
-    const emailExists = await this.userEmailExists(Email);
+    const emailExists = await this.userEmailExists(user.Email);
     
     if (emailExists)
-      throw {Email: 'Email is al in gebruik'};
+      throw {Email: ['Email is al in gebruik']};
+    try
+    {
+      let {data} = await Request.post('/users/', user);
+  
+      await this.app.mail.send(user.Email, 'Activeer je account', 'emails/account/verification', {
+        baseUrl: this.req.protocol + '://' + this.req.get('host'),
+        payload: createUserActivateToken(data)
+      });
+    } catch(error) {
+      throw Error(error.data.errorMessage);
+    }
+  }
+  async updateUser (userData) {
+    const validation = Validators.editUser(userData);
+    const {IdUser} = userData;
+    const user = pick(userData, 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');
+
+    if (validation)
+      throw validation;
     
-    let {data} = await Request.post('/user/', user);
-    
-    let validUntil = new Date();
-    validUntil.setDate(date.getDate() + 7);
-    validUntil.getTime();
-    
-    let payload = Jwt.sign({
-      u: data.IdUser,
-      v: ~~(validUntil.getTime() / 1000)
-    }, process.env.JWT_SECRET);
-    
-    await this.app.mail.send(Email, 'Activeer je account', 'emails/account/verification', {
-      baseUrl: this.req.protocol + '://' + this.req.get('host'),
-      payload
-    });
-    
-    // we don't catch it. if it throws, we want it to be caught externally
-    
-    return Request.post('/users/', user).then(order => order.data);
+    try
+    {
+      let {data} = await Request.put(`/users/${IdUser}`, user);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   }
   
   async updateAccount ({NewPassword, HouseNumber, Addition, Email, IBAN, FirstName, IsActive, City, HasSubscription, ConfirmPassword, Username, PhoneNumber, Street, LastName, PostCode}) {

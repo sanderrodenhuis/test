@@ -67,7 +67,7 @@ $(() => {
     }
   });
   
-  $(".form--account-create").validate({
+  $(".disabled-form--account-create").validate({
     rules: {
       FirstName: {
         required: true,
@@ -105,10 +105,10 @@ $(() => {
     },
     // validation error messages
     messages: {
-      FirstName: "Please enter your firstname",
-      LastName: "Please enter your lastname",
+      FirstName: "Vul uw voornaam in",
+      LastName: "Vul uw achternaam in",
       NewPassword: {
-        required: "Please provide a password",
+        required: "Vul een wachtwoord in",
         minlength: "Your password must be at least 5 characters long"
       },
       ConfirmPassword: "De wachtwoorden komen niet overeen",

@@ -1,6 +1,12 @@
-
+.subscription-container {
+}
+.col-subscription {
+  display: flex;
+  flex-direction: column;
+}
 .block-subscription {
   display: flex;
+  flex: 1;
   flex-direction: column;
   height: 100%;
   padding: 30px;
@@ -10,8 +16,14 @@
   background: $col-white;
   box-shadow: 0 10px 20px 0 rgba(0,0,0,0.10);
 
-  &.is-selected{
+  &.is-selected,
+  &--secondary {
     border: 1px solid $col-pink;
+  }
+  &--secondary &__title,
+  &--secondary &__price
+  {
+    color: $col-pink;
   }
   &__content {
     flex:1;
@@ -20,9 +32,6 @@
     font-size: 21px;
     line-height: 25px;
     font-weight: 700;
-    &--secondary {
-      color: $col-pink;
-    }
   }
   &__subtitle {
     font-weight: 300;
@@ -37,9 +46,6 @@
     font-size: 21px;
     line-height: 25px;
     font-weight: 700;
-    &--secondary {
-      color: $col-pink;
-    }
   }
   &__list
   {
@@ -51,6 +57,10 @@
 @media #{$mobile} {
   .subscription-container {
     flex-direction: column;
+  }
+  .col-subscription {
+    margin: 20px 0;
+    flex: 1;
   }
   .block-subscription {
     max-width: 100%;
