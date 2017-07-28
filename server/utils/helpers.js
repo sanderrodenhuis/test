@@ -29,6 +29,13 @@ function createUserActivateToken(user) {
     u: user.IdUser,
   }, process.env.JWT_SECRET, {expiresIn: '30d'});
 }
+
+function createPasswordResetToken(user) {
+  return jsonWebToken.sign({
+    m: user.Email,
+  }, process.env.JWT_SECRET, {expiresIn: '7d'});
+}
+
 function verifyUserActivateToken(token) {
   return jsonWebToken.verify(
     token,
@@ -41,7 +48,8 @@ module.exports = {
   postCode,
   createAuthToken,
   verifyAuthToken,
-  
+
   createUserActivateToken,
-  verifyUserActivateToken
+  verifyUserActivateToken,
+  createPasswordResetToken
 };
