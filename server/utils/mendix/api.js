@@ -54,6 +54,10 @@ class Api {
     const {data} = await Request.get(`/users/${userId}`);
     return data;
   }
+  async fetchUserByEmail(email) {
+    const {data} = await Request.get(`/users/`, {params: {Email: email}});
+    return data;
+  }
 
   async createUser (userData) {
     const user = pick(userData, 'NewPassword', 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'ConfirmPassword', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');

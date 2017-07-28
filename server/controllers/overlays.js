@@ -7,8 +7,11 @@ const createHandler = (template) => {
 
 Router.get('/login', createHandler('login'));
 Router.get('/forgot-password', createHandler('forgot-password'));
-Router.get('/forgot-password-confirmation', createHandler('forgot-password-confirmation'));
+Router.get('/forgot-password/complete', createHandler('forgot-password--complete'));
+
 Router.get('/reset-password',require('./overlays/reset-password'));
+Router.get('/reset-password/complete',createHandler('reset-password--complete'));
+
 
 Router.get('/appointment-cancel', createHandler('appointment-cancel'));
 Router.get('/appointment-edit-error', createHandler('appointment-edit-error'));

@@ -1,5 +1,4 @@
 import $ from './jquery';
-import Cookies from 'js-cookie';
 
 $(() => {
   const $body = $('body');
@@ -8,18 +7,22 @@ $(() => {
     event.preventDefault();
     const $form = $(event.target),
           $frmEmail = $form.find('[name=email]'),
-          $frmError = $form.find('.form__error');
+          $frmError = $form.find('.form__error'),
+          email = $frmEmail.val();
 
     $frmError.removeClass('is-visible');
     $frmEmail.removeClass('has-error');
 
     $.post('/api/user/forgot-password',{
-      email: $frmEmail.val(),
+      email,
     }).then(response => {
-      if (!response.success)
-      {
-        $('body').trigger('show.modal',['forgot-password-confirmation']);
-      }
+      if (response.error)
+        throw response.error;
+      $body.trigger('show.modal',['forgot-password/complete', {email}]);
+    }).catch(error => {
+      if (error.token)
+        $body.trigger('show.modal',['error',{error: error.token}]);
+      $body.trigger('show.modal',['error', {error}]);
     });
   });
 })

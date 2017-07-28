@@ -1,33 +1,26 @@
 import $ from './jquery';
 import Cookies from 'js-cookie';
-///TODO check it !!!!!!!
+
 $(() => {
   const $body = $('body');
 
-  $body.on('submit','.js-form--login',(event) => {
+  $body.on('submit','.js-form--reset-password',(event) => {
     event.preventDefault();
     const $form = $(event.target),
-          $frmNewPassword = $form.find('[name=password]'),
-          $frmConfirmPassword = $form.find('[name=confirm]'),
-          $frmError = $form.find('.form__error');
-
-    $frmError.removeClass('is-visible');
-    $frmPassword.removeClass('has-error');
-
-    $.post('/api/user/login',{
-      username: $frmUsername.val(),
-      password: $frmPassword.val()
+          $frmToken = $form.find('[name=token]'),
+          $frmNewPassword = $form.find('[name=NewPassword]'),
+          $frmConfirmPassword = $form.find('[name=ConfirmPassword]');
+          
+    
+    $.post('/api/user/reset-password',{
+      NewPassword: $frmNewPassword.val(),
+      ConfirmPassword: $frmConfirmPassword.val(),
+      token: $frmToken.val()
     }).then(response => {
-      if (response.error)
-      {
-        $frmError.addClass('is-visible').text('Combinatie werd niet herkend.  Probeer opnieuw.');
-        $frmPassword.addClass('has-error');
-      }
-      else
-      {
-        Cookies.set('authorization', response.jwt);
-        location.reload();
-      }
-    });
+      $form.trigger('errors.reset');
+      $body.trigger('show.modal',['reset-password/complete']);
+    }).catch(({responseJSON: response}) => {
+      $form.trigger('errors.show',[response.error]);
+    })
   });
 })

@@ -3,7 +3,7 @@ const passport = require('passport');
 const fileUpload = require('../utils/file-upload');
 const fs = require('fs');
 const path = require('path');
-const {createAuthToken} = require('../utils/helpers');
+const {createAuthToken, verifyPasswordResetToken} = require('../utils/helpers');
 
 router.post('/user/login',(req, res, next) => {
   passport.authenticate('local', (err, user) => {
@@ -26,32 +26,45 @@ router.post('/user/forgot-password',async (req, res, next) => {
   try{
     const response = await req.mendix.userForgotPassword(email);
   } catch(e) { }
-
+  
   res.json({
     success: true
   });
 });
 
-router.post('/user/forgot-password/update',async (req, res, next) => {
-
-  try{
-    const { token, NewPassword, ConfirmPassword } = req;
-    const {e} = jsonWebToken.verify(token, process.env.JWT_SECRET);
-    emailExists = req.mendix.userEmailExists(e);
-    if (!emailExists){
-      throw {Email: 'TODO email doesn\' exists' };
+router.post('/user/reset-password',async (req, res, next) => {
+  try {
+    const {token, NewPassword, ConfirmPassword} = req.body;
+    let email = verifyPasswordResetToken(token);
+    if (!token || !email)
+      throw 'Geen geldige token ingevoerd';
+    
+    let verify = req.mendix.validators.editUserPassword({NewPassword, ConfirmPassword});
+    if (verify)
+      throw verify;
+    
+    let user;
+    try {
+      user = await req.mendix.fetchUserByEmail(email);
+      if (!user)
+        throw Error();
+    } catch (e) {
+      throw 'Opgegeven gebruiker bestaat niet';
     }
-const user = fetchUser(e);
-user.NewPassword=NewPassword;
-user.ConfirmPassword=ConfirmPassword;
-    const response = await req.mendix.updateUser(user);
+    
+    user.NewPassword = NewPassword;
+    user.ConfirmPassword = ConfirmPassword;
+    try {
+      await req.mendix.updateUser(user);
+    } catch (e) {
+      throw 'Er is iets misgegaan tijdens het opslaan van uw gegevens. Probeer het later opnieuw.'
+    }
+    
     res.json({
-      success: response
+      success: true
     });
-  }catch(err){
-    res.json({
-      success: false
-    });
+  } catch (error) {
+    res.status(400).json({error});
   }
 });
 
@@ -63,7 +76,7 @@ router.post('/file/upload', fileUpload({ext: ['jpg','jpeg','gif','png']}), (req,
     fs.renameSync(oldPath, newPath);
     return filename;
   });
-
+  
   res.json({
     files
   });

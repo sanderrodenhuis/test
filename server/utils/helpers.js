@@ -29,18 +29,26 @@ function createUserActivateToken(user) {
     u: user.IdUser,
   }, process.env.JWT_SECRET, {expiresIn: '30d'});
 }
+function verifyUserActivateToken(token) {
+  return jsonWebToken.verify(
+    token,
+    process.env.JWT_SECRET
+  );
+}
 
 function createPasswordResetToken(user) {
   return jsonWebToken.sign({
     m: user.Email,
   }, process.env.JWT_SECRET, {expiresIn: '7d'});
 }
-
-function verifyUserActivateToken(token) {
-  return jsonWebToken.verify(
-    token,
-    process.env.JWT_SECRET
-  );
+function verifyPasswordResetToken(token) {
+  try{
+    const {m} = jsonWebToken.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+    return m
+  } catch(e) {}
 }
 
 module.exports = {
@@ -51,5 +59,7 @@ module.exports = {
 
   createUserActivateToken,
   verifyUserActivateToken,
-  createPasswordResetToken
+  
+  createPasswordResetToken,
+  verifyPasswordResetToken
 };

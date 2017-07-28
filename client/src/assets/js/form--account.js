@@ -34,26 +34,13 @@ $(() => {
     
     $.post(location.href, $form.serializeArray())
       .then(response => {
-        $form.find('.form__error').remove();
+        $form.trigger('errors.reset');
         location.href = href;
       })
-      .catch(error => {
-        $form.find('.form__error').remove();
-          let response = error.responseJSON;
-        Object.keys(response.error).forEach(key => {
-          let messages = response.error[key],
-              $input = $form.find(`[name="${key}"]`),
-              $group = $input.closest('.form__group');
-          if (! $group.length)
-            return;
-          messages.forEach(message => {
-            $group.append(`<div class="form__error">${message}</div>`);
-          });
-        });
-        let $errors = $form.find('.form__error');
-        $errors.addClass('is-visible');
+      .catch(({responseJSON}) => {
+        $form.trigger('errors.show',responseJSON.error)
         $('html,body').animate({
-          scrollTop: $errors.first().closest('.form__group').offset().top
+          scrollTop: $form.find('.form__error').first().closest('.form__group').offset().top
         });
       });
   });
