@@ -1,6 +1,6 @@
 import './globals';
 import $ from './jquery';
-
+import './forms';
 import './modal';
 import './job-selection';
 import './datepicker';
@@ -13,6 +13,8 @@ import './form--account';
 import './page--account-overview';
 
 import './form--login';
+import './form--forgot-password';
+import './form--reset-password';
 
 import './helpers';
 
@@ -31,7 +33,6 @@ $(() => {
     $('html,body').animate({scrollTop: 0}, 800);
     return false;
   });
-
 
 });
 

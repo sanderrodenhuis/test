@@ -133,6 +133,6 @@ const editUserPasswordConstraint = pick(userConstraint, 'NewPassword','ConfirmPa
 module.exports = {
   newUser: (obj) => Validate(obj,newUserConstraint, options),
   editUser: (obj) => Validate(obj,editUserConstraint, options),
-  editPassword: (obj) => Validate(obj,editUserPasswordConstraint, options)
+  editUserPassword: (obj) => Validate(obj,editUserPasswordConstraint, options)
 };
 

@@ -3,7 +3,7 @@ const passport = require('passport');
 const fileUpload = require('../utils/file-upload');
 const fs = require('fs');
 const path = require('path');
-const {createAuthToken} = require('../utils/helpers');
+const {createAuthToken, verifyPasswordResetToken} = require('../utils/helpers');
 
 router.post('/user/login',(req, res, next) => {
   passport.authenticate('local', (err, user) => {
@@ -19,6 +19,53 @@ router.post('/user/login',(req, res, next) => {
       jwt: jwt
     });
   })(req, res, next);
+});
+
+router.post('/user/forgot-password',async (req, res, next) => {
+  const email = req.body.email;//body check
+  try{
+    const response = await req.mendix.userForgotPassword(email);
+  } catch(e) { }
+  
+  res.json({
+    success: true
+  });
+});
+
+router.post('/user/reset-password',async (req, res, next) => {
+  try {
+    const {token, NewPassword, ConfirmPassword} = req.body;
+    let email = verifyPasswordResetToken(token);
+    if (!token || !email)
+      throw 'Geen geldige token ingevoerd';
+    
+    let verify = req.mendix.validators.editUserPassword({NewPassword, ConfirmPassword});
+    if (verify)
+      throw verify;
+    
+    let user;
+    try {
+      user = await req.mendix.fetchUserByEmail(email);
+      if (!user)
+        throw Error();
+    } catch (e) {
+      throw 'Opgegeven gebruiker bestaat niet';
+    }
+    
+    user.NewPassword = NewPassword;
+    user.ConfirmPassword = ConfirmPassword;
+    try {
+      await req.mendix.updateUser(user);
+    } catch (e) {
+      throw 'Er is iets misgegaan tijdens het opslaan van uw gegevens. Probeer het later opnieuw.'
+    }
+    
+    res.json({
+      success: true
+    });
+  } catch (error) {
+    res.status(400).json({error});
+  }
 });
 
 
