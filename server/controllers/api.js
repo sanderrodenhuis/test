@@ -23,9 +23,12 @@ router.post('/user/login',(req, res, next) => {
 
 router.post('/user/forgot-password',async (req, res, next) => {
   const email = req.body.email;//body check
-  const response = await req.mendix.userForgotPassword(email);
+  try{
+    const response = await req.mendix.userForgotPassword(email);
+  } catch(e) { }
+
   res.json({
-    success: response
+    success: true
   });
 });
 
@@ -33,17 +36,15 @@ router.post('/user/forgot-password/update',async (req, res, next) => {
 
   try{
     const { token, NewPassword, ConfirmPassword } = req;
-    const now = new Date().getTime() / 1000 | 0;
-    const {e, v} = jsonWebToken.verify(token, process.env.JWT_SECRET);
-    if (now > v) {
-      throw 'token expired';
-    }
-
+    const {e} = jsonWebToken.verify(token, process.env.JWT_SECRET);
+    emailExists = req.mendix.userEmailExists(e);
     if (!emailExists){
       throw {Email: 'TODO email doesn\' exists' };
     }
-
-    const response = await req.mendix.updateAccount(Email, NewPassword, ConfirmPassword);
+const user = fetchUser(e);
+user.NewPassword=NewPassword;
+user.ConfirmPassword=ConfirmPassword;
+    const response = await req.mendix.updateUser(user);
     res.json({
       success: response
     });
@@ -62,7 +63,7 @@ router.post('/file/upload', fileUpload({ext: ['jpg','jpeg','gif','png']}), (req,
     fs.renameSync(oldPath, newPath);
     return filename;
   });
-  
+
   res.json({
     files
   });
