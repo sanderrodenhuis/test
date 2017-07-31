@@ -82,21 +82,29 @@ class Api {
       throw Error(error.data.errorMessage);
     }
   }
-  async updateUser (userData) {
-    const validation = Validators.editUser(userData);
-    const {IdUser} = userData;
-    const user = pick(userData, 'HouseNumber', 'Addition', 'Email', 'IBAN', 'FirstName', 'IsActive', 'City', 'HasSubscription', 'Username', 'PhoneNumber', 'Street', 'LastName', 'PostCode');
+  async updateUser (IdUser, userData) {
+    let updatedUser = pick(userData, 'HouseNumber','Addition', 'IBAN','FirstName','HasSubscription','PhoneNumber','LastName','PostCode');
+    let updatedPass = pick(userData, 'NewPassword','ConfirmPassword');
+    let validation = Validators.editUser(updatedUser) || {};
 
-    if (validation)
+    if (updatedPass.NewPassword)
+      validation = Object.assign({},validation,Validators.editUserPassword(updatedPass));
+    
+    let user = await this.fetchUser(IdUser);
+
+    if (! user)
+      throw Error('Somethign went wrong (user)');
+    
+    if (Object.keys(validation).length)
       throw validation;
 
-    try
-    {
-      let {data} = await Request.put(`/users/${IdUser}`, user);
-      return data;
-    } catch (error) {
-      throw error;
-    }
+    updatedUser = Object.assign({}, user, updatedUser);
+    
+    if (updatedPass.NewPassword)
+      updatedUser = Object.assign(updatedUser, updatedPass);
+    
+    let {data} = await Request.put(`/users/${IdUser}`, updatedUser);
+    return data;
   }
 
   async userLogin (username, password) {

@@ -24,9 +24,8 @@ $(() => {
       $formGroup.toggleClass('is-hidden', $checkbox.is(':checked'));
     }).trigger('change');
     
-  });
-  
-  $('.form--account-create').on('submit', (event) => {
+  }).on('submit', (event) => {
+    
     event.preventDefault();
     const form = event.target,
           $form = $(form),
