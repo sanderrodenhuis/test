@@ -1,5 +1,6 @@
 .subscription-container {
 }
+
 .col-subscription {
   display: flex;
   flex-direction: column;
@@ -54,6 +55,11 @@
   }
 }
 
+@media #{$non-desktop} {
+  .subscription-container {
+    margin: 40px 0;
+  }
+}
 @media #{$mobile} {
   .subscription-container {
     flex-direction: column;
@@ -66,3 +72,4 @@
     max-width: 100%;
   }
 }
+

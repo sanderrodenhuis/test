@@ -75,7 +75,9 @@ $breakpoints: (
 {
   display: flex;
   flex-flow: row wrap;
-  margin: 20px 0;
+  &--secondary {
+    margin: 20px 0;
+  }
 }
 %base-grid-column {
   position: relative;
