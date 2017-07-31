@@ -85,6 +85,7 @@ deploy:dev:
             -e JWT_ISSUER=$JWT_ISSUER
             -e JWT_SECRET=$JWT_SECRET
             -e MENDIX_USER=$MENDIX_USER
+            -e MENDIX_PASS=$MENDIX_PASS
             -e MAILGUN_DOMAIN=$MAILGUN_DOMAIN
             -e MAILGUN_APIKEY=$MAILGUN_APIKEY
             -e MAILGUN_SENDER=$MAILGUN_SENDER
