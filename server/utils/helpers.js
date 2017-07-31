@@ -36,12 +36,30 @@ function verifyUserActivateToken(token) {
   );
 }
 
+function createPasswordResetToken(user) {
+  return jsonWebToken.sign({
+    m: user.Email,
+  }, process.env.JWT_SECRET, {expiresIn: '7d'});
+}
+function verifyPasswordResetToken(token) {
+  try{
+    const {m} = jsonWebToken.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+    return m
+  } catch(e) {}
+}
+
 module.exports = {
   pick,
   postCode,
   createAuthToken,
   verifyAuthToken,
-  
+
   createUserActivateToken,
-  verifyUserActivateToken
+  verifyUserActivateToken,
+  
+  createPasswordResetToken,
+  verifyPasswordResetToken
 };
