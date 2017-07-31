@@ -125,7 +125,7 @@ let userConstraint = {
 
 
 const newUserConstraint = pick(userConstraint, 'NewPassword','HouseNumber','Addition','Email','IBAN','FirstName','IsActive','City','HasSubscription','ConfirmPassword','Username','PhoneNumber','Street','LastName','PostCode');
-const editUserConstraint = pick(userConstraint, 'HouseNumber','Addition','Email','IBAN','FirstName','IsActive','City','HasSubscription','Username','PhoneNumber','Street','LastName','PostCode', 'IdUser');
+const editUserConstraint = pick(userConstraint, 'HouseNumber','Addition', 'IBAN','FirstName','HasSubscription','PhoneNumber','LastName','PostCode');
 const editUserPasswordConstraint = pick(userConstraint, 'NewPassword','ConfirmPassword');
 
 

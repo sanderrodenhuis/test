@@ -112,6 +112,10 @@
         {
           border-color: $col-red;
         }
+        &[readonly]
+        {
+          background: $col-grey-lighter;
+        }
       }
       textarea#{&} {
         height: 120px;

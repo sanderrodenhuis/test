@@ -29,7 +29,7 @@ account.get('/', require('./account/overview'));
 account.use('/inschrijven', require('./account/create'));
 account.use('/reset-password', require('./account/reset-password'));
 
-account.get('/wijzigen', require('./account/edit'));
+account.use('/wijzigen', require('./account/edit'));
 // TODO: change use to get and make a single route
 account.use('/activeren', authenticate, require('./account/activate'));
 account.get('/afspraak/wijzigen', require('./account/appointment/edit'));
