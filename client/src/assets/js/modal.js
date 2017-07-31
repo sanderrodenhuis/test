@@ -4,6 +4,9 @@ $(() => {
   const $body = $('body');
 
   $body.on('show.modal', (event, modalUrl, replacements = {}) => {
+    if (modalUrl[0] === '/')
+      modalUrl = modalUrl.substr(1);
+    
     modalUrl = modalUrl.split('/');
     if (modalUrl[0] === 'overlays')
       modalUrl = modalUrl.slice(1);
