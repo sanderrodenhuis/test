@@ -7,7 +7,6 @@
   color: $col-white;
   text-align: center;
   box-shadow: 0 8px 20px 0 rgba(0,0,0,0.15);
-  box-sizing: border-box;
 
   &__image
   {
@@ -32,5 +31,11 @@
   {
     color: inherit;
     text-decoration: underline;
+  }
+}
+
+@media #{$non-desktop} {
+  .contact-tile {
+    margin: 40px 0;
   }
 }
