@@ -12,22 +12,24 @@
     width: 130px;
     box-sizing: border-box;
     text-align: center;
-    border: 1px solid $col-grey;
-    color: $col-grey;
+    border: 1px solid $col-orange;
     border-radius: 5px;
 
     line-height: 36px;
     height: 36px;
+
+    background-color: $col-white;
+    color: $col-orange;
+
     &.is-selected,
-    &.is-active:hover {
+    &:hover {
       background-color: $col-orange;
       color: $col-white;
       border-color: $col-orange;
     }
-    &.is-active {
-      background-color: $col-white;
-      color: $col-orange;
-      border-color: $col-orange;
+    &.is-disabled {
+      border-color:$col-grey;
+      color: $col-grey;
     }
   }
 }

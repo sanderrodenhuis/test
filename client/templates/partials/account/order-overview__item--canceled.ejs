@@ -1,0 +1,21 @@
+<li class="order-overview__order-item" data-order-status="<%= order.Status%>">
+  <h6>Afgerond</h6>
+  <div class="row order-overview__order-row">
+    <div class="col-xl-5 col-lg-5 col-md-3 order-overview__order-col">
+      <div><%= order.job.Name %></div>
+      <div><%= LocaleDate(order.FulfillmentDateTime) %></div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-3 order-overview__order-col">
+      Afspraaknummer<br>
+      <%= order.IdJob %>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-2 order-overview__order-col">
+      € <%= Currency(user.HasSubscription ? order.job.DiscountPrice : order.job.NormalPrice) %>)
+    </div>
+  </div>
+
+  <ul class="list list--links">
+    <li><a href="#" class="link"><span>Bekijk details</span></a></li>
+    <li><a href="#" class="link"><span>Factuur downloaden</span></a></li>
+  </ul>
+</li>

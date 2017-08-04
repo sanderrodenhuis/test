@@ -36,9 +36,9 @@ account.get('/afspraak/wijzigen', require('./account/appointment/edit'));
 account.get('/afspraak/feedback', require('./account/appointment/feedback'));
 
 router.use('/funnel', funnel);
-funnel.get('/', require('./funnel/select-task'));
-funnel.get('/kies-een-klus', require('./funnel/select-task'));
-funnel.get('/maak-een-afspraak', require('./funnel/select-appointment'));
+funnel.use('/', require('./funnel/select-task'));
+funnel.use('/kies-een-klus', require('./funnel/select-task'));
+funnel.use('/maak-een-afspraak', require('./funnel/select-appointment'));
 
 // TODO: change use to get and make a single route
 funnel.use('/contact-gegevens', require('./funnel/contact-details'));

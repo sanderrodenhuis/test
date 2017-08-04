@@ -17,13 +17,13 @@
 
           <p>Dit kun je verwachten:</p>
           <ol class="appointment-confirmation">
-            <li>Je ontvangt binnen enkele minuten een afspraakbevestiging op “john@mail.com”
+            <li>Je ontvangt binnen enkele minuten een afspraakbevestiging op "<%= user.Email %>"
             </li>
             <li>24 uur voor je afspraak ontvang je een herinneringsmail</li>
             <li>Eén uur voor je afspraak ontvang je een herinnering via sms</li>
             <li>De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
           </ol>
-          <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold"> SDFGS234.</span></p>
+          <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold"> <%- order.IdOrder %>.</span></p>
 
 
       </div>
@@ -50,33 +50,43 @@
           <div class="appointment-details__group">
 
             <ul>
-              <li>Router installeren (€ 50,00)</li>
-              <li>Morgen, (vrijdag 26 mei) tussen 09:00 en 10:00</li>
-              <li>Straatjesstraat 1 bis 1234 AB Amsterdam</li>
+              <li><%= job.Description %> (€ <%= Currency(user.HasSubscription ? job.DiscountPrice : job.NormalPrice) %>)</li>
+              <li><%- LocaleDate(order.Date) %> tussen <%- order.Times.split('|').join(' en ') %></li>
+              <li><%= user.Street %> <%= user.HouseNumber%> <%= user.Addition %> <%= PostCode(user.PostCode) %> <%= user.City %></li>
             </ul>
           </div>
 
           <div class="appointment-details__group">
 
+            <% if (order.Comments || (order.Photos && order.Photos.length)) { %>
             <h6 class="text-bold">Toelichting</h6>
-            <p>We hebben aan de achterzijde van onze woning een gestorte betonplaat. Deze is gestort op een lading puin en grote stenen. Door het inklinken en regen is de plaat verzakt en zit er volgens mij ruimte op diverse plaatsen onder de betonplaat.
-            </p>
-            <div>Bijlagen (4): “huisje.jpg”, “huisje2.jpg”, “huisje3.png”, “huisje4.bmp”</div>
+              <% if (order.Comments) { %>
+              <p>
+                <%= order.Comments %>
+              </p>
+              <% } %>
+              <% if (order.Photos && order.Photos.length) { %>
+                <div>
+                  Bijlagen (<%- order.Photos.length %>)
+                  "<%= order.Photos.map(filename => filename.split('__').slice(1).join('__')).join('", "') %>"
+                </div>
+              <% } %>
+            <% }%>
           </div>
           <div class="appointment-details__group">
 
-            <h6 class="text-bold">Basis abonnement</h6>
+            <h6 class="text-bold"><%- user.HasSubscription ? 'Premium pakket' : 'Basispakket' %></h6>
             <ul>
-              <li>John Doe</li>
-              <li>john@mail.com</li>
-              <li>0612341234</li>
+              <li><%= user.FirstName %> <%= user.LastName %></li>
+              <li><%= user.Email %></li>
+              <li><%= user.PhoneNumber %></li>
             </ul>
           </div>
         </div>
 
         <div class="form__buttons form__buttons--alternative">
           <a href="/" class="btn btn--link form__button--back">home</a>
-          <a href="" class="btn form__button--submit form__button--submit-alternative">Naar mijn account</a>
+          <a href="/account" class="btn">Naar mijn account</a>
         </div>
       </div>
       <div class="col-sm-4 hidden-md-up">

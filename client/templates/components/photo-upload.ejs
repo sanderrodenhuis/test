@@ -10,6 +10,12 @@
         <span class="hidden-md-down">Sleep je foto's hierheen om te uploaden <br />of</span> <u>selecteer een bestand</u>
       </span>
     </label>
+    <% (order.Photos || []).forEach(photo => { %>
+    <div class="photo-upload__thumbnail" style="background-image: url(/uploads/<%= photo %>)">
+      <a href="#" class="photo-upload__thumbnail-remove"></a>
+      <input type="hidden" name="Photos" value="<%= photo %>">
+    </div>
+    <% }) %>
   </div>
   <div class="photo-upload__status">
     <div class="photo-upload__status-content">

@@ -82,8 +82,8 @@
     border-radius: 2px;
 
     order: 0;
-
-    background-size: cover;
+    background: center no-repeat;
+    background-size: contain;
 
 
 
@@ -104,6 +104,12 @@
       color: $col-red;
       border: 1px solid $col-grey;
       z-index: 1;
+      opacity: 0.25;
+      transition: opacity 0.25s ease-in-out;
+    }
+    &:hover &-remove
+    {
+      opacity: 1;
     }
   }
 

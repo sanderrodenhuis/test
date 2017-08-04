@@ -1,6 +1,7 @@
 import $ from './jquery';
 
 $(() => {
+  const $body = $('body');
   
   $('.form--account-create, .form--account-edit').each((idx, elem) => {
     const $form = $(elem),
@@ -25,7 +26,6 @@ $(() => {
     }).trigger('change');
     
   }).on('submit', (event) => {
-    
     event.preventDefault();
     const form = event.target,
           $form = $(form),
@@ -37,6 +37,11 @@ $(() => {
         location.href = href;
       })
       .catch(({responseJSON}) => {
+        if(typeof(responseJSON.error) == 'string')
+        {
+          $body.trigger('show.modal',['error',responseJSON]);
+          return;
+        }
         $form.trigger('errors.show',responseJSON.error)
         $('html,body').animate({
           scrollTop: $form.find('.form__error').first().closest('.form__group').offset().top

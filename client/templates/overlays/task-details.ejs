@@ -6,38 +6,33 @@
     </div>
     <div class="modal__content">
 
-      <p class="modal__text modal__text--bold">Bereik netwerk optimaliseren/ Wifi bereik uitbreiden</p>
+      <p class="modal__text modal__text--bold"><%- job.Description %></p>
       <div class="modal__info">
         <div class="modal__col">
-          <div class="modal__info-title">€ 50,-</div>
+          <div class="modal__info-title">€ <%- Currency(job.NormalPrice) %></div>
           <div class="modal__info-label">Normale prijs</div>
         </div>
         <div class="modal__col modal__col--secondary">
-          <div class="modal__info-title">€ 45,-</div>
+          <div class="modal__info-title">€ <%- Currency(job.DiscountPrice) %></div>
           <div class="modal__info-label">Voor Premium-leden</div>
         </div>
       </div>
       <div class="modal__rows">
         <div class="modal__row">
           <p class="modal__row-title">Wat doen we:</p>
-          <p class="modal__row-content">Router herinstalleren</p>
+          <p class="modal__row-content"><%- job.WhatWeDo %></p>
         </div>
         <div class="modal__row">
-          <p class="modal__row-title">Wat doen we:</p>
-          <p class="modal__row-content">Router herinstalleren</p>
-        </div>
-        <div class="modal__row">
-          <p class="modal__row-title">Wat doen we:</p>
-          <p class="modal__row-content">Router herinstalleren</p>
-        </div>
-        <div class="modal__row">
-          <p class="modal__row-title">Wat doen we:</p>
-          <p class="modal__row-content">Router herinstalleren</p>
+          <p class="modal__row-title">Wat doen we niet:</p>
+          <p class="modal__row-content"><%- job.WhatWeDontDo %></p>
         </div>
       </div>
     </div>
-    <div class="modal__footer modal__footer--full">
+    <% if (typeof(HasAction) != 'undefined' && HasAction == 'selecteren') { %>
+    <form action="" method="POST" class="modal__footer modal__footer--full">
+      <input type="hidden" name="IdJob" value="<%- job.IdJob %>" />
       <button class="btn btn--modal btn--modal-ribbon" type="submit">Kies deze klus</button>
-    </div>
+    </form>
+    <% } %>
   </div>
 </div>

@@ -84,46 +84,23 @@ $(() => {
       $photoUpload.addClass('is-uploading');
       $progressBarInner.css({width: 0});
       
-      let prmsFiles = files.map(file => {
-        return new Promise((resolve, reject) => {
-          let reader = new FileReader();
-          reader.addEventListener('load', () => {
-            resolve(reader.result);
-          });
-          reader.addEventListener('error',() => {
-            reject(reader.error);
-          });
-          reader.readAsDataURL(file);
-        });
-      });
       
-      $prmsUpload.then(fileIds => {
+      $prmsUpload.then(files => {
         $photoUpload.removeClass('is-uploading');
-        return Promise.all(prmsFiles)
-          .then(files => {
-            $photoUpload.removeClass('is-uploading');
-            let pairs = files.map((data,idx) => ({
-              id: fileIds[idx],
-              data: data
-            }));
-            pairs.forEach(({id, data}) => {
-              $container.append(`<div class="photo-upload__thumbnail" style="background-image: url(${data})">
-                                <a href="#" class="photo-upload__thumbnail-remove"></a>
-                                <input type="hidden" name="photos[]" value="${id}" />
-                              </div>`)
-            });
-            updateCounter();
-          }).catch(error => {
-            $photoUpload.removeClass('is-uploading');
-            console.log('Something went very wrong...', error);
-          });
+          files.forEach(({path, filename}) => {
+          $container.append(`<div class="photo-upload__thumbnail" style="background-image: url(${path + filename})">
+                            <a href="#" class="photo-upload__thumbnail-remove"></a>
+                            <input type="hidden" name="Photos" value="${filename}" />
+                          </div>`)
+        });
+        updateCounter();
       }).catch((res) => {
         $photoUpload.removeClass('is-uploading');
         let error = {error: 'Something went very wrong...'};
         try {
           error = res.responseJSON;
         } catch (e) {};
-        $body.trigger('show.modal',['upload-error',{message: error.error}])
+        $body.trigger('show.modal',['error',error])
       });
     }
   });

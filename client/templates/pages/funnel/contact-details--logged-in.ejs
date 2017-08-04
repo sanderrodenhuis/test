@@ -12,34 +12,36 @@
       <div class="col-xl-6 col-lg-6 col-md-5 col-sm-4">
         <div class="form">
           <div class="contact-details">
-            <div class="contact-details__subscription">Basispakket</div>
+            <div class="contact-details__subscription"><%- user.HasSubscription ? 'Premium pakket' : 'Basispakket' %></div>
             <div class="contact-details__content">
 
               <div class="contact-details__group">
 
                 <h6 class="contact-details__title">Contactgegevens</h6>
                 <ul class="contact-details__info">
-                  <li>Gerard Verhagen</li>
-                  <li>Gerardv@gmail.com</li>
-                  <li>06 123 412 34</li>
+                  <li><%- user.FirstName %> <%- user.LastName %></li>
+                  <li><%- user.Email %></li>
+                  <li><%- user.PhoneNumber %></li>
                 </ul>
               </div>
               <div class="contact-details__group">
                 <h6 class="contact-details__title">Adresgegevens</h6>
                 <ul class="contact-details__info">
-                  <li>Straatjesstraat 26 bis</li>
-                  <li>1234 AB Amsterdam</li>
+                  <li><%- user.Street %> <%- user.HouseNumber %> <%- user.Addition %></li>
+                  <li><%- PostCode(user.PostCode) %> <%- user.City %></li>
                 </ul>
               </div>
             </div>
+            <!--
             <div class="contact-details__actions">
-              <a href="" class="contact-details__link">Wijzigen</a>
+              <a href="/funnel/contact-gegevens/wijzigen" class="contact-details__link">Wijzigen</a>
             </div>
+            -->
           </div>
 
           <div class="form__buttons">
-            <a href="/funnel/" class="btn btn--link btn--link-icon form__button--back">terug</a>
-            <a href="" class="btn js-btn-submit form__button--submit">bevestigen</a>
+            <a href="/funnel/maak-een-afspraak" class="btn btn--link btn--link-icon form__button--back">terug</a>
+            <a href="/funnel/bevestigen" type="submit" class="btn form__button--submit">bevestigen</a>
           </div>
 
         </div>

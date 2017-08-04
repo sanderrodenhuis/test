@@ -6,98 +6,136 @@
     <%- partial('partials/funnel/breadcrumbs', {currentStep: 2}) %>
   </div>
 </div>
-<div class="section">
-  <div class="container">
-    <h1 class="page-title">Afspraak maken</h1>
-    <div class="row">
-      <div class="col-7 col-md-5 col-sm-4">
-        <div class="row">
-          <div class="col-7 col-md-8 col-sm-4">
-            <p>Kies een dag</p>
-            <%- partial('components/datepicker') %>
-          </div>
-          <div class="col-5 col-md-8 col-sm-4">
-            <p>Kies een tijdstip</p>
-            <ul class="time-list">
-              <li class="time-list__item"><a href="" class="time-list__link">09.00 - 10.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link is-active">10.00 - 11.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">11.00 - 12.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link is-selected">12.00 - 13.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">13.00 - 14.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">14.00 - 15.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">15.00 - 16.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">16.00 - 17.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">17.00 - 18.00</a></li>
-              <li class="time-list__item"><a href="" class="time-list__link">18.00 - 19.00</a></li>
-            </ul>
-          </div>
-        </div>
+<form action="/funnel/contact-gegevens" method="POST" class="form form--select-appointment">
+  <div class="section">
+    <div class="container">
+      <h1 class="page-title">Afspraak maken</h1>
+      <p>
+        De beschikbare datums en tijden hangen af van je adres.<br />
+        Geef daarom eerst je postcode en huisnummer op.
+      </p>
+      <div class="row">
+        <div class="col-7 col-md-5 col-sm-4">
+          <div class="row">
+            <div class="col-9 col-md-8 col-sm-4">
+              <div class="row form__row">
+                <div class="col-6 col-md-6 col-sm-3 form__col">
+                  <div class="form__group">
+                    <label for="postcode" class="form__label">Postcode</label>
+                    <% if (typeof(user) != 'undefined') { %>
+                    <input type="text" class="form__control" name="PostCode" placeholder="Bijv. 1234AB" value="<%- user.PostCode %>" readonly/>
+                    <% } else { %>
+                    <input type="text" class="form__control" name="PostCode" placeholder="Bijv. 1234AB" value="<%- order.PostCode %>" />
+                    <% } %>
+                  </div>
+                </div>
+                <div class="col-6 col-md-6 col-sm-3 form__col">
+                  <div class="form__group">
 
-        <div class="datepicker-info">
-          Geselecteerd: <span class="datepicker-info__date"> Morgen (vrijdag 26 mei) </span> tussen
-          <span class="datepicker-info__time">11:00 en 12:00 </span> uur
-        </div>
-      </div>
-      <div class="col-offset-lg-1 col-offset-xl-1 col-4 col-md-3 hidden-sm-down">
-        <div class="sidebar">
-          <div class="sidebar__header">
-            <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
-          </div>
-          <div class="sidebar__content">
-            <%- partial('partials/funnel/sidebar/promotion') %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section section--alternative">
-  <div class="container">
-    <div class="row">
-      <div class="col-7 col-md-5 col-sm-4">
-        <h2 class="section-title">Klusdetails</h2>
-        <p>
-          Om je zo goed mogelijk te kunnen helpen willen we graag zo veel mogelijk weten van de klus en de huidige
-          staat of situatie.
-          Je kunt de velden leeglaten als je denkt dat er weinig informatie (meer) bij nodig is.
-        </p>
+                    <label for="housenumber" class="form__label">Huisnummer + toevoeging</label>
 
-        <div class="form">
-          <div class="form__group">
-            <label for="description" class="form__label">
-              Is er iets wat we van tevoren moeten weten over de klus?
-            </label>
-            <textarea name="description" id="description"class="form__control"></textarea>
-          </div>
-          <div class="form__group form__group--photo">
-            <p for="photo" class="form__label">
-              Voeg foto's toe die de situatie ophelderen
-            </p>
+                    <div class="row form__row">
+                      <div class="col col-lg-6 col-xl-6 form__col">
+                        <% if (typeof(user) != 'undefined') { %>
+                        <input type="number" class="form__control" name="HouseNumber" placeholder="" value="<%- user.HouseNumber %>" readonly/>
+                        <% } else { %>
+                        <input type="number" class="form__control" name="HouseNumber" placeholder="" value="<%- order.HouseNumber %>" required/>
+                        <% } %>
+                      </div>
+                      <div class="col col-lg-6 col-xl-6 form__col">
+                        <% if (typeof(user) != 'undefined') { %>
+                        <input type="text" class="form__control" name="Addition" placeholder="" value="<%- user.Addition %>" readonly/>
+                        <% } else { %>
+                        <input type="text" class="form__control" name="Addition" placeholder="" value="<%- order.Addition %>" required/>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="form__control">
-              <%- partial('components/photo-upload') %>
+                </div>
+              </div>
             </div>
-            <p class="form__label--counter">
-              <span class="photo-upload__counter">0</span>/4 toegevoegd
-            </p>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-7 col-md-8 col-sm-4">
+              <p>Kies een dag</p>
+              <div class="datepicker" id="datepicker">
+                <input type="hidden" name="Date" id="datepicker-input" value="<%- order.Date %>" />
+              </div>
+            </div>
+            <div class="col-5 col-md-8 col-sm-4">
+              <input type="hidden" name="Times" value="<%- order.Times %>" id="timepicker-input" />
+              <p>Kies een tijdstip</p>
+              <div class="timepicker" data-target="#timepicker-input"></div>
+            </div>
+          </div>
 
-        <div class="form__buttons">
-          <a href="/funnel/" class="btn btn--link btn--link-icon form__button--back">terug</a>
-          <a href="" class="btn js-btn-submit form__button--submit">Volgende stap</a>
-        </div>
-      </div>
-      <div class="col-offset-xl-1 col-offset-lg-1 col-md-3 col-4 hidden-md-up">
-        <div class="sidebar">
-          <div class="sidebar__header">
-            <%- partial('partials/funnel/sidebar/receipt') %>
+          <div class="datepicker-info">
+            Geselecteerd: <span class="datepicker-info__date"> Morgen (vrijdag 26 mei) </span> tussen
+            <span class="datepicker-info__time">11:00 en 12:00 </span> uur
           </div>
-          <div class="sidebar__content">
-            <%- partial('partials/funnel/sidebar/promotion') %>
+        </div>
+        <div class="col-offset-lg-1 col-offset-xl-1 col-4 col-md-3 hidden-sm-down">
+          <div class="sidebar">
+            <div class="sidebar__header">
+              <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+            </div>
+            <div class="sidebar__content">
+              <%- partial('partials/funnel/sidebar/promotion') %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="section section--alternative">
+    <div class="container">
+      <div class="row">
+        <div class="col-7 col-md-5 col-sm-4">
+          <h2 class="section-title">Klusdetails</h2>
+          <p>
+            Om je zo goed mogelijk te kunnen helpen willen we graag zo veel mogelijk weten van de klus en de huidige
+            staat of situatie.
+            Je kunt de velden leeglaten als je denkt dat er weinig informatie (meer) bij nodig is.
+          </p>
+
+          <div class="form">
+            <div class="form__group">
+              <label for="description" class="form__label">
+                Is er iets wat we van tevoren moeten weten over de klus?
+              </label>
+              <textarea name="Comments" id="description"class="form__control"><%- order.Comments %></textarea>
+            </div>
+            <div class="form__group form__group--photo">
+              <p for="photo" class="form__label">
+                Voeg foto's toe die de situatie ophelderen
+              </p>
+
+              <div class="form__control">
+                <%- partial('components/photo-upload') %>
+              </div>
+              <p class="form__label--counter">
+                <span class="photo-upload__counter"><%- order.Photos ? order.Photos.length : 0 %></span>/4 toegevoegd
+              </p>
+            </div>
+          </div>
+
+          <div class="form__buttons">
+            <a href="/funnel/" class="btn btn--link btn--link-icon form__button--back">terug</a>
+            <button type="submit" class="btn form__button--submit">Volgende stap</button>
+          </div>
+        </div>
+        <div class="col-offset-xl-1 col-offset-lg-1 col-md-3 col-4 hidden-md-up">
+          <div class="sidebar">
+            <div class="sidebar__header">
+              <%- partial('partials/funnel/sidebar/receipt') %>
+            </div>
+            <div class="sidebar__content">
+              <%- partial('partials/funnel/sidebar/promotion') %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+<div class="order-overview">
+  <ul class="order-overview__orders">
+  <% orders.forEach(order => { %>
+    <% if (order.Status == 'Submitted' && !order.IsCancelled) { %>
+      <%- partial('partials/account/order-overview__item', {order}) %>
+    <% } else if (order.Status == 'Submitted' && order.IsCancelled) { %>
+      <%- partial('partials/account/order-overview__item--canceled', {order}) %>
+    <% } else { %>
+      <%- partial('partials/account/order-overview__item--completed', {order}) %>
+    <% }%>
+  <% }) %>
+  </ul>
+
+  <script type="text/template" class="order-overview__template">
+    <%- partial('partials/order-notification')%>
+  </script>
+</div>

@@ -1,4 +1,6 @@
 <% layout('layouts/default') %>
-error
-<h1><%= error.status %> - <%= message %></h1>
-<pre><%= error.stack %></pre>
+<div class="container">
+  <h1>Foutje!</h1>
+  <h3><%= error.message %></h3>
+  <pre><%= error.stack %></pre>
+</div>

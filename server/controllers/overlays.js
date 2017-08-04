@@ -16,8 +16,9 @@ Router.get('/reset-password/complete',createHandler('reset-password--complete'))
 Router.get('/appointment-cancel', createHandler('appointment-cancel'));
 Router.get('/appointment-edit-error', createHandler('appointment-edit-error'));
 Router.get('/login--activate', createHandler('login--activate'));
-Router.get('/task-details', createHandler('task-details'));
+Router.get('/klus-informatie/:jobId/:action?', require('./overlays/job-information'));
 Router.get('/terms', createHandler('terms'));
+Router.get('/error', createHandler('error'));
 Router.get('/upload-error', createHandler('upload-error'));
 
 module.exports = Router;

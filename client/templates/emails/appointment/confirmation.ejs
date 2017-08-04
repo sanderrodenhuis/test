@@ -1,33 +1,42 @@
 <% layout('layouts/email') %>
 
 <h1>Je klusafspraak is rond!</h1>
-  <div class="appointment-details">
-    <p>Dit kun je verwachten:</p>
-    <ol>
-      <li>Je ontvangt binnen enkele minuten een afspraakbevestiging op “john@mail.com”
-      </li>
-      <li>24 uur voor je afspraak ontvang je een herinneringsmail</li>
-      <li>Eén uur voor je afspraak ontvang je een herinnering via sms</li>
-      <li>De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
-    </ol>
-    <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold"> SDFGS234.</span></p>
+<div class="appointment-details">
+  <p>Dit kun je verwachten:</p>
+  <ol>
+    <li>24 uur voor je afspraak ontvang je een herinneringsmail</li>
+    <li>Eén uur voor je afspraak ontvang je een herinnering via sms</li>
+    <li>De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
+  </ol>
+  <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold"> <%= order.IdOrder%>.</span></p>
 
-    <h3 class="subtitle">Afspraakdetails</h3>
-    <ul class="list">
-      <li>Router installeren (€ 50,00)</li>
-      <li>Morgen, (vrijdag 26 mei) tussen 09:00 en 10:00</li>
-      <li>Straatjesstraat 1 bis 1234 AB Amsterdam</li>
-    </ul>
+  <h3 class="subtitle">Afspraakdetails</h3>
+  <ul class="list">
+    <li><%= job.Description %> (€ <%= Currency(user.HasSubscription ? job.DiscountPrice : job.NormalPrice) %>)</li>
+    <li><%- LocaleDate(order.Date) %> tussen <%- order.Times.split('|').join(' en ') %></li>
+    <li><%= user.Street %> <%= user.HouseNumber%> <%= user.Addition %> <%= PostCode(user.PostCode) %> <%= user.City %></li>
+  </ul>
 
+  <% if (order.Comments || (order.Photos && order.Photos.length)) { %>
     <h6 class="text-bold">Toelichting</h6>
-    <p>We hebben aan de achterzijde van onze woning een gestorte betonplaat. Deze is gestort op een lading puin en grote stenen.
-      Door het inklinken en regen is de plaat verzakt en zit er volgens mij ruimte op diverse plaatsen onder de betonplaat.
-      Bijlagen (4): “huisje.jpg”, “huisje2.jpg”, “huisje3.png”, “huisje4.bmp”</p>
-    <h6 class="text-bold">Basis abonnement</h6>
-    <ul class="list">
-      <li>John Doe</li>
-      <li>john@mail.com</li>
-      <li>0612341234</li>
-    </ul>
+    <% if (order.Comments) { %>
+      <p>
+        <%= order.Comments %>
+      </p>
+    <% } %>
+    <% if (order.Photos && order.Photos.length) { %>
+      <p>
+        Bijlagen (<%- order.Photos.length %>)
+        "<%= order.Photos.map(filename => filename.split('__').slice(1).join('__')).join('", "') %>"
+      </p>
+    <% } %>
+  <% }%>
 
-  </div>
+  <h6 class="text-bold"><%- user.HasSubscription ? 'Premium pakket' : 'Basispakket' %></h6>
+  <p>
+    <%= user.FirstName %> <%= user.LastName %><br />
+    <%= user.Email %><br />
+    <%= user.PhoneNumber %>
+  </p>
+
+</div>

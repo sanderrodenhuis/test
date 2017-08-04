@@ -4,6 +4,8 @@ import './forms';
 import './modal';
 import './job-selection';
 import './datepicker';
+import './timepicker';
+import './datepicker-info';
 import './photo-upload';
 // import './form-validation';
 import './booking-step';
@@ -15,6 +17,7 @@ import './page--account-overview';
 import './form--login';
 import './form--forgot-password';
 import './form--reset-password';
+import './form--select-appointment';
 
 import './helpers';
 

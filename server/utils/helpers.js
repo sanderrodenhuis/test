@@ -51,6 +51,23 @@ function verifyPasswordResetToken(token) {
   } catch(e) {}
 }
 
+function currency(amount) {
+  return String(Number(amount).toFixed(2)).replace('.',',').replace(',00',',-')
+}
+function localeDate(date) {
+  if (typeof(date) === 'string')
+    date = new Date(date);
+  const days = ['Zondag','Maandag','Dinsdag','Woensdag','Donderdag','Vrijdag','Zaterdag'],
+        months = [ "Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December" ];
+  
+  return [days[date.getDay()], date.getDate(), months[date.getMonth()]].join(' ');
+}
+function localeTime(date) {
+  if (typeof(date) === 'string')
+    date = new Date(date);
+  
+  return [date.getHours(), date.getMinutes()].map(val => (val < 10 ? '0' : '') + val).join(':');
+}
 module.exports = {
   pick,
   postCode,
@@ -61,5 +78,9 @@ module.exports = {
   verifyUserActivateToken,
   
   createPasswordResetToken,
-  verifyPasswordResetToken
+  verifyPasswordResetToken,
+  
+  currency,
+  localeDate,
+  localeTime
 };

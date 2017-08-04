@@ -3,7 +3,7 @@ const path = require('path');
 
 const createFileFilter = (extensions = []) => {
   return (req, file, cb) => {
-    const ext = path.extname(file.originalname).substr(1);
+    const ext = path.extname(file.originalname).substr(1).toLowerCase();
     if (! extensions.includes(ext))
       return cb(new Error('Incorrect filetype ('+ext+'). Allowed filetype(s): ' + extensions.join(', '), 400));
     return cb(null, true);

@@ -1,7 +1,11 @@
 <ul class="breadcrumbs">
-  <% ['Kies een klus','Maak een afspraak','Persoonsgegevens','Klaar'].forEach((text, index) => { %>
+  <% [['Kies een klus','/funnel/'],['Maak een afspraak','/funnel/maak-een-afspraak'],['Persoonsgegevens','/funnel/contact-details'],['Klaar']].forEach((link, index) => { %>
     <li class="breadcrumbs__item <%- currentStep == (index + 1) ? 'is-active' : '' %>">
-      <a href="#" class="breadcrumbs__link"><%- index + 1 %>. <span class="breadcrumbs__text"><%= text %></span></a>
+      <% if (index < currentStep && currentStep != 4) { %>
+      <a href="<%- link[1] %>" class="breadcrumbs__link"><%- index + 1 %>. <span class="breadcrumbs__text"><%= link[0] %></span></a>
+      <% } else { %>
+      <%- index + 1 %>. <span class="breadcrumbs__text"><%= link[0] %></span>
+      <% } %>
     </li>
   <% }) %>
 </ul>

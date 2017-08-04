@@ -12,7 +12,8 @@ app.set('views', path.join(__dirname,'../client/templates'));
 app.set('view engine', 'ejs');
 app.engine('ejs', engine);
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use('/assets', express.static(path.join(__dirname, '../client/dist/assets')));
+app.use('/uploads', express.static(path.join(__dirname, '../upload')));
 
 require('./middlewares')(app);
 

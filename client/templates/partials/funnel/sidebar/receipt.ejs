@@ -1,10 +1,27 @@
+<% if (typeof(order) == 'Object' || order.IdJob) { %>
 <div class="well well--receipt">
-  <h6 class="well__header">Jouw klusafspraak</h6>
+  <h3 class="well__header">Jouw klusafspraak</h3>
   <p class="well__row">
-    Router Installeren
+    <%= job.Description %>
 
     <span class="well__row-cost">
-      €50,-
+      € <%= Currency(order.HasSubscription ? job.DiscountPrice : job.NormalPrice) %>
     </span>
   </p>
+
+  <% if (order.Date && order.Times) { %>
+  <p class="well__row">
+    <%= LocaleDate(order.Date) %><Br />
+    <%= order.Times.split('|').join(' - ') %>
+  </p>
+  <% } %>
+
+  <% if(order.PostCode) { %>
+  <h4 class="well__header"></h4>
+  <p class="well__row">
+    <%= order.Street %> <%= order.HouseNumber %> <%= order.Addition %> <br />
+    <%= PostCode(order.PostCode) %> <%= order.City %>
+  </p>
+  <% }%>
 </div>
+<% } %>

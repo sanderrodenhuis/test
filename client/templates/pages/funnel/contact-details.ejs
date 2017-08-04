@@ -4,142 +4,118 @@
     <%- partial('partials/funnel/breadcrumbs', {currentStep: 3}) %>
   </div>
 </div>
-<section class="section">
-  <div class="container">
-    <h1 class="page-title">Vul je gegevens in</h1>
-    <div class="row">
-      <div class="col-6 col-md-4 col-sm-4">
-        <p class="page-subtitle">Maak binnen 2 minuten een account aan of <a href="login"
-            class="link">login</a></p>
+<form action="/funnel/bevestigen" method="POST" class="form form--account-create">
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Vul je gegevens in</h1>
+      <div class="row">
+        <div class="col-6 col-md-4 col-sm-4">
+          <p class="page-subtitle">Maak binnen 2 minuten een account aan of <a href="#" class="link" data-modal="login">login</a></p>
 
-        <form action="" class="form form--contact-details" id="form-contact-details">
-
-          <div class="form__row">
-            <div class="form__col">
+          <div class="row form__row">
+            <div class="col-6 col-md-6 col-sm-4 form__col">
               <div class="form__group">
-                <label for="firstname" class="form__label">Voornaam</label>
-                <input type="text" name="firstname"  class="form__control" placeholder="voornaam"/>
+                <label for="FirstName" class="form__label">Voornaam</label>
+                <input type="text" name="FirstName"  class="form__control" placeholder="voornaam" value="<%- order.FirstName || '' %>" />
               </div>
             </div>
-            <div class="form__col">
+            <div class="col-6 col-md-6 col-sm-4 form__col">
               <div class="form__group">
-                <label for="lastname" class="form__label">Achternaam</label>
-                <input type="text" class="form__control" name="lastname" placeholder="achternaam" required/>
-              </div>
-            </div>
-          </div>
-          <div class="form__row">
-            <div class="form__col form__col--full">
-              <div class="form__group">
-                <label for="email" class="form__label">E-mailadres</label>
-                <input type="email" name="email" class="form__control" placeholder="e-mailadres" required/>
+                <label for="LastName" class="form__label">Achternaam</label>
+                <input type="text" class="form__control" name="LastName" placeholder="achternaam" value="<%- order.LastName || '' %>" />
               </div>
             </div>
           </div>
-          <div class="form__row">
-            <div class="form__col">
+          <div class="row form__row">
+            <div class="col col-md-7 form__col">
               <div class="form__group">
-                <label for="mobilenumber" class="form__label">Telefoonnummer</label>
-                <input type="tel" class="form__control" name="phonenumber" placeholder="" required/>
-              </div>
-            </div>
-          </div>
-          <p>Je ontvangt een (gratis) sms een uur voor de afspraak</p>
-          <div class="form__row">
-            <div class="form__col">
-              <div class="form__group">
-                <label for="postcode" class="form__label">Postcode</label>
-                <input type="text" class="form__control" name="postcode" placeholder="Bijv. 1234AB" required/>
-              </div>
-            </div>
-            <div class="form__col">
-              <div class="form__group">
-
-                <label for="housenumber" class="form__label">Huisnummer + toevoeging</label>
-
-                <div class="form__row form__row--secondary">
-                  <div class="form__col">
-                    <input type="number" class="form__control" name="housenumber" placeholder="" required/>
-                  </div>
-                  <div class="form__col">
-                    <input type="number" class="form__control" placeholder=""/>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="form__row">
-            <div class="form__col">
-              <div class="form__group">
-
-                <label for="password" class="form__label">Wachtwoord</label>
-                <input type="password" class="form__control" id="password"
-                  name="password"  placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" required/>
-              </div>
-            </div>
-            <div class="form__col">
-              <div class="form__group">
-
-                <label for="repeat-password" class="form__label">Controle</label>
-                <input type="password" class="form__control" name="password_confirm"
-                  placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" required/>
+                <label for="Email" class="form__label">E-mailadres</label>
+                <input type="email" name="Email" class="form__control" placeholder="e-mailadres" value="<%- order.Email || '' %>"/>
               </div>
             </div>
           </div>
 
-
-        </form>
-
-      </div>
-
-      <div class="col-lg-4 col-xl-4 col-offset-lg-2 col-offset-xl-2 col-md-4 hidden-sm-down">
-        <div class="sidebar">
-          <div class="sidebar__header">
-            <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+          <div class="row form__row">
+            <div class="col-6 col-md-6 col-sm-4 form__col">
+              <div class="form__group">
+                <label for="PhoneNumber" class="form__label">Telefoonnummer</label>
+                <input type="tel" class="form__control" name="PhoneNumber" placeholder="" value="<%- order.PhoneNumber || '' %>"/>
+                <p>Je ontvangt een (gratis) sms een uur voor de afspraak</p>
+              </div>
+            </div>
           </div>
-          <div class="sidebar__content">
-            <%- partial('partials/funnel/sidebar/promotion') %>
+
+          <div class="row form__row">
+            <div class="col col-md-6 col-sm-4 form__col">
+              <div class="form__group">
+                <label for="NewPassword" class="form__label">Wachtwoord</label>
+                <input type="password" class="form__control" id="password" name="NewPassword"  placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" />
+              </div>
+            </div>
+            <div class="col col-md-6 col-sm-4 form__col">
+              <div class="form__group">
+                <label for="ConfirmPassword" class="form__label">Controle</label>
+                <input type="password" class="form__control" name="ConfirmPassword" placeholder="&middot;&middot;&middot;&middot;&middot;&middot;" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
+        <div class="col-lg-4 col-xl-4 col-offset-lg-2 col-offset-xl-2 col-md-4 hidden-sm-down">
+          <div class="sidebar">
+            <div class="sidebar__header">
+              <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+            </div>
+            <div class="sidebar__content">
+              <%- partial('partials/funnel/sidebar/promotion') %>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="section section--alternative">
-  <div class="container">
+  <div class="section section--alternative">
+    <div class="container">
 
-    <div class="row">
-      <div class="col-xl-6 col-lg-8 col-md-6 col-sm-4">
-        <h2 class="section-title">Kies je abonnement</h2>
-        <%- partial('components/subscription') %>
+      <div class="row">
+        <div class="col-xl-6 col-lg-8 col-md-6 col-sm-4">
+          <h2 class="section-title">Kies je abonnement</h2>
+          <%- partial('components/subscription', {HasSubscription: order.HasSubscription || false }) %>
 
+          <input type="checkbox" name="HasSubscription" id="HasSubscription" style="display: none;" />
 
-        <div class="form__group">
-          <input type="checkbox" name="" required/>
-          <label for="">Ik ga akkord met <a href="" class="link"> de algemene voorwaarden</a></label>
-        </div>
-        <div class="form__buttons">
-          <a href="/funnel/" class="btn btn--link btn--link-icon form__button--back">terug</a>
-          <a href="" class="btn js-btn-submit form__button--submit">bevestigen</a>
-        </div>
-      </div>
-      <div class="col-sm-4 hidden-md-up">
-        <div class="sidebar">
-          <div class="sidebar__header">
-            <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+          <div class="form__group" data-if-checked="#HasSubscription">
+            <input type="checkbox" name="IsCustomer" />
+            <label for="incasseren">Ik ben Essent-klant en machtig Essent om, na de proefperiode van 12 maanden, te
+              incasseren:</label>
           </div>
-          <div class="sidebar__content">
-            <%- partial('partials/funnel/sidebar/promotion') %>
+          <div class="form__group" data-if-checked="#HasSubscription">
+            <label for="iban" class="form__label">IBAN (rekeningnummer)</label>
+            <input type="text" class="form__control" name="IBAN" placeholder="NL 99 BANK 0123 4567 89" value="<%- order.IBAN %>"/>
+          </div>
+
+          <div class="form__group">
+            <input type="checkbox" name="HasConfirmed"/>
+            <label for="HasConfirmed">Ik ga akkoord met <a href="" class="link"> de algemene voorwaarden</a></label>
+          </div>
+          <div class="form__buttons">
+            <a href="/funnel/maak-een-afspraak" class="btn btn--link btn--link-icon form__button--back">terug</a>
+            <button type="submit" class="btn js-btn-submit form__button--submit">bevestigen</button>
+          </div>
+        </div>
+        <div class="col-sm-4 hidden-md-up">
+          <div class="sidebar">
+            <div class="sidebar__header">
+              <%- partial('partials/funnel/sidebar/receipt--with-edit') %>
+            </div>
+            <div class="sidebar__content">
+              <%- partial('partials/funnel/sidebar/promotion') %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-</div>
-
-
+</form>

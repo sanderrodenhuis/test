@@ -6,12 +6,23 @@
   text-align: center;
   color: $col-pink;
   margin-top: 30px;
+  &.is-hidden
+  {
+    display: none;
+  }
 }
 
-#datepicker {
+.datepicker {
   box-sizing: border-box;
   padding: 30px 30px;
   border: 1px solid $col-black;
+  transition: opacity 0.25s ease-in-out;
+
+  &.is-disabled
+  {
+    opacity: 0.25;
+    pointer-events: none;
+  }
 }
 
 .ui-datepicker {
