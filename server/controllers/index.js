@@ -21,7 +21,7 @@ router.use(authenticate);
 router.get('/',require('./content/home'));
 router.get('/over-zo-opgelost',require('./content/about'));
 router.get('/spoedgevallen',require('./content/emergency'));
-router.get('/ons-klusaanbod',require('./content/overview'));
+router.use('/ons-klusaanbod',require('./content/overview'));
 router.get('/onze-abonnementen',require('./content/subscriptions'));
 
 router.use('/account', account);

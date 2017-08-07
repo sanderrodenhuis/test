@@ -1,5 +1,4 @@
-.job-overview
-{
+.job-overview {
   display: flex;
   flex-wrap: wrap;
   margin: -8px;
@@ -9,32 +8,27 @@
     padding: 8px;
     box-sizing: border-box;
 
-    &--wide
-    {
+    &--wide {
       width: 100%;
     }
   }
-  &__block
-  {
+  &__block {
     background-color: $col-white;
     border: 1px solid $col-grey-lighter;
     box-sizing: border-box;
     padding: 20px;
     width: 100%;
-    &:hover
-    {
-      box-shadow: 0 8px 15px 0 rgba(0,0,0,0.15);
+    &:hover {
+      box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.15);
     }
   }
 
-  &__title
-  {
+  &__title {
     position: relative;
     font-weight: 900;
     font-size: 19px;
     color: $col-black;
-    &:after
-    {
+    &:after {
       content: ' ';
       position: absolute;
       height: 1px;
@@ -44,34 +38,33 @@
       background: $col-black;
     }
   }
-  &__links
-  {
+  &__links {
     margin-top: 20px;
 
-    &--wide
-    {
+    &--wide {
       column-count: 2;
       column-gap: 20px;
     }
-  }
-  &__links-item
-  {
-    font-weight: 300;
-    line-height: 26px;
-    cursor: pointer;
 
-    &:hover,
-    &:active
-    {
-      color: $col-orange;
+    &-item {
+      font-weight: 300;
+      line-height: 26px;
+      cursor: pointer;
+
+      &:hover,
+      &:active {
+        color: $col-orange;
+      }
+      &:active {
+        text-decoration: underline;
+      }
     }
-    &:active
+    &-link
     {
-      text-decoration: underline;
+      color: inherit;
     }
   }
 }
-
 @media #{$non-desktop}
 {
   .job-overview

@@ -1,5 +1,9 @@
 <% layout('layouts/default') %>
 
+<% if (typeof(job) != 'undefined') { %>
+<%- partial('overlays/task-details', {IsVisible: true}) %>
+<% } %>
+
 <div class="section section--header section--header-circles">
   <div class="container container--image">
     <div class="row">
@@ -26,3 +30,5 @@
     </div>
   </div>
 </div>
+
+

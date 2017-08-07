@@ -68,6 +68,22 @@ function localeTime(date) {
   
   return [date.getHours(), date.getMinutes()].map(val => (val < 10 ? '0' : '') + val).join(':');
 }
+function slugify (text) {
+  const a = 'àáäâèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
+  const b = 'aaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------'
+  const p = new RegExp(a.split('').join('|'), 'g')
+  
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(p, c =>
+      b.charAt(a.indexOf(c)))     // Replace special chars
+    .replace(/&/g, '-and-')         // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '')             // Trim - from end of text
+}
+
 module.exports = {
   pick,
   postCode,
@@ -82,5 +98,6 @@ module.exports = {
   
   currency,
   localeDate,
-  localeTime
+  localeTime,
+  slugify
 };
