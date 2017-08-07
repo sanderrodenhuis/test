@@ -79,7 +79,7 @@ class Api {
         }
       })
       .then(response => response.data)
-      .catch(err => ())
+      .catch(err => undefined)
       .then(() => []);
     
   }
