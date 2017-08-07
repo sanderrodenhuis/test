@@ -39,14 +39,14 @@
                         <% if (typeof(user) != 'undefined') { %>
                         <input type="number" class="form__control" name="HouseNumber" placeholder="" value="<%- user.HouseNumber %>" readonly/>
                         <% } else { %>
-                        <input type="number" class="form__control" name="HouseNumber" placeholder="" value="<%- order.HouseNumber %>" required/>
+                        <input type="number" class="form__control" name="HouseNumber" placeholder="" value="<%- order.HouseNumber %>"/>
                         <% } %>
                       </div>
                       <div class="col col-lg-6 col-xl-6 form__col">
                         <% if (typeof(user) != 'undefined') { %>
                         <input type="text" class="form__control" name="Addition" placeholder="" value="<%- user.Addition %>" readonly/>
                         <% } else { %>
-                        <input type="text" class="form__control" name="Addition" placeholder="" value="<%- order.Addition %>" required/>
+                        <input type="text" class="form__control" name="Addition" placeholder="" value="<%- order.Addition %>" />
                         <% } %>
                       </div>
                     </div>
