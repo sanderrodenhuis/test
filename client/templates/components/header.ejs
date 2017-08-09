@@ -54,7 +54,7 @@
     <div class="site-menu__btn-close"></div>
     <ul class="site-nav site-nav--main">
       <li class="site-nav__item">
-        <a href="" class="site-nav__link <%- isActivePage('') %>">Introductie</a>
+        <a href="/" class="site-nav__link <%- isActivePage('') %>">Introductie</a>
       </li>
       <li class="site-nav__item">
         <a href="/ons-klusaanbod" class="site-nav__link <%- isActivePage('ons-klusaanbod') %>">Aanbod</a>
@@ -69,7 +69,7 @@
       </li>
       <li class="site-nav__item">
         <% if (typeof(user) === 'undefined') { %>
-        <a href="" class="site-nav__link" data-modal="login">Log in</a>
+        <a href="#" class="site-nav__link" data-modal="login">Log in</a>
         <% } else { %>
         <a href="/account" class="site-nav__link<%- isActivePage('account') %>">
           <%- String(user.FirstName) + ' ' + String(user.LastName).substr(0,1).toUpperCase() %>
