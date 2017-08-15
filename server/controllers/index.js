@@ -23,6 +23,7 @@ router.get('/over-zo-opgelost',require('./content/about'));
 router.get('/spoedgevallen',require('./content/emergency'));
 router.use('/ons-klusaanbod',require('./content/overview'));
 router.get('/onze-abonnementen',require('./content/subscriptions'));
+router.get('/contact',require('./content/contact'));
 
 router.use('/account', account);
 account.get('/', require('./account/overview'));
