@@ -1,0 +1,72 @@
+<% layout('layouts/default') %>
+
+<div class="section section--header section--header-circles">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-6">
+        <h1>
+          Over Zo Opgelost
+        </h1>
+        <p>
+          Zo Opgelost is een initiatief van Essent
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section section--alternative">
+  <div class="container">
+    <h2>Neem contact op</h2>
+    <div class="row">
+      <div class="col-6 col-md-4 col-sm-4">
+        <p class="page-subtitle">Bij vragen, klachten of suggesties kun je gebruik maken van het onderstaande
+          contactformulier. Berichten worden verwerkt binnen 7 werkdagen.</p>
+
+        <form action="" class="form form--contact" id="form-contact">
+
+          <div class="row form__row">
+            <div class="form__col col-12 col-md-8 col-sm-4">
+              <div class="form__group">
+                <label for="name" class="form__label">Naam</label>
+                <input type="text" name="name" class="form__control" placeholder="voornaam"/>
+              </div>
+            </div>
+          </div>
+          <div class="row form__row">
+            <div class="form__col col-12 col-md-8 col-sm-4">
+              <div class="form__group">
+                <label for="email" class="form__label">E-mailadres</label>
+                <input type="email" name="email" class="form__control" placeholder="e-mailadres"/>
+              </div>
+            </div>
+          </div>
+          <div class="row form__row">
+            <div class="form__col col-12 col-md-8 col-sm-4">
+              <div class="form__group">
+                <label for="titel" class="form__label">Titel</label>
+                <input type="text" class="form__control" name="titel" placeholder=""/>
+              </div>
+            </div>
+          </div>
+          <div class="row form__row">
+            <div class="form__col col-12 col-md-8 col-sm-4">
+              <div class="form__group">
+                <label for="message" class="form__label">Bericht</label>
+                <textarea name="message" class="form__control" placeholder="Typ je bericht"></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-xl-4 col-lg-4 col-offset-xl-2 col-offset-lg-2 col-4">
+        <div class="sidebar">
+          <div class="sidebar__content">
+            <%- partial('partials/funnel/sidebar/promotion') %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

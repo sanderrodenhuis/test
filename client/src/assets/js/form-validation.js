@@ -8,8 +8,8 @@ $.validator.addMethod("ibanValidation", function(value) {
   return IBAN.isValid(value);
 });
 $(() => {
-  
-  
+
+
   $("#form-contact-details").validate({
     rules: {
       firstname: {
@@ -45,7 +45,7 @@ $(() => {
         required: true,
         digits: true
       }
-      
+
     },
     // validation error messages
     messages: {
@@ -66,7 +66,7 @@ $(() => {
       form.submit();
     }
   });
-  
+
   $(".disabled-form--account-create").validate({
     rules: {
       FirstName: {
@@ -101,7 +101,7 @@ $(() => {
         required: true,
         digits: true
       }
-      
+
     },
     // validation error messages
     messages: {
@@ -124,7 +124,7 @@ $(() => {
         .catch(error => console.log('error', error));
     }
   });
-  
+
   $('#form-iban').validate({
     rules: {
       iban: {
@@ -134,19 +134,45 @@ $(() => {
       voorwaarden: {
         required: true
       }
-      
+
     },
     messages: {
       iban: "IBAN is not valid",
-      
+
     },
     submitHandler: function(form) {
       form.submit();
     }
   })
-  
-  
-  
+
+  $('#form-contact').validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 2
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      message: {
+        required: true
+      }
+
+    },
+    // validation error messages
+    messages: {
+      name: "Please enter your name",
+      email: "Dit e-mailadres werd niet herkend",
+      message: "Please leave a message"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  })
+
 })
 
 
