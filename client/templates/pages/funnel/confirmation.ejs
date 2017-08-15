@@ -9,21 +9,23 @@
 <div class="section">
   <div class="container">
 
-    <h1 class="page-title text-bold">Je klusafspraak is rond!</h1>
+    <h1 class="page-title text-bold">We komen uw klus klaren!</h1>
 
     <div class="row">
       <div class="col-xl-6 col-lg-7 col-md-5 col-sm-4">
 
 
-          <p>Dit kun je verwachten:</p>
+          <p>Dit gaat er gebeuren:</p>
           <ol class="appointment-confirmation">
-            <li>Je ontvangt binnen enkele minuten een afspraakbevestiging op "<%= user.Email %>"
-            </li>
-            <li>24 uur voor je afspraak ontvang je een herinneringsmail</li>
-            <li>Eén uur voor je afspraak ontvang je een herinnering via sms</li>
-            <li>De klus wordt (hopelijk!) geklaard, je betaalt achteraf</li>
+            <li>U ontvangt binnen een paar minuten een bevestigingsmail op <%= user.Email %></li>
+            <li>24 uur voor de afspraak ontvangt u van ons een reminder</li>
+            <li>Eén uur voor de afspraak sturen we een sms</li>
+            <li>U kunt alvast wat dingen voorbereiden: <span style="color: red">AANVULLEN MET INFO DIE NODIG IS VANUIT KLUS</span></li>
+            <li>Onze expert gaat aan de slag en u betaalt pas als alles naar wens is</li>
           </ol>
-          <p>Je afspraak heeft het bevestigingsnummer: <span class="text-bold"> <%- order.IdOrder %>.</span></p>
+          <p>
+            <a href="/account/" class="btn">Wijzig hier uw klus</a>
+          </p>
 
 
       </div>

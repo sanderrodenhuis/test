@@ -1,37 +1,34 @@
 <div class="row subscription-container">
   <div class="col-6 col-md-4 col-sm-4 col-subscription">
-    <div class="block-subscription <% if(typeof(HasSubscription) === 'undefined') { %>block-subscription--secondary<% } else if (HasSubscription) { %>is-selected<% } %>">
-      <div class="block-subscription__content">
-        <h6 class="block-subscription__title">Premium pakket</h6>
-        <p class="block-subscription__subtitle">Alleen voor Essent klanten</p>
-        <div class="block-subscription__price">€12,- <span class="block-subscription__meta">/ per jaar</span></div>
-
-        <ul class="list list--disc block-subscription__list">
-          <li>Eerste 12 maanden gratis</li>
-          <li>10% korting op reguliere klussen</li>
-          <li>Inplannen van spoedklussen, 24h bereikbaar en service binnen een
-            uur
-          </li>
-          <li>Maandelijks opzegbaar</li>
-        </ul>
-      </div>
-      <a href="/account/inschrijven?type=premium" class="btn btn--border">NU PROBEREN</a>
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-sm-4 col-subscription">
     <div class="block-subscription <% if(typeof(HasSubscription) !== 'undefined' && ! HasSubscription) { %>is-selected<% } %>">
       <div class="block-subscription__content">
-        <h6 class="block-subscription__title">Basis pakket</h6>
-        <p class="block-subscription__subtitle">Toegangkelijk voor iedereen</p>
+        <h6 class="block-subscription__title">Basispakket</h6>
+        <p class="block-subscription__subtitle">voor iedereen</p>
         <div class="block-subscription__price">Gratis</div>
 
         <ul class="list list--disc block-subscription__list">
+          <li>Online uw klus inplannen</li>
           <li>Marktconforme prijs</li>
-          <li>Inplannen van reguliere klussen</li>
-          <li>Altijd een betrouwbare expert</li>
+          <li>Altijd een topklusser</li>
         </ul>
       </div>
-      <a href="/account/inschrijven?type=basic" class="btn btn--border">NU PROBEREN</a>
+      <a href="/account/inschrijven?type=basic" class="btn btn--border">Aanvragen</a>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-sm-4 col-subscription">
+    <div class="block-subscription <% if(typeof(HasSubscription) === 'undefined') { %>block-subscription--secondary<% } else if (HasSubscription) { %>is-selected<% } %>">
+      <div class="block-subscription__content">
+        <h6 class="block-subscription__title">Premium pakket</h6>
+        <p class="block-subscription__subtitle">voor Essent klanten</p>
+        <div class="block-subscription__price">1<sup>e</sup> jaar gratis, <span class="block-subscription__meta">daarna € 1,- p/m</span></div>
+
+        <ul class="list list--disc block-subscription__list">
+          <li>Online uw klus inplannen</li>
+          <li>10% korting op uw klus</li>
+          <li>Ook spoedhulp, 24/7 bereikbaar</li>
+        </ul>
+      </div>
+      <a href="/account/inschrijven?type=premium" class="btn btn--border">Aanvragen</a>
     </div>
   </div>
 </div>
