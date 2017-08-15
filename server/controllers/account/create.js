@@ -2,7 +2,9 @@ const router = require('express').Router();
 
 
 router.get('/', function(req, res, next) {
-  res.render('pages/account/create');
+  res.render('pages/account/create',{
+    HasSubscription: req.query.type !== 'basic'
+  });
 });
 router.get('/voltooid', function(req, res, next) {
   let email = req.flash('user.create.email');

@@ -20,6 +20,12 @@
   &.is-selected,
   &--secondary {
     border: 1px solid $col-pink;
+
+    .btn
+    {
+      background: $col-orange;
+      color: $col-white;
+    }
   }
   &--secondary &__title,
   &--secondary &__price
