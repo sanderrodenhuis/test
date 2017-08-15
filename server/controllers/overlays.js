@@ -18,6 +18,8 @@ Router.get('/appointment-edit-error', createHandler('appointment-edit-error'));
 Router.get('/login--activate', createHandler('login--activate'));
 Router.get('/klus-informatie/:jobId/:action?', require('./overlays/job-information'));
 Router.get('/terms', createHandler('terms'));
+Router.get('/privacy', createHandler('privacy'));
+Router.get('/colofon', createHandler('colofon'));
 Router.get('/error', createHandler('error'));
 Router.get('/upload-error', createHandler('upload-error'));
 
