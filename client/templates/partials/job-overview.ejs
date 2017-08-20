@@ -6,7 +6,7 @@
       <ul class="job-overview__links <%- (idx == categories.length -1)? 'job-overview__links--wide':'' %>">
         <% category.Jobs.forEach(job => { %>
         <li class="job-overview__links-item">
-          <a class="job-overview__links-link" href="/ons-klusaanbod/<%- job.IdJob %>-<%- Slugify(job.Name) %>" data-modal="klus-informatie/<%- job.IdJob %>"><%- job.Name %></a>
+          <a class="job-overview__links-link" href="/ons-klusaanbod/<%- job.IdJob %>-<%- Slugify(job.Name) %>" data-modal="klus-informatie/<%- job.IdJob %>/selecteren"><%- job.Name %></a>
         </li>
         <% }); %>
       </ul>

@@ -1,7 +1,7 @@
 <% layout('layouts/default') %>
 
 <% if (typeof(job) != 'undefined') { %>
-<%- partial('overlays/task-details', {IsVisible: true}) %>
+<%- partial('overlays/task-details', {IsVisible: true, HasAction: "selecteren"}) %>
 <% } %>
 
 <div class="section section--header section--header-circles">

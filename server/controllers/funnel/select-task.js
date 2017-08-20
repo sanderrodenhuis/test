@@ -13,7 +13,8 @@ router.post('/', async (req, res, next) => {
   let {IdJob} = req.body;
   if (! IdJob)
     return res.redirect('/funnel');
-  
+
+  res.locals.order = req.session.order = {};
   req.session.order.IdJob = req.body.IdJob;
   res.redirect('/funnel/maak-een-afspraak');
 });

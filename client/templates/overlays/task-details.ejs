@@ -29,7 +29,7 @@
       </div>
     </div>
     <% if (typeof(HasAction) != 'undefined' && HasAction == 'selecteren') { %>
-    <form action="" method="POST" class="modal__footer modal__footer--full">
+    <form action="/funnel" method="POST" class="modal__footer modal__footer--full">
       <input type="hidden" name="IdJob" value="<%- job.IdJob %>" />
       <button class="btn btn--modal btn--modal-ribbon" type="submit">Kies deze klus</button>
     </form>
