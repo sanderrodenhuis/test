@@ -35,7 +35,7 @@ $(() => {
   
   $body.on('click', '[data-modal]', (event) => {
     event.preventDefault();
-    let $this = $(event.target),
+    let $this = $(event.currentTarget),
       modalUrl = $this.data('modal');
 
     $body.trigger('show.modal',[modalUrl]);

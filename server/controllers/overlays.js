@@ -13,7 +13,7 @@ Router.get('/reset-password',require('./overlays/reset-password'));
 Router.get('/reset-password/complete',createHandler('reset-password--complete'));
 
 
-Router.get('/appointment-cancel', createHandler('appointment-cancel'));
+Router.get('/appointment-cancel/:IdOrder', createHandler('appointment-cancel'));
 Router.get('/appointment-edit-error', createHandler('appointment-edit-error'));
 Router.get('/login--activate', createHandler('login--activate'));
 Router.get('/klus-informatie/:jobId/:action?', require('./overlays/job-information'));

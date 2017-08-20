@@ -9,13 +9,14 @@
           Omdat deze klus binnen minder dan 24 uur is gepland, kun je alleen tegen vergoeding de afspraak annuleren. Een annulering kun je niet ongedaan maken.
           Hiervoor ontvang je een factuur via e-mail. Wil je de klus wél uit laten voeren, maar alleen de datum en tijd aanpassen? Dat kan met <a href="#" class="modal__link modal__link--secondary">afspraak wijzigen.</a>
         </p>
-      <form action="" class="form  modal-form">
+      <form action="" method="POST" class="form form--appointment-cancel modal-form">
+        <% if (typeof (IdOrder) !== 'undefined') { %>
+        <input type="hidden" name="IdOrder" value="<%- IdOrder %>" />
+        <% } %>
         <div class="modal-form__body">
           <div class="form__group form__group--flex">
             <input type="checkbox" class="form__control" value="" />
-            <label for="checkbox" class="form__label form__label--checkbox">
-            Ik ga akkoord met het betalen van
-            een vergoeding (van € 10,-) voor het annuleren van deze klusafspraak</label>
+            <label for="checkbox" class="form__label form__label--checkbox">Ik ga akkoord met het betalen van een vergoeding (van € 10,-) voor het annuleren van deze klusafspraak</label>
           </div>
         </div>
         <div class="modal-form__footer modal-form__footer--secondary">

@@ -21,12 +21,10 @@ $(() => {
       const $target = $(event.target),
             $parent = $target.closest('.order-overview__order-item'),
             $notification = $(template);
-
+      
       $parent.append($notification);
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          $notification.addClass('is-active');
-        });
+        $notification.addClass('is-active');
       });
     });
   });
