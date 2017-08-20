@@ -57,9 +57,12 @@
     margin: 0;
     display: flex;
     flex-direction: row;
-    &-cost
+    &-item
     {
       flex: 1;
+    }
+    &-cost
+    {
       white-space: nowrap;
     }
   }
