@@ -49,24 +49,25 @@ class Api {
   async fetchTimeslots(IdJob, date, PostCode, HouseNumber, Addition)
   {
     // STUB DATA. TIM FIX YO SHIT
-    return [
-      {
-        "TimeSlotFrom": date + "T06:00:00+0000",
-        "TimeSlotUntil": date + "T08:30:00+0000"
-      },
-      {
-        "TimeSlotFrom": date + "T09:00:00+0000",
-        "TimeSlotUntil": date + "T11:30:00+0000"
-      },
-      {
-        "TimeSlotFrom": date + "T12:00:00+0000",
-        "TimeSlotUntil": date + "T13:30:00+0000"
-      },
-      {
-        "TimeSlotFrom": date + "T13:30:00+0000",
-        "TimeSlotUntil": date + "T16:00:00+0000"
-      }
-    ];
+    if (0)
+      return [
+        {
+          "TimeSlotFrom": date + "T06:00:00+0000",
+          "TimeSlotUntil": date + "T08:30:00+0000"
+        },
+        {
+          "TimeSlotFrom": date + "T09:00:00+0000",
+          "TimeSlotUntil": date + "T11:30:00+0000"
+        },
+        {
+          "TimeSlotFrom": date + "T12:00:00+0000",
+          "TimeSlotUntil": date + "T13:30:00+0000"
+        },
+        {
+          "TimeSlotFrom": date + "T13:30:00+0000",
+          "TimeSlotUntil": date + "T16:00:00+0000"
+        }
+      ];
     
     
     return Request.get('/timeslots/', {
