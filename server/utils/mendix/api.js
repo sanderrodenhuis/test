@@ -80,9 +80,7 @@ class Api {
         }
       })
       .then(response => response.data)
-      .catch(err => undefined)
-      .then(() => []);
-    
+      .catch(err => []);
   }
   
   async cancelOrder (orderId){
