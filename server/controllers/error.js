@@ -13,7 +13,6 @@ module.exports = (err, req, res, next) => {
   }
   if (req.accepts('html'))
   {
-    console.log(err)
     res.render('pages/error');
     return;
   }
