@@ -6,13 +6,14 @@ module.exports = (err, req, res, next) => {
   // render the error page
   
   res.status(err.status || 500);
-  if (req.accepts('json'))
+  if (0 && req.accepts('json'))
   {
     res.send({error: err.message});
     return;
   }
   if (req.accepts('html'))
   {
+    console.log(err)
     res.render('pages/error');
     return;
   }

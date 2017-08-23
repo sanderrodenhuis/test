@@ -4,4 +4,9 @@
   {
     text-align: center;
   }
+
+  .subscription-container + &
+  {
+    margin-top: 50px;
+  }
 }

@@ -1,7 +1,9 @@
 const router = require('express').Router(),
-      {createAuthToken, verifyUserActivateToken} = require('../../utils/helpers');
+      {createAuthToken, verifyUserActivateToken} = require('../../utils/helpers'),
+      {HtmlHandler, ValidationError} = require('../../utils/errors');
 
-router.get('/', async function(req, res, next) {
+
+router.get('/', HtmlHandler( async function(req, res) {
   try
   {
     let {payload} = req.query;
@@ -13,13 +15,11 @@ router.get('/', async function(req, res, next) {
     await req.mendix.updateUser(user.IdUser, user);
     res.locals.user = user;
     res.cookie('authorization', createAuthToken(user));
-    
     res.render('pages/account/activate--complete');
   } catch (error) {
-    res.render('pages/error', {error: Error('geen geldige activatie-token opgegegeven')});
-    throw Error('geen geldige activatie-token opgegegeven');
+    throw new ValidationError('Geen geldige activatie-token opgegeven',{});
   }
-});
+}));
 
 module.exports = router;
 

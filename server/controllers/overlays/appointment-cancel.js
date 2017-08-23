@@ -1,4 +1,7 @@
-module.exports = async (req, res, next) => {
+let router = require('express').Router({mergeParams: true});
+let {HtmlHandler} = require('../../utils/errors');
+
+router.get('/', HtmlHandler( async (req,res) => {
   try {
     if (! req.params.IdOrder)
       throw Error();
@@ -10,4 +13,6 @@ module.exports = async (req, res, next) => {
   } catch (e) {
     res.render('overlays/error', {error: 'Er is iets misgegaan, probeer het later opnieuw.'});
   }
-};
+}));
+
+module.exports = router;

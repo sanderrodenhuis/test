@@ -15,7 +15,7 @@
   <% if (order.Date && order.Times) { %>
   <p class="well__row">
     <%= LocaleDate(order.Date) %><Br />
-    <%= order.Times.split('|').join(' - ') %>
+    <%= order.Times.join(' - ') %>
   </p>
   <% } %>
 

@@ -24,7 +24,23 @@
     height: auto;
   }
 }
+@media #{$non-mobile}
+{
+  .col--middle,
+  .col--bottom
+  {
+    display: flex;
 
+  }
+  .col--middle
+  {
+    align-items: center;
+  }
+  .col--bottom
+  {
+    align-items: flex-end;
+  }
+}
 @media #{$tablet} {
   .container {
     padding: 0 24px;
@@ -41,3 +57,5 @@
     }
   }
 }
+
+

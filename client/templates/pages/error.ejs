@@ -1,6 +1,13 @@
 <% layout('layouts/default') %>
 <div class="container">
   <h1>Foutje!</h1>
-  <h3><%= error.message %></h3>
-  <pre><%= error.stack %></pre>
+  <pre>
+    <%- error.message %>
+  </pre>
+
+  <% if (process.env.NODE_ENV !== 'production') { %>
+  <pre>
+    <%- String(error.stack) %>
+  </pre>
+  <% }%>
 </div>

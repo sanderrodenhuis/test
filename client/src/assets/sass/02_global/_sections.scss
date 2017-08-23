@@ -1,10 +1,14 @@
 .section {
-  padding: 50px 0;
+  padding: 100px 0;
   &--alternative {
     background: rgba(247, 247, 247, 0.6);
+    & + &
+    {
+      padding-top: 0;
+    }
   }
   &--secondary {
-    padding: 0;
+    padding-top: 50px;
   }
   &--image {
     padding-top: (550/1440)*100%;

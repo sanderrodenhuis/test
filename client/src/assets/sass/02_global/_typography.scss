@@ -11,7 +11,10 @@ h1, h2, h3, h4, h5, h6, p, ul
   line-height: (26 / 16);
   margin: 0.5em 0;
 }
-
+h1, h2, h3, h4, h5
+{
+  line-height: 1.25;
+}
 h1
 {
   font-size: (48rem / 16);
@@ -52,8 +55,12 @@ strong
   li
   {
     position: relative;
-    padding: 0px 10px 5px 25px;
+    padding: 0px 10px 0px 25px;
 
+    & + &
+    {
+      margin-top: 5px;
+    }
   }
   &--col-2
   {

@@ -53,7 +53,7 @@
 
             <ul>
               <li><%= job.Description %> (€ <%= Currency(user.HasSubscription ? job.DiscountPrice : job.NormalPrice) %>)</li>
-              <li><%- LocaleDate(order.Date) %> tussen <%- order.Times.split('|').join(' en ') %></li>
+              <li><%- LocaleDate(order.Date) %> tussen <%- order.Times.join(' en ') %></li>
               <li><%= user.Street %> <%= user.HouseNumber%> <%= user.Addition %> <%= PostCode(user.PostCode) %> <%= user.City %></li>
             </ul>
           </div>

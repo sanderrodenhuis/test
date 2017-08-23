@@ -3,73 +3,66 @@ const passport = require('passport');
 const fileUpload = require('../utils/file-upload');
 const fs = require('fs');
 const path = require('path');
-const {createAuthToken, verifyPasswordResetToken, postCode} = require('../utils/helpers');
+const {createAuthToken, verifyPasswordResetToken} = require('../utils/helpers');
 
-router.post('/user/login',(req, res, next) => {
-  passport.authenticate('local', (err, user) => {
-    if (err) {
-      return res.json({
-        success: false,
-        error: err.message
-      });
-    }
-    const jwt = createAuthToken(user);
-    res.json({
-      success: true,
-      jwt: jwt
-    });
-  })(req, res, next);
-});
+const {
+  JsonHandler,
+  HttpError,
+  ValidationError,
+  AuthenticationError,
+  ApplicationError
+} = require('../utils/errors');
 
-router.post('/user/forgot-password',async (req, res, next) => {
-  const email = req.body.email;//body check
-  try{
-    const response = await req.mendix.userForgotPassword(email);
-  } catch(e) { }
-  
-  res.json({
-    success: true
+router.post('/user/login',JsonHandler(async (...args) => {
+  return new Promise((resolve, reject) => {
+    passport.authenticate('local', (err, user) => {
+      if (err) {
+        return reject(new AuthenticationError("Gebruikersnaam/Wachtwoord komen niet overeen"));
+      }
+      
+      const jwt = createAuthToken(user);
+      return resolve({jwt});
+    })(...args);
   });
-});
+}));
 
-router.post('/user/reset-password',async (req, res, next) => {
+router.post('/user/forgot-password',JsonHandler(async (req, res) => {
+  const email = req.body.email;
+  if (email)
+    await req.mendix.userForgotPassword(email).catch(() => true); // even when we fail, we report it as a success
+  return true;
+}));
+
+router.post('/user/reset-password',JsonHandler( async (req, res, next) => {
+  const {token, NewPassword, ConfirmPassword} = req.body;
+  let email = verifyPasswordResetToken(token);
+  if (!token || !email)
+    throw new HttpError(400, 'Geen geldige token ingevoerd');
+  
+  let verify = req.mendix.validators.editUserPassword({NewPassword, ConfirmPassword});
+  if (verify)
+    throw new ValidationError('Ongeldige aanvraag', verify);
+  
+  let user;
   try {
-    const {token, NewPassword, ConfirmPassword} = req.body;
-    let email = verifyPasswordResetToken(token);
-    if (!token || !email)
-      throw 'Geen geldige token ingevoerd';
-    
-    let verify = req.mendix.validators.editUserPassword({NewPassword, ConfirmPassword});
-    if (verify)
-      throw verify;
-    
-    let user;
-    try {
-      user = await req.mendix.fetchUserByEmail(email);
-      if (!user)
-        throw Error();
-    } catch (e) {
-      throw 'Opgegeven gebruiker bestaat niet';
-    }
-    
-    user.NewPassword = NewPassword;
-    user.ConfirmPassword = ConfirmPassword;
-    try {
-      await req.mendix.updateUser(user);
-    } catch (e) {
-      throw 'Er is iets misgegaan tijdens het opslaan van uw gegevens. Probeer het later opnieuw.'
-    }
-    
-    res.json({
-      success: true
-    });
-  } catch (error) {
-    res.status(400).json({error});
+    user = await req.mendix.fetchUserByEmail(email);
+    if (!user)
+      throw new Error();
+  } catch (e) {
+    throw new AuthenticationError('Opgegeven gebruiker bestaat niet');
   }
-});
+  
+  user.NewPassword = NewPassword;
+  user.ConfirmPassword = ConfirmPassword;
+  try {
+    await req.mendix.updateUser(user);
+  } catch (e) {
+    throw new ApplicationError('Er is iets misgegaan tijdens het opslaan van uw gegevens. Probeer het later opnieuw.');
+  }
+} ));
 
 
-router.post('/file/upload', fileUpload({ext: ['jpg','jpeg','gif','png']}), (req, res, next) => {
+router.post('/file/upload', fileUpload({ext: ['jpg','jpeg','gif','png']}), JsonHandler( async (req) => {
   const files = req.files.map(file => {
     const {filename, destination, originalname, path: oldPath} = file;
     const newFilename = [Date.now(),originalname].join('__');
@@ -81,30 +74,40 @@ router.post('/file/upload', fileUpload({ext: ['jpg','jpeg','gif','png']}), (req,
     filename: filename
   }));
   
-  res.json(files);
-});
+  return {files};
+}));
 
-router.get('/availability', async (req,res,next) => {
+router.get('/availability', JsonHandler( async (req,res) => {
   let order = req.session.order = req.session.order || {};
   if (! order.IdJob)
     return res.redirect('/funnel');
-//  return res.json([]);
-  let data = req.query;
+
+  let data = req.query,
+      validation = {};
   if (! data.Date || String(data.Date).split('-').length !== 3 )
-    return res.status(400).json({error: 'Incorrect date'});
+    validation.Date = 'Ongeldige datum';
   if (! data.HouseNumber)
-    return res.status(400).json({error: 'No housenumber given'});
+    validation.HouseNumber = 'Ongeldig huisnummer opgegeven';
   if (! data.PostCode)
-    return res.status(400).json({error: 'No postcode given'});
+    validation.PostCode = 'Ongeldige postcode opgegeven';
+
+  if (Object.keys(validation).length)
+    throw new ValidationError('Ongeldige aanvraag', validation);
   
   data.IdJob = order.IdJob;
-  let result = await req.mendix.fetchTimeslots(data.IdJob, data.Date, data.PostCode, data.HouseNumber, data.Addition);
-  let fnParseTime = (time) => time.split('T')[1].split(':').slice(0,2).join(':');
-  let timeSlots = result.map(row => ({
-    from: fnParseTime(row.TimeSlotFrom),
-    until: fnParseTime(row.TimeSlotUntil),
-  }));
-  res.json(timeSlots);
-})
+  try
+  {
+    let result = await req.mendix.fetchTimeslots(data.IdJob, data.Date, data.PostCode, data.HouseNumber, data.Addition);
+    let fnParseTime = (time) => time.split('T')[1].split(':').slice(0,2).join(':');
+    let timeSlots = result.map(row => ({
+      from: fnParseTime(row.TimeSlotFrom),
+      until: fnParseTime(row.TimeSlotUntil),
+    }));
+    return timeSlots;
+  } catch (e) {
+    throw new ApplicationError('Er is iets misgegaan tijdens het opvragen van de beschikbare tijden. Probeer het later opnieuw.');
+  }
+
+} ));
 module.exports = router;
 

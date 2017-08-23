@@ -36,40 +36,17 @@ class Api {
       .then(order => order.data);
   }
   async fetchOrdersByUser(IdUser) {
-    return Request.get('/users/' + IdUser + '/orders')
+    return Request.get('/users/' + IdUser + '/orders?data=true')
       .then(response => response.data)
       .catch(err => []);
   }
   
   async fetchOrderInvoice (orderId) {
-    throw Error('Needs new implementation');
-    return Request.get('/invoices/' + orderId)
+    return Request.get('/orders/' + orderId + '/invoice/')
       .then(order => order.data);
   }
   async fetchTimeslots(IdJob, date, PostCode, HouseNumber, Addition)
   {
-    // STUB DATA. TIM FIX YO SHIT
-    if (0)
-      return [
-        {
-          "TimeSlotFrom": date + "T06:00:00+0000",
-          "TimeSlotUntil": date + "T08:30:00+0000"
-        },
-        {
-          "TimeSlotFrom": date + "T09:00:00+0000",
-          "TimeSlotUntil": date + "T11:30:00+0000"
-        },
-        {
-          "TimeSlotFrom": date + "T12:00:00+0000",
-          "TimeSlotUntil": date + "T13:30:00+0000"
-        },
-        {
-          "TimeSlotFrom": date + "T13:30:00+0000",
-          "TimeSlotUntil": date + "T16:00:00+0000"
-        }
-      ];
-    
-    
     return Request.get('/timeslots/', {
         params: {
           Date: date + 'T12:00:00+0100',

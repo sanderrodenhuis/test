@@ -1,21 +1,31 @@
-const Validate = require('validate.js'),
+const jsValidate = require('validate.js'),
       iban = require('iban'),
       pick = require('../helpers').pick,
       options = {fullMessages:false};
 
-Validate.validators.func = (value, {validator, message = '%{key} is ongeldig'}, key, attributes) => {
+
+jsValidate.extend(jsValidate.validators.datetime, {
+  parse: function(value, options) {
+    return new Date(value).valueOf()
+  },
+  // Input is a unix timestamp
+  format: function(value, options) {
+    return new Date(value)
+  }
+});
+jsValidate.validators.func = (value, {validator, message = '%{key} is ongeldig'}, key, attributes) => {
   if (! validator(value, key, attributes))
-    return Validate.format(message, {key: value});
+    return jsValidate.format(message, {key: value});
 };
-Validate.validators.if = (value, {field, hasValue, then}, key, attributes) => {
+jsValidate.validators.if = (value, {field, hasValue, then}, key, attributes) => {
   if (! (field in attributes) || attributes[field] !== hasValue)
     return;
-  let output = Validate({[key]: value}, {[key]: then}, options);
+  let output = jsValidate({[key]: value}, {[key]: then}, options);
   return (output||{})[key];
 };
 
 
-let userConstraint = {
+let constraints = {
   FirstName: {
     presence: {
       message: "Geen geldige voornaam ingevuld"
@@ -114,25 +124,66 @@ let userConstraint = {
   },
   IdUser: {
     presence: {
-      message: 'Geen userId opgegeven'
+      message: 'Geen user opgegeven'
     },
     numericality: {
       onlyInteger: true,
-      notValid: 'UserId mag enkel een getal zijn'
+      notValid: 'Gebruiker id mag enkel een getal zijn'
+    }
+  },
+  IdJob: {
+    presence: {
+      message: 'Geen klus opgegeven'
+    },
+    numericality: {
+      onlyInteger: true,
+      notValid: 'Klus id mag enkel een getal zijn'
+    }
+  },
+  Date: {
+    presence: {
+      message: 'Geen datum opgegeven',
+    },
+    date: {
+      pattern: "(\d{1,4}-\d{1,2}-\d{1,2})",
+      message: 'Datum voldoet niet aan het format yyyy-mm-dd'
+    },
+  },
+  Times: {
+    func: {
+      validator: (value) => {
+        if (! Array.isArray(value))
+          return false;
+        if (value.length != 2)
+          return false;
+        const regexTime = /^([01]?[0-9]|2[0-3]):([0-5][0-9])$/;
+        return ! value.some(time => regexTime.test(value));
+      },
+      message: 'Geen geldig tijdslot ingevoerd'
     }
   }
 };
 
 
-const newUserConstraint = pick(userConstraint, 'NewPassword','HouseNumber','Addition','Email','IBAN','FirstName','IsActive','City','HasSubscription','ConfirmPassword','Username','PhoneNumber','Street','LastName','PostCode');
-const editUserConstraint = pick(userConstraint, 'HouseNumber','Addition', 'IBAN','FirstName','HasSubscription','PhoneNumber','LastName','PostCode');
-const editUserPasswordConstraint = pick(userConstraint, 'NewPassword','ConfirmPassword');
+const Validate = (obj,constraints,fields) => {
+  let errors = jsValidate(obj,constraints,options) || {};
+  if (fields.length)
+    errors = pick(errors, ...fields);
+  return Object.keys(errors).length ? errors : null;
+};
+const CreateValidator = (constraints) => (obj,...fields) => Validate(obj,constraints,fields);
 
+
+const newUserConstraint = pick(constraints, 'NewPassword','HouseNumber','Addition','Email','IBAN','FirstName','IsActive','City','HasSubscription','ConfirmPassword','Username','PhoneNumber','Street','LastName','PostCode');
+const editUserConstraint = pick(constraints, 'HouseNumber','Addition', 'IBAN','FirstName','HasSubscription','PhoneNumber','LastName','PostCode');
+const editUserPasswordConstraint = pick(constraints, 'NewPassword','ConfirmPassword');
+const newOrderConstraint = pick(constraints, 'IdJob', 'HouseNumber','PostCode','Date','Times');
 
 
 module.exports = {
-  newUser: (obj) => Validate(obj,newUserConstraint, options),
-  editUser: (obj) => Validate(obj,editUserConstraint, options),
-  editUserPassword: (obj) => Validate(obj,editUserPasswordConstraint, options)
+  newUser: CreateValidator(newUserConstraint),
+  editUser: CreateValidator(editUserConstraint),
+  editUserPassword: CreateValidator(editUserPasswordConstraint),
+  newOrder: CreateValidator(newOrderConstraint)
 };
 

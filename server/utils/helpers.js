@@ -2,7 +2,11 @@ const jsonWebToken = require('jsonwebtoken');
 
 
 function pick(o, ...props) {
-  return Object.assign({}, ...props.map(prop => ({[prop]: o[prop]})));
+  return props.reduce((obj,key) => {
+    if (typeof(o[key]) !== 'undefined')
+      obj[key] = o[key];
+    return obj;
+  },{});
 }
 function postCode(postcode) {
   postcode = String(postcode).replace(/ /g,'').toUpperCase();
@@ -83,6 +87,10 @@ function slugify (text) {
     .replace(/^-+/, '')             // Trim - from start of text
     .replace(/-+$/, '')             // Trim - from end of text
 }
+
+
+
+
 
 module.exports = {
   pick,

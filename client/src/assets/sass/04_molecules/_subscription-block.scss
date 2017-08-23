@@ -1,4 +1,11 @@
 .subscription-container {
+
+  @media #{$non-mobile}
+  {
+    .section--paketten & {
+      margin-top: -150px;
+    }
+  }
 }
 
 .col-subscription {

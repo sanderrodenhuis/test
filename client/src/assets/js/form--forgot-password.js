@@ -19,10 +19,8 @@ $(() => {
       if (response.error)
         throw response.error;
       $body.trigger('show.modal',['forgot-password/complete', {email}]);
-    }).catch(error => {
-      if (error.token)
-        $body.trigger('show.modal',['error',{error: error.token}]);
-      $body.trigger('show.modal',['error', {error}]);
+    }).catch(({responseJSON: response}) => {
+      $body.trigger('show.modal',['error', response]);
     });
   });
 })
