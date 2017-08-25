@@ -20,7 +20,7 @@ $(() => {
       $form.trigger('errors.reset');
       $body.trigger('show.modal',['reset-password/complete']);
     }).catch(({responseJSON: response}) => {
-      $form.trigger('errors.show',[response.error]);
+      $form.trigger('errors.show',[response.fields]);
     })
   });
 })
