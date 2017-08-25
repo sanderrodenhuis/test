@@ -4,7 +4,7 @@ const {HtmlHandler, ValidationError} = require('../../utils/errors');
 router.get('/', HtmlHandler( async (req, res) => {
   const {payload} = req.query;
   if (! payload)
-    throw ValidationError('Geen geldige token ingegeven.',{});
+    throw new ValidationError('Geen geldige token ingegeven.',{});
 
   req.flash('user.password.reset', req.query.payload);
   res.redirect('/#modal=reset-password');

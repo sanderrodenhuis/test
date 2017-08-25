@@ -37,7 +37,7 @@ router.post('/', JsonHandler( async function(req, res, next) {
     validation = Object.assign({}, validation, {HasConfirmed: ['U dient akkoord te gaan met de algemene voorwaarden']});
   
   if (Object.keys(validation || {}).length)
-    throw ValidationError('Geen geldige gebruikersgegevens ingevoerd', validation);
+    throw new ValidationError('Geen geldige gebruikersgegevens ingevoerd', validation);
   
   await req.mendix.createUser(postData);
   req.flash('user.create.email', postData.Email)
