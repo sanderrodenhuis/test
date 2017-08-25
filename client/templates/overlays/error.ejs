@@ -7,7 +7,7 @@
     <div class="modal__content">
       <p class="modal__text">
         <% if(typeof(error) !== 'undefined') { %>
-        <%= String(error) %>
+        <%= String(error.message) %>
         <% } else { %>
         {{error}}
         <% } %>
