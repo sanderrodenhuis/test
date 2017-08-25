@@ -37,10 +37,18 @@ $(() => {
         location.href = href;
       })
       .catch(({responseJSON}) => {
-        $form.trigger('errors.show',responseJSON.fields);
-        $('html,body').animate({
-          scrollTop: $form.find('.form__error').first().closest('.form__group').offset().top
-        });
+        
+        if (! responseJSON.field)
+        {
+          $body.trigger('show.modal',['error',{message: responseJSON.message}]);
+        }
+        else
+        {
+          $form.trigger('errors.show',responseJSON.fields);
+          $('html,body').animate({
+            scrollTop: $form.find('.form__error').first().closest('.form__group').offset().top
+          });
+        }
       });
   });
 });
