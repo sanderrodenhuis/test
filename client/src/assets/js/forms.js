@@ -4,7 +4,6 @@ $(() => {
   const $body = $('body');
   
   $body.on('errors.show','form',(event, errors) => {
-    console.log('errors',errors);
     const $form = $(event.target);
     $form.find('.form__error').remove();
     Object.keys(errors).forEach(key => {

@@ -42,8 +42,7 @@ $(() => {
           $body.trigger('show.modal',['error',responseJSON]);
           return;
         }
-        $form.trigger('errors.show',responseJSON.error);
-        console.log('testing', responseJSON);
+        $form.trigger('errors.show',responseJSON.fields);
         $('html,body').animate({
           scrollTop: $form.find('.form__error').first().closest('.form__group').offset().top
         });
