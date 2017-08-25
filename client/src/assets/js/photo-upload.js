@@ -85,7 +85,7 @@ $(() => {
       $progressBarInner.css({width: 0});
       
       
-      $prmsUpload.then(files => {
+      $prmsUpload.then(({files}) => {
         $photoUpload.removeClass('is-uploading');
           files.forEach(({path, filename}) => {
           $container.append(`<div class="photo-upload__thumbnail" style="background-image: url(${path + filename})">
@@ -96,7 +96,7 @@ $(() => {
         updateCounter();
       }).catch((res) => {
         $photoUpload.removeClass('is-uploading');
-        let error = {error: 'Something went very wrong...'};
+        let error = {error: 'Error', 'message': 'Er is iets misgegaan bij het uploaden'};
         try {
           error = res.responseJSON;
         } catch (e) {};
