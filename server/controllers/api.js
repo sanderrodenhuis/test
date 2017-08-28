@@ -62,7 +62,7 @@ router.post('/user/reset-password',JsonHandler( async (req, res, next) => {
 } ));
 
 
-router.post('/file/upload', fileUpload({ext: ['jpg','jpeg','gif','png']}), JsonHandler( async (req) => {
+router.post('/file/upload', fileUpload({maxFileSize: 5 * 1024 * 1024,ext: ['jpg','jpeg','gif','png']}), JsonHandler( async (req) => {
   const files = req.files.map(file => {
     const {filename, destination, originalname, path: oldPath} = file;
     const newFilename = [Date.now(),originalname].join('__');

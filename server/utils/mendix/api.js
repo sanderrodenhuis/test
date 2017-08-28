@@ -96,7 +96,7 @@ class Api {
   async createOrderPhoto (IdOrder, filePath) {
     let stream = fs.readFileSync(filePath);
     let formData = new FormData();
-    formData.append('data', fs.createReadStream(filePath));
+    formData.append('photo', fs.createReadStream(filePath));
     let response = await Request.post('/orders/' + IdOrder + '/photos/', stream, {headers: formData.getHeaders() });
     return response.data;
   }
