@@ -14,9 +14,8 @@
 }
 .block-subscription {
   display: flex;
-  flex: 1;
+  flex-grow: 1;
   flex-direction: column;
-  height: 100%;
   padding: 30px;
   box-sizing: border-box;
   text-align: center;
@@ -40,7 +39,7 @@
     color: $col-pink;
   }
   &__content {
-    flex:1;
+    flex:1 0 auto;
   }
   &__title {
     font-size: 21px;
@@ -79,7 +78,7 @@
   }
   .col-subscription {
     margin: 20px 0;
-    flex: 1;
+    flex: 1 0 auto;
   }
   .block-subscription {
     max-width: 100%;
