@@ -8,7 +8,7 @@ router.get('/', HtmlHandler( async function(req, res) {
   {
     let {payload} = req.query;
     if (! payload)
-      throw Error();
+      throw new Error();
     let data = verifyUserActivateToken(payload);
     let user = await req.mendix.fetchUser(data.u);
     user.IsActive = true;

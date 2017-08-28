@@ -4,7 +4,7 @@ let {HtmlHandler} = require('../../utils/errors');
 router.get('/', HtmlHandler( async (req,res) => {
   try {
     if (! req.params.jobId)
-      throw Error();
+      throw new Error();
     
     let job = await req.mendix.fetchJob(req.params.jobId);
     res.render('overlays/task-details', {

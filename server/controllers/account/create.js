@@ -10,7 +10,7 @@ router.get('/', HtmlHandler( async (req, res, next) => {
 router.get('/voltooid', HtmlHandler( async (req, res, next) => {
   let email = req.flash('user.create.email');
   if (! email)
-    throw ApplicationError('Deze pagina is verlopen.');
+    throw new ApplicationError('Deze pagina is verlopen.');
   
   res.render('pages/account/create--complete',{
     email

@@ -4,7 +4,7 @@ let {HtmlHandler} = require('../../utils/errors');
 router.get('/', HtmlHandler( async (req,res) => {
   try {
     if (! req.params.IdOrder)
-      throw Error();
+      throw new Error();
     
     let order = await req.mendix.fetchOrder(req.params.IdOrder);
     res.render('overlays/appointment-cancel', {

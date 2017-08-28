@@ -6,6 +6,7 @@ router.get('/', HtmlHandler( async (req, res) => {
     return res.redirect('/#modal=login');
   
   try {
+    throw new Error();
     res.locals.user = await req.mendix.fetchUser(req.user.IdUser);
     res.locals.jobs = await req.mendix.fetchJobs();
     res.locals.orders = await req.mendix.fetchOrdersByUser(req.user.IdUser);
@@ -17,7 +18,7 @@ router.get('/', HtmlHandler( async (req, res) => {
     res.locals.orders = res.locals.orders.filter(order => order.job);
     res.render('pages/account/overview');
   } catch(e) {
-    throw ApplicationError('Uw account overzicht kan momenteel niet worden geladen. Probeer het later opnieuw.');
+    throw new ApplicationError('Uw account overzicht kan momenteel niet worden geladen. Probeer het later opnieuw.');
   }
   
 }));

@@ -21,16 +21,16 @@ router.post('/admin/user/create', JsonHandler( async (req,res) => {
     user = await req.mendix.fetchUser(IdUser);
     
   } catch(e) {
-    throw ApplicationError('Could not fetch user');  }
+    throw new ApplicationError('Could not fetch user');  }
   
   let password = generatePassword();
   
   user.NewPassword = user.ConfirmPassword = password;
   try
   {
-    await req.mendix.updateUser(IdUser, user);
+    await req.mendix.updateUser(user.IdUser, user);
   } catch(e) {
-    throw ApplicationError('Could not update user');
+    throw new ApplicationError('Could not update user');
   }
   
   req.app.mail.send(user.Email, 'Nieuwe gebruiker', 'emails/admin/account/create', { user });
