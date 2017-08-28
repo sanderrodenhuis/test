@@ -10,20 +10,14 @@
   &--secondary {
     padding-top: 50px;
   }
-  &--img-container {
+  &--img {
     padding: 0;
   }
-  &--image {
+  &__image {
     padding-top: (550/1440)*100%;
     padding-bottom: 0;
-    &-home {
-      background: url('../images/homepage--banner.png') center right no-repeat;
-      background-size: cover;
-    }
-    &-subscription {
-      background: url('../images/subscription--banner.png') center left no-repeat;
-      background-size: cover;
-    }
+    background: center right no-repeat;
+    background-size: cover;
   }
   &__header-image--tools,
   &__header-image--emergencies {
