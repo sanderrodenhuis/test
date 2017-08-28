@@ -6,12 +6,21 @@ const path = require('path');
 const {createAuthToken, verifyPasswordResetToken} = require('../utils/helpers');
 
 const {
-  JsonHandler,
-  HttpError,
-  ValidationError,
-  AuthenticationError,
-  ApplicationError
-} = require('../utils/errors');
+        JsonHandler,
+        HttpError,
+        ValidationError,
+        AuthenticationError,
+        ApplicationError
+      } = require('../utils/errors');
+
+router.post('/admin/user/create', Jsonhandler(async (req,res) => {
+  try
+  {
+    let IdUser = req.body.IdUser;
+    let user = await req.mendix.fetchUser(IdUser);
+    
+  }
+}));
 
 router.post('/user/login',JsonHandler(async (...args) => {
   return new Promise((resolve, reject) => {
@@ -24,6 +33,9 @@ router.post('/user/login',JsonHandler(async (...args) => {
       return resolve({jwt});
     })(...args);
   });
+}));
+router.post('/user/update', JsonHandler(async (...args) => {
+
 }));
 
 router.post('/user/forgot-password',JsonHandler(async (req, res) => {
@@ -81,7 +93,7 @@ router.get('/availability', JsonHandler( async (req,res) => {
   let order = req.session.order = req.session.order || {};
   if (! order.IdJob)
     return res.redirect('/funnel');
-
+  
   let data = req.query,
       validation = {};
   if (! data.Date || String(data.Date).split('-').length !== 3 )
@@ -90,7 +102,7 @@ router.get('/availability', JsonHandler( async (req,res) => {
     validation.HouseNumber = 'Ongeldig huisnummer opgegeven';
   if (! data.PostCode)
     validation.PostCode = 'Ongeldige postcode opgegeven';
-
+  
   if (Object.keys(validation).length)
     throw new ValidationError('Ongeldige aanvraag', validation);
   
@@ -107,7 +119,7 @@ router.get('/availability', JsonHandler( async (req,res) => {
   } catch (e) {
     throw new ApplicationError('Er is iets misgegaan tijdens het opvragen van de beschikbare tijden. Probeer het later opnieuw.');
   }
-
+  
 } ));
 module.exports = router;
 
