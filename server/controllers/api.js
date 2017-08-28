@@ -18,7 +18,7 @@ router.post('/admin/user/create', JsonHandler( async (req,res) => {
   try
   {
     let IdUser = req.body.IdUser;
-    let user = await req.mendix.fetchUser(IdUser);
+    user = await req.mendix.fetchUser(IdUser);
     
   } catch(e) {
     throw ApplicationError('Could not fetch user');  }
