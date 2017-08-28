@@ -1,5 +1,5 @@
 .datepicker-info {
-  flex: 1;
+  flex-grow: 1;
   border: 1px solid $col-pink;
   padding: 30px;
   line-height: 25px;
@@ -65,7 +65,7 @@
   }
   &-title {
     order: 2;
-    flex: 1;
+    flex-grow: 1;
     margin-bottom: 15px;
   }
 

@@ -5,6 +5,7 @@
     position: relative;
     text-align: center;
     padding: 120px 10px 0 10px;
+    box-sizing: border-box;
 
     &-1 {
       @include icon(magnifying-glass, before, false);
@@ -40,7 +41,7 @@
     }
 
     &__item {
-      flex: 1;
+      flex-grow: 1;
       display: flex;
       justify-content: center;
       left: 0 !important;
@@ -48,8 +49,10 @@
     }
     &__delimiter {
       max-width: 65px;
+      min-width: 20px;
       width: 100%;
       position: relative;
+      box-sizing: border-box;
       &:before {
         content: '';
         position: absolute;
