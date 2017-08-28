@@ -1,0 +1,12 @@
+<% layout('layouts/email') %>
+
+
+<h1>Activeer je ZoOpgelost-account</h1>
+<p>Er is zojuist een account aangemaakt op ZoOpgelost.nl.</p>
+<p>
+  Gebruikersnaam: <%= user.Email %>
+  Wachtwoord: <%= user.NewPassword %>
+</p>
+<a href="<%- baseUrl %>/#modal=login" class="btn">Inloggen</a>
+<p>Veel plezier met ZoOpgelost!</p>
+<p>P.S. Heb je deze account niet zelf aangemaakt? Dan kun je deze mail negeren.</p>

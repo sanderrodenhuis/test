@@ -19,10 +19,10 @@ $(() => {
       password: $frmPassword.val()
     }).then(response => {
       Cookies.set('authorization', response.jwt);
-      location.reload();
+      window.location.replace(window.location.pathname);
     }).catch(({responseJSON: response}) => {
       $frmError.addClass('is-visible').text('Combinatie werd niet herkend. Probeer opnieuw.');
       $frmPassword.addClass('has-error');
     });
   });
-})
+});

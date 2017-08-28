@@ -1,6 +1,5 @@
 const jsonWebToken = require('jsonwebtoken');
 
-
 function pick(o, ...props) {
   return props.reduce((obj,key) => {
     if (typeof(o[key]) !== 'undefined')
@@ -88,7 +87,11 @@ function slugify (text) {
     .replace(/-+$/, '')             // Trim - from end of text
 }
 
-
+function generatePassword() {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const characters = [0,1,2,3,4,5,6,7,8,9].concat(alphabet.split('')).concat(alphabet.toUpperCase().split(''));
+  return String.fromCharCode(65 + Math.random() * 26) + [1,2,3,4,5,6,7,8,9].map(() => characters[Math.floor(characters.length * Math.random())]).join('');
+}
 
 
 
@@ -97,7 +100,7 @@ module.exports = {
   postCode,
   createAuthToken,
   verifyAuthToken,
-
+  
   createUserActivateToken,
   verifyUserActivateToken,
   
@@ -107,5 +110,6 @@ module.exports = {
   currency,
   localeDate,
   localeTime,
-  slugify
+  slugify,
+  generatePassword
 };

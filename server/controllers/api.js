@@ -3,23 +3,39 @@ const passport = require('passport');
 const fileUpload = require('../utils/file-upload');
 const fs = require('fs');
 const path = require('path');
-const {createAuthToken, verifyPasswordResetToken} = require('../utils/helpers');
+const {createAuthToken, verifyPasswordResetToken, generatePassword} = require('../utils/helpers');
 
 const {
-        JsonHandler,
-        HttpError,
-        ValidationError,
-        AuthenticationError,
-        ApplicationError
-      } = require('../utils/errors');
+  JsonHandler,
+  HttpError,
+  ValidationError,
+  AuthenticationError,
+  ApplicationError
+} = require('../utils/errors');
 
-router.post('/admin/user/create', Jsonhandler(async (req,res) => {
+router.post('/admin/user/create', JsonHandler( async (req,res) => {
+  let user;
   try
   {
     let IdUser = req.body.IdUser;
     let user = await req.mendix.fetchUser(IdUser);
     
+  } catch(e) {
+    throw ApplicationError('Could not fetch user');  }
+  
+  let password = generatePassword();
+  
+  user.NewPassword = user.ConfirmPassword = password;
+  try
+  {
+    await req.mendix.updateUser(IdUser, user);
+  } catch(e) {
+    throw ApplicationError('Could not update user');
   }
+  
+  req.app.mail.send(user.Email, 'Nieuwe gebruiker', 'emails/admin/account/create', { user });
+  
+  return true;
 }));
 
 router.post('/user/login',JsonHandler(async (...args) => {
@@ -33,9 +49,6 @@ router.post('/user/login',JsonHandler(async (...args) => {
       return resolve({jwt});
     })(...args);
   });
-}));
-router.post('/user/update', JsonHandler(async (...args) => {
-
 }));
 
 router.post('/user/forgot-password',JsonHandler(async (req, res) => {
@@ -74,7 +87,7 @@ router.post('/user/reset-password',JsonHandler( async (req, res, next) => {
 } ));
 
 
-router.post('/file/upload', fileUpload({maxFileSize: 5 * 1024 * 1024,ext: ['jpg','jpeg','gif','png']}), JsonHandler( async (req) => {
+router.post('/file/upload', JsonHandler(fileUpload({ext: ['jpg','jpeg','gif','png']})), JsonHandler( async (req) => {
   const files = req.files.map(file => {
     const {filename, destination, originalname, path: oldPath} = file;
     const newFilename = [Date.now(),originalname].join('__');
