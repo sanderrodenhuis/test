@@ -28,6 +28,7 @@ router.post('/', JsonHandler( async (req, res) => {
     throw new ValidationError('Er is iets misgegaan. Probeer het later opnieuw',validation)
   }
   
+  
   Object.assign(order, newOrder);
   if (order.Photos && ! Array.isArray(order.Photos))
     order.Photos = [order.Photos];

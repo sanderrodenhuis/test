@@ -53,7 +53,8 @@ router.post('/', JsonHandler( async (req, res, next) => {
     errors = Object.assign({}, errors, {IsCustomer: ['U dient akkoord te gaan met de machtiging']});
   if (! req.body.HasConfirmed)
     errors = Object.assign({}, errors, {HasConfirmed: ['U dient akkoord te gaan met de algemene voorwaarden']});
-  
+  if (await req.mendix.userEmailExists(postData.Username))
+    errors = Object.assign({}, errors, {Email: ['Dit emailadres is al in gebruik']});
   if (Object.keys(errors || {}).length)
   {
     throw new ValidationError('Incorrecte velden', errors);

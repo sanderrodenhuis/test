@@ -13,6 +13,7 @@ $(() => {
           $frmPostCode = $form.find('[name=PostCode]'),
           $frmHouseNumber = $form.find('[name=HouseNumber]'),
           $frmAddition = $form.find('[name=Addition]'),
+          $frmIdJob = $form.find('[name=IdJob]'),
           $inputs = [$frmHouseNumber, $frmPostCode, $frmAddition].reduce((output, val) => output.add(val), $());
 
     let dateVal = $frmDate.val();
@@ -45,6 +46,7 @@ $(() => {
       $datepickerInfo.trigger('dateinfo.setDate', $frmDate.val());
       $frmTimes.val('').trigger('change',['']);
       $.get('/api/availability', {
+        IdJob: $frmIdJob.val(),
         Date: $frmDate.val(),
         PostCode: $frmPostCode.val(),
         HouseNumber: $frmHouseNumber.val(),
@@ -72,7 +74,16 @@ $(() => {
           if (response.success)
             location.href = $form.attr('action');
         })
-        .catch(error => $body.trigger('show.modal',['error',error.responseJSON]));
+        .catch(({responseJSON: error}) => {
+          if (error.error === 'ValidationError')
+          {
+            let errors = Object.entries(error.fields).reduce((prev,[key, val]) => {
+              return prev.concat(val);
+            },[]);
+            error.message = `<ul class="list list--disc">${errors.map(error => '<li>'+error+'</li>').join('')}</ul>`;
+          }
+          $body.trigger('show.modal',['error',error])
+        });
     })
     
     

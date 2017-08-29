@@ -38,7 +38,7 @@ $(() => {
       })
       .catch(({responseJSON}) => {
         
-        if (! responseJSON.field)
+        if (! responseJSON.fields)
         {
           $body.trigger('show.modal',['error',{message: responseJSON.message}]);
         }

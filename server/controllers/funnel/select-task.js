@@ -9,6 +9,7 @@ router.get('/', HtmlHandler( async (req, res) => {
       categories
     });
   } catch(e ) {
+    
     throw new ApplicationError('Er is iets misgegaan. Probeer het later opnieuw.');
   }
 }));

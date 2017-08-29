@@ -49,7 +49,7 @@ class Api {
   {
     return Request.get('/timeslots/', {
         params: {
-          Date: date + 'T12:00:00+0100',
+          Date: date,
           HouseNumber: HouseNumber,
           PostCode: postCode(PostCode).replace(/ /g,''),
           Addition,
