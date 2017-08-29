@@ -68,7 +68,7 @@ class Api {
     }).then(order => order.data);
   }
   
-  async createOrder({Comments,FulfillmentDateTime,IdClient, IdJob}) {
+  async createOrder({Comments,FulfillmentDateTime,IdClient, IdJob, AdditionalAnswers}) {
     
     try{
       await this.fetchUser(IdClient)
@@ -85,7 +85,8 @@ class Api {
         Comments,
         FulfillmentDateTime,
         IdClient,
-        IdJob
+        IdJob,
+        AdditionalAnswers
       });
       return data;
     } catch(e) {

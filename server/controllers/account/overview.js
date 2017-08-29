@@ -6,7 +6,6 @@ router.get('/', HtmlHandler( async (req, res) => {
     return res.redirect('/#modal=login');
   
   try {
-    throw new Error();
     res.locals.user = await req.mendix.fetchUser(req.user.IdUser);
     res.locals.jobs = await req.mendix.fetchJobs();
     res.locals.orders = await req.mendix.fetchOrdersByUser(req.user.IdUser);

@@ -8,7 +8,7 @@
     </span>
 
     <span class="well__row-cost">
-      € <%= Currency(order.HasSubscription ? job.DiscountPrice : job.NormalPrice) %>
+      € <%= Currency((order.HasSubscription ? job.DiscountPrice : job.NormalPrice) * (order.Amount || 1)) %>
     </span>
   </p>
 

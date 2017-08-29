@@ -35,6 +35,10 @@ router.get('/', HtmlHandler( async (req,res) => {
   Object.assign(order, {IdClient: user.IdUser});
   let time = order.Times[0];
   order.FulfillmentDateTime = order.Date + 'T' + time + ':00+0100';
+  order.AdditionalAnswers = Object.entries(order.AdditionalQuestions || {}).map(([key,value]) => ({
+    IdAdditionalQuestion: key,
+    Answer: value
+  }));
   let newOrder = await req.mendix.createOrder(order);
   const uploadPath = Path.join(process.cwd(), './upload');
   if (order.Photos && order.Photos.length)

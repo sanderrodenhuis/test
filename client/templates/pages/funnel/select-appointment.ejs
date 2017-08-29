@@ -101,6 +101,18 @@
           </p>
 
           <div class="form">
+            <% if (job.AdditionalQuestions && job.AdditionalQuestions.length) { %>
+              <% job.AdditionalQuestions.map(question => { %>
+              <div class="form__group">
+                <label for="AdditionalQuestion-<%= question.IdAdditionalQuestion %>" class="form__label"><%= question.Question %></label>
+                <% if (question.AnswerType === "String") { %>
+                <input type="text" name="AdditionalQuestions[<%= question.IdAdditionalQuestion %>]" value="<%= (order.AdditionalQuestions || [])[question.IdAdditionalQuestion] || '' %>" class="form__control">
+                <% } else if (question.AnswerType === "Integer") { %>
+                <input type="number" name="AdditionalQuestions[<%= question.IdAdditionalQuestion %>]" value="<%= (order.AdditionalQuestions || [])[question.IdAdditionalQuestion] || '' %>" class="form__control">
+                <% } %>
+              </div>
+              <% }); %>
+            <% } %>
             <div class="form__group">
               <label for="description" class="form__label">
                 Is er iets wat we van tevoren moeten weten over de klus?

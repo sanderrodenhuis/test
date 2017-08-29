@@ -93,6 +93,24 @@ function generatePassword() {
   return String.fromCharCode(65 + Math.random() * 26) + [1,2,3,4,5,6,7,8,9].map(() => characters[Math.floor(characters.length * Math.random())]).join('');
 }
 
+function parseBodyArray(body) {
+  let regex = new RegExp("^(\\w+)\\[(\\w+)\\]$");
+  return Object.entries(body).reduce((output,[key,value]) => {
+    let match = key.match(regex);
+    if (match)
+    {
+      let [full,k,v] = match;
+      if (typeof(output[k]) !== 'object')
+        output[k] = {};
+      output[k][v] = value;
+    }
+    else
+    {
+      output[key] = value;
+    }
+    return output;
+  },{});
+}
 
 
 module.exports = {
@@ -111,5 +129,6 @@ module.exports = {
   localeDate,
   localeTime,
   slugify,
-  generatePassword
+  generatePassword,
+  parseBodyArray
 };

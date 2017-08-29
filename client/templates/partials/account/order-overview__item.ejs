@@ -9,7 +9,7 @@
       <%= LocaleDate(order.FulfillmentDateTime) %> <%= LocaleTime(order.FulfillmentDateTime) %> uur
     </div>
     <div class="col-xl-3 col-lg-3 col-md-2 order-overview__order-col">
-      € <%= Currency(user.HasSubscription ? order.job.DiscountPrice : order.job.NormalPrice) %>)
+      € <%= Currency(user.HasSubscription ? order.job.DiscountPrice : order.job.NormalPrice) %>
     </div>
   </div>
   <ul class="list list--links">

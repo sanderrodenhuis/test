@@ -18,11 +18,11 @@
   <div class="job-selection__jobs">
     <ul class="job-list">
       <% categories.forEach(category => { %>
-      <% category.Jobs.forEach(job => { %>
+        <% category.Jobs.forEach(job => { %>
       <li class="job-list__item" data-category-id="<%= category.IdJobCategory %>">
         <a href="#" class="job-list__link" data-job-id="<%= job.IdJob %>" data-modal="klus-informatie/<%= job.IdJob%>/selecteren"><%= job.Description %></a>
       </li>
-      <% }) %>
+        <% }) %>
       <% }); %>
     </ul>
   </div>
