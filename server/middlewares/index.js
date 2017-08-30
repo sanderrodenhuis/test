@@ -7,7 +7,7 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
-  
+  require('./dtm')(app);
   require('./authentication')(app);
   require('./session')(app);
   require('./helpers')(app);

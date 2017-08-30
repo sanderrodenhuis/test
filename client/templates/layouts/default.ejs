@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <% if (typeof(DTM_URL) != 'undefined') { %>
+  <script src="<%- DTM_URL %>"></script>
+  <% } %>
 </head>
 <body>
 <%- partial('components/header') %>
@@ -16,5 +19,8 @@
 <%- partial('components/footer') %>
 
 <script src="/assets/js/main.js"></script>
+<% if (typeof(DTM_URL) != 'undefined') { %>
+<script type="text/javascript">_satellite.pageBottom();</script>
+<% } %>
 </body>
 </html>
