@@ -28,7 +28,11 @@ router.post('/', JsonHandler( async (req, res) => {
     throw new ApplicationError('Er is iets misgegaan. Probeer het later opnieuw');
   }
   
-  let newOrder = Object.assign({}, order, pick(postData,'HouseNumber','PostCode','Addition','Date','Times','Comments','Photos','IdTimeSlot'));
+  let newOrder = Object.assign(
+    {},
+    order,
+    pick(postData,'HouseNumber','PostCode','Addition','Date','Times','Comments','Photos','IdTimeSlot'),
+    await req.mendix.fetchAddressByPostcode(postData.PostCode, postData.HouseNumber));
   if (newOrder.Times)
     newOrder.Times = newOrder.Times.split('|');
   let validation = req.mendix.validators.newOrder(newOrder, 'HouseNumber','PostCode','IdJob','Date','Times');

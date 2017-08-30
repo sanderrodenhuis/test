@@ -4,9 +4,7 @@
   <p class="well__row">
     <span class="well__row-item">
     <%= job.Description %>
-
     </span>
-
     <span class="well__row-cost">
       € <%= Currency((order.HasSubscription ? job.DiscountPrice : job.NormalPrice) * (order.Amount || 1)) %>
     </span>
@@ -23,9 +21,12 @@
   <h4 class="well__header"></h4>
   <p class="well__row">
     <% if (typeof(user) != 'undefined') { %>
-      <%= user.Street %> <%= order.HouseNumber %> <%= order.Addition %> <br />
+      <%= user.Street %> <%= HouseNumber(order.HouseNumber, order.Addition) %> <br />
       <%= PostCode(order.PostCode) %> <%= user.City %>
-    <% } else { %>
+    <% } else if (order.Street && order.City) { %>
+      <%= order.Street %> <%= HouseNumber(order.HouseNumber, order.Addition) %> <br />
+      <%= PostCode(order.PostCode) %> <%= order.City %>
+    <% } else {%>
       <%= PostCode(order.PostCode) %>, <%= order.HouseNumber %> <%= order.Addition %> <br />
     <% } %>
   </p>

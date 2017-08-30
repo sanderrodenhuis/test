@@ -41,7 +41,7 @@ router.post('/', JsonHandler( async (req, res, next) => {
     HasConfirmed: !!req.body.HasConfirmed,
     Username: req.body.Email,
     IsActive: false,
-  }, await req.mendix.fetchAddressByPostcode(order.PostCode, order.HouseNumber));
+  });
   
   
   let errors = req.mendix.validators.newUser(postData);

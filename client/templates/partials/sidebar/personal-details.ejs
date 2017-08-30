@@ -25,7 +25,7 @@
       </ul>
       <h6 class="block__subtitle">Adres & woonplaats</h6>
       <ul class="list list--secondary">
-        <li><%= user.Street %> <%= user.HouseNumber %> <%= user.Addition %></li>
+        <li><%= user.Street %> <%= HouseNumber(user.HouseNumber, user.Addition) %></li>
         <li><%= PostCode(user.PostCode) %> <%= user.City %></li>
       </ul>
       <% if (typeof(HasEditLink) !== 'undefined' && HasEditLink == true) { %>

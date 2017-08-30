@@ -7,6 +7,7 @@ module.exports = (app) => {
     app.locals.LocaleDate = helpers.localeDate;
     app.locals.LocaleTime = helpers.localeTime;
     app.locals.Slugify = helpers.slugify;
+    app.locals.HouseNumber = helpers.houseNumber;
     
     let origUrl = req.originalUrl.substr(1).split('/');
     res.locals.isActivePage = (page) => {

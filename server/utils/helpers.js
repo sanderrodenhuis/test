@@ -111,7 +111,11 @@ function parseBodyArray(body) {
     return output;
   },{});
 }
-
+function houseNumber(HouseNumber, Addition) {
+  if (Addition)
+    return `${HouseNumber}-${Addition}`;
+  return HouseNumber;
+}
 
 module.exports = {
   pick,
@@ -130,5 +134,6 @@ module.exports = {
   localeTime,
   slugify,
   generatePassword,
-  parseBodyArray
+  parseBodyArray,
+  houseNumber
 };

@@ -27,8 +27,8 @@
               <div class="contact-details__group">
                 <h6 class="contact-details__title">Adresgegevens</h6>
                 <ul class="contact-details__info">
-                  <li><%- user.Street %> <%- user.HouseNumber %> <%- user.Addition %></li>
-                  <li><%- PostCode(user.PostCode) %> <%- user.City %></li>
+                  <li><%- user.Street %> <%- HouseNumber(user.HouseNumber, user.Addition) %></li>
+                  <li><%- PostCode(user.PostCode) %>, <%- user.City %></li>
                 </ul>
               </div>
             </div>
