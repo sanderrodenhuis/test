@@ -88,7 +88,7 @@ $(() => {
       $prmsUpload.then(({files}) => {
         $photoUpload.removeClass('is-uploading');
           files.forEach(({path, filename}) => {
-          $container.append(`<div class="photo-upload__thumbnail" style="background-image: url(${path + filename})">
+          $container.append(`<div class="photo-upload__thumbnail" style="background-image: url('${path + filename}')">
                             <a href="#" class="photo-upload__thumbnail-remove"></a>
                             <input type="hidden" name="Photos" value="${filename}" />
                           </div>`)

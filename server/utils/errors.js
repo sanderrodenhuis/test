@@ -1,14 +1,16 @@
-const handler = fn => (...args) => fn(...args);
-const JsonHandler = fn => (req, res, next) => {
+const JsonHandler = (fn, handleSuccess = true) => (req, res, next) => {
   new Promise((resolve, reject) => {
     let prms = fn(req,res,(err,data) => {
       if (err)
         return reject(err);
       resolve(data);
     });
-    if (prms.then)
+    if (prms && prms.then)
       prms.then(resolve).catch(reject);
   }).then(response => {
+    if (! handleSuccess)
+      return next(null, response);
+    
     if (res.headersSent)
       return res.end();
     if (response === true || ! response)
