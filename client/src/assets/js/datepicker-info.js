@@ -10,7 +10,7 @@ $(() => {
         times;
     $info.on('dateinfo.setDate', (event,_date) => {
       if (typeof(_date) === 'string')
-        _date = _date.length ? new Date(_date) : undefined;
+        _date = _date.length ? new Date(_date + 'T12:00:00') : undefined;
       date = _date;
       $info.trigger('dateinfo.refresh');
     });

@@ -22,8 +22,12 @@
   <% if(order.PostCode) { %>
   <h4 class="well__header"></h4>
   <p class="well__row">
-    <%= order.Street %> <%= order.HouseNumber %> <%= order.Addition %> <br />
-    <%= PostCode(order.PostCode) %> <%= order.City %>
+    <% if (typeof(user) != 'undefined') { %>
+      <%= user.Street %> <%= order.HouseNumber %> <%= order.Addition %> <br />
+      <%= PostCode(order.PostCode) %> <%= user.City %>
+    <% } else { %>
+      <%= PostCode(order.PostCode) %>, <%= order.HouseNumber %> <%= order.Addition %> <br />
+    <% } %>
   </p>
   <% }%>
 </div>

@@ -59,7 +59,7 @@ router.post('/order/cancel', JsonHandler(async (req,res) => {
 router.post('/user/login',JsonHandler(async (...args) => {
   return new Promise((resolve, reject) => {
     passport.authenticate('local', (err, user) => {
-      if (err) {
+      if (err || ! user) {
         return reject(new AuthenticationError("Gebruikersnaam/Wachtwoord komen niet overeen"));
       }
       
