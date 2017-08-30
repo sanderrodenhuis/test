@@ -65,11 +65,9 @@ class Api {
   }
   
   async cancelOrder(orderId) {
-    throw Error('Needs new implementation');
-    return Request.put('/orders/', {
-      IdOrder: orderId,
+    return Request.put('/orders/' + orderId, {
       IsCancelled: true
-    }).then(order => order.data);
+    }).then(response => response.data);
   }
   
   async createOrder({Comments, FulfillmentDateTime, IdClient, IdJob, AdditionalAnswers, IdTimeSlot}) {

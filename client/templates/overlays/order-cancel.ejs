@@ -1,0 +1,19 @@
+<div class="modal modal--appointment-cancel" id="modal">
+  <div class="modal__container modal__container--auto">
+    <div class="modal__header">
+      <span class="modal__btn-close"></span>
+      <h2 class="modal__title">Afspraak annuleren</h2>
+    </div>
+    <div class="modal__content">
+        <p class="modal__text">
+          Weet u zeker dat u deze klus wilt annuleren?
+        </p>
+      <form action="/api/order/cancel" method="POST" class="form modal-form form--order-cancel">
+        <input type="hidden" name="IdOrder" value="<%- order.IdOrder %>" />
+        <div class="modal-form__footer modal-form__footer--secondary">
+          <button class="btn btn--cancel btn--modal" type="submit">Annuleer deze klus</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

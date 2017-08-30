@@ -6,12 +6,12 @@ const path = require('path');
 const {createAuthToken, verifyPasswordResetToken, generatePassword} = require('../utils/helpers');
 
 const {
-  JsonHandler,
-  HttpError,
-  ValidationError,
-  AuthenticationError,
-  ApplicationError
-} = require('../utils/errors');
+        JsonHandler,
+        HttpError,
+        ValidationError,
+        AuthenticationError,
+        ApplicationError
+      } = require('../utils/errors');
 
 router.post('/admin/user/create', JsonHandler( async (req,res) => {
   let user;
@@ -37,7 +37,25 @@ router.post('/admin/user/create', JsonHandler( async (req,res) => {
   
   return true;
 }));
-
+router.post('/order/cancel', JsonHandler(async (req,res) => {
+  if (! req.user)
+    throw new AuthenticationError('U bent niet ingelogd');
+  let {IdOrder} = req.body;
+  try {
+    if (! IdOrder)
+      throw new Error();
+    let order = await req.mendix.fetchOrder(req.body.IdOrder);
+    if (order.IdClient !== req.user.IdUser)
+      throw new Error();
+  } catch (e) {
+    throw new ValidationError('Opgegeven order bestaat niet',{IdOrder: ['Opgegeven order bestaat niet']});
+  }
+  try {
+    await req.mendix.cancelOrder(req.body.IdOrder);
+  } catch (e) {
+    throw new ApplicationError('Afpsraak kon niet worden geannuleerd. Probeer het later opnieuw.');
+  }
+}));
 router.post('/user/login',JsonHandler(async (...args) => {
   return new Promise((resolve, reject) => {
     passport.authenticate('local', (err, user) => {

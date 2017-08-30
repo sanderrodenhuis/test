@@ -13,8 +13,7 @@ Router.use('/reset-password',require('./reset-password'));
 Router.get('/reset-password/complete',createHandler('reset-password--complete'));
 
 
-Router.use('/appointment-cancel/:IdOrder', require('./appointment-cancel'));
-Router.get('/appointment-edit-error', createHandler('appointment-edit-error'));
+Router.use('/order-cancel/:IdOrder', require('./order-cancel'));
 Router.get('/login--activate', createHandler('login--activate'));
 Router.use('/klus-informatie/:jobId/:action?', require('./job-information'));
 Router.get('/terms', createHandler('terms'));
