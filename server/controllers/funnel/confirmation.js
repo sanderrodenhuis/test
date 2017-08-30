@@ -59,9 +59,4 @@ router.get('/', HtmlHandler( async (req,res) => {
   res.render('pages/funnel/confirmation');
 }));
 
-// development stub
-router.get('/', HtmlHandler( async (req,res) => {
-  res.render('pages/funnel/confirmation--logged-in');
-}));
-
 module.exports = router;
