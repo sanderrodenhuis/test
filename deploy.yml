@@ -29,5 +29,6 @@
           MAILGUN_APIKEY: "{{ MAILGUN_APIKEY }}"
           MAILGUN_SENDER: "{{ MAILGUN_SENDER }}"
           SESSION_SECRET: "{{ SESSION_SECRET }}"
+          DTM_URL: "{{ DTM_URL }}"
 ...
 

@@ -90,6 +90,7 @@ deploy:dev:
             -e MAILGUN_APIKEY=$MAILGUN_APIKEY
             -e MAILGUN_SENDER=$MAILGUN_SENDER
             -e SESSION_SECRET=$SESSION_SECRET
+            -e DTM_URM=$DTM_URM
             deploy.yml
   dependencies:
     - docker:build
