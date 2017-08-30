@@ -14,6 +14,7 @@ router.get('/', HtmlHandler( async (req, res) =>{
     
     res.render('pages/funnel/select-appointment');
   } catch(e) {
+    console.log(e);
     throw new ApplicationError('Er is iets misgegaan. Probeer het later opnieuw.');
   }
 }));

@@ -31,7 +31,6 @@ router.get('/', HtmlHandler( async (req, res) => {
     res.locals.orders = futureOrders.concat(pastOrders);
     res.render('pages/account/overview');
   } catch(e) {
-    console.log(e);
     throw new ApplicationError('Uw account overzicht kan momenteel niet worden geladen. Probeer het later opnieuw.');
   }
 }));
