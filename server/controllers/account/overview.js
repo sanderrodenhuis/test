@@ -9,9 +9,16 @@ router.get('/', HtmlHandler( async (req, res) => {
     res.locals.user = await req.mendix.fetchUser(req.user.IdUser);
     res.locals.jobs = await req.mendix.fetchJobs();
     res.locals.orders = await req.mendix.fetchOrdersByUser(req.user.IdUser);
-
+  
     res.locals.orders.forEach(order => {
-      order.job = res.locals.jobs.find(job => job.IdJob === order.IdJob)
+      order.job = res.locals.jobs.find(job => job.IdJob === order.IdJob);
+      order.Amount = 1;
+      
+      if (order.AdditionalAnswers)
+      {
+      
+      }
+      
     });
 
     res.locals.orders = res.locals.orders.filter(order => order.job);
@@ -19,7 +26,6 @@ router.get('/', HtmlHandler( async (req, res) => {
   } catch(e) {
     throw new ApplicationError('Uw account overzicht kan momenteel niet worden geladen. Probeer het later opnieuw.');
   }
-  
 }));
 
 module.exports = router;

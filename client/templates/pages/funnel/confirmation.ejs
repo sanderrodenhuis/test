@@ -52,7 +52,7 @@
           <div class="appointment-details__group">
 
             <ul>
-              <li><%= job.Description %> (€ <%= Currency(user.HasSubscription ? job.DiscountPrice : job.NormalPrice) %>)</li>
+              <li><%= job.Description %> (€ <%= Currency((order.HasSubscription ? job.DiscountPrice : job.NormalPrice) * (order.Amount || 1)) %>)</li>
               <li><%- LocaleDate(order.Date) %> tussen <%- order.Times.join(' en ') %></li>
               <li><%= user.Street %> <%= user.HouseNumber%> <%= user.Addition %> <%= PostCode(user.PostCode) %> <%= user.City %></li>
             </ul>

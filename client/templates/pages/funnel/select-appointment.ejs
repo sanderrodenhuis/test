@@ -65,9 +65,10 @@
               </div>
             </div>
             <div class="col-5 col-md-8 col-sm-4">
-              <input type="hidden" name="Times" value="<%- order.Times %>" id="timepicker-input" />
+              <input type="hidden" name="Times" value="<%= (order.Times || []).join('|') %>" id="timepicker-times" />
+              <input type="hidden" name="IdTimeSlot" value="<%= order.IdTimeSlot || '' %>" id="timepicker-id">
               <p>Kies een tijdstip</p>
-              <div class="timepicker" data-target="#timepicker-input"></div>
+              <div class="timepicker" data-target-times="#timepicker-times" data-target-id="#timepicker-id"></div>
             </div>
           </div>
 

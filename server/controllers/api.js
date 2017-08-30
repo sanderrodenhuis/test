@@ -127,6 +127,7 @@ router.get('/availability', JsonHandler( async (req,res) => {
     let timeSlots = result.map(row => ({
       from: fnParseTime(row.TimeSlotFrom),
       until: fnParseTime(row.TimeSlotUntil),
+      id: row.IdTimeSlot
     }));
     return timeSlots;
   } catch (e) {

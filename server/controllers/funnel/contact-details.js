@@ -35,17 +35,14 @@ router.post('/', JsonHandler( async (req, res, next) => {
     res.set('X-Redirect-To', '/funnel/maak-een-afspraak')
     throw new ApplicationError('Er is iets misgegaan. Probeer het later opnieuw');
   }
-  
-  const postData = Object.assign({
-    Street: 'extendThroughApi',
-    City: 'extendThroughApi',
-    IsActive: false
-  }, req.body, {
+  const postData = Object.assign(req.body, {
     IsCustomer: !!req.body.IsCustomer,
     HasSubscription: !!req.body.HasSubscription,
     HasConfirmed: !!req.body.HasConfirmed,
-    Username: req.body.Email
-  });
+    Username: req.body.Email,
+    IsActive: false,
+  }, await req.mendix.fetchAddressByPostcode(order.PostCode, order.HouseNumber));
+  
   
   let errors = req.mendix.validators.newUser(postData);
   
@@ -59,7 +56,6 @@ router.post('/', JsonHandler( async (req, res, next) => {
   {
     throw new ValidationError('Incorrecte velden', errors);
   }
-  
   Object.assign(
     order,
     pick(postData, 'FirstName','LastName','Email','Username','PhoneNumber','NewPassword','ConfirmPassword','IsCustomer','HasSubscription', 'IBAN','IsActive','Street','City')
