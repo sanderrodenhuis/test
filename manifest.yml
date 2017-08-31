@@ -1,0 +1,6 @@
+---
+applications:
+ - name: ZoOpgelost
+   host: accept-zoopgelost
+   memory: 1024M
+   buildpack: https://github.com/cloudfoundry/nodejs-buildpack

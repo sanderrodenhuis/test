@@ -3,10 +3,16 @@ const passport = require('passport'),
 
 
 const authenticate = (req, res, next) => {
-  passport.authenticate('jwt', (err, user, error) => {
+  passport.authenticate('jwt', async (err, user, error) => {
     if (user)
-      res.locals.user = req.user = pick(user, 'Username','FirstName','LastName','IdUser');
-    else if (error)
+    {
+      try {
+        res.locals.user = req.user = await req.mendix.fetchUser(user.IdUser);
+      } catch (e) {
+        res.clearCookie('authorization');
+      }
+    }
+    if (error)
       req.error = error;
     next();
   })(req, res, next);

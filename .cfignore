@@ -1,0 +1,16 @@
+node_modules
+upload
+client/dist
+test
+.editorconfig
+.env
+.eslintrc
+.gitlab-ci.yml
+ansible.cfg
+app.js
+deploy.yml
+Dockerfile
+nginx-default.conf
+README.md
+sessions
+supervisord.conf
