@@ -41,9 +41,7 @@ router.post('/', JsonHandler( async (req, res, next) => {
     HasConfirmed: !!req.body.HasConfirmed,
     Username: req.body.Email,
     IsActive: false,
-  });
-  
-  
+  }, pick(order,'PostCode','Street','City','HouseNumber','Addition'));
   let errors = req.mendix.validators.newUser(postData);
   
   if (req.body.HasSubscription && ! req.body.IsCustomer)

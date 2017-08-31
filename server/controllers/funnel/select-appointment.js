@@ -46,7 +46,6 @@ router.post('/', JsonHandler( async (req, res) => {
       return true;
     }
   });
-  
   if (validation)
     throw new ValidationError('Er is iets misgegaan. Probeer het later opnieuw',validation)
 
