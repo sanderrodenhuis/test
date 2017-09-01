@@ -98,7 +98,7 @@ router.post('/user/reset-password',JsonHandler( async (req, res, next) => {
   user.NewPassword = NewPassword;
   user.ConfirmPassword = ConfirmPassword;
   try {
-    await req.mendix.updateUser(user);
+    await req.mendix.updateUser(user.IdUser, user);
   } catch (e) {
     throw new ApplicationError('Er is iets misgegaan tijdens het opslaan van uw gegevens. Probeer het later opnieuw.');
   }
