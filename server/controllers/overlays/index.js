@@ -22,4 +22,6 @@ Router.get('/colofon', createHandler('colofon'));
 Router.get('/error', createHandler('error'));
 Router.get('/upload-error', createHandler('upload-error'));
 
+Router.get('/logout/confirmation', createHandler('logout--confirmation'));
+
 module.exports = Router;

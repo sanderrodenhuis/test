@@ -6,7 +6,11 @@
     <%= job.Description %>
     </span>
     <span class="well__row-cost">
+      <% if (typeof(user) != 'undefined') { %>
+      € <%= Currency((user.HasSubscription ? job.DiscountPrice : job.NormalPrice) * (order.Amount || 1)) %>
+      <% } else { %>
       € <%= Currency((order.HasSubscription ? job.DiscountPrice : job.NormalPrice) * (order.Amount || 1)) %>
+      <% } %>
     </span>
   </p>
 

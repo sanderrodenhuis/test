@@ -14,9 +14,11 @@
         <li class="site-nav__item">
           <a href="/ons-klusaanbod" class="site-nav__link <%- isActivePage('ons-klusaanbod') %>">Aanbod</a>
         </li>
+        <% if (typeof(user) === 'undefined') {%>
         <li class="site-nav__item">
           <a href="/onze-abonnementen" class="site-nav__link <%- isActivePage('onze-abonnementen') %>">Abonnementen</a>
         </li>
+        <% } %>
         <li class="site-nav__item site-nav__item--toggle">
           <a href="#" class="site-nav__link">
             <span class="site-nav__label">Meer </span>
@@ -26,15 +28,20 @@
     </div>
     <div class="site-menu__col4">
       <ul class="site-nav site-nav--meta">
+        <% if (typeof(user) === 'undefined') { %>
         <li class="site-nav__item">
-          <% if (typeof(user) === 'undefined') { %>
           <a href="#" class="site-nav__link" data-modal="/overlays/login">Log in</a>
-          <% } else { %>
-          <a href="/account" class="site-nav__link site-nav__item--no-mobile <%- isActivePage('account') %>">
+        </li>
+        <% } else { %>
+        <li class="site-nav__item site-nav__item--no-mobile">
+          <a href="/account" class="site-nav__link <%- isActivePage('account') %>">
             <%- String(user.FirstName) + ' ' + String(user.LastName).substr(0,1).toUpperCase() %>
           </a>
-          <% }%>
         </li>
+        <li class="site-nav__item site-nav__item--no-mobile">
+          <a href="/account/uitloggen" class="site-nav__link">Uitloggen</a>
+        </li>
+        <% }%>
         <li class="site-nav__item site-nav__item--no-mobile">
           <a href="/funnel" class="site-nav__link <%- isActivePage('funnel') %>">Klus inplannen</a>
         </li>
@@ -59,24 +66,30 @@
       <li class="site-nav__item">
         <a href="/ons-klusaanbod" class="site-nav__link <%- isActivePage('ons-klusaanbod') %>">Aanbod</a>
       </li>
+      <% if (typeof(user) === 'undefined') { %>
       <li class="site-nav__item">
         <a href="/onze-abonnementen" class="site-nav__link <%- isActivePage('onze-abonnementen') %>">Abonnementen</a>
       </li>
+      <% } %>
     </ul>
     <ul class="site-nav site-nav--meta">
       <li class="site-nav__item">
         <a href="/spoedgevallen" class="site-nav__link<%- isActivePage('spoedgevallen') %>">Spoed klus</a>
       </li>
+      <% if (typeof(user) === 'undefined') { %>
       <li class="site-nav__item">
-        <% if (typeof(user) === 'undefined') { %>
         <a href="#" class="site-nav__link" data-modal="login">Log in</a>
-        <% } else { %>
+      </li>
+      <% } else { %>
+      <li class="site-nav__item">
         <a href="/account" class="site-nav__link<%- isActivePage('account') %>">
           <%- String(user.FirstName) + ' ' + String(user.LastName).substr(0,1).toUpperCase() %>
         </a>
-        <% }%>
       </li>
-
+      <li class="site-nav__item">
+        <a href="/account/uitloggen" class="site-nav__link">Uitloggen</a>
+      </li>
+      <% } %>
       <li class="site-nav__item site-nav__item-btn">
         <a href="/funnel" class="btn site-nav__btn<%- isActivePage('funnel') %>">Klus inplannen</a>
       </li>

@@ -9,4 +9,5 @@ router.use('/activeren', require('./activate'));
 router.use('/afspraak/wijzigen', require('./appointment/edit'));
 router.use('/afspraak/feedback', require('./appointment/feedback'));
 
+router.use('/uitloggen', require('./logout'));
 module.exports = router;
