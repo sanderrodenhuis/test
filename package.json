@@ -58,4 +58,7 @@
   "author": "Olga Karaseva",
   "license": "ISC",
   "homepage": ""
+  "engines": {
+    "node": "8.1.0"
+    }
 }
